@@ -8,3 +8,4 @@ data/
 .vercel
 supabase/.temp
 .env*
+data/external/

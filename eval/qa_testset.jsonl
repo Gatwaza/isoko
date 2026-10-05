@@ -1,0 +1,70 @@
+{"id":"q01","language":"en","question":"how far apart do i put maize seeds when planting","expected_source":"maize-planting","key_facts":["75","25"]}
+{"id":"q02","language":"rw","question":"Ibigori nabitera ku ntera ingana iki?","expected_source":"maize-planting","key_facts":["75","25"]}
+{"id":"q03","language":"en","question":"Which months should I plant maize for season A?","expected_source":"maize-planting","key_facts":["sept|september","oct|october"]}
+{"id":"q04","language":"en","question":"how many kg of DAP per are for maize","expected_source":"maize-fertiliser","key_facts":["dap","1kg|1 kg"]}
+{"id":"q05","language":"rw","question":"Ure nyishyira ryari ku bigori?","expected_source":"maize-fertiliser","key_facts":["4-6","ure"]}
+{"id":"q06","language":"en","question":"when do I top-dress my corn with urea and how much","expected_source":"maize-fertiliser","key_facts":["4-6","urea"]}
+{"id":"q07","language":"en","question":"worms eating maize leaves, there is sawdust looking stuff in the middle of the plant","expected_source":"maize-faw","key_facts":["rab-approved|approved","whorl"]}
+{"id":"q08","language":"rw","question":"nkongwa yateye ibigori byanjye ndakora iki","expected_source":"maize-faw","key_facts":["rab","10"]}
+{"id":"q09","language":"en","question":"at what level of fall armyworm damage should I spray","expected_source":"maize-faw","key_facts":["2","10"]}
+{"id":"q10","language":"en","question":"my stored maize has mould on it, is it safe?","expected_source":"maize-harvest","key_facts":["aflatoxin"]}
+{"id":"q11","language":"rw","question":"Ibigori nabyumisha kugeza ku rugero ki mbere yo kubihunika?","expected_source":"maize-harvest","key_facts":["13"]}
+{"id":"q12","language":"en","question":"spacing for climbing beans and how tall should stakes be","expected_source":"beans-planting","key_facts":["50","25","2m|2 m"]}
+{"id":"q13","language":"rw","question":"Ibishyimbo bigufi mbitera ku ntera ki?","expected_source":"beans-planting","key_facts":["40","10"]}
+{"id":"q14","language":"en","question":"do beans need a lot of urea","expected_source":"beans-fertiliser","key_facts":["nitrogen"]}
+{"id":"q15","language":"en","question":"my bean plants turn yellow and the roots are rotten","expected_source":"beans-rootrot","key_facts":["rotation|rotate","resistant"]}
+{"id":"q16","language":"rw","question":"imizi y'ibishyimbo byanjye yaboze","expected_source":"beans-rootrot","key_facts":["simburanya"]}
+{"id":"q17","language":"en","question":"weevils keep eating my beans in the store","expected_source":"beans-harvest","key_facts":["hermetic"]}
+{"id":"q18","language":"en","question":"what spacing for irish potatoes","expected_source":"potato-planting","key_facts":["70-80","30"]}
+{"id":"q19","language":"rw","question":"Nshobora gutera ibirayi nakuye mu murima wanjye?","expected_source":"potato-planting","key_facts":["zemewe"]}
+{"id":"q20","language":"en","question":"how much NPK 17-17-17 should I use for potatoes","expected_source":"potato-fertiliser","key_facts":["3kg|3 kg|300"]}
+{"id":"q21","language":"en","question":"potato leaves getting dark wet patches after rain with white fuzz underneath","expected_source":"potato-lateblight","key_facts":["mancozeb","7-10"]}
+{"id":"q22","language":"rw","question":"ibirayi byanjye bifite mildiyu","expected_source":"potato-lateblight","key_facts":["7-10"]}
+{"id":"q23","language":"en","question":"my potato plants suddenly wilt while still green, cut tubers ooze","expected_source":"potato-bacterialwilt","key_facts":["no chemical|no cure","2 seasons|2"]}
+{"id":"q24","language":"en","question":"how do I store potatoes after harvest","expected_source":"potato-harvest","key_facts":["dark","2 weeks"]}
+{"id":"q25","language":"en","question":"how old should rice seedlings be at transplanting","expected_source":"rice-planting","key_facts":["21"]}
+{"id":"q26","language":"rw","question":"Ingemwe z'umuceri nzimura zifite iminsi ingahe?","expected_source":"rice-planting","key_facts":["21"]}
+{"id":"q27","language":"en","question":"rice has diamond shaped grey spots on leaves","expected_source":"rice-blast","key_facts":["resistant","urea|nitrogen"]}
+{"id":"q28","language":"en","question":"fertilizer schedule for paddy rice","expected_source":"rice-fertiliser","key_facts":["17-17-17","urea"]}
+{"id":"q29","language":"en","question":"when to harvest rice","expected_source":"rice-harvest","key_facts":["80-85"]}
+{"id":"q30","language":"en","question":"how long should cassava cuttings be","expected_source":"cassava-planting","key_facts":["20-25"]}
+{"id":"q31","language":"en","question":"cassava leaves are twisted with yellow and green patches","expected_source":"cassava-diseases","key_facts":["whitefl","clean cuttings|clean"]}
+{"id":"q32","language":"rw","question":"imyumbati yanjye ifite ububembe","expected_source":"cassava-diseases","key_facts":["ingeri"]}
+{"id":"q33","language":"en","question":"how long can i keep fresh cassava roots after harvest","expected_source":"cassava-harvest","key_facts":["2"]}
+{"id":"q34","language":"en","question":"banana leaves yellowing, bunches ripen early, yellow ooze from cut stem","expected_source":"banana-bxw","key_facts":["male bud","disinfect"]}
+{"id":"q35","language":"rw","question":"insina zanjye zirwaye kirabiranya nkore iki","expected_source":"banana-bxw","key_facts":["umuriro|javeli"]}
+{"id":"q36","language":"en","question":"how many plants should I keep per banana mat","expected_source":"banana-management","key_facts":["3"]}
+{"id":"q37","language":"en","question":"how much manure for my bananas","expected_source":"banana-fertiliser","key_facts":["10-20"]}
+{"id":"q38","language":"en","question":"my coffee has a potato taste defect","expected_source":"coffee-pests","key_facts":["antestia"]}
+{"id":"q39","language":"en","question":"coffee leaves have orange powder underneath","expected_source":"coffee-pests","key_facts":["rust"]}
+{"id":"q40","language":"rw","question":"Ikawa nyisarura nte kugira ngo ibe nziza?","expected_source":"coffee-harvest","key_facts":["zitukura"]}
+{"id":"q41","language":"en","question":"how much water does a dairy cow drink per day","expected_source":"cattle-feeding","key_facts":["50-100"]}
+{"id":"q42","language":"rw","question":"Inka y'amata nyigaburira ubwatsi bungana iki ku munsi?","expected_source":"cattle-feeding","key_facts":["10%"]}
+{"id":"q43","language":"en","question":"cow has high fever and swollen glands under the ear","expected_source":"cattle-ticks-ecf","key_facts":["tick","vet"]}
+{"id":"q44","language":"rw","question":"inka yanjye ifite uburondwe bwinshi n'umuriro","expected_source":"cattle-ticks-ecf","key_facts":["veterineri"]}
+{"id":"q45","language":"en","question":"there are clots in my cow's milk and the udder is hot","expected_source":"cattle-mastitis","key_facts":["mastitis","vet"]}
+{"id":"q46","language":"en","question":"blisters in cow mouth and feet, drooling","expected_source":"cattle-fmd","key_facts":["report|veterinarian","movement"]}
+{"id":"q47","language":"rw","question":"inka zanjye zirwaye uburenge","expected_source":"cattle-fmd","key_facts":["veterineri"]}
+{"id":"q48","language":"en","question":"my chickens are dying fast with twisted necks","expected_source":"poultry-newcastle","key_facts":["vaccin","3 months"]}
+{"id":"q49","language":"rw","question":"inkoko zanjye zirapfa umusubirizo","expected_source":"poultry-newcastle","key_facts":["kingira|urukingo"]}
+{"id":"q50","language":"en","question":"how many layer hens per square metre in a chicken house","expected_source":"poultry-management","key_facts":["4-5"]}
+{"id":"q51","language":"en","question":"pigs dying with red purple skin on ears","expected_source":"pig-asf","key_facts":["no vaccine","vet"]}
+{"id":"q52","language":"en","question":"how often should I deworm my goats","expected_source":"goat-management","key_facts":["3-4"]}
+{"id":"q53","language":"en","question":"my soil is very acidic, beans do badly","expected_source":"soil-fertility-lime","key_facts":["lime"]}
+{"id":"q54","language":"rw","question":"ubutaka bwanjye burasharira","expected_source":"soil-fertility-lime","key_facts":["ishwagara"]}
+{"id":"q55","language":"en","question":"how do I make compost","expected_source":"compost-making","key_facts":["2-3"]}
+{"id":"q56","language":"en","question":"rain is washing away soil on my hillside farm","expected_source":"erosion-control","key_facts":["terrace"]}
+{"id":"q57","language":"en","question":"what protective equipment for spraying chemicals","expected_source":"pesticide-safety","key_facts":["gloves","mask"]}
+{"id":"q58","language":"en","question":"how can I get subsidised seed and fertilizer","expected_source":"nkunganire-inputs","key_facts":["nkunganire"]}
+{"id":"q59","language":"rw","question":"Nabona nte ifumbire ya Nkunganire?","expected_source":"nkunganire-inputs","key_facts":["nkunganire"]}
+{"id":"q60","language":"en","question":"what can i do about long dry spells","expected_source":"climate-smart","key_facts":["mulch"]}
+{"id":"q61","language":"en","question":"when does season B start","expected_source":"seasons-calendar","key_facts":["feb|february"]}
+{"id":"q62","language":"en","question":"who can visit my farm to help","expected_source":"extension-contacts","key_facts":["agronomist"]}
+{"id":"o01","language":"en","question":"Who won the football match yesterday?","expected_source":null,"key_facts":[]}
+{"id":"o02","language":"en","question":"How do I repair my motorbike engine?","expected_source":null,"key_facts":[]}
+{"id":"o03","language":"rw","question":"Ndashaka inguzanyo ya banki","expected_source":null,"key_facts":[]}
+{"id":"o04","language":"en","question":"What is the capital of Kenya?","expected_source":null,"key_facts":[]}
+{"id":"o05","language":"rw","question":"Ese avoka zatewe ryari?","expected_source":null,"key_facts":[]}
+{"id":"o06","language":"en","question":"How do I grow avocado trees?","expected_source":null,"key_facts":[]}
+{"id":"o07","language":"en","question":"Write me a poem about love","expected_source":null,"key_facts":[]}
+{"id":"o08","language":"rw","question":"Igiciro cy'ibirayi ku isoko ni angahe uyu munsi?","expected_source":null,"key_facts":[]}

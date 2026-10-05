@@ -32,12 +32,45 @@ _RW_FUNCTION = {"ni", "na", "ku", "mu", "kuri", "ya", "yo", "wa", "za", "iki", "
                 "kandi", "cyangwa", "ndashaka", "nshaka", "ryari", "he", "angahe", "zanjye", "yanjye"}
 
 
+_EN_FUNCTION = {"the", "and", "of", "to", "is", "are", "with", "your", "for", "in", "on", "my", "how", "what",
+                "when", "do", "it", "this", "be", "at", "from", "not", "should", "can", "have", "has", "per",
+                "about", "which", "or", "if", "by", "an", "as", "use", "they", "their", "after", "before"}
+
+
+# Distinctive Swahili words: Swahili shares Bantu prefixes with Kinyarwanda and would otherwise be
+# mistaken for it (small open models often drift into Swahili when asked for Kinyarwanda).
+_SW_MARKERS = {"kwa", "hii", "kuna", "lakini", "unahitaji", "ninaweza", "sana", "hivyo", "kuhusu",
+               "mazao", "maji", "kufanya", "kutoka", "pia", "baada", "kabla", "wakati", "ambayo", "katika",
+               "hiyo", "yako", "wako", "mimi", "ninahitaji", "inaweza", "kila", "ndiyo", "hapana", "tu",
+               "ikiwa", "unachukua", "basi", "inamaanisha", "kiasi", "fulani", "kati", "hivi", "ili", "hadi",
+               "sasa", "bila", "yake", "yao", "zao", "hizi", "huu", "huo", "wewe", "sisi", "kuweka", "kubwa",
+               "nzuri", "msaada", "mkulima", "wakulima", "mbegu", "mbolea", "shamba", "mashamba", "mvua",
+               "udongo", "mahindi", "maharagwe", "ombe", "ninakidhi", "kawaida", "unaweza", "hakuna", "mafuta",
+               "muhimu", "zaidi", "unafanana", "kuhakikisha", "kuwa", "uzalishaji", "mboga", "hali", "mazingira",
+               "kujaribu", "kubadilisha", "kipengele", "kwamba", "unapaswa", "kupanda", "mimea", "magonjwa"}
+
+
+def identify_language(text: str) -> str:
+    """'rw', 'en' or 'other' (e.g. Swahili). Used to score answers."""
+    toks = re.findall(r"[a-z]+", text.lower().replace("'", " "))
+    if not toks:
+        return "other"
+    sw = sum(1 for t in toks if t in _SW_MARKERS)
+    if sw >= 2:  # genuine Kinyarwanda or English practically never contains two of these
+        return "other"
+    return detect_language(text)
+
+
 def detect_language(text: str) -> str:
     toks = re.findall(r"[a-z]+", text.lower().replace("'", " "))
     if not toks:
         return "rw"
-    rw = sum(1 for t in toks if t in _RW_MARKERS or t in _RW_FUNCTION or t.startswith(("ibi", "imi", "ama", "uru", "aka", "utu", "ubu", "uku", "nda", "ntu")))
-    return "rw" if rw / len(toks) >= 0.4 else "en"
+    rw = sum(1 for t in toks if t in _RW_MARKERS or t in _RW_FUNCTION or t.startswith(
+        ("ibi", "imi", "ama", "uru", "aka", "utu", "ubu", "uku", "nda", "ntu")))
+    en = sum(1 for t in toks if t in _EN_FUNCTION or t == "i")
+    if rw == en:
+        return "rw" if rw / len(toks) >= 0.4 else "en"
+    return "rw" if rw > en else "en"
 
 
 @dataclass

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isôko · Live Comparison</title>
+<link rel="stylesheet" href="/static/style.css">
+<style>
+  .ask { display: flex; gap: 10px; margin: 18px 0 10px; flex-wrap: wrap; }
+  .ask input { flex: 1; min-width: 260px; padding: 12px 14px; font: inherit; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); }
+  .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
+  .chip { border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 16px; padding: 5px 12px; font-size: 13px; cursor: pointer; }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .col { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; min-width: 0; }
+  .col h3 { margin: 0 0 4px; text-transform: none; letter-spacing: 0; font-size: 17px; color: var(--ink); }
+  .col .what { color: var(--muted); font-size: 13px; margin: 0 0 14px; }
+  .answer { white-space: pre-wrap; font-size: 15px; line-height: 1.55; min-height: 80px; }
+  .meta { margin-top: 14px; display: flex; gap: 8px; flex-wrap: wrap; font-size: 12.5px; }
+  .tag { padding: 2px 9px; border-radius: 10px; background: var(--green-soft); color: var(--green); }
+  .tag.warn { background: var(--amber-soft); color: var(--amber); }
+  .tag.alert { background: var(--red-soft); color: var(--red); }
+  .src { font-size: 13px; color: var(--muted); margin-top: 10px; }
+  .isoko { border-top: 4px solid var(--green); }
+  .plain { border-top: 4px solid var(--amber); }
+  .note { color: var(--muted); font-size: 14px; }
+  .spin { color: var(--muted); font-style: italic; }
+  @media (max-width: 820px) { .cols { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">I</span> Isôko <small>Same open model, with and without grounding</small></div>
+  <nav><a href="/simulator">USSD simulator</a><a href="/dashboard">MINAGRI dashboard</a><a class="active" href="/compare">Live comparison</a><a href="/evaluation">Evaluation</a><a href="/docs">API</a></nav>
+</header>
+<main class="wrap">
+  <h2>Ask anything a farmer might ask</h2>
+  <p class="note" id="modelnote">Both columns use the same open-source model running locally on Ollama. On the left it answers alone; on the right it answers through Isôko's curated knowledge base and guardrails.</p>
+  <form class="ask" id="f">
+    <input id="q" placeholder="e.g. Ibigori byanjye bifite nkongwa, nkore iki?" autocomplete="off">
+    <button class="btn" type="submit">Compare</button>
+  </form>
+  <div class="chips" id="chips"></div>
+  <div class="cols">
+    <section class="col plain">
+      <h3>Generic open model</h3>
+      <p class="what">No knowledge base, no guardrails</p>
+      <div class="answer" id="plain"></div>
+      <div class="meta" id="plainmeta"></div>
+    </section>
+    <section class="col isoko">
+      <h3>Isôko</h3>
+      <p class="what">Curated corpus · sources cited · escalates instead of guessing</p>
+      <div class="answer" id="isoko"></div>
+      <div class="meta" id="isokometa"></div>
+      <div class="src" id="isokosrc"></div>
+    </section>
+  </div>
+</main>
+<script>
+const examples = [
+  'Ibigori byanjye bifite nkongwa, nkore iki?',
+  'How much NPK 17-17-17 should I use for potatoes?',
+  'Insina zanjye zirwaye kirabiranya',
+  'My cow has fever and swollen glands under the ear',
+  'Inkoko zanjye zirimo gupfa',
+  'How do I repair my motorbike engine?',
+];
+const chips = document.getElementById('chips');
+examples.forEach(e => { const b = document.createElement('button'); b.className = 'chip'; b.type = 'button'; b.textContent = e;
+  b.onclick = () => { document.getElementById('q').value = e; run(e); }; chips.appendChild(b); });
+
+const NUM = /\d+(?:[.,]\d+)?/g;
+function tag(text, cls = '') { const s = document.createElement('span'); s.className = 'tag ' + cls; s.textContent = text; return s; }
+
+async function run(q) {
+  const P = document.getElementById('plain'), I = document.getElementById('isoko');
+  ['plainmeta', 'isokometa', 'isokosrc'].forEach(id => document.getElementById(id).innerHTML = '');
+  P.innerHTML = I.innerHTML = '<span class="spin">Thinking…</span>';
+  const r = await fetch('/api/compare', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q }) });
+  const d = await r.json();
+  if (!r.ok) { P.textContent = I.textContent = d.detail || 'Unavailable'; return; }
+  document.getElementById('modelnote').textContent =
+    `Both columns use the same open-source model (${d.model}) running locally on Ollama. On the left it answers alone; on the right it answers through Isôko's curated knowledge base and guardrails.`;
+  P.textContent = d.plain.answer; I.textContent = d.isoko.answer;
+  const pm = document.getElementById('plainmeta');
+  pm.append(tag(`${d.plain.latency_ms} ms`), tag('No sources', 'warn'));
+  const nums = (d.plain.answer.match(NUM) || []).length;
+  if (nums) pm.append(tag(`${nums} figures, unverified`, 'warn'));
+  const im = document.getElementById('isokometa');
+  im.append(tag(`${d.isoko.latency_ms} ms`), tag(d.isoko.language === 'rw' ? 'Kinyarwanda' : 'English'),
+    tag(d.isoko.model === 'retrieval' ? 'Curated text' : 'Generated, grounded'));
+  if (d.isoko.escalated) im.append(tag('Escalated to an extension officer', 'alert'));
+  if (d.isoko.sources.length) document.getElementById('isokosrc').textContent =
+    'Sources: ' + d.isoko.sources.map(s => `${s.title} (${s.source})`).join(' · ');
+}
+document.getElementById('f').onsubmit = e => { e.preventDefault(); const q = document.getElementById('q').value.trim(); if (q) run(q); };
+</script>
+</body>
+</html>

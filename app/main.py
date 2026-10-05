@@ -1,4 +1,5 @@
 """Isôko - AI-enabled agricultural advisory for Rwanda (USSD / SMS / API)."""
+import json
 import time
 import uuid
 from typing import Literal
@@ -58,6 +59,16 @@ def simulator():
 @app.get("/dashboard", include_in_schema=False)
 def dashboard():
     return FileResponse(STATIC / "dashboard.html")
+
+
+@app.get("/compare", include_in_schema=False)
+def compare_page():
+    return FileResponse(STATIC / "compare.html")
+
+
+@app.get("/evaluation", include_in_schema=False)
+def evaluation_page():
+    return FileResponse(STATIC / "evaluation.html")
 
 
 @app.get("/health")
@@ -165,6 +176,45 @@ def corpus_index():
     c = corpus()
     return {"meta": c.meta, "entries": [{k: e[k] for k in ("id", "category", "crop", "topic", "title_en", "title_rw", "source")}
                                         for e in c.entries]}
+
+
+# ---------- Live demo: generic model vs Isôko, and evaluation results ----------
+
+EVAL_DIR = config.BASE_DIR.parent / "eval" / "results"
+PLAIN_SYSTEM = ("You are an agricultural extension advisor for smallholder farmers in Rwanda. Answer the farmer's "
+                "question with practical, specific advice. If the question is not about farming, say you can only "
+                "help with farming. Reply in the same language as the question, plain text, at most 120 words.")
+
+
+class CompareQuery(BaseModel):
+    question: str = Field(..., min_length=1, max_length=500)
+
+
+@app.post("/api/compare")
+def compare(q: CompareQuery):
+    """Side-by-side for demos: the same open model with and without Isôko's grounding and guardrails."""
+    if not config.DEMO_MODE or config.LLM_PROVIDER == "none":
+        raise HTTPException(status_code=503, detail="Live comparison needs DEMO_MODE and a local model (Ollama).")
+    t0 = time.perf_counter()
+    try:
+        plain = llm.chat(PLAIN_SYSTEM, q.question, max_tokens=300)
+    except llm.LLMUnavailable as exc:
+        raise HTTPException(status_code=503, detail=f"Model unavailable: {exc}")
+    plain_ms = int((time.perf_counter() - t0) * 1000)
+    adv = advisor.answer(q.question, channel="api", log=False)
+    return {"model": config.LLM_MODEL,
+            "plain": {"answer": plain, "latency_ms": plain_ms},
+            "isoko": adv.to_dict()}
+
+
+@app.get("/api/eval")
+def eval_results():
+    def load(name):
+        f = EVAL_DIR / name
+        return json.loads(f.read_text()) if f.exists() else None
+    return {"qa": load("qa_summary.json"), "mt": {m: {d: v["chrf"] for d, v in r.items()}
+                                                  for m, r in (load("mt_results.json") or {}).items()},
+            "testset": {"qa_items": 70, "mt_pairs": 60}}
 
 
 # ---------- MINAGRI / RAB feedback dashboard ----------
