@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="rw">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Umujyanama · USSD Simulator</title>
+<link rel="stylesheet" href="/static/style.css">
+<style>
+  .stage { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
+  .phone {
+    width: 280px; background: #1d1f22; border-radius: 36px; padding: 22px 18px 26px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.25), inset 0 0 0 2px #33363b;
+  }
+  .speaker { width: 60px; height: 6px; background: #3a3d42; border-radius: 3px; margin: 0 auto 14px; }
+  .screen {
+    background: #c8d6b9; color: #1b2614; font-family: "Courier New", ui-monospace, monospace;
+    font-size: 13.5px; line-height: 1.35; border-radius: 6px; padding: 10px 12px; height: 250px;
+    overflow-y: auto; white-space: pre-wrap; box-shadow: inset 0 2px 8px rgba(0,0,0,.25);
+  }
+  .screen .net { display: flex; justify-content: space-between; font-size: 11px; opacity: .7; margin-bottom: 6px; }
+  .screen input {
+    width: 100%; margin-top: 8px; background: transparent; border: none; border-bottom: 1px dashed #1b2614;
+    font: inherit; color: inherit; outline: none;
+  }
+  .softkeys { display: flex; justify-content: space-between; margin: 12px 4px; }
+  .softkeys button { background: #2c2f34; color: #ddd; border: none; border-radius: 14px; padding: 7px 16px; font-size: 13px; cursor: pointer; }
+  .softkeys button.ok { background: #2f7d32; color: #fff; }
+  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .keypad button {
+    background: #2c2f34; color: #eee; border: none; border-radius: 12px; height: 40px; font-size: 18px; cursor: pointer;
+  }
+  .keypad button:active, .softkeys button:active { transform: scale(.96); }
+  .side h2 { margin-top: 0; }
+  .inbox { display: flex; flex-direction: column; gap: 10px; max-height: 360px; overflow-y: auto; }
+  .sms { background: var(--card); border: 1px solid var(--line); border-radius: 12px 12px 12px 2px; padding: 10px 12px; font-size: 14px; }
+  .sms .meta { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .empty { color: var(--muted); font-size: 14px; }
+  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+  .row input { padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); font: inherit; }
+  .hint { font-size: 13px; color: var(--muted); }
+  @media (max-width: 760px) { .stage { grid-template-columns: 1fr; justify-items: center; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">U</span> Umujyanama <small>AI farm advisory · USSD / SMS</small></div>
+  <nav><a class="active" href="/simulator">USSD simulator</a><a href="/dashboard">MINAGRI dashboard</a><a href="/docs">API</a></nav>
+</header>
+<main class="wrap">
+  <div class="stage">
+    <div class="phone">
+      <div class="speaker"></div>
+      <div class="screen" id="screen">
+        <div class="net"><span>MTN RW</span><span id="clock"></span></div>
+        <div id="out">Dial the service code to start:
+*xxx#</div>
+        <input id="inp" autocomplete="off" placeholder="" aria-label="USSD input">
+      </div>
+      <div class="softkeys">
+        <button id="cancel">Cancel</button>
+        <button id="send" class="ok">Dial</button>
+      </div>
+      <div class="keypad" id="keypad"></div>
+    </div>
+    <section class="side">
+      <h2>Feature-phone farmer experience</h2>
+      <p class="hint">Any phone, no internet, no app. Menus are Kinyarwanda first (option 8 switches to English).
+        Short answers appear on screen; the full advice follows by SMS, and free-text questions are answered by SMS.</p>
+      <div class="row">
+        <label>Phone number <input id="phone" value="+250788123456" size="15"></label>
+        <button class="btn" id="newphone">New farmer</button>
+      </div>
+      <h3>SMS inbox</h3>
+      <div class="inbox" id="inbox"><div class="empty">No messages yet.</div></div>
+    </section>
+  </div>
+</main>
+<script>
+const out = document.getElementById('out'), inp = document.getElementById('inp');
+const sendBtn = document.getElementById('send'), phoneEl = document.getElementById('phone');
+let session = null, path = [], lastSms = 0;
+
+function clock() { document.getElementById('clock').textContent = new Date().toTimeString().slice(0, 5); }
+setInterval(clock, 10000); clock();
+
+const keys = ['1','2','3','4','5','6','7','8','9','*','0','#'];
+const kp = document.getElementById('keypad');
+keys.forEach(k => { const b = document.createElement('button'); b.textContent = k;
+  b.onclick = () => { inp.value += k; inp.focus(); }; kp.appendChild(b); });
+
+async function ussd(text) {
+  const body = new URLSearchParams({ sessionId: session, phoneNumber: phoneEl.value, serviceCode: '*xxx#', text });
+  const r = await fetch('/ussd', { method: 'POST', body });
+  return r.text();
+}
+
+async function submit() {
+  if (!session) {                       // dialling
+    session = 'sim-' + Math.random().toString(36).slice(2, 10); path = [];
+    show(await ussd('')); return;
+  }
+  const v = inp.value.trim(); if (!v) return;
+  path.push(v); inp.value = '';
+  show(await ussd(path.join('*')));
+}
+
+function show(resp) {
+  const end = resp.startsWith('END ');
+  out.textContent = resp.slice(4);
+  if (end) { session = null; sendBtn.textContent = 'Dial'; inp.style.display = 'none';
+    setTimeout(() => { if (!session) { out.textContent += '\n\n— session ended —'; } }, 50); }
+  else { sendBtn.textContent = 'Send'; inp.style.display = ''; inp.focus(); }
+  setTimeout(pollSms, 600);
+}
+
+sendBtn.onclick = submit;
+inp.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
+document.getElementById('cancel').onclick = () => { session = null; path = []; out.textContent = 'Dial the service code to start:\n*xxx#'; sendBtn.textContent = 'Dial'; inp.value=''; };
+inp.style.display = 'none';
+document.getElementById('newphone').onclick = () => {
+  phoneEl.value = '+25078' + Math.floor(1000000 + Math.random() * 8999999); lastSms = 0;
+  document.getElementById('inbox').innerHTML = '<div class="empty">No messages yet.</div>';
+};
+
+async function pollSms() {
+  try {
+    const r = await fetch(`/api/sms/outbox?phone=${encodeURIComponent(phoneEl.value)}&after_id=${lastSms}`);
+    if (!r.ok) return;
+    const msgs = await r.json();
+    if (!msgs.length) return;
+    const box = document.getElementById('inbox');
+    if (box.querySelector('.empty')) box.innerHTML = '';
+    msgs.forEach(m => {
+      lastSms = Math.max(lastSms, m.id);
+      const d = document.createElement('div'); d.className = 'sms';
+      d.innerHTML = `<div class="meta">From UMUJYANAMA · ${m.time}</div>`;
+      d.appendChild(document.createTextNode(m.message));
+      box.prepend(d);
+    });
+  } catch (e) {}
+}
+setInterval(pollSms, 2500);
+</script>
+</body>
+</html>

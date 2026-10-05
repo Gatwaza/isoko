@@ -1,0 +1,28 @@
+{"question": "Caterpillars are eating the young leaves of my maize and there is sawdust inside the plant. What do I do?", "expected_source": "maize-faw"}
+{"question": "Ibigori byanjye byariwe n'inyo, amababi afite imyobo. Nkore iki?", "language": "rw", "expected_source": "maize-faw"}
+{"question": "How far apart should I plant maize?", "expected_source": "maize-planting"}
+{"question": "When should I apply urea on maize?", "expected_source": "maize-fertiliser"}
+{"question": "How do I stop my stored maize from getting mouldy?", "expected_source": "maize-harvest"}
+{"question": "My banana plants are yellowing and the fruits ripen too early. There is yellow liquid when I cut the stem.", "expected_source": "banana-bxw"}
+{"question": "Insina zanjye zirimo kuma, ibitoki byera imburagihe", "language": "rw", "expected_source": "banana-bxw"}
+{"question": "Black patches on potato leaves after a week of rain", "expected_source": "potato-lateblight"}
+{"question": "Ibirayi byanjye biraraba bitunguranye", "language": "rw", "expected_source": "potato-bacterialwilt"}
+{"question": "How much NPK for potatoes per are?", "expected_source": "potato-fertiliser"}
+{"question": "Cassava leaves are twisted and yellow-green mottled", "expected_source": "cassava-diseases"}
+{"question": "How old should rice seedlings be before transplanting?", "expected_source": "rice-planting"}
+{"question": "My rice has grey diamond spots on leaves", "expected_source": "rice-blast"}
+{"question": "My climbing beans need what kind of support?", "expected_source": "beans-planting"}
+{"question": "Weevils are destroying my stored beans", "expected_source": "beans-harvest"}
+{"question": "My cow has fever and swollen glands below the ear", "expected_source": "cattle-ticks-ecf"}
+{"question": "Inka yanjye ifite uburondwe bwinshi", "language": "rw", "expected_source": "cattle-ticks-ecf"}
+{"question": "There are clots and blood in the milk from my cow", "expected_source": "cattle-mastitis"}
+{"question": "My chickens are dying suddenly with twisted necks", "expected_source": "poultry-newcastle"}
+{"question": "Inkoko zanjye zirimo gupfa", "language": "rw", "expected_source": "poultry-newcastle"}
+{"question": "How much water does a dairy cow need per day?", "expected_source": "cattle-feeding"}
+{"question": "My soil is acidic, what should I do?", "expected_source": "soil-fertility-lime"}
+{"question": "How do I get subsidised fertiliser?", "expected_source": "nkunganire-inputs"}
+{"question": "When is season B planting?", "expected_source": "seasons-calendar"}
+{"question": "Coffee beans taste like potato, what causes it?", "expected_source": "coffee-pests"}
+{"question": "What protective equipment do I need when spraying pesticide?", "expected_source": "pesticide-safety"}
+{"question": "Who won the football match yesterday?"}
+{"question": "How do I repair my motorbike?"}

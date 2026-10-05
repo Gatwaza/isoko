@@ -1,0 +1,21 @@
+# Runs entirely on one server (e.g. a VM in a Rwandan data centre). No data leaves the host
+# except district-level coordinates sent to the weather API.
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    env_file: .env
+    environment:
+      LLM_PROVIDER: ollama
+      LLM_BASE_URL: http://ollama:11434
+    volumes: ["umujyanama-data:/data"]
+    depends_on: [ollama]
+    restart: unless-stopped
+  ollama:
+    image: ollama/ollama:latest
+    volumes: ["ollama-models:/root/.ollama"]
+    restart: unless-stopped
+    # First run: docker compose exec ollama ollama pull llama3.2
+volumes:
+  umujyanama-data:
+  ollama-models:

@@ -1,0 +1,82 @@
+import os
+import tempfile
+
+os.environ["DB_PATH"] = os.path.join(tempfile.mkdtemp(), "test.db")
+os.environ["LLM_PROVIDER"] = "none"  # deterministic: curated text only
+os.environ["API_KEYS"] = "test-key"
+
+from fastapi.testclient import TestClient  # noqa: E402
+
+from app import advisor, ussd  # noqa: E402
+from app.main import app  # noqa: E402
+
+client = TestClient(app)
+H = {"X-API-Key": "test-key"}
+
+
+def dial(phone, *inputs):
+    return client.post("/ussd", data={"sessionId": "t", "phoneNumber": phone, "serviceCode": "*1#",
+                                      "text": "*".join(inputs)}).text
+
+
+def test_home_is_kinyarwanda_and_fits_ussd():
+    r = dial("+250780000001")
+    assert r.startswith("CON Umujyanama w'Umuhinzi")
+    assert len(r) - 4 <= ussd.USSD_LIMIT
+
+
+def test_crop_topic_answer_ends_session_and_queues_sms():
+    r = dial("+250780000002", "1", "1", "3")
+    assert r.startswith("END ") and "nkongwa" in r.lower()
+    out = client.get("/api/sms/outbox", params={"phone": "+250780000002"}).json()
+    assert out and "Nkongwa" in out[0]["message"]
+
+
+def test_every_ussd_screen_fits_limit():
+    paths = [[], ["1"], ["2"], ["2", "98"], ["4"], ["4", "1"], ["6"], ["5"], ["8"], ["8", "1"]]
+    for p in paths:
+        r = dial("+250780000003", *p)
+        assert len(r) - 4 <= ussd.USSD_LIMIT, (p, len(r))
+
+
+def test_back_and_language_toggle():
+    assert dial("+250780000004", "1", "0").startswith("CON Umujyanama w'Umuhinzi")
+    assert "Crops" in dial("+250780000004", "8")
+    assert "Crops" in dial("+250780000004", "8", "1", "0")  # back must not flip language again
+
+
+def test_api_requires_key():
+    assert client.post("/v1/advisory/query", json={"question": "maize"}).status_code == 401
+
+
+def test_api_answers_kinyarwanda_from_curated_text():
+    r = client.post("/v1/advisory/query", headers=H, json={"question": "Insina zanjye zirwaye kirabiranya"}).json()
+    assert r["language"] == "rw" and not r["escalated"]
+    assert r["sources"][0]["id"] == "banana-bxw"
+
+
+def test_out_of_scope_is_escalated_not_guessed():
+    r = client.post("/v1/advisory/query", headers=H, json={"question": "How do I fix my car engine?"}).json()
+    assert r["escalated"] and r["sources"] == []
+
+
+def test_openai_compatible_endpoint():
+    r = client.post("/v1/chat/completions", headers={"Authorization": "Bearer test-key"},
+                    json={"messages": [{"role": "user", "content": "How do I control fall armyworm in maize?"}]}).json()
+    assert r["choices"][0]["message"]["content"]
+    assert r["umujyanama"]["sources"][0]["id"] == "maize-faw"
+
+
+def test_plural_query_hits_right_crop():
+    assert advisor.answer("fertiliser for potatoes", log=False).sources[0]["id"] == "potato-fertiliser"
+
+
+def test_numbers_guardrail():
+    assert advisor.numbers_grounded("Use 3kg per are", "about 3kg per are (300kg/ha)")
+    assert not advisor.numbers_grounded("Use 5kg per are", "about 3kg per are (300kg/ha)")
+
+
+def test_report_reaches_dashboard():
+    dial("+250780000005", "6", "1", "Huye")
+    stats = client.get("/api/dashboard/stats").json()
+    assert any(r["district"] == "Huye" and r["issue"] == "crop_pest" for r in stats["reports"])
