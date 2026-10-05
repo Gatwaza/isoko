@@ -132,3 +132,19 @@ tests/             pytest suite
 ## Name and character set
 
 The product name is **Isôko**. On USSD and SMS it is written **Isoko**, because "ô" is not in the GSM 7-bit alphabet: a single "ô" switches an SMS to UCS-2 encoding, cutting it from 160 to 70 characters, and can render incorrectly on feature phones.
+
+## Evaluation (v0.1 baseline)
+
+`eval/run_eval.py` compares, on the same 70 held-out farmer questions (49 English, 21 Kinyarwanda, 8 off-topic): a generic open model alone, Isôko with curated text only, and Isôko with the open model. Results live in `eval/results/` and are rendered at `/evaluation`.
+
+| Configuration | Fully correct | Kinyarwanda fully correct | Unsupported figures | Off-topic handled |
+|---|---|---|---|---|
+| Gemma 3 4B alone | 12.9% | 0.0% | 56.5% | 25.0% |
+| Llama 3.2 3B alone | 16.1% | 5.6% | 54.8% | 50.0% |
+| Isôko, curated text only | 91.9% | 83.3% | 4.8% | 87.5% |
+| Isôko + Gemma 3 4B | 90.3% | 83.3% | 3.2% | 87.5% |
+| Isôko + Llama 3.2 3B | 90.3% | 83.3% | 8.1% | 87.5% |
+
+Translation (chrF, 60 agriculture sentence pairs): Gemma 3 4B 21.1 EN→RW / 30.0 RW→EN; Llama 3.2 3B 16.2 / 18.9.
+
+Caveats: the Q&A set was written by the team (a baseline, not an independent score); the generic models are told the target language explicitly; scores were recorded before any tuning to the test set. Translation pairs are filtered from the [Digital Umuganda Kinyarwanda–English corpus](https://huggingface.co/datasets/DigitalUmuganda/kinyarwanda-english-machine-translation-dataset) (CC-BY-4.0).

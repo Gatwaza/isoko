@@ -1,0 +1,225 @@
+  plain-llama3.2 q01 5533ms
+  plain-llama3.2 q02 3000ms
+  plain-llama3.2 q03 2326ms
+  plain-llama3.2 q04 2578ms
+  plain-llama3.2 q05 6687ms
+  plain-llama3.2 q06 3546ms
+  plain-llama3.2 q07 3101ms
+  plain-llama3.2 q08 1034ms
+  plain-llama3.2 q09 4860ms
+  plain-llama3.2 q10 2531ms
+  plain-llama3.2 q11 3154ms
+  plain-llama3.2 q12 2958ms
+  plain-llama3.2 q13 2566ms
+  plain-llama3.2 q14 2804ms
+  plain-llama3.2 q15 3176ms
+  plain-llama3.2 q16 1814ms
+  plain-llama3.2 q17 3141ms
+  plain-llama3.2 q18 3006ms
+  plain-llama3.2 q19 3935ms
+  plain-llama3.2 q20 3074ms
+  plain-llama3.2 q21 3008ms
+  plain-llama3.2 q22 2238ms
+  plain-llama3.2 q23 3154ms
+  plain-llama3.2 q24 2611ms
+  plain-llama3.2 q25 2472ms
+  plain-llama3.2 q26 2913ms
+  plain-llama3.2 q27 3008ms
+  plain-llama3.2 q28 3484ms
+  plain-llama3.2 q29 2515ms
+  plain-llama3.2 q30 2338ms
+  plain-llama3.2 q31 3694ms
+  plain-llama3.2 q32 6853ms
+  plain-llama3.2 q33 2848ms
+  plain-llama3.2 q34 3400ms
+  plain-llama3.2 q35 7031ms
+  plain-llama3.2 q36 2238ms
+  plain-llama3.2 q37 2778ms
+  plain-llama3.2 q38 1739ms
+  plain-llama3.2 q39 2828ms
+  plain-llama3.2 q40 3062ms
+  plain-llama3.2 q41 3269ms
+  plain-llama3.2 q42 2583ms
+  plain-llama3.2 q43 1649ms
+  plain-llama3.2 q44 1748ms
+  plain-llama3.2 q45 2124ms
+  plain-llama3.2 q46 2273ms
+  plain-llama3.2 q47 1384ms
+  plain-llama3.2 q48 2031ms
+  plain-llama3.2 q49 2833ms
+  plain-llama3.2 q50 2466ms
+  plain-llama3.2 q51 3219ms
+  plain-llama3.2 q52 3302ms
+  plain-llama3.2 q53 2968ms
+  plain-llama3.2 q54 2560ms
+  plain-llama3.2 q55 3215ms
+  plain-llama3.2 q56 3105ms
+  plain-llama3.2 q57 2685ms
+  plain-llama3.2 q58 2853ms
+  plain-llama3.2 q59 1068ms
+  plain-llama3.2 q60 3137ms
+  plain-llama3.2 q61 2296ms
+  plain-llama3.2 q62 2077ms
+  plain-llama3.2 o01 1452ms
+  plain-llama3.2 o02 1939ms
+  plain-llama3.2 o03 2491ms
+  plain-llama3.2 o04 1233ms
+  plain-llama3.2 o05 6800ms
+  plain-llama3.2 o06 2968ms
+  plain-llama3.2 o07 225ms
+  plain-llama3.2 o08 6855ms
+  plain-gemma3:4b q01 6709ms
+  plain-gemma3:4b q02 8503ms
+  plain-gemma3:4b q03 3916ms
+  plain-gemma3:4b q04 3984ms
+  plain-gemma3:4b q05 3554ms
+  plain-gemma3:4b q06 4372ms
+  plain-gemma3:4b q07 4204ms
+  plain-gemma3:4b q08 8512ms
+  plain-gemma3:4b q09 4202ms
+  plain-gemma3:4b q10 3394ms
+  plain-gemma3:4b q11 8736ms
+  plain-gemma3:4b q12 4251ms
+  plain-gemma3:4b q13 7243ms
+  plain-gemma3:4b q14 4163ms
+  plain-gemma3:4b q15 3905ms
+  plain-gemma3:4b q16 7448ms
+  plain-gemma3:4b q17 3719ms
+  plain-gemma3:4b q18 4054ms
+  plain-gemma3:4b q19 6717ms
+  plain-gemma3:4b q20 4058ms
+  plain-gemma3:4b q21 4019ms
+  plain-gemma3:4b q22 3986ms
+  plain-gemma3:4b q23 4313ms
+  plain-gemma3:4b q24 4323ms
+  plain-gemma3:4b q25 3269ms
+  plain-gemma3:4b q26 4595ms
+  plain-gemma3:4b q27 4554ms
+  plain-gemma3:4b q28 4964ms
+  plain-gemma3:4b q29 3768ms
+  plain-gemma3:4b q30 3681ms
+  plain-gemma3:4b q31 4084ms
+  plain-gemma3:4b q32 6590ms
+  plain-gemma3:4b q33 4278ms
+  plain-gemma3:4b q34 4092ms
+  plain-gemma3:4b q35 8545ms
+  plain-gemma3:4b q36 3319ms
+  plain-gemma3:4b q37 3635ms
+  plain-gemma3:4b q38 3627ms
+  plain-gemma3:4b q39 4297ms
+  plain-gemma3:4b q40 5373ms
+  plain-gemma3:4b q41 4118ms
+  plain-gemma3:4b q42 5088ms
+  plain-gemma3:4b q43 4196ms
+  plain-gemma3:4b q44 8318ms
+  plain-gemma3:4b q45 4563ms
+  plain-gemma3:4b q46 4102ms
+  plain-gemma3:4b q47 6189ms
+  plain-gemma3:4b q48 3670ms
+  plain-gemma3:4b q49 5213ms
+  plain-gemma3:4b q50 3581ms
+  plain-gemma3:4b q51 4074ms
+  plain-gemma3:4b q52 4599ms
+  plain-gemma3:4b q53 3817ms
+  plain-gemma3:4b q54 8346ms
+  plain-gemma3:4b q55 3989ms
+  plain-gemma3:4b q56 3736ms
+  plain-gemma3:4b q57 3887ms
+  plain-gemma3:4b q58 3246ms
+  plain-gemma3:4b q59 7987ms
+  plain-gemma3:4b q60 3418ms
+  plain-gemma3:4b q61 3404ms
+  plain-gemma3:4b q62 3482ms
+  plain-gemma3:4b o01 2837ms
+  plain-gemma3:4b o02 3336ms
+  plain-gemma3:4b o03 2412ms
+  plain-gemma3:4b o04 2717ms
+  plain-gemma3:4b o05 4392ms
+  plain-gemma3:4b o06 4497ms
+  plain-gemma3:4b o07 3471ms
+  plain-gemma3:4b o08 7095ms
+{
+ "isoko-retrieval": {
+  "n": 70,
+  "fact_recall": 94.4,
+  "fully_correct": 91.9,
+  "fully_correct_en": 95.5,
+  "fully_correct_rw": 83.3,
+  "unsupported_number_rate": 4.8,
+  "language_match": 100.0,
+  "language_match_rw": 100.0,
+  "oos_handled": 87.5,
+  "latency_median_ms": 0,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49,
+  "source_accuracy": 90.3
+ },
+ "plain-llama3.2": {
+  "n": 70,
+  "fact_recall": 27.2,
+  "fully_correct": 16.1,
+  "fully_correct_en": 20.5,
+  "fully_correct_rw": 5.6,
+  "unsupported_number_rate": 54.8,
+  "language_match": 71.4,
+  "language_match_rw": 4.8,
+  "oos_handled": 50.0,
+  "latency_median_ms": 2840,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49
+ },
+ "isoko-llama3.2": {
+  "n": 70,
+  "fact_recall": 93.5,
+  "fully_correct": 90.3,
+  "fully_correct_en": 93.2,
+  "fully_correct_rw": 83.3,
+  "unsupported_number_rate": 8.1,
+  "language_match": 100.0,
+  "language_match_rw": 100.0,
+  "oos_handled": 87.5,
+  "latency_median_ms": 799,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49,
+  "source_accuracy": 90.3
+ },
+ "plain-gemma3:4b": {
+  "n": 70,
+  "fact_recall": 20.2,
+  "fully_correct": 12.9,
+  "fully_correct_en": 18.2,
+  "fully_correct_rw": 0.0,
+  "unsupported_number_rate": 56.5,
+  "language_match": 94.3,
+  "language_match_rw": 81.0,
+  "oos_handled": 25.0,
+  "latency_median_ms": 4110,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49
+ },
+ "isoko-gemma3:4b": {
+  "n": 70,
+  "fact_recall": 93.5,
+  "fully_correct": 90.3,
+  "fully_correct_en": 93.2,
+  "fully_correct_rw": 83.3,
+  "unsupported_number_rate": 3.2,
+  "language_match": 100.0,
+  "language_match_rw": 100.0,
+  "oos_handled": 87.5,
+  "latency_median_ms": 919,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49,
+  "source_accuracy": 90.3
+ }
+}

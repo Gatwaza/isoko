@@ -2,15 +2,15 @@
 # Isôko live demo: the app on this laptop with a local open model (Ollama), exposed on a
 # public HTTPS URL through a Cloudflare quick tunnel (no account needed).
 #
-#   scripts/demo.sh                 # uses llama3.2
-#   LLM_MODEL=gemma3:4b scripts/demo.sh
+#   scripts/demo.sh                 # uses gemma3:4b (best on our evaluation)
+#   LLM_MODEL=llama3.2 scripts/demo.sh
 #   DB=local scripts/demo.sh        # local SQLite demo DB instead of Supabase
 #
 # Ctrl-C stops both the app and the tunnel.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-MODEL="${LLM_MODEL:-llama3.2}"
+MODEL="${LLM_MODEL:-gemma3:4b}"
 PORT="${PORT:-8000}"
 CLOUDFLARED="$(command -v cloudflared || echo "$HOME/.local/bin/cloudflared")"
 

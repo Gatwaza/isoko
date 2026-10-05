@@ -1,0 +1,1466 @@
+{
+ "llama3.2": {
+  "en2rw": {
+   "chrf": 16.2,
+   "samples": [
+    {
+     "src": "The soil is still wet a game will be suspended",
+     "ref": "Ubutaka buracyatose umukino uzahagarikwa",
+     "hyp": "Mwani wa ndege ni bora, mizozo itaendelea",
+     "chrf": 11.7
+    },
+    {
+     "src": "Selection is a long-term tool used to destroy heavy soil.",
+     "ref": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "hyp": "Imitiriro ni nyenyezo la muda mrefu linalotumia kudhibiti ardhi ngumu.",
+     "chrf": 15.4
+    },
+    {
+     "src": "A farmer with a light yellow coat drives a tractor",
+     "ref": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "hyp": "Abakungu abana akawa na kanzu ya kijani kidogo anafanya moto",
+     "chrf": 11.8
+    },
+    {
+     "src": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "ref": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "hyp": "Kwaniza ubwoko wa poto katika kisukuma, isembe kwenye mabwoko.",
+     "chrf": 14.5
+    },
+    {
+     "src": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "ref": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "hyp": "Imirongo ya Mwami wa Rwanda yalishusha kujikomoka kwa ng'ombe kwenye ng'ombe.",
+     "chrf": 30.3
+    },
+    {
+     "src": "Many children take part in the potato race",
+     "ref": "Abana benshi bitabira isiganwa ry'ibirayi",
+     "hyp": "Banyarwanda wadufa kujikirisha katika marafiki wa kando",
+     "chrf": 15.3
+    },
+    {
+     "src": "The disciples are very interested in the harvest",
+     "ref": "Abigishwa bashimishwa cyane n’umusaruro",
+     "hyp": "Abakungu bafikirwa n'umwami wa ubuza",
+     "chrf": 16.7
+    },
+    {
+     "src": "The goat was born with two heads that surprised many",
+     "ref": "Ihene yavukanye imitwe ibiri bitangaza benshi",
+     "hyp": "Umwami wa nyama ya kijani ulizaliwa na mizizi miwili ambayo ulishamwisha watu wengi",
+     "chrf": 15.3
+    },
+    {
+     "src": "the bad habit of leading the population like cattle and grazing",
+     "ref": "umuco mubi wo kuyobora abaturage nk'amatungo bagatomera",
+     "hyp": "Imitwa isiyo ya kiburi kwa kuleta watu kama nyama na kuwafurahisha",
+     "chrf": 16.4
+    },
+    {
+     "src": "There has been heavy rainfall this month",
+     "ref": "Muri uyu kwezi haguye imvura nyinshi",
+     "hyp": "Umwaka huu umeshaanza kwa mafuriko ya mwezi",
+     "chrf": 19.5
+    },
+    {
+     "src": "A young white girl wearing black beans and a maroon snowsuit is lying on the floor in a white dress making a black angel",
+     "ref": "Umukobwa ukiri muto wumuzungu wambaye ibishyimbo byirabura na maroon snowsuit aryamye hasi yurubura akora marayika wurubura",
+     "hyp": "Izwi ya mungu mwezi mwezi",
+     "chrf": 7.3
+    },
+    {
+     "src": "friendship and cooperation culture and attitudes origins cows",
+     "ref": "ubucuti n’ubufatanye imico n’imyifatire inkomoko inka",
+     "hyp": "Ubuhake na uvumbuzi, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima, ubuhanga na ubuzima",
+     "chrf": 7.3
+    },
+    {
+     "src": "One man at a farmers market describes tomatoes",
+     "ref": "Umugabo umwe ku isoko ryabahinzi atondagura inyanya",
+     "hyp": "Umushagisho mmoja wa mwanamme anasimwa kwenye soko la wafugaji anasimba nyambaraze",
+     "chrf": 23.3
+    },
+    {
+     "src": "do you think rainy season will be over soon in  earlier this year?",
+     "ref": "Utekereza ko ibihe by'imvura bizashira mu ntangiriro z'uyu mwaka?",
+     "hyp": "Umuhimu wa muda wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa m",
+     "chrf": 8.6
+    },
+    {
+     "src": "causing his cows to give birth to calves.",
+     "ref": "bigatuma inka ze zibyara inyana",
+     "hyp": "Kuwahusu ng'ombe wake kuwasha kwa vijijini.",
+     "chrf": 12.5
+    },
+    {
+     "src": "Six children in burlap bags and a potato race",
+     "ref": "Abana batandatu bambaye imifuka ya burlap kandi bafite isiganwa ryibirayi",
+     "hyp": "Kabuga kati ya watoto sita kwenye mabaguzi ya kufurika na mara ya uboko wa uboko",
+     "chrf": 20.8
+    },
+    {
+     "src": "He has cows and donkeys and flocks",
+     "ref": "Afite inka n'indogobe n'imikumbi",
+     "hyp": "Amavu yatekeza nyama na nyama na vuguru.",
+     "chrf": 11.0
+    },
+    {
+     "src": "Two people seem to be planting seeds in the field",
+     "ref": "Abantu babiri basa n'abatera imbuto kumurima",
+     "hyp": "Bi muntu mirembe ni kujenga mafuta katika mafurushi",
+     "chrf": 19.7
+    },
+    {
+     "src": "They are fortunate enough to have a lot of cattle and a lot of land.",
+     "ref": "Bagira n’amahirwe baba abatunzi b’inka nyinshi n’amasambu menshi cyane.",
+     "hyp": "Bana wanafurahisha sana kwa sababu wanazo mboga na uzito wa kiasi kikubwa.",
+     "chrf": 18.0
+    },
+    {
+     "src": "sweet potatoes cassava and peas when ripe they are tall",
+     "ref": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "hyp": "Isimbi, mwaraka na maziwa, wakati wako mwema wako mwinjwi.",
+     "chrf": 12.5
+    },
+    {
+     "src": "The soil is rich in carbon",
+     "ref": "Ubutaka bukungahaye kuri carbon",
+     "hyp": "Umwami wa mafuta ni ng'ombe",
+     "chrf": 12.8
+    },
+    {
+     "src": "they do not praise the flock as in the names of the cows.",
+     "ref": "ntibasingiza ubushyo nko mu mazina y’inka.",
+     "hyp": "Bana hawapatafahamu kujina kwa ng'ombe.",
+     "chrf": 15.1
+    },
+    {
+     "src": "He goes with the goat Rugeyo",
+     "ref": "Ajyana n'isekurume y'ihene Rugeyo",
+     "hyp": "Asante Rugeyo",
+     "chrf": 23.3
+    },
+    {
+     "src": "I don’t think it will rain but I will take the soil when necessary.",
+     "ref": "Ntabwo ntekereza ko imvura izagwa ariko nzafata umutaka mugihe bibaye ngombwa.",
+     "hyp": "Asante kwa kujitolea, ninagusa kwako: \n\nNgaiza kujiruhusu kujiruhusu, ninagusa kwako: \n\nNgaiza kujiruhusu kujiruhusu, ninagusa kwako:",
+     "chrf": 16.5
+    },
+    {
+     "src": "For Rwandans cows were considered an important source of livestock.",
+     "ref": "Abanyarwanda inka bayibonagamo itungo ribafitiye akamaro ahanini mu rwego rw'ubukungu.",
+     "hyp": "Kiwabuka kwa Waturia, ng'ombe waliwekwa kama mchanga muhimu wa mboga.",
+     "chrf": 17.4
+    },
+    {
+     "src": "Monkeys: Small forest animals are just like goats.",
+     "ref": "Ingeragere: Inyamaswa nto y’ishyamba yenda gusa n’ihene.",
+     "hyp": "Mwitu wa nyama ndogo ni kama nyama za kijani.",
+     "chrf": 18.2
+    },
+    {
+     "src": "they used to wash cows and cows",
+     "ref": "batangaga ibyuhagiro by’inka n’imyaka",
+     "hyp": "Waliwaza kujaza ng'ombe na ng'ombe",
+     "chrf": 12.0
+    },
+    {
+     "src": "Breeding a lot of cows is difficult nowadays because there are very few pastures left.",
+     "ref": "Korora inka nyinshi biraruhije muri iki gihe kuberako Inzuri zisigaye ni nke.",
+     "hyp": "Ubuzima bwa mboga wa ng'ombe ni ngumu kwa sasa kwa sababu kuna ubora mdogo wa maziwa.",
+     "chrf": 17.1
+    },
+    {
+     "src": "The drought has devastated the region for years.",
+     "ref": "Amapfa yangije imyaka yose yaho.",
+     "hyp": "Imirika y'ikibuka kubaka kwa miaka mingi.",
+     "chrf": 16.1
+    },
+    {
+     "src": "while they are in the rainy season with thunderstorms.",
+     "ref": "mu gihe bari mu bihe by’imvura byiganjemo inkuba.",
+     "hyp": "Wakati wanafanana na muda wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa mwezi wa m",
+     "chrf": 6.1
+    },
+    {
+     "src": "I don’t want to eat lunch sauce because I love meat and potatoes.",
+     "ref": "Sinshaka kurya isosi ya sasita kuko nkunda inyama n'ibirayi.",
+     "hyp": "Asante kwa utambuzi, ninagusa.",
+     "chrf": 9.3
+    },
+    {
+     "src": "the potatoes are gone and now the rest of us are eating sweet potatoes",
+     "ref": "ibirayi byarabuze none abantu dusigaye twirira ibijumba",
+     "hyp": "Imirika ya mafuta y'umwani y'ahamunika na sasa mafuta ya mafuta y'ahamunika",
+     "chrf": 12.5
+    },
+    {
+     "src": "sweet potatoes cassava and peas when ripe they are tall",
+     "ref": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "hyp": "Isimbi, mchuzi, na mafuta wakati wako mwema wako mwinjwi.",
+     "chrf": 13.3
+    },
+    {
+     "src": "We have to work hard to fight erosion because that is what makes the soil shake",
+     "ref": "Tugomba kwihatira kurwanya isuri kuko ari yo ituma ubutaka bugunduka",
+     "hyp": "Kwanza tunahitaji kufanya kazi kwa haraka kufuatilia kuyumba kwa sababu hii ndio kinachoendesha umwagikaji wa ardhi.",
+     "chrf": 27.6
+    },
+    {
+     "src": "Coffee begins to be harvested after five years of cultivation;",
+     "ref": "Ikawa itangira gutanga umusaruro nyuma y’imyaka itanu",
+     "hyp": "Kaburi kirekodiwa kwa kwanza baada ya miaka mitano ya kilimo.",
+     "chrf": 19.1
+    },
+    {
+     "src": "A naked cow outside the US Bank is talking to a red-haired woman as cabs carry",
+     "ref": "Inka yinka yambaye ubusa hanze ya Banki ya Amerika irimo kuvugana numugore utukura nkuko cabs itwara",
+     "hyp": "Umuhimbwa mungu wa kisukuma umeshaanza kujikiria kwa mwanahari wa kijani kwa kabari kwa kabari kwa kabari",
+     "chrf": 19.4
+    },
+    {
+     "src": "soon the cows were about to enter",
+     "ref": "bidatinze inka zari zigiye kwinjira",
+     "hyp": "Kwa mujibu wa muda, ndege walikuwa wakikwenda",
+     "chrf": 12.2
+    },
+    {
+     "src": "I am looking for potatoes. Do you have money?",
+     "ref": "Ndashaka ibirayi. Woba ufite  Amafaranga?",
+     "hyp": "Ninashaka, nafikirwa kubaka ubaka.",
+     "chrf": 22.5
+    },
+    {
+     "src": "Two boys try to connect the seeds on a bicycle to a dirt road",
+     "ref": "Abahungu babiri bagerageza guhuza imbuto ku igare kumuhanda wa kaburimbo",
+     "hyp": "Ibiri baba basa kujikirisha mafuta ya mafuta kwenye gahari la mbira kwa barabara ya maziwa.",
+     "chrf": 23.1
+    },
+    {
+     "src": "the  bananas are cheaper than the potatoes",
+     "ref": "ibitoki bisigaye bihendutse kurusha ibirayi",
+     "hyp": "Imirwa ya banana ni kubwa kuliko imirwa ya mafuta",
+     "chrf": 13.3
+    },
+    {
+     "src": "they build it up plant it in the soil",
+     "ref": "bakacyubaka bakagitera mubutaka",
+     "hyp": "Wanafunza wanaandika kwenye mafuta, wanaandika kwenye mafuta",
+     "chrf": 15.1
+    },
+    {
+     "src": "I am farming these days for a nice time",
+     "ref": "Ndimo guhinga muriyi minsi kugirango nice igihe",
+     "hyp": "Ninabihembe kwa sasa kwa muda wa utunzaji",
+     "chrf": 13.6
+    },
+    {
+     "src": "A man in a muddy field sows seeds",
+     "ref": "Umugabo mumurima wibyondo abiba imbuto",
+     "hyp": "Abana abana kwenye mbuga ya maziwa anafunika mafuta",
+     "chrf": 16.2
+    },
+    {
+     "src": "agriculture is  a verry hard work",
+     "ref": "ubuhinzi numurimo ukomeye cyane",
+     "hyp": "Umuhimbisho wa kilimo ni kazi ngumu",
+     "chrf": 20.9
+    },
+    {
+     "src": "The soil should be planted before we start planting.",
+     "ref": "Ubutaka bugomba guhingwa mbere yuko dutangira gutera.",
+     "hyp": "Mwani itaandikwa kabla ya kujaza.",
+     "chrf": 11.6
+    },
+    {
+     "src": "The rainy season will end in two or more weeks",
+     "ref": "Igihe cyimvura kizarangira mu byumweru bibiri cyangwa birenga",
+     "hyp": "Umwaka wa mwezi wa mwezi utafikia miaka miwili au zaidi",
+     "chrf": 13.2
+    },
+    {
+     "src": "Eve would not have given me the potatoes if I had not given her the money.",
+     "ref": "Eva ntabwo yari kumpa ibirayi niba ntamafaranga nari bumuhe.",
+     "hyp": "Umwami wa Eve haishikabiri nini nini nini nini nini n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abahamisha n'abah",
+     "chrf": 11.9
+    },
+    {
+     "src": "a farmer who doesn't cultivate only for his home.",
+     "ref": "umuhinzi udahingira urugo rwe gusa.",
+     "hyp": "Abakungu ambaye atembea kwa ajili ya nyumba yake pekee.",
+     "chrf": 10.8
+    },
+    {
+     "src": "Because of the value that cows  had in Rwanda",
+     "ref": "Kubera agaciro inka yari igifite mu Rwanda",
+     "hyp": "Kwa sababu ya thamani ambayo nyama za ng'ombe zilikuwa nchini Rwanda",
+     "chrf": 24.2
+    },
+    {
+     "src": "Can we wonder what can be done to increase agricultural productivity?",
+     "ref": "Twakwibaza icyakorwa kugira ngo umusaruro w’ubuhinzi wiyongere?",
+     "hyp": "Imiruhusu kugusa kile kinaweza kufanya kwa ufanisi kwa uwanja wa kilimo.",
+     "chrf": 19.5
+    },
+    {
+     "src": "The car he uses sells manure to help him reach productivity",
+     "ref": "Iyi modoka ayikoresha atunda ifumbire imufasha kugera ku musaruro",
+     "hyp": "Imijani y'umwami anasoma kubagira ubora wa ujira wake",
+     "chrf": 16.3
+    },
+    {
+     "src": "Last year there was a bad harvest.",
+     "ref": "Umwaka ushize habaye umusaruro mubi.",
+     "hyp": "Umwaka wa mwaka ulipo, umwagikaji wa mafuta ulikuwa mwingi.",
+     "chrf": 22.9
+    },
+    {
+     "src": "\"According to the forecast, there will be heavy rainfall along the way\"",
+     "ref": "\"Ukurikije iteganyagihe, mu nzira hazagwa imvura nyinshi\"",
+     "hyp": "\"Kwa mujibu wa mafungu, kuna mafuriko makubwa kwenye njia\"",
+     "chrf": 16.7
+    },
+    {
+     "src": "there was an animal like a cow with horns among",
+     "ref": "harimo inyamaswa iteye nk’inka ifite amahembe",
+     "hyp": "Umwaka mwinshi ulikuwa nyama yenye ndege kama nyama ya nyama kati ya",
+     "chrf": 21.1
+    },
+    {
+     "src": "\"and is given to many cattle,\"",
+     "ref": "\"kandi agabirwa inka nyinshi,\"",
+     "hyp": "Na umwagwa kwa vuguru vingi.",
+     "chrf": 11.4
+    },
+    {
+     "src": "a woman and young children photographed in front of a large cow statue",
+     "ref": "umugore n'abana bato bato bifotoje imbere yishusho nini yinka",
+     "hyp": "Umushagutse na vijana vya kijani vya mungu vya kuchora kwa kaboni katika kaburi la mungu",
+     "chrf": 17.7
+    },
+    {
+     "src": "The farmer cuts the harvest with a sickle on the market",
+     "ref": "Uyu muhinzi agabanya imbuto zasaruwe akoresheje umuhoro wo kugurisha ku isoko",
+     "hyp": "Akabutabutsa abagenzi ahaba ubuza na mafuta kwenye uwanja wa ubujigwa",
+     "chrf": 18.3
+    },
+    {
+     "src": "Last year we harvested a large quantity of peas",
+     "ref": "Umwaka ushize habaye umusaruro mwinshi wamashaza",
+     "hyp": "Umwaka wa mwaka uliopita tumemaliza kubeba kikombe kikubwa cha makayu.",
+     "chrf": 24.7
+    },
+    {
+     "src": "A woman and children stand next to a statue of a cow",
+     "ref": "Umugore n'abana bahagaze iruhande rw'ishusho y'inka",
+     "hyp": "Mwana na watoto wako kwenye mabaki ya ng'ombe",
+     "chrf": 14.9
+    },
+    {
+     "src": "\"According to the forecast, the rainy season will start next week\"",
+     "ref": "\" Dukurikije iteganyagihe, igihe cy'imvura kizatangira mu cyumweru gitaha\"",
+     "hyp": "\"Kwa mujibu wa mafungu, muda wa mafuriko utakuwa umeshaanza mwezi wa kati\"",
+     "chrf": 17.0
+    }
+   ]
+  },
+  "rw2en": {
+   "chrf": 18.9,
+   "samples": [
+    {
+     "src": "Ubutaka buracyatose umukino uzahagarikwa",
+     "ref": "The soil is still wet a game will be suspended",
+     "hyp": "I don't understand what you're saying.",
+     "chrf": 11.7
+    },
+    {
+     "src": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "ref": "Selection is a long-term tool used to destroy heavy soil.",
+     "hyp": "I will not eat raw meat.",
+     "chrf": 7.6
+    },
+    {
+     "src": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "ref": "A farmer with a light yellow coat drives a tractor",
+     "hyp": "The tractor is being used for farming.",
+     "chrf": 23.8
+    },
+    {
+     "src": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "ref": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "hyp": "I'll eat the meat with rice, and drink with milk.",
+     "chrf": 17.7
+    },
+    {
+     "src": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "ref": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "hyp": "I don't understand what you are saying.",
+     "chrf": 12.2
+    },
+    {
+     "src": "Abana benshi bitabira isiganwa ry'ibirayi",
+     "ref": "Many children take part in the potato race",
+     "hyp": "The translation is: \"The conductor is waiting for the train.\"",
+     "chrf": 20.3
+    },
+    {
+     "src": "Abigishwa bashimishwa cyane n’umusaruro",
+     "ref": "The disciples are very interested in the harvest",
+     "hyp": "Heavily criticized",
+     "chrf": 7.2
+    },
+    {
+     "src": "Ihene yavukanye imitwe ibiri bitangaza benshi",
+     "ref": "The goat was born with two heads that surprised many",
+     "hyp": "They will watch the two movies with subtitles.",
+     "chrf": 26.5
+    },
+    {
+     "src": "umuco mubi wo kuyobora abaturage nk'amatungo bagatomera",
+     "ref": "the bad habit of leading the population like cattle and grazing",
+     "hyp": "The person is beating the people with sticks.",
+     "chrf": 23.8
+    },
+    {
+     "src": "Muri uyu kwezi haguye imvura nyinshi",
+     "ref": "There has been heavy rainfall this month",
+     "hyp": "It will not rain this month.",
+     "chrf": 35.0
+    },
+    {
+     "src": "Umukobwa ukiri muto wumuzungu wambaye ibishyimbo byirabura na maroon snowsuit aryamye hasi yurubura akora marayika wurubura",
+     "ref": "A young white girl wearing black beans and a maroon snowsuit is lying on the floor in a white dress making a black angel",
+     "hyp": "The man is wearing a black and red snowsuit with a fur hat and a fur coat.",
+     "chrf": 34.6
+    },
+    {
+     "src": "ubucuti n’ubufatanye imico n’imyifatire inkomoko inka",
+     "ref": "friendship and cooperation culture and attitudes origins cows",
+     "hyp": "The translation is: \"The place where we meet is in the market.\"",
+     "chrf": 17.3
+    },
+    {
+     "src": "Umugabo umwe ku isoko ryabahinzi atondagura inyanya",
+     "ref": "One man at a farmers market describes tomatoes",
+     "hyp": "The man is selling bananas at the market.",
+     "chrf": 28.6
+    },
+    {
+     "src": "Utekereza ko ibihe by'imvura bizashira mu ntangiriro z'uyu mwaka?",
+     "ref": "do you think rainy season will be over soon in  earlier this year?",
+     "hyp": "The translation is: How long will it take to dry up the lake this year?",
+     "chrf": 31.4
+    },
+    {
+     "src": "bigatuma inka ze zibyara inyana",
+     "ref": "causing his cows to give birth to calves.",
+     "hyp": "The Inca Empire was very powerful.",
+     "chrf": 11.4
+    },
+    {
+     "src": "Abana batandatu bambaye imifuka ya burlap kandi bafite isiganwa ryibirayi",
+     "ref": "Six children in burlap bags and a potato race",
+     "hyp": "The sentence translates to: \"I tie three bundles of grass around the burlap bag and tie it with a string.\"",
+     "chrf": 31.1
+    },
+    {
+     "src": "Afite inka n'indogobe n'imikumbi",
+     "ref": "He has cows and donkeys and flocks",
+     "hyp": "He is in the bathroom.",
+     "chrf": 9.1
+    },
+    {
+     "src": "Abantu babiri basa n'abatera imbuto kumurima",
+     "ref": "Two people seem to be planting seeds in the field",
+     "hyp": "They work together to build a well.",
+     "chrf": 16.1
+    },
+    {
+     "src": "Bagira n’amahirwe baba abatunzi b’inka nyinshi n’amasambu menshi cyane.",
+     "ref": "They are fortunate enough to have a lot of cattle and a lot of land.",
+     "hyp": "I have no interest in watching a movie with my father.",
+     "chrf": 18.4
+    },
+    {
+     "src": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "ref": "sweet potatoes cassava and peas when ripe they are tall",
+     "hyp": "I don't understand what you are saying.",
+     "chrf": 16.7
+    },
+    {
+     "src": "Ubutaka bukungahaye kuri carbon",
+     "ref": "The soil is rich in carbon",
+     "hyp": "I don't understand the translation.",
+     "chrf": 12.7
+    },
+    {
+     "src": "ntibasingiza ubushyo nko mu mazina y’inka.",
+     "ref": "they do not praise the flock as in the names of the cows.",
+     "hyp": "The translation is: \"The king's wealth is hidden in the mountains.\"",
+     "chrf": 24.4
+    },
+    {
+     "src": "Ajyana n'isekurume y'ihene Rugeyo",
+     "ref": "He goes with the goat Rugeyo",
+     "hyp": "Ajyana n'isekurume y'ihene Rugeyo",
+     "chrf": 23.6
+    },
+    {
+     "src": "Ntabwo ntekereza ko imvura izagwa ariko nzafata umutaka mugihe bibaye ngombwa.",
+     "ref": "I don’t think it will rain but I will take the soil when necessary.",
+     "hyp": "The rain is falling on my head, but I am not crying because I am happy to see you.",
+     "chrf": 25.4
+    },
+    {
+     "src": "Abanyarwanda inka bayibonagamo itungo ribafitiye akamaro ahanini mu rwego rw'ubukungu.",
+     "ref": "For Rwandans cows were considered an important source of livestock.",
+     "hyp": "They will be buried in a secret place, hidden from the world.",
+     "chrf": 15.5
+    },
+    {
+     "src": "Ingeragere: Inyamaswa nto y’ishyamba yenda gusa n’ihene.",
+     "ref": "Monkeys: Small forest animals are just like goats.",
+     "hyp": "Engage: Inyamaswa ishambayo yenda gusa n'ihene.",
+     "chrf": 11.2
+    },
+    {
+     "src": "batangaga ibyuhagiro by’inka n’imyaka",
+     "ref": "they used to wash cows and cows",
+     "hyp": "I don't understand the language you are speaking.",
+     "chrf": 17.1
+    },
+    {
+     "src": "Korora inka nyinshi biraruhije muri iki gihe kuberako Inzuri zisigaye ni nke.",
+     "ref": "Breeding a lot of cows is difficult nowadays because there are very few pastures left.",
+     "hyp": "There is no one who can escape the two swords, the Inzuri are sharp.",
+     "chrf": 20.2
+    },
+    {
+     "src": "Amapfa yangije imyaka yose yaho.",
+     "ref": "The drought has devastated the region for years.",
+     "hyp": "I am 100 years old.",
+     "chrf": 11.8
+    },
+    {
+     "src": "mu gihe bari mu bihe by’imvura byiganjemo inkuba.",
+     "ref": "while they are in the rainy season with thunderstorms.",
+     "hyp": "I don't know what you're saying.",
+     "chrf": 11.5
+    },
+    {
+     "src": "Sinshaka kurya isosi ya sasita kuko nkunda inyama n'ibirayi.",
+     "ref": "I don’t want to eat lunch sauce because I love meat and potatoes.",
+     "hyp": "The translation is: \n\nThe snake is eating the chicken in the bush.",
+     "chrf": 15.5
+    },
+    {
+     "src": "ibirayi byarabuze none abantu dusigaye twirira ibijumba",
+     "ref": "the potatoes are gone and now the rest of us are eating sweet potatoes",
+     "hyp": "People are gathering around the building.",
+     "chrf": 19.6
+    },
+    {
+     "src": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "ref": "sweet potatoes cassava and peas when ripe they are tall",
+     "hyp": "I don't understand what you are saying.",
+     "chrf": 16.7
+    },
+    {
+     "src": "Tugomba kwihatira kurwanya isuri kuko ari yo ituma ubutaka bugunduka",
+     "ref": "We have to work hard to fight erosion because that is what makes the soil shake",
+     "hyp": "I will help you, but I need to know what language the sentence is in. Could you please tell me what language the sentence is in?",
+     "chrf": 26.8
+    },
+    {
+     "src": "Ikawa itangira gutanga umusaruro nyuma y’imyaka itanu",
+     "ref": "Coffee begins to be harvested after five years of cultivation;",
+     "hyp": "I will wait patiently for the future.",
+     "chrf": 10.6
+    },
+    {
+     "src": "Inka yinka yambaye ubusa hanze ya Banki ya Amerika irimo kuvugana numugore utukura nkuko cabs itwara",
+     "ref": "A naked cow outside the US Bank is talking to a red-haired woman as cabs carry",
+     "hyp": "Inka yinka yambaye ubusa hanze ya Banki ya Amerika irimo kuvugana numugore utukura nkuko cabs itwara ni kile gani?",
+     "chrf": 20.1
+    },
+    {
+     "src": "bidatinze inka zari zigiye kwinjira",
+     "ref": "soon the cows were about to enter",
+     "hyp": "The translation is: \"The zari will be eaten by the inka.\"",
+     "chrf": 20.2
+    },
+    {
+     "src": "Ndashaka ibirayi. Woba ufite  Amafaranga?",
+     "ref": "I am looking for potatoes. Do you have money?",
+     "hyp": "Is the paint dry?",
+     "chrf": 8.5
+    },
+    {
+     "src": "Abahungu babiri bagerageza guhuza imbuto ku igare kumuhanda wa kaburimbo",
+     "ref": "Two boys try to connect the seeds on a bicycle to a dirt road",
+     "hyp": "The translation is: \n\"Let us work together to build a better future.\"",
+     "chrf": 21.0
+    },
+    {
+     "src": "ibitoki bisigaye bihendutse kurusha ibirayi",
+     "ref": "the  bananas are cheaper than the potatoes",
+     "hyp": "I will eat a sandwich.",
+     "chrf": 8.1
+    },
+    {
+     "src": "bakacyubaka bakagitera mubutaka",
+     "ref": "they build it up plant it in the soil",
+     "hyp": "I don't know what language this is.",
+     "chrf": 14.7
+    },
+    {
+     "src": "Ndimo guhinga muriyi minsi kugirango nice igihe",
+     "ref": "I am farming these days for a nice time",
+     "hyp": "I will dance for a minute to show you my beauty",
+     "chrf": 27.0
+    },
+    {
+     "src": "Umugabo mumurima wibyondo abiba imbuto",
+     "ref": "A man in a muddy field sows seeds",
+     "hyp": "The man is singing to his wife.",
+     "chrf": 20.6
+    },
+    {
+     "src": "ubuhinzi numurimo ukomeye cyane",
+     "ref": "agriculture is  a verry hard work",
+     "hyp": "I am very hungry",
+     "chrf": 15.5
+    },
+    {
+     "src": "Ubutaka bugomba guhingwa mbere yuko dutangira gutera.",
+     "ref": "The soil should be planted before we start planting.",
+     "hyp": "The translation is: \"The ripe mango is hanging upside down.\"",
+     "chrf": 18.2
+    },
+    {
+     "src": "Igihe cyimvura kizarangira mu byumweru bibiri cyangwa birenga",
+     "ref": "The rainy season will end in two or more weeks",
+     "hyp": "I will put on my shoes both in the morning and evening.",
+     "chrf": 29.6
+    },
+    {
+     "src": "Eva ntabwo yari kumpa ibirayi niba ntamafaranga nari bumuhe.",
+     "ref": "Eve would not have given me the potatoes if I had not given her the money.",
+     "hyp": "Eva gave me some money in foreign currency.",
+     "chrf": 19.0
+    },
+    {
+     "src": "umuhinzi udahingira urugo rwe gusa.",
+     "ref": "a farmer who doesn't cultivate only for his home.",
+     "hyp": "The translation is: The hunter has set a trap for the gazelle.",
+     "chrf": 20.6
+    },
+    {
+     "src": "Kubera agaciro inka yari igifite mu Rwanda",
+     "ref": "Because of the value that cows  had in Rwanda",
+     "hyp": "Kubera is fighting against the genocide in Rwanda.",
+     "chrf": 31.3
+    },
+    {
+     "src": "Twakwibaza icyakorwa kugira ngo umusaruro w’ubuhinzi wiyongere?",
+     "ref": "Can we wonder what can be done to increase agricultural productivity?",
+     "hyp": "The translation is: Is it possible to translate animal sounds into human language?",
+     "chrf": 20.2
+    },
+    {
+     "src": "Iyi modoka ayikoresha atunda ifumbire imufasha kugera ku musaruro",
+     "ref": "The car he uses sells manure to help him reach productivity",
+     "hyp": "I am sorry, I do not understand English.",
+     "chrf": 10.0
+    },
+    {
+     "src": "Umwaka ushize habaye umusaruro mubi.",
+     "ref": "Last year there was a bad harvest.",
+     "hyp": "This year is very cold.",
+     "chrf": 18.5
+    },
+    {
+     "src": "\"Ukurikije iteganyagihe, mu nzira hazagwa imvura nyinshi\"",
+     "ref": "\"According to the forecast, there will be heavy rainfall along the way\"",
+     "hyp": "\"There is no rain in Uganda.\"",
+     "chrf": 12.7
+    },
+    {
+     "src": "harimo inyamaswa iteye nk’inka ifite amahembe",
+     "ref": "there was an animal like a cow with horns among",
+     "hyp": "The translation is:\n\n\"Harimo is the one who eats the grasshopper with the long neck.\"",
+     "chrf": 24.9
+    },
+    {
+     "src": "\"kandi agabirwa inka nyinshi,\"",
+     "ref": "\"and is given to many cattle,\"",
+     "hyp": "\"There is no one left.\"",
+     "chrf": 13.7
+    },
+    {
+     "src": "umugore n'abana bato bato bifotoje imbere yishusho nini yinka",
+     "ref": "a woman and young children photographed in front of a large cow statue",
+     "hyp": "What will happen to the one who eats the last banana?",
+     "chrf": 15.8
+    },
+    {
+     "src": "Uyu muhinzi agabanya imbuto zasaruwe akoresheje umuhoro wo kugurisha ku isoko",
+     "ref": "The farmer cuts the harvest with a sickle on the market",
+     "hyp": "The musician is dancing with a big crowd",
+     "chrf": 22.0
+    },
+    {
+     "src": "Umwaka ushize habaye umusaruro mwinshi wamashaza",
+     "ref": "Last year we harvested a large quantity of peas",
+     "hyp": "The years have passed, and the old people have disappeared.",
+     "chrf": 22.6
+    },
+    {
+     "src": "Umugore n'abana bahagaze iruhande rw'ishusho y'inka",
+     "ref": "A woman and children stand next to a statue of a cow",
+     "hyp": "The translation is: \"The day is beautiful, the sun is shining.\"",
+     "chrf": 13.9
+    },
+    {
+     "src": "\" Dukurikije iteganyagihe, igihe cy'imvura kizatangira mu cyumweru gitaha\"",
+     "ref": "\"According to the forecast, the rainy season will start next week\"",
+     "hyp": "\"When the sun sets, the stars appear in the sky\"",
+     "chrf": 22.3
+    }
+   ]
+  }
+ },
+ "gemma3:4b": {
+  "en2rw": {
+   "chrf": 21.1,
+   "samples": [
+    {
+     "src": "The soil is still wet a game will be suspended",
+     "ref": "Ubutaka buracyatose umukino uzahagarikwa",
+     "hyp": "Umutsa uzahebuje, ijambo ryaracucwe.",
+     "chrf": 20.8
+    },
+    {
+     "src": "Selection is a long-term tool used to destroy heavy soil.",
+     "ref": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "hyp": "Kubona ni gishemereki yongera yaturuka amasiringo y’ibindi.",
+     "chrf": 18.4
+    },
+    {
+     "src": "A farmer with a light yellow coat drives a tractor",
+     "ref": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "hyp": "Umuryango wayishyigishiriza, wamye wamurambarara, agaruka iteka.",
+     "chrf": 17.3
+    },
+    {
+     "src": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "ref": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "hyp": "Duce imporo mu kirongo. He n'amaguru mu kirongo.",
+     "chrf": 16.2
+    },
+    {
+     "src": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "ref": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "hyp": "Igisatsi ry’inkuru ry’igihugu ryari ryahashye kuruba uwo maduka.",
+     "chrf": 20.8
+    },
+    {
+     "src": "Many children take part in the potato race",
+     "ref": "Abana benshi bitabira isiganwa ry'ibirayi",
+     "hyp": "Impfanyi n’abararama bagaragaza mu kirari.",
+     "chrf": 15.1
+    },
+    {
+     "src": "The disciples are very interested in the harvest",
+     "ref": "Abigishwa bashimishwa cyane n’umusaruro",
+     "hyp": "Abadayoboho bakwiye cyangwa bakunda cyari mu kiraka.",
+     "chrf": 23.4
+    },
+    {
+     "src": "The goat was born with two heads that surprised many",
+     "ref": "Ihene yavukanye imitwe ibiri bitangaza benshi",
+     "hyp": "Igisatsi yaramagaranye amasomo ya mbili yari yaramubwiye konwanywa.",
+     "chrf": 18.8
+    },
+    {
+     "src": "the bad habit of leading the population like cattle and grazing",
+     "ref": "umuco mubi wo kuyobora abaturage nk'amatungo bagatomera",
+     "hyp": "Kubwira igitabo gake gake bitye abantu n’abasuka n’ibiringi.",
+     "chrf": 18.0
+    },
+    {
+     "src": "There has been heavy rainfall this month",
+     "ref": "Muri uyu kwezi haguye imvura nyinshi",
+     "hyp": "Amabi agasangutse cyane cy'aho uyu munsi.",
+     "chrf": 17.9
+    },
+    {
+     "src": "A young white girl wearing black beans and a maroon snowsuit is lying on the floor in a white dress making a black angel",
+     "ref": "Umukobwa ukiri muto wumuzungu wambaye ibishyimbo byirabura na maroon snowsuit aryamye hasi yurubura akora marayika wurubura",
+     "hyp": "Mwana wa gweza akaboneka agacaca ashyingiranwa n'ibanga n'isaro, asigara asurura ashyashye asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharushya asharush",
+     "chrf": 16.7
+    },
+    {
+     "src": "friendship and cooperation culture and attitudes origins cows",
+     "ref": "ubucuti n’ubufatanye imico n’imyifatire inkomoko inka",
+     "hyp": "amategeko n'ikirondo, gahanda n'amategeko, umuco n'amatego, amagoro.",
+     "chrf": 15.3
+    },
+    {
+     "src": "One man at a farmers market describes tomatoes",
+     "ref": "Umugabo umwe ku isoko ryabahinzi atondagura inyanya",
+     "hyp": "Umuntu umwe aruta mu kir market akurikirira ibizamungu.",
+     "chrf": 21.3
+    },
+    {
+     "src": "do you think rainy season will be over soon in  earlier this year?",
+     "ref": "Utekereza ko ibihe by'imvura bizashira mu ntangiriro z'uyu mwaka?",
+     "hyp": "Umutoni uzaba uracyahoze ari cyici?",
+     "chrf": 11.3
+    },
+    {
+     "src": "causing his cows to give birth to calves.",
+     "ref": "bigatuma inka ze zibyara inyana",
+     "hyp": "Amurangukamwo kuranga ibiza.",
+     "chrf": 15.0
+    },
+    {
+     "src": "Six children in burlap bags and a potato race",
+     "ref": "Abana batandatu bambaye imifuka ya burlap kandi bafite isiganwa ryibirayi",
+     "hyp": "Abatapiro batandatu bakunini n’ikirara rya kamanya.",
+     "chrf": 29.1
+    },
+    {
+     "src": "He has cows and donkeys and flocks",
+     "ref": "Afite inka n'indogobe n'imikumbi",
+     "hyp": "Yaruguru arenga, agahari n'amabuye.",
+     "chrf": 8.8
+    },
+    {
+     "src": "Two people seem to be planting seeds in the field",
+     "ref": "Abantu babiri basa n'abatera imbuto kumurima",
+     "hyp": "Abantu babiri bagaragaza ko bakurura amabuye ahari ibishyi.",
+     "chrf": 43.1
+    },
+    {
+     "src": "They are fortunate enough to have a lot of cattle and a lot of land.",
+     "ref": "Bagira n’amahirwe baba abatunzi b’inka nyinshi n’amasambu menshi cyane.",
+     "hyp": "Bacumi bashobora kuba bagira agaciro n’amasaha ari cyane.",
+     "chrf": 32.5
+    },
+    {
+     "src": "sweet potatoes cassava and peas when ripe they are tall",
+     "ref": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "hyp": "Ibiza, kamabuye, n’ibiramugereri iyo iziti izindi zinyuranye.",
+     "chrf": 19.5
+    },
+    {
+     "src": "The soil is rich in carbon",
+     "ref": "Ubutaka bukungahaye kuri carbon",
+     "hyp": "Umutsa uriho mu kirisimbi rya karbone.",
+     "chrf": 21.6
+    },
+    {
+     "src": "they do not praise the flock as in the names of the cows.",
+     "ref": "ntibasingiza ubushyo nko mu mazina y’inka.",
+     "hyp": "Bacaturana imishingi ntagwe mu kiraniro ry’amakoni.",
+     "chrf": 22.0
+    },
+    {
+     "src": "He goes with the goat Rugeyo",
+     "ref": "Ajyana n'isekurume y'ihene Rugeyo",
+     "hyp": "Ararushana na kamakobwa",
+     "chrf": 13.8
+    },
+    {
+     "src": "I don’t think it will rain but I will take the soil when necessary.",
+     "ref": "Ntabwo ntekereza ko imvura izagwa ariko nzafata umutaka mugihe bibaye ngombwa.",
+     "hyp": "Soranze ari kuvura ariko nari gusangira amaharangaro iyo bisanzishije.",
+     "chrf": 23.5
+    },
+    {
+     "src": "For Rwandans cows were considered an important source of livestock.",
+     "ref": "Abanyarwanda inka bayibonagamo itungo ribafitiye akamaro ahanini mu rwego rw'ubukungu.",
+     "hyp": "Abanyarwanda bagambiza amagoro ari inguruba ebyo mu muhandi.",
+     "chrf": 31.7
+    },
+    {
+     "src": "Monkeys: Small forest animals are just like goats.",
+     "ref": "Ingeragere: Inyamaswa nto y’ishyamba yenda gusa n’ihene.",
+     "hyp": "Impaza n’inka n’inkota zidakomeye.",
+     "chrf": 14.4
+    },
+    {
+     "src": "they used to wash cows and cows",
+     "ref": "batangaga ibyuhagiro by’inka n’imyaka",
+     "hyp": "Bacurana bazakira ndogo ndetse bazakira nk'amagoro.",
+     "chrf": 16.9
+    },
+    {
+     "src": "Breeding a lot of cows is difficult nowadays because there are very few pastures left.",
+     "ref": "Korora inka nyinshi biraruhije muri iki gihe kuberako Inzuri zisigaye ni nke.",
+     "hyp": "Kureka ibindi ndogo rya ngoro bihari arijoranye arijoranye cyangwa ari kirukundo katuriki kubura.",
+     "chrf": 24.9
+    },
+    {
+     "src": "The drought has devastated the region for years.",
+     "ref": "Amapfa yangije imyaka yose yaho.",
+     "hyp": "Igisatsi ryahashakiye isihoro ryarikwamara imyaka.",
+     "chrf": 27.1
+    },
+    {
+     "src": "while they are in the rainy season with thunderstorms.",
+     "ref": "mu gihe bari mu bihe by’imvura byiganjemo inkuba.",
+     "hyp": "Mariya muva ariyo gushinga n’amajani.",
+     "chrf": 15.1
+    },
+    {
+     "src": "I don’t want to eat lunch sauce because I love meat and potatoes.",
+     "ref": "Sinshaka kurya isosi ya sasita kuko nkunda inyama n'ibirayi.",
+     "hyp": "Sangerese n’amate n’amabuye ntangu, ndibona ndi kubura ikimbirije k’isombe.",
+     "chrf": 19.4
+    },
+    {
+     "src": "the potatoes are gone and now the rest of us are eating sweet potatoes",
+     "ref": "ibirayi byarabuze none abantu dusigaye twirira ibijumba",
+     "hyp": "Amahera y’amaboke yaramaze, kandi nin’ uko dukomeze tumaze kwangura amacumbi.",
+     "chrf": 20.1
+    },
+    {
+     "src": "sweet potatoes cassava and peas when ripe they are tall",
+     "ref": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "hyp": "Ibiza, kamabuye, n’ibiramugereri iyo iziti izindi zinyuranye.",
+     "chrf": 19.5
+    },
+    {
+     "src": "We have to work hard to fight erosion because that is what makes the soil shake",
+     "ref": "Tugomba kwihatira kurwanya isuri kuko ari yo ituma ubutaka bugunduka",
+     "hyp": "Dushakiya gukora cyane kugira ngo dutekebe icyukiri, kuko ari izo zibagirana aho izuba zikomeza.",
+     "chrf": 29.2
+    },
+    {
+     "src": "Coffee begins to be harvested after five years of cultivation;",
+     "ref": "Ikawa itangira gutanga umusaruro nyuma y’imyaka itanu",
+     "hyp": "Amavida y'amabwa y'amako yashojwe iboneye amasaha ya hafi ya kuza kubaka.",
+     "chrf": 15.0
+    },
+    {
+     "src": "A naked cow outside the US Bank is talking to a red-haired woman as cabs carry",
+     "ref": "Inka yinka yambaye ubusa hanze ya Banki ya Amerika irimo kuvugana numugore utukura nkuko cabs itwara",
+     "hyp": "Igisangu gikomeye gifite ku kirari gifite umuhango wa kabisi gifite n'umuntu wa mbere wa kirara gifitingisha.",
+     "chrf": 20.1
+    },
+    {
+     "src": "soon the cows were about to enter",
+     "ref": "bidatinze inka zari zigiye kwinjira",
+     "hyp": "Kuva mu gihe duteye, ingwazi zirenacishi.",
+     "chrf": 18.2
+    },
+    {
+     "src": "I am looking for potatoes. Do you have money?",
+     "ref": "Ndashaka ibirayi. Woba ufite  Amafaranga?",
+     "hyp": "Nimucike indi ndizi? Ubwatsi?",
+     "chrf": 9.3
+    },
+    {
+     "src": "Two boys try to connect the seeds on a bicycle to a dirt road",
+     "ref": "Abahungu babiri bagerageza guhuza imbuto ku igare kumuhanda wa kaburimbo",
+     "hyp": "Abagirlikindi babana babaza kugira ibishiti bishure ku kirondoro mu kirari.",
+     "chrf": 25.5
+    },
+    {
+     "src": "the  bananas are cheaper than the potatoes",
+     "ref": "ibitoki bisigaye bihendutse kurusha ibirayi",
+     "hyp": "Amaza ararimbuka kurangura koko iyo ararimbuka ibizamungu.",
+     "chrf": 16.2
+    },
+    {
+     "src": "they build it up plant it in the soil",
+     "ref": "bakacyubaka bakagitera mubutaka",
+     "hyp": "bazacyekuza, bakishyira ibindi ku musha.",
+     "chrf": 20.2
+    },
+    {
+     "src": "I am farming these days for a nice time",
+     "ref": "Ndimo guhinga muriyi minsi kugirango nice igihe",
+     "hyp": "Nimwemerera hejuru kugira ijambo nzuri.",
+     "chrf": 21.1
+    },
+    {
+     "src": "A man in a muddy field sows seeds",
+     "ref": "Umugabo mumurima wibyondo abiba imbuto",
+     "hyp": "Umuntu umurara mu kirere kirimo kubwama agaruka ibiganze.",
+     "chrf": 22.7
+    },
+    {
+     "src": "agriculture is  a verry hard work",
+     "ref": "ubuhinzi numurimo ukomeye cyane",
+     "hyp": "Kubona agaciro ni gukomeka cyane.",
+     "chrf": 27.6
+    },
+    {
+     "src": "The soil should be planted before we start planting.",
+     "ref": "Ubutaka bugomba guhingwa mbere yuko dutangira gutera.",
+     "hyp": "Umutungo uzahabwe kugira ngo turebe kuguruka.",
+     "chrf": 21.0
+    },
+    {
+     "src": "The rainy season will end in two or more weeks",
+     "ref": "Igihe cyimvura kizarangira mu byumweru bibiri cyangwa birenga",
+     "hyp": "Igihe ntabwo igisuka mu kirari ibintu bitari make kuri uwo marathi.",
+     "chrf": 26.1
+    },
+    {
+     "src": "Eve would not have given me the potatoes if I had not given her the money.",
+     "ref": "Eva ntabwo yari kumpa ibirayi niba ntamafaranga nari bumuhe.",
+     "hyp": "Eve yari yari yugandana na mibanza bigahe ntabazaga ntabazaga nifashisha agashyura.",
+     "chrf": 31.2
+    },
+    {
+     "src": "a farmer who doesn't cultivate only for his home.",
+     "ref": "umuhinzi udahingira urugo rwe gusa.",
+     "hyp": "Umuryango wavuga ko ntakunze kuboneka.",
+     "chrf": 15.6
+    },
+    {
+     "src": "Because of the value that cows  had in Rwanda",
+     "ref": "Kubera agaciro inka yari igifite mu Rwanda",
+     "hyp": "Kubera amasiko y’amateka y’inyoni z’inyoni mu Rwanda.",
+     "chrf": 41.2
+    },
+    {
+     "src": "Can we wonder what can be done to increase agricultural productivity?",
+     "ref": "Twakwibaza icyakorwa kugira ngo umusaruro w’ubuhinzi wiyongere?",
+     "hyp": "Twanene uko tugomba gukoresha ibikorwa kugira ngo dukomeze imikora y'amasaka?",
+     "chrf": 35.3
+    },
+    {
+     "src": "The car he uses sells manure to help him reach productivity",
+     "ref": "Iyi modoka ayikoresha atunda ifumbire imufasha kugera ku musaruro",
+     "hyp": "Amakaraba yako ya gusoma iboneka amakaroga y'amabuye ya kuza mu nda.",
+     "chrf": 19.2
+    },
+    {
+     "src": "Last year there was a bad harvest.",
+     "ref": "Umwaka ushize habaye umusaruro mubi.",
+     "hyp": "Icyaka gihe gashize, hasana hashyari.",
+     "chrf": 21.2
+    },
+    {
+     "src": "\"According to the forecast, there will be heavy rainfall along the way\"",
+     "ref": "\"Ukurikije iteganyagihe, mu nzira hazagwa imvura nyinshi\"",
+     "hyp": "Turacye mu kirari kurwego ry'isonga.",
+     "chrf": 15.3
+    },
+    {
+     "src": "there was an animal like a cow with horns among",
+     "ref": "harimo inyamaswa iteye nk’inka ifite amahembe",
+     "hyp": "Hari utũngunzi rwose rwahariye ibindi ndaro.",
+     "chrf": 16.2
+    },
+    {
+     "src": "\"and is given to many cattle,\"",
+     "ref": "\"kandi agabirwa inka nyinshi,\"",
+     "hyp": "“n’agize ibindi ngoma mu kogo.”",
+     "chrf": 15.8
+    },
+    {
+     "src": "a woman and young children photographed in front of a large cow statue",
+     "ref": "umugore n'abana bato bato bifotoje imbere yishusho nini yinka",
+     "hyp": "Kugira nyonyi n'abana bake bakomeje mu kirere cy'isiganiko rya nkuru.",
+     "chrf": 30.4
+    },
+    {
+     "src": "The farmer cuts the harvest with a sickle on the market",
+     "ref": "Uyu muhinzi agabanya imbuto zasaruwe akoresheje umuhoro wo kugurisha ku isoko",
+     "hyp": "Umubare w'inema watsinda ibishyu mu kirari mu kirari.",
+     "chrf": 17.2
+    },
+    {
+     "src": "Last year we harvested a large quantity of peas",
+     "ref": "Umwaka ushize habaye umusaruro mwinshi wamashaza",
+     "hyp": "Ishyaku isaga isaga mwaka rishyaka ibishyimbo bisaga kubage.",
+     "chrf": 19.5
+    },
+    {
+     "src": "A woman and children stand next to a statue of a cow",
+     "ref": "Umugore n'abana bahagaze iruhande rw'ishusho y'inka",
+     "hyp": "Umubintu wa munsi n'abana bashatse bashyingiranwa maze mugomba mu kirongo.",
+     "chrf": 32.3
+    },
+    {
+     "src": "\"According to the forecast, the rainy season will start next week\"",
+     "ref": "\" Dukurikije iteganyagihe, igihe cy'imvura kizatangira mu cyumweru gitaha\"",
+     "hyp": "Turacye tugiye kuvana mu kiraro mu kirari.",
+     "chrf": 16.4
+    }
+   ]
+  },
+  "rw2en": {
+   "chrf": 30.0,
+   "samples": [
+    {
+     "src": "Ubutaka buracyatose umukino uzahagarikwa",
+     "ref": "The soil is still wet a game will be suspended",
+     "hyp": "The stadium will host the match.",
+     "chrf": 21.0
+    },
+    {
+     "src": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "ref": "Selection is a long-term tool used to destroy heavy soil.",
+     "hyp": "The investigation was conducted meticulously in the vast territory.",
+     "chrf": 22.5
+    },
+    {
+     "src": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "ref": "A farmer with a light yellow coat drives a tractor",
+     "hyp": "A black heritage tortoise is driving a tractor.",
+     "chrf": 30.6
+    },
+    {
+     "src": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "ref": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "hyp": "Let's put the lipstick on. Don't put it in your mouth.",
+     "chrf": 40.1
+    },
+    {
+     "src": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "ref": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "hyp": "The cows belonging to the Rwandan king were initially destined to be sold for a hefty price.",
+     "chrf": 34.4
+    },
+    {
+     "src": "Abana benshi bitabira isiganwa ry'ibirayi",
+     "ref": "Many children take part in the potato race",
+     "hyp": "They don't participate in the snake competition.",
+     "chrf": 31.8
+    },
+    {
+     "src": "Abigishwa bashimishwa cyane n’umusaruro",
+     "ref": "The disciples are very interested in the harvest",
+     "hyp": "He was greatly encouraged and rewarded.",
+     "chrf": 13.1
+    },
+    {
+     "src": "Ihene yavukanye imitwe ibiri bitangaza benshi",
+     "ref": "The goat was born with two heads that surprised many",
+     "hyp": "I saw two amazing fights.",
+     "chrf": 11.6
+    },
+    {
+     "src": "umuco mubi wo kuyobora abaturage nk'amatungo bagatomera",
+     "ref": "the bad habit of leading the population like cattle and grazing",
+     "hyp": "He is encouraging the elderly people like cattle to be patient.",
+     "chrf": 36.4
+    },
+    {
+     "src": "Muri uyu kwezi haguye imvura nyinshi",
+     "ref": "There has been heavy rainfall this month",
+     "hyp": "It rained a lot this month.",
+     "chrf": 33.3
+    },
+    {
+     "src": "Umukobwa ukiri muto wumuzungu wambaye ibishyimbo byirabura na maroon snowsuit aryamye hasi yurubura akora marayika wurubura",
+     "ref": "A young white girl wearing black beans and a maroon snowsuit is lying on the floor in a white dress making a black angel",
+     "hyp": "The young girl, a goddess with seaweed, is wearing a maroon snowsuit and has her hair down as she makes miracles.",
+     "chrf": 40.6
+    },
+    {
+     "src": "ubucuti n’ubufatanye imico n’imyifatire inkomoko inka",
+     "ref": "friendship and cooperation culture and attitudes origins cows",
+     "hyp": "mutual cooperation and shared interests",
+     "chrf": 31.5
+    },
+    {
+     "src": "Umugabo umwe ku isoko ryabahinzi atondagura inyanya",
+     "ref": "One man at a farmers market describes tomatoes",
+     "hyp": "A man is selling plants at a market of builders.",
+     "chrf": 33.4
+    },
+    {
+     "src": "Utekereza ko ibihe by'imvura bizashira mu ntangiriro z'uyu mwaka?",
+     "ref": "do you think rainy season will be over soon in  earlier this year?",
+     "hyp": "What dates are the rainy seasons expected to start this year?",
+     "chrf": 37.5
+    },
+    {
+     "src": "bigatuma inka ze zibyara inyana",
+     "ref": "causing his cows to give birth to calves.",
+     "hyp": "I don't understand.",
+     "chrf": 5.5
+    },
+    {
+     "src": "Abana batandatu bambaye imifuka ya burlap kandi bafite isiganwa ryibirayi",
+     "ref": "Six children in burlap bags and a potato race",
+     "hyp": "These burlap bags are beautiful and have a European design.",
+     "chrf": 38.7
+    },
+    {
+     "src": "Afite inka n'indogobe n'imikumbi",
+     "ref": "He has cows and donkeys and flocks",
+     "hyp": "I have forgotten the name of the dog and the house.",
+     "chrf": 18.7
+    },
+    {
+     "src": "Abantu babiri basa n'abatera imbuto kumurima",
+     "ref": "Two people seem to be planting seeds in the field",
+     "hyp": "Two people are working and digging in the field.",
+     "chrf": 47.4
+    },
+    {
+     "src": "Bagira n’amahirwe baba abatunzi b’inka nyinshi n’amasambu menshi cyane.",
+     "ref": "They are fortunate enough to have a lot of cattle and a lot of land.",
+     "hyp": "Our parents have many cattle and a lot of crops.",
+     "chrf": 41.7
+    },
+    {
+     "src": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "ref": "sweet potatoes cassava and peas when ripe they are tall",
+     "hyp": "I'm building until the forests until the customers that were previously had abundance.",
+     "chrf": 20.6
+    },
+    {
+     "src": "Ubutaka bukungahaye kuri carbon",
+     "ref": "The soil is rich in carbon",
+     "hyp": "The village is discussing about carbon.",
+     "chrf": 35.4
+    },
+    {
+     "src": "ntibasingiza ubushyo nko mu mazina y’inka.",
+     "ref": "they do not praise the flock as in the names of the cows.",
+     "hyp": "Don't use cattle names in your addresses.",
+     "chrf": 24.1
+    },
+    {
+     "src": "Ajyana n'isekurume y'ihene Rugeyo",
+     "ref": "He goes with the goat Rugeyo",
+     "hyp": "I am sorry for the harm caused by Mr. Rugeyo.",
+     "chrf": 27.9
+    },
+    {
+     "src": "Ntabwo ntekereza ko imvura izagwa ariko nzafata umutaka mugihe bibaye ngombwa.",
+     "ref": "I don’t think it will rain but I will take the soil when necessary.",
+     "hyp": "I don't think it will rain, but I'll take an umbrella just in case.",
+     "chrf": 49.7
+    },
+    {
+     "src": "Abanyarwanda inka bayibonagamo itungo ribafitiye akamaro ahanini mu rwego rw'ubukungu.",
+     "ref": "For Rwandans cows were considered an important source of livestock.",
+     "hyp": "The Rwandan cattle we used to see were a source of wealth for many people, especially in wealthier households.",
+     "chrf": 35.1
+    },
+    {
+     "src": "Ingeragere: Inyamaswa nto y’ishyamba yenda gusa n’ihene.",
+     "ref": "Monkeys: Small forest animals are just like goats.",
+     "hyp": "To engage with the shadow and bring it forth and heal it.",
+     "chrf": 15.7
+    },
+    {
+     "src": "batangaga ibyuhagiro by’inka n’imyaka",
+     "ref": "they used to wash cows and cows",
+     "hyp": "I don't understand this sentence. It appears to be in a language other than English.",
+     "chrf": 19.1
+    },
+    {
+     "src": "Korora inka nyinshi biraruhije muri iki gihe kuberako Inzuri zisigaye ni nke.",
+     "ref": "Breeding a lot of cows is difficult nowadays because there are very few pastures left.",
+     "hyp": "I'm so grateful for this moment when Beauty Remains is still so beautiful.",
+     "chrf": 17.6
+    },
+    {
+     "src": "Amapfa yangije imyaka yose yaho.",
+     "ref": "The drought has devastated the region for years.",
+     "hyp": "She has been working for all these years.",
+     "chrf": 31.3
+    },
+    {
+     "src": "mu gihe bari mu bihe by’imvura byiganjemo inkuba.",
+     "ref": "while they are in the rainy season with thunderstorms.",
+     "hyp": "When it rains heavily, it brings mud.",
+     "chrf": 16.3
+    },
+    {
+     "src": "Sinshaka kurya isosi ya sasita kuko nkunda inyama n'ibirayi.",
+     "ref": "I don’t want to eat lunch sauce because I love meat and potatoes.",
+     "hyp": "They are eating the meat and crocodiles of the seven.",
+     "chrf": 25.6
+    },
+    {
+     "src": "ibirayi byarabuze none abantu dusigaye twirira ibijumba",
+     "ref": "the potatoes are gone and now the rest of us are eating sweet potatoes",
+     "hyp": "we still welcome the drums",
+     "chrf": 9.9
+    },
+    {
+     "src": "ibijumba ahinga imyumbati ahinga n’imiteja iyo yeze iba ifite uburebure",
+     "ref": "sweet potatoes cassava and peas when ripe they are tall",
+     "hyp": "I'm building until the forests until the customers that were previously had abundance.",
+     "chrf": 20.6
+    },
+    {
+     "src": "Tugomba kwihatira kurwanya isuri kuko ari yo ituma ubutaka bugunduka",
+     "ref": "We have to work hard to fight erosion because that is what makes the soil shake",
+     "hyp": "It's important to prevent erosion because it causes land to deteriorate.",
+     "chrf": 34.5
+    },
+    {
+     "src": "Ikawa itangira gutanga umusaruro nyuma y’imyaka itanu",
+     "ref": "Coffee begins to be harvested after five years of cultivation;",
+     "hyp": "I want to see the results after five years.",
+     "chrf": 36.7
+    },
+    {
+     "src": "Inka yinka yambaye ubusa hanze ya Banki ya Amerika irimo kuvugana numugore utukura nkuko cabs itwara",
+     "ref": "A naked cow outside the US Bank is talking to a red-haired woman as cabs carry",
+     "hyp": "The American Bank of America is talking to a woman who is lying, just as it does when it manipulates things.",
+     "chrf": 38.1
+    },
+    {
+     "src": "bidatinze inka zari zigiye kwinjira",
+     "ref": "soon the cows were about to enter",
+     "hyp": "I don't understand the language you're speaking.",
+     "chrf": 19.8
+    },
+    {
+     "src": "Ndashaka ibirayi. Woba ufite  Amafaranga?",
+     "ref": "I am looking for potatoes. Do you have money?",
+     "hyp": "Do you have any money?",
+     "chrf": 37.9
+    },
+    {
+     "src": "Abahungu babiri bagerageza guhuza imbuto ku igare kumuhanda wa kaburimbo",
+     "ref": "Two boys try to connect the seeds on a bicycle to a dirt road",
+     "hyp": "Two farmers were trying to connect the roots to its full soil surface.",
+     "chrf": 39.0
+    },
+    {
+     "src": "ibitoki bisigaye bihendutse kurusha ibirayi",
+     "ref": "the  bananas are cheaper than the potatoes",
+     "hyp": "It's better to use a knife than a fork.",
+     "chrf": 23.1
+    },
+    {
+     "src": "bakacyubaka bakagitera mubutaka",
+     "ref": "they build it up plant it in the soil",
+     "hyp": "He is digging a hole in the garden.",
+     "chrf": 23.2
+    },
+    {
+     "src": "Ndimo guhinga muriyi minsi kugirango nice igihe",
+     "ref": "I am farming these days for a nice time",
+     "hyp": "I will translate this sentence into English: \"I am asking you for a time for everyone.\"",
+     "chrf": 33.1
+    },
+    {
+     "src": "Umugabo mumurima wibyondo abiba imbuto",
+     "ref": "A man in a muddy field sows seeds",
+     "hyp": "A farmer who plants seeds.",
+     "chrf": 23.7
+    },
+    {
+     "src": "ubuhinzi numurimo ukomeye cyane",
+     "ref": "agriculture is  a verry hard work",
+     "hyp": "Please do a lot of work.",
+     "chrf": 17.5
+    },
+    {
+     "src": "Ubutaka bugomba guhingwa mbere yuko dutangira gutera.",
+     "ref": "The soil should be planted before we start planting.",
+     "hyp": "We started to start pouring.",
+     "chrf": 25.2
+    },
+    {
+     "src": "Igihe cyimvura kizarangira mu byumweru bibiri cyangwa birenga",
+     "ref": "The rainy season will end in two or more weeks",
+     "hyp": "How long will the wound take to heal, two weeks or more?",
+     "chrf": 40.2
+    },
+    {
+     "src": "Eva ntabwo yari kumpa ibirayi niba ntamafaranga nari bumuhe.",
+     "ref": "Eve would not have given me the potatoes if I had not given her the money.",
+     "hyp": "Eva wouldn't have been angry if I had given her money.",
+     "chrf": 44.8
+    },
+    {
+     "src": "umuhinzi udahingira urugo rwe gusa.",
+     "ref": "a farmer who doesn't cultivate only for his home.",
+     "hyp": "The rain is hindering the progress of the work.",
+     "chrf": 16.6
+    },
+    {
+     "src": "Kubera agaciro inka yari igifite mu Rwanda",
+     "ref": "Because of the value that cows  had in Rwanda",
+     "hyp": "He had a great love for cattle in Rwanda.",
+     "chrf": 35.0
+    },
+    {
+     "src": "Twakwibaza icyakorwa kugira ngo umusaruro w’ubuhinzi wiyongere?",
+     "ref": "Can we wonder what can be done to increase agricultural productivity?",
+     "hyp": "What actions are taken to increase agricultural yield?",
+     "chrf": 46.1
+    },
+    {
+     "src": "Iyi modoka ayikoresha atunda ifumbire imufasha kugera ku musaruro",
+     "ref": "The car he uses sells manure to help him reach productivity",
+     "hyp": "That good car is not used to help you reach your goal.",
+     "chrf": 33.0
+    },
+    {
+     "src": "Umwaka ushize habaye umusaruro mubi.",
+     "ref": "Last year there was a bad harvest.",
+     "hyp": "Last year was a bad harvest.",
+     "chrf": 78.3
+    },
+    {
+     "src": "\"Ukurikije iteganyagihe, mu nzira hazagwa imvura nyinshi\"",
+     "ref": "\"According to the forecast, there will be heavy rainfall along the way\"",
+     "hyp": "Be prepared for heavy rain.",
+     "chrf": 19.9
+    },
+    {
+     "src": "harimo inyamaswa iteye nk’inka ifite amahembe",
+     "ref": "there was an animal like a cow with horns among",
+     "hyp": "A rectangular prism has six faces.",
+     "chrf": 11.7
+    },
+    {
+     "src": "\"kandi agabirwa inka nyinshi,\"",
+     "ref": "\"and is given to many cattle,\"",
+     "hyp": "It's very beautiful.",
+     "chrf": 9.0
+    },
+    {
+     "src": "umugore n'abana bato bato bifotoje imbere yishusho nini yinka",
+     "ref": "a woman and young children photographed in front of a large cow statue",
+     "hyp": "The woman and her young children took a photo in front of the picture.",
+     "chrf": 57.9
+    },
+    {
+     "src": "Uyu muhinzi agabanya imbuto zasaruwe akoresheje umuhoro wo kugurisha ku isoko",
+     "ref": "The farmer cuts the harvest with a sickle on the market",
+     "hyp": "This merchant is selling seeds using a sales booth on the market.",
+     "chrf": 35.8
+    },
+    {
+     "src": "Umwaka ushize habaye umusaruro mwinshi wamashaza",
+     "ref": "Last year we harvested a large quantity of peas",
+     "hyp": "Last year was very productive for my crops.",
+     "chrf": 29.1
+    },
+    {
+     "src": "Umugore n'abana bahagaze iruhande rw'ishusho y'inka",
+     "ref": "A woman and children stand next to a statue of a cow",
+     "hyp": "The woman and children practiced the pronunciation of cows.",
+     "chrf": 46.3
+    },
+    {
+     "src": "\" Dukurikije iteganyagihe, igihe cy'imvura kizatangira mu cyumweru gitaha\"",
+     "ref": "\"According to the forecast, the rainy season will start next week\"",
+     "hyp": "\"It's expected to rain in the coming weeks.\"",
+     "chrf": 23.4
+    }
+   ]
+  }
+ }
+}

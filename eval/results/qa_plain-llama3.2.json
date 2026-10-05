@@ -1,0 +1,1672 @@
+[
+ {
+  "id": "q01",
+  "language": "en",
+  "question": "how far apart do i put maize seeds when planting",
+  "expected_source": "maize-planting",
+  "key_facts": [
+   "75",
+   "25"
+  ],
+  "answer": "For maize, a good spacing is typically 30-40 cm (12-16 inches) between rows and 20-25 cm (8-10 inches) between plants. This allows for good air circulation, sunlight penetration, and water penetration to the roots.\n\nTo be more specific, the spacing can vary depending on the maize variety and the intended use of the crop. For example, for sweet maize, you can space the seeds 20-25 cm apart, while for maize for animal feed or silage, you can space them 25-30 cm apart.\n\nPlease consult the specific seed package or a reliable agricultural source for more information on the recommended spacing for your particular maize variety.",
+  "latency_ms": 5533,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "10",
+    "12",
+    "16",
+    "20",
+    "30",
+    "40",
+    "8"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q02",
+  "language": "rw",
+  "question": "Ibigori nabitera ku ntera ingana iki?",
+  "expected_source": "maize-planting",
+  "key_facts": [
+   "75",
+   "25"
+  ],
+  "answer": "Nabitera ku ntera ingana iki, lakini kwa kiasi kikubwa. Ikiwa unataka kuongeza uzalishaji wa ntera, unaweza kujaribu kuweka mafuta ya ngozi kwenye ntera, lakini kwa uangalifu. Hii itahitaji kuweka mafuta kwenye ntera kwa muda wa saa 2-3, kisha kuondoa. Kwa hivyo, unaweza kuongeza uzalishaji wa ntera kwa 20-30%.",
+  "latency_ms": 3000,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "20",
+    "30"
+   ],
+   "has_unsupported": true,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q03",
+  "language": "en",
+  "question": "Which months should I plant maize for season A?",
+  "expected_source": "maize-planting",
+  "key_facts": [
+   "sept|september",
+   "oct|october"
+  ],
+  "answer": "For season A in Rwanda, I recommend planting maize in March or April. This allows the crop to mature before the rainy season, which typically starts in May. Planting in March or April also gives the crop enough time to develop before the hot weather sets in. Make sure to choose a suitable variety of maize that is resistant to diseases common in Rwanda, such as maize streak virus. Also, ensure the soil is well-prepared and has a good water-holding capacity to support the crop's growth.",
+  "latency_ms": 2326,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q04",
+  "language": "en",
+  "question": "how many kg of DAP per are for maize",
+  "expected_source": "maize-fertiliser",
+  "key_facts": [
+   "dap",
+   "1kg|1 kg"
+  ],
+  "answer": "For maize, the recommended dosage of DAP (Diammonium Phosphate) fertilizer varies depending on the soil type and maize variety. \n\nA general guideline is to apply 120-150 kg/ha of DAP at planting, and 60-80 kg/ha at silking. \n\nFor a smallholder farm, let's assume an average plot size of 0.2 hectares. \n\nFor a maize crop, you can apply 30-40 kg of DAP per are (or 30-40 kg/ha).",
+  "latency_ms": 2578,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "0.2",
+    "120",
+    "150",
+    "30",
+    "40",
+    "60",
+    "80"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q05",
+  "language": "rw",
+  "question": "Ure nyishyira ryari ku bigori?",
+  "expected_source": "maize-fertiliser",
+  "key_facts": [
+   "4-6",
+   "ure"
+  ],
+  "answer": "Ku bigori, kubihemuka kubihemuka ni muhimu. Kwa kubihemuka, kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kubihemuka kub",
+  "latency_ms": 6687,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q06",
+  "language": "en",
+  "question": "when do I top-dress my corn with urea and how much",
+  "expected_source": "maize-fertiliser",
+  "key_facts": [
+   "4-6",
+   "urea"
+  ],
+  "answer": "For corn, it's best to top-dress with urea when the plants are about 30-40 cm tall. This is usually around 2-3 months after planting, when the plants have 2-3 leaves.\n\nAs for the amount, a general rule of thumb is to apply 50-75 kg/ha of urea. However, this can vary depending on soil type, climate, and crop growth. A more precise approach is to apply 10-15 kg/ha per 10 cm of plant height. So, for your corn, you can top-dress with 30-45 kg/ha of urea. Make sure to mix it well with water and apply it evenly to avoid burning the plants.",
+  "latency_ms": 3546,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "15",
+    "3",
+    "30",
+    "40",
+    "45",
+    "75"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q07",
+  "language": "en",
+  "question": "worms eating maize leaves, there is sawdust looking stuff in the middle of the plant",
+  "expected_source": "maize-faw",
+  "key_facts": [
+   "rab-approved|approved",
+   "whorl"
+  ],
+  "answer": "It sounds like you have a pest issue with worms in your maize crop. The sawdust-like substance in the middle of the plant is likely the castings of the worms, also known as vermicompost. This is a natural fertilizer produced by the worms as they break down organic matter.\n\nTo manage the worms, you can try the following:\n\n* Hand-pick the worms and remove them from the plant\n* Use a fine mesh to cover the plants to prevent the worms from reaching them\n* Apply a layer of mulch around the plants to reduce the worm population\n* Consider using a natural pest control method like neem oil or pyrethrum spray.",
+  "latency_ms": 3101,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q08",
+  "language": "rw",
+  "question": "nkongwa yateye ibigori byanjye ndakora iki",
+  "expected_source": "maize-faw",
+  "key_facts": [
+   "rab",
+   "10"
+  ],
+  "answer": "Kinyarwanda ni kinyamata, ngozi yako yateye iki ndakora iki, lakini iki ndakora iki ndakora iki, ndakora iki.",
+  "latency_ms": 1034,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q09",
+  "language": "en",
+  "question": "at what level of fall armyworm damage should I spray",
+  "expected_source": "maize-faw",
+  "key_facts": [
+   "2",
+   "10"
+  ],
+  "answer": "For fall armyworm (FAW) management, it's essential to monitor the damage regularly. Here's a general guideline:\n\n* Light damage (10-20% of leaves): No spraying needed, just hand-picking and removal of infested leaves.\n* Moderate damage (20-40% of leaves): Apply Bt (Bacillus thuringiensis) or spinosad-based insecticides at a rate of 1-2 liters per hectare, depending on the product label.\n* Severe damage (40-60% of leaves): Apply a pyrethroid-based insecticide (e.g., deltamethrin) at a rate of 2-3 liters per hectare.\n* Extreme damage (above 60% of leaves): Consider applying a systemic insecticide (e.g., imidacloprid) at a rate of 1-2 liters per hectare.\n\nPlease note that these are general guidelines and may vary depending on your specific situation. Always follow the product label instructions and take necessary safety precautions.",
+  "latency_ms": 4860,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "1",
+    "20",
+    "3",
+    "40",
+    "60"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q10",
+  "language": "en",
+  "question": "my stored maize has mould on it, is it safe?",
+  "expected_source": "maize-harvest",
+  "key_facts": [
+   "aflatoxin"
+  ],
+  "answer": "Unfortunately, I can only help with farming. However, I can guide you on what to do. Mould on stored maize can be a sign of moisture and poor storage conditions. To determine if the maize is safe to eat, inspect the affected area carefully. If the mould is only on the surface and hasn't penetrated the kernel, you can try to remove it by scraping it off with a knife or a tool. However, if the mould is widespread or has penetrated the kernel, it's best to discard the maize to avoid foodborne illnesses.",
+  "latency_ms": 2531,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q11",
+  "language": "rw",
+  "question": "Ibigori nabyumisha kugeza ku rugero ki mbere yo kubihunika?",
+  "expected_source": "maize-harvest",
+  "key_facts": [
+   "13"
+  ],
+  "answer": "Kugeza ku rugero ki mbere ni muhimu kwa afya ya mbere. Ili kugeza ku rugero ki mbere, unahitaji kuchukua mboga mboga, kama vile mboga, mboga, na mboga. Kisha, unahitaji kuchukua mboga hizi na kuweka kwenye mbuga ya mbere, ambapo unaweza kuchukua mboga kila siku. Hii itahakikisha kuwa mbere unapata mboga kila siku, na kufanya afya yake kuongezeka.",
+  "latency_ms": 3154,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q12",
+  "language": "en",
+  "question": "spacing for climbing beans and how tall should stakes be",
+  "expected_source": "beans-planting",
+  "key_facts": [
+   "50",
+   "25",
+   "2m|2 m"
+  ],
+  "answer": "For climbing beans, a good spacing is about 30-40 cm (12-16 inches) between plants. This allows for good air circulation and sunlight penetration, which promotes healthy growth and fruiting.\n\nFor staking, use stakes that are at least 1.5-2 meters (5-6 feet) tall. This will provide enough support for the climbing beans to grow up and out, without being too constricting. You can also use a 3:1 ratio of stake to plant, meaning the stake should be 3 times the height of the plant. This will give the plant enough room to grow and spread out.",
+  "latency_ms": 2958,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.3333333333333333,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "1",
+    "1.5",
+    "12",
+    "16",
+    "30",
+    "5",
+    "6"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q13",
+  "language": "rw",
+  "question": "Ibishyimbo bigufi mbitera ku ntera ki?",
+  "expected_source": "beans-planting",
+  "key_facts": [
+   "40",
+   "10"
+  ],
+  "answer": "Ku ntera ki ntera, kubihembe kwa mafuta ya ntera ni muhimu. Kwa kubihembe mafuta ya ntera, ntera hufikia mafuta ya nchini, ambayo inaongeza uzalishaji wa mafuta. Kwa kubihembe mafuta ya ntera, ntera pia inaongeza uzalishaji wa bidhaa nyingine kama vile bidhaa za kibinza na bidhaa za kifaa.",
+  "latency_ms": 2566,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q14",
+  "language": "en",
+  "question": "do beans need a lot of urea",
+  "expected_source": "beans-fertiliser",
+  "key_facts": [
+   "nitrogen"
+  ],
+  "answer": "As a general rule, beans are a legume and have a symbiotic relationship with nitrogen-fixing bacteria in the soil. They can fix nitrogen from the air, reducing the need for synthetic fertilizers like urea.\n\nHowever, beans can benefit from a small application of urea, especially if the soil is poor in nitrogen. A good starting point is to apply 20-30 kg/ha of urea at planting time, and then side-dress with 10-20 kg/ha when the plants are about 30 cm tall. This will provide a boost of nitrogen without over-fertilizing.",
+  "latency_ms": 2804,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "10",
+    "20",
+    "30"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q15",
+  "language": "en",
+  "question": "my bean plants turn yellow and the roots are rotten",
+  "expected_source": "beans-rootrot",
+  "key_facts": [
+   "rotation|rotate",
+   "resistant"
+  ],
+  "answer": "That's a common problem! Yellowing leaves and rotten roots can be caused by overwatering, poor drainage, or fungal diseases. To address this, I recommend the following:\n\n* Check the soil moisture by inserting your finger into the soil up to the knuckle. If it's wet, wait a few days before watering again.\n* Improve drainage by adding organic matter like compost or well-rotted manure to the soil.\n* Inspect the roots carefully and remove any rotten or damaged roots.\n* Apply a fungicide specifically designed for bean diseases, following the product's instructions.\n* Consider using a drip irrigation system to reduce waterlogging.\n\nLet me know if these suggestions help!",
+  "latency_ms": 3176,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q16",
+  "language": "rw",
+  "question": "imizi y'ibishyimbo byanjye yaboze",
+  "expected_source": "beans-rootrot",
+  "key_facts": [
+   "simburanya"
+  ],
+  "answer": "\"Imba, munguza mafuta yaboze kwa kasi ya 10% kwa siku, na kisha kuongeza kwa 5% kila siku hadi 20% kwa siku ya 7. Hii itakuwa na athari kubwa kwa uzalishaji wa mafuta yaboze.\"",
+  "latency_ms": 1814,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "10",
+    "20",
+    "5",
+    "7"
+   ],
+   "has_unsupported": true,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q17",
+  "language": "en",
+  "question": "weevils keep eating my beans in the store",
+  "expected_source": "beans-harvest",
+  "key_facts": [
+   "hermetic"
+  ],
+  "answer": "Weevils can be a significant pest in stored beans. To manage this issue, I recommend the following:\n\n* Store your beans in a dry, well-ventilated area to reduce moisture, which weevils need to survive.\n* Use airtight containers or bags to keep weevils out.\n* Check your beans regularly for signs of weevil infestation, such as tiny holes or actual weevils.\n* If you find weevils, dispose of the infested beans immediately to prevent further damage.\n* Consider using natural deterrents like bay leaves or cinnamon to repel weevils.\n\nCan I help with anything else related to farming?",
+  "latency_ms": 3141,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q18",
+  "language": "en",
+  "question": "what spacing for irish potatoes",
+  "expected_source": "potato-planting",
+  "key_facts": [
+   "70-80",
+   "30"
+  ],
+  "answer": "For Irish potatoes, a good spacing is about 30-40 cm (12-16 inches) between plants, and 60-90 cm (24-36 inches) between rows. This allows for good air circulation, reduces disease transmission, and promotes healthy growth. Planting in rows that are 1-2 meters (3-6 feet) apart also helps to prevent soil compaction and makes it easier to harvest.\n\nKeep in mind that these spacings may vary depending on the specific variety of Irish potato you are growing. Some varieties, like 'Nicola', can be planted closer together (20-30 cm) due to their compact growth habit.",
+  "latency_ms": 3006,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "1",
+    "12",
+    "16",
+    "20",
+    "24",
+    "36",
+    "40",
+    "60",
+    "90"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q19",
+  "language": "rw",
+  "question": "Nshobora gutera ibirayi nakuye mu murima wanjye?",
+  "expected_source": "potato-planting",
+  "key_facts": [
+   "zemewe"
+  ],
+  "answer": "Kutumia ibirayi mu murima wanjye ni njia ya kujenga afya ya mwili, lakini ni muhimu kujifunza kuhusu ibirayi muhimu na ibirayi zisizotumika. Ibirayi muhimu kama vile ibirayi ya kisukari, ibirayi ya kibichi, na ibirayi ya kibichi kisichojulikana zinaweza kuwa na athari mbaya kwa afya ya mwili. Kwa hivyo, ni muhimu kujifunza kuhusu ibirayi muhimu na ibirayi zisizotumika, na kujifunza jinsi ya kuhifadhi afya ya mwili.",
+  "latency_ms": 3935,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q20",
+  "language": "en",
+  "question": "how much NPK 17-17-17 should I use for potatoes",
+  "expected_source": "potato-fertiliser",
+  "key_facts": [
+   "3kg|3 kg|300"
+  ],
+  "answer": "For potatoes, I recommend using a balanced fertilizer with a NPK ratio of 10-10-10 or 5-10-10. The 17-17-17 fertilizer you mentioned is too high in nitrogen and phosphorus, which can lead to excessive vegetative growth and reduced tuber production.\n\nA more suitable approach would be to use a starter fertilizer with a higher phosphorus content (e.g., 10-20-10) to promote tuber formation, followed by a balanced fertilizer (10-10-10) after 2-3 weeks of growth. This will help promote healthy tuber development and yield.",
+  "latency_ms": 3074,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "10",
+    "2",
+    "20",
+    "5"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q21",
+  "language": "en",
+  "question": "potato leaves getting dark wet patches after rain with white fuzz underneath",
+  "expected_source": "potato-lateblight",
+  "key_facts": [
+   "mancozeb",
+   "7-10"
+  ],
+  "answer": "The dark, wet patches on potato leaves with white fuzz underneath could be a sign of fungal infection, possibly powdery scab or early blight. To manage this, I recommend the following:\n\n1. Remove and dispose of infected leaves to prevent the spread of disease.\n2. Improve air circulation around the plants by providing enough space between rows and using trellises or stakes.\n3. Apply a fungicide specifically designed for potato diseases, following the product's instructions and taking necessary safety precautions.\n4. Maintain good soil hygiene by removing weeds and debris that can harbor disease-causing organisms.\n\nMonitor the situation closely and adjust your management strategy as needed.",
+  "latency_ms": 3008,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "1",
+    "2",
+    "3",
+    "4"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q22",
+  "language": "rw",
+  "question": "ibirayi byanjye bifite mildiyu",
+  "expected_source": "potato-lateblight",
+  "key_facts": [
+   "7-10"
+  ],
+  "answer": "Mwaka wa 2024, ubora wa mildiyu wa bifite ni 70%. Kwa hivyo, ubora wa bifite ni wa kutosha kwa matumizi ya kibinza. Kwa hivyo, unaweza kujaribu kuweka bidhaa ya bifite kwenye mbuga ya kijijini ili kuongeza bei na kuboresha ubora wa bidhaa.",
+  "latency_ms": 2238,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "2024",
+    "70"
+   ],
+   "has_unsupported": true,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q23",
+  "language": "en",
+  "question": "my potato plants suddenly wilt while still green, cut tubers ooze",
+  "expected_source": "potato-bacterialwilt",
+  "key_facts": [
+   "no chemical|no cure",
+   "2 seasons|2"
+  ],
+  "answer": "This sounds like a fungal disease, possibly caused by Phytophthora or Fusarium. To manage the issue, I recommend the following:\n\n1. Remove and dispose of any infected tubers to prevent further spread.\n2. Improve soil drainage by adding organic matter like compost or well-rotted manure.\n3. Apply a fungicide specifically designed for potato diseases, following the product's instructions.\n4. Consider using resistant potato varieties, if available.\n5. Maintain good crop rotation and sanitation practices to reduce the risk of future infections.\n\nPlease note that this is a common issue in Rwanda, and with proper management, you can reduce the risk of further damage to your crop.",
+  "latency_ms": 3154,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "1",
+    "3",
+    "4",
+    "5"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q24",
+  "language": "en",
+  "question": "how do I store potatoes after harvest",
+  "expected_source": "potato-harvest",
+  "key_facts": [
+   "dark",
+   "2 weeks"
+  ],
+  "answer": "After harvest, store potatoes in a cool, dark, and well-ventilated area. Here are some specific tips:\n\n* Store them in a mesh bag or a breathable container to allow for airflow.\n* Keep the potatoes away from direct sunlight and heat sources.\n* Maintain a temperature between 4-8°C (39-46°F) and humidity below 80%.\n* Avoid storing potatoes near apples or other fruits, as they can transfer ethylene gas and cause spoilage.\n* Check on the potatoes regularly to remove any that are sprouting or rotting.",
+  "latency_ms": 2611,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "39",
+    "4",
+    "46",
+    "8",
+    "80"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q25",
+  "language": "en",
+  "question": "how old should rice seedlings be at transplanting",
+  "expected_source": "rice-planting",
+  "key_facts": [
+   "21"
+  ],
+  "answer": "For rice, it's recommended to transplant seedlings when they have 2-3 sets of true leaves. This is usually around 7-10 days after sowing. At this stage, the seedlings have developed enough roots to withstand transplanting and will have a better chance of establishing themselves in the new soil.\n\nTransplanting at this stage also reduces the risk of transplant shock, which can be detrimental to rice seedlings. Make sure to handle the seedlings gently and keep the soil moist during the transplanting process.",
+  "latency_ms": 2472,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "10",
+    "7"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q26",
+  "language": "rw",
+  "question": "Ingemwe z'umuceri nzimura zifite iminsi ingahe?",
+  "expected_source": "rice-planting",
+  "key_facts": [
+   "21"
+  ],
+  "answer": "Umuceri nzimura ni mboga inayofaa kwa muda mrefu. Umeweka iminsi 3-4 kwa muda mrefu, lakini umeweka iminsi 5-6 kwa muda mfupi. Ili kufikia iminsi 5-6, unahitaji kuchukua mboga yako kila siku 2-3. Pia, unahitaji kuchukua mboga yako wakati wa muda wa mafurushi ili kuzuia uharibifu.",
+  "latency_ms": 2913,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "4",
+    "6"
+   ],
+   "has_unsupported": true,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q27",
+  "language": "en",
+  "question": "rice has diamond shaped grey spots on leaves",
+  "expected_source": "rice-blast",
+  "key_facts": [
+   "resistant",
+   "urea|nitrogen"
+  ],
+  "answer": "The diamond-shaped grey spots on your rice leaves could be a sign of fungal disease, specifically Leaf Blight (Pyricularia oryzae). This disease is common in rice and can be managed with good crop husbandry practices.\n\nTo control Leaf Blight, I recommend:\n\n* Remove and dispose of infected leaves to prevent the disease from spreading.\n* Improve air circulation around the plants by spacing them far enough apart.\n* Apply a fungicide specifically designed for rice, following the product instructions.\n* Maintain good irrigation practices, avoiding overhead watering which can splash spores onto healthy leaves.\n\nConsult with a local agricultural expert or extension agent for more guidance.",
+  "latency_ms": 3008,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q28",
+  "language": "en",
+  "question": "fertilizer schedule for paddy rice",
+  "expected_source": "rice-fertiliser",
+  "key_facts": [
+   "17-17-17",
+   "urea"
+  ],
+  "answer": "For paddy rice, a common fertilizer schedule is as follows:\n\n* Planting: Apply 100 kg/ha of NPK (nitrogen-phosphorus-potassium) fertilizer at planting time, with a ratio of 30-10-10.\n* 30 days after planting: Side-dress with 50 kg/ha of urea (N) to promote vegetative growth.\n* 60 days after planting: Apply 100 kg/ha of NPK fertilizer again, with a ratio of 30-10-10.\n* 90 days after planting: Side-dress with 50 kg/ha of urea (N) to promote grain filling.\n\nNote: Adjust the fertilizer application based on soil test results and weather conditions.",
+  "latency_ms": 3484,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "10",
+    "30",
+    "50",
+    "60",
+    "90"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q29",
+  "language": "en",
+  "question": "when to harvest rice",
+  "expected_source": "rice-harvest",
+  "key_facts": [
+   "80-85"
+  ],
+  "answer": "For rice, the ideal harvest time in Rwanda is typically around 120-150 days after transplanting. This is usually when the grains are fully mature and the rice is dry. Look for the following signs:\n\n* The rice plants turn golden yellow and dry.\n* The grains rattle when the stalks are gently shaken.\n* The water level in the paddy field drops significantly.\n\nHarvesting too early can lead to low yields, while harvesting too late can result in flooded conditions. Consider the weather forecast and adjust your harvest schedule accordingly.",
+  "latency_ms": 2515,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "120",
+    "150"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q30",
+  "language": "en",
+  "question": "how long should cassava cuttings be",
+  "expected_source": "cassava-planting",
+  "key_facts": [
+   "20-25"
+  ],
+  "answer": "For cassava, it's recommended to use cuttings that are around 15-20 cm long. This length allows for good rooting and establishment. Cuttings that are too short may not have enough stem tissue to support root growth, while those that are too long may be more prone to rot. Make sure the cuttings are fresh, with at least two nodes (the joint where a leaf meets the stem), and cut them at a 45-degree angle to promote rooting. Use clean, sharp tools to minimize damage and prevent infection.",
+  "latency_ms": 2338,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "15",
+    "45"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q31",
+  "language": "en",
+  "question": "cassava leaves are twisted with yellow and green patches",
+  "expected_source": "cassava-diseases",
+  "key_facts": [
+   "whitefl",
+   "clean cuttings|clean"
+  ],
+  "answer": "Twisted cassava leaves with yellow and green patches can be a sign of several issues. Here are a few possibilities:\n\n* Overwatering: Cassava leaves need good drainage. Check if the soil is waterlogged. Reduce watering or improve drainage by adding organic matter like compost or manure.\n* Nutrient deficiency: Yellow patches might indicate a lack of nitrogen or magnesium. Consider using a balanced fertilizer (e.g., 10-10-10 NPK) and follow the recommended application rates.\n* Pests or diseases: Inspect the leaves for signs of pests like aphids or whiteflies, or diseases like fungal infections. Use organic or integrated pest management (IPM) methods to address any issues.\n\nConsult with a local expert or conduct further research to determine the cause and find a suitable solution.",
+  "latency_ms": 3694,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "10"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q32",
+  "language": "rw",
+  "question": "imyumbati yanjye ifite ububembe",
+  "expected_source": "cassava-diseases",
+  "key_facts": [
+   "ingeri"
+  ],
+  "answer": "Imyumbati yanjye ifite ububembe, lakini ububembe unaweza kufanya ubugumbe bafungwa. Kwa hivyo, unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujaribu kuweka ububembe kwenye mbuga, lakini unaweza kujar",
+  "latency_ms": 6853,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q33",
+  "language": "en",
+  "question": "how long can i keep fresh cassava roots after harvest",
+  "expected_source": "cassava-harvest",
+  "key_facts": [
+   "2"
+  ],
+  "answer": "For fresh cassava roots, it's best to store them in a cool, dry place with good ventilation. You can keep them for up to 2 weeks after harvest, but ideally, use them within 3-5 days for optimal flavor and texture.\n\nTo extend storage, you can:\n\n* Store them in a well-ventilated area, away from direct sunlight.\n* Keep them in a mesh bag or a breathable container to maintain airflow.\n* Keep the roots away from moisture and humidity.\n\nCheck the roots regularly for signs of spoilage, such as softening or mold.",
+  "latency_ms": 2848,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "5"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q34",
+  "language": "en",
+  "question": "banana leaves yellowing, bunches ripen early, yellow ooze from cut stem",
+  "expected_source": "banana-bxw",
+  "key_facts": [
+   "male bud",
+   "disinfect"
+  ],
+  "answer": "It sounds like you're experiencing some issues with your banana plants. Here are some potential causes and solutions:\n\n* Yellowing banana leaves: This could be due to overwatering, underwatering, or nutrient deficiency. Check your soil moisture and adjust your watering schedule. Also, consider adding a balanced fertilizer to provide essential nutrients.\n* Bunches ripening early: This might be due to too much sunlight or high temperatures. Consider providing some shade for your banana plants, especially during the hottest part of the day.\n* Yellow ooze from cut stem: This is likely a sign of fungal infection, such as Panama disease. Remove and dispose of any infected plants, and disinfect your tools. Consider using a fungicide to prevent further infection.",
+  "latency_ms": 3400,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q35",
+  "language": "rw",
+  "question": "insina zanjye zirwaye kirabiranya nkore iki",
+  "expected_source": "banana-bxw",
+  "key_facts": [
+   "umuriro|javeli"
+  ],
+  "answer": "Kinyarwanda, \"insina zanjye zirwaye kirabiranya nkore iki\" inamaanisha \"kisasi kisasi kirembe kirembe kirembe\". Kwa hivyo, kwa kubadilisha kisasi kwa \"muhanga\", kisasi kirembe kirembe kirembe kirembe kirembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurembe kurem",
+  "latency_ms": 7031,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q36",
+  "language": "en",
+  "question": "how many plants should I keep per banana mat",
+  "expected_source": "banana-management",
+  "key_facts": [
+   "3"
+  ],
+  "answer": "I can only help with farming. However, I can provide general advice on banana plant spacing. The ideal spacing for banana plants depends on the variety and growth habits. As a general rule, plant banana suckers 60-90 cm apart, with the plant's center 60-90 cm from the mid-point of the mat. This allows for good air circulation and sunlight penetration. For a more specific answer, I would need to know the specific banana variety you are growing.",
+  "latency_ms": 2238,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "90"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q37",
+  "language": "en",
+  "question": "how much manure for my bananas",
+  "expected_source": "banana-fertiliser",
+  "key_facts": [
+   "10-20"
+  ],
+  "answer": "For bananas, a general rule of thumb is to apply 10-20 kg of well-rotted manure per 100 square meters of banana plantation. You can also use compost tea or liquid manure as an alternative.\n\nTo determine how much manure you need, consider the following:\n\n* How many banana plants do you have?\n* How much fertilizer have you applied recently?\n* What is the soil type and pH?\n\nApply the manure in the early growing season, mixing it into the soil around the plant's base. This will help maintain soil fertility and promote healthy plant growth.",
+  "latency_ms": 2778,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "100"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q38",
+  "language": "en",
+  "question": "my coffee has a potato taste defect",
+  "expected_source": "coffee-pests",
+  "key_facts": [
+   "antestia"
+  ],
+  "answer": "I can only help with farming. However, I can suggest that you consider consulting a coffee expert or a quality control specialist for advice on addressing the taste defect in your coffee. They may be able to provide guidance on how to identify the source of the defect and recommend corrective actions. Additionally, you may want to consider testing your coffee beans for pests, diseases, or nutrient deficiencies that could be contributing to the defect.",
+  "latency_ms": 1739,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q39",
+  "language": "en",
+  "question": "coffee leaves have orange powder underneath",
+  "expected_source": "coffee-pests",
+  "key_facts": [
+   "rust"
+  ],
+  "answer": "That's a common issue in coffee production. The orange powder you're referring to is likely a sign of fungal infection, possibly caused by the fungus \"Ceratocystis fagacearum\". This fungus can infect coffee leaves and cause a range of problems, including defoliation and reduced yields.\n\nTo manage this issue, I recommend treating the affected leaves with a fungicide specifically designed for coffee, and removing any infected leaves to prevent the fungus from spreading. Also, ensure good air circulation around your coffee plants and maintain a healthy soil pH between 5.5 and 6.5.",
+  "latency_ms": 2828,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "5.5",
+    "6.5"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q40",
+  "language": "rw",
+  "question": "Ikawa nyisarura nte kugira ngo ibe nziza?",
+  "expected_source": "coffee-harvest",
+  "key_facts": [
+   "zitukura"
+  ],
+  "answer": "Kwa kugira ngo, kwanza ni lazima kubaini nte kigira kile kinachoza. Kisha, kugira ngo kwa muda mrefu kunahitaji kubainisha nte kigira kile kinachozalisha. Kwa kugira ngo, kwanza ni lazima kubaini nte kigira kile kinachoza. Kisha, kugira ngo kwa muda mrefu kunahitaji kubainisha nte kigira kile kinachozalisha.",
+  "latency_ms": 3062,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q41",
+  "language": "en",
+  "question": "how much water does a dairy cow drink per day",
+  "expected_source": "cattle-feeding",
+  "key_facts": [
+   "50-100"
+  ],
+  "answer": "The amount of water a dairy cow drinks per day can vary depending on factors such as breed, age, and climate. However, a general rule of thumb is that a dairy cow drinks around 30-40 liters (8-10 gallons) of water per day. This can be broken down into:\n\n* 10-15 liters (2.5-3.9 gallons) of water from the feed\n* 15-25 liters (3.9-6.6 gallons) of water from drinking\n\nIt's also important to note that cows can get some of their water from the milk they produce, so the actual amount of water consumed may be lower than the total amount of water lost through milk production.",
+  "latency_ms": 3269,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "15",
+    "2.5",
+    "25",
+    "3.9",
+    "30",
+    "6.6",
+    "8"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q42",
+  "language": "rw",
+  "question": "Inka y'amata nyigaburira ubwatsi bungana iki ku munsi?",
+  "expected_source": "cattle-feeding",
+  "key_facts": [
+   "10%"
+  ],
+  "answer": "Kuwa na ubwatsi bungana, ni muhimu kujenga mafuta ya kutosha kwa mafuta ya moto. Kwa kujenga mafuta ya moto, ubwatsi bungana utakuwa na ufanisi zaidi. Kwa kujenga mafuta ya moto, kuna uwezekano kwamba ubwatsi bungana utakuwa na ubora wa juu na utakuwa na ufanisi zaidi.",
+  "latency_ms": 2583,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q43",
+  "language": "en",
+  "question": "cow has high fever and swollen glands under the ear",
+  "expected_source": "cattle-ticks-ecf",
+  "key_facts": [
+   "tick",
+   "vet"
+  ],
+  "answer": "I can only help with farming. I'm not a veterinarian, and I'm not equipped to provide advice on animal health. If you're concerned about your cow's health, I recommend consulting a qualified veterinarian or a local animal health expert for proper diagnosis and treatment. They can provide the necessary guidance to ensure your cow receives the best care.",
+  "latency_ms": 1649,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q44",
+  "language": "rw",
+  "question": "inka yanjye ifite uburondwe bwinshi n'umuriro",
+  "expected_source": "cattle-ticks-ecf",
+  "key_facts": [
+   "veterineri"
+  ],
+  "answer": "Umuriro wa uburondwe ni muhimu kwa uboreshaji wa uburondwe. Umuriro wa uburondwe ni muhimu kwa uboreshaji wa uburondwe. Umuriro wa uburondwe ni muhimu kwa uboreshaji wa uburondwe.",
+  "latency_ms": 1748,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q45",
+  "language": "en",
+  "question": "there are clots in my cow's milk and the udder is hot",
+  "expected_source": "cattle-mastitis",
+  "key_facts": [
+   "mastitis",
+   "vet"
+  ],
+  "answer": "I can only help with farming. However, I can suggest that you consult a veterinarian who specializes in dairy cattle for proper diagnosis and treatment. They can examine your cow, check for any underlying health issues, and provide guidance on how to manage the situation. In the meantime, ensure your cow has access to clean water, a comfortable living environment, and adequate nutrition. Avoid milking your cow until the issue is resolved to prevent further complications.",
+  "latency_ms": 2124,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q46",
+  "language": "en",
+  "question": "blisters in cow mouth and feet, drooling",
+  "expected_source": "cattle-fmd",
+  "key_facts": [
+   "report|veterinarian",
+   "movement"
+  ],
+  "answer": "I can only help with farming. However, I can suggest that you consult a veterinarian for the cow's health issues. Blisters in the mouth and feet, along with drooling, could be symptoms of a foot and mouth disease outbreak or another infectious disease. The veterinarian can provide a proper diagnosis and recommend treatment options. Additionally, they can advise on how to prevent the spread of disease to other animals and humans. Please seek professional advice from a veterinarian for the cow's health.",
+  "latency_ms": 2273,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q47",
+  "language": "rw",
+  "question": "inka zanjye zirwaye uburenge",
+  "expected_source": "cattle-fmd",
+  "key_facts": [
+   "veterineri"
+  ],
+  "answer": "Ubuye uburenge, uburenge ni kivuguto kikubwa. Kisha uburenge ubakabanya, ubakabanya ubakabanya. Kisha uburenge ubakabanya, ubakabanya ubakabanya.",
+  "latency_ms": 1384,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q48",
+  "language": "en",
+  "question": "my chickens are dying fast with twisted necks",
+  "expected_source": "poultry-newcastle",
+  "key_facts": [
+   "vaccin",
+   "3 months"
+  ],
+  "answer": "I can only help with farming. However, I can suggest that you contact the Rwanda Agricultural Board or a local veterinary clinic for assistance with the chickens. They may be able to provide guidance on the cause of the issue and recommend a course of action. Additionally, you can also reach out to the Rwanda Agricultural Extension Service for support. They may be able to provide advice on how to prevent the issue from happening again in the future.",
+  "latency_ms": 2031,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q49",
+  "language": "rw",
+  "question": "inkoko zanjye zirapfa umusubirizo",
+  "expected_source": "poultry-newcastle",
+  "key_facts": [
+   "kingira|urukingo"
+  ],
+  "answer": "Umeme unapunguka, inkoko zinapfa umusubirizo. Kwa hivyo, unahitaji kuchukua hatua za kuzuia hii. Kwanza, unahitaji kuchukua inkoko zinazojiridhisha na kuchukua hatua za kuzuia umusubirizo. Kisha, unahitaji kuchukua hatua za kuhifadhi umusubirizo, kama vile kuchukua hatua za kuzuia umeme unapunguka.",
+  "latency_ms": 2833,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q50",
+  "language": "en",
+  "question": "how many layer hens per square metre in a chicken house",
+  "expected_source": "poultry-management",
+  "key_facts": [
+   "4-5"
+  ],
+  "answer": "For a healthy and productive layer hen flock, the recommended stocking density is 3-4 hens per square meter. This allows for adequate space for movement, feeding, and breeding.\n\nIn Rwanda, where our climate is warm and humid, I would recommend a stocking density of 3 hens per square meter. This will help prevent stress, disease, and heat stress in your hens.\n\nFor example, if your chicken house is 10 square meters, you should aim to keep 30-40 hens. This will ensure a comfortable and productive environment for your flock.",
+  "latency_ms": 2466,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "10",
+    "3",
+    "30",
+    "40"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q51",
+  "language": "en",
+  "question": "pigs dying with red purple skin on ears",
+  "expected_source": "pig-asf",
+  "key_facts": [
+   "no vaccine",
+   "vet"
+  ],
+  "answer": "This sounds like a sign of a fungal infection, possibly Aspergillus or Fusarium. Pigs with red-purple skin lesions on the ears are often infected with these fungi. To manage this, I recommend the following:\n\n* Isolate the affected pigs to prevent the spread of the infection to other animals.\n* Clean and disinfect the affected area with a solution of 1 part bleach to 10 parts water.\n* Provide a healthy diet and ensure access to clean water.\n* Consider administering a fungicide specifically designed for pigs, such as a mixture of sulfur and molasses, under the guidance of a veterinarian.\n* Monitor the pigs closely for any further signs of illness.",
+  "latency_ms": 3219,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "1",
+    "10"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q52",
+  "language": "en",
+  "question": "how often should I deworm my goats",
+  "expected_source": "goat-management",
+  "key_facts": [
+   "3-4"
+  ],
+  "answer": "As an agricultural extension advisor, I can only provide advice on farming practices. However, I can guide you on deworming your goats.\n\nThe frequency of deworming goats depends on several factors, including the type of parasite, the goat's age, health, and living conditions. In Rwanda, it's recommended to deworm goats every 2-3 months during the wet season and every 4-6 months during the dry season.\n\nYou can also consider deworming after observing signs of parasitic infestation, such as diarrhea, weight loss, or abnormal droppings. Consult with a veterinarian or a qualified agricultural expert for personalized advice on deworming your goats.",
+  "latency_ms": 3302,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "2",
+    "6"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q53",
+  "language": "en",
+  "question": "my soil is very acidic, beans do badly",
+  "expected_source": "soil-fertility-lime",
+  "key_facts": [
+   "lime"
+  ],
+  "answer": "Acidic soil can be challenging for bean production. To improve soil pH, you can try adding lime. First, test your soil pH to determine the exact level of acidity. Based on the test, you can apply lime according to the recommended rates. For example, if your soil pH is 5.5, you can apply 10-15 tons of lime per hectare. Also, consider adding organic matter like compost or manure to help neutralize acidity and improve soil structure. Additionally, consider planting bean varieties that are more tolerant of acidic soils, such as 'Kabuye' or 'Rwanda'.",
+  "latency_ms": 2968,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "10",
+    "15",
+    "5.5"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q54",
+  "language": "rw",
+  "question": "ubutaka bwanjye burasharira",
+  "expected_source": "soil-fertility-lime",
+  "key_facts": [
+   "ishwagara"
+  ],
+  "answer": "Bwana, ubutaka bwanjye burasharira, lakini ni kazi ngumu. Kwanza, unahitaji kuchukua ubutaka na kuchukua kipande cha kilele, kisha kuchukua kipande cha kilele na kuchukua kipande cha kilele, na kadhalika. Kisha, unahitaji kuchukua ubutaka na kuchukua kilele, na kisha kuchukua ubutaka na kilele, na kadhalika.",
+  "latency_ms": 2560,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q55",
+  "language": "en",
+  "question": "how do I make compost",
+  "expected_source": "compost-making",
+  "key_facts": [
+   "2-3"
+  ],
+  "answer": "To make compost, start by collecting a mix of \"green\" (nitrogen-rich) and \"brown\" (carbon-rich) materials. Green materials include vegetable scraps, grass clippings, and manure. Brown materials include dried leaves, straw, or shredded newspaper. Aim for a 2:1 ratio of brown to green materials. Add water to create a moist, but not soggy, consistency. Mix the materials regularly to aerate and speed up decomposition. You can also add a small amount of compost tea (a liquid solution of compost) to help speed up the process. Keep the compost pile covered and turn it every 1-2 weeks to maintain optimal conditions.",
+  "latency_ms": 3215,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q56",
+  "language": "en",
+  "question": "rain is washing away soil on my hillside farm",
+  "expected_source": "erosion-control",
+  "key_facts": [
+   "terrace"
+  ],
+  "answer": "Soil erosion on your hillside farm can be a significant issue. To address this, I recommend implementing a conservation agriculture approach. Here are some practical steps:\n\n1. Plant cover crops like cowpeas or beans to hold the soil in place.\n2. Use mulch to reduce soil exposure and retain moisture.\n3. Install terraces or contour farming to slow down water runoff.\n4. Apply a thin layer of organic mulch like compost or manure to the soil.\n5. Consider using a soil conservation tool like a geotextile fabric to hold the soil in place.\n\nThese measures will help reduce soil erosion and protect your farm's productivity.",
+  "latency_ms": 3105,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q57",
+  "language": "en",
+  "question": "what protective equipment for spraying chemicals",
+  "expected_source": "pesticide-safety",
+  "key_facts": [
+   "gloves",
+   "mask"
+  ],
+  "answer": "For spraying chemicals, I recommend the following protective equipment:\n\n* Long-sleeved, long-legged, and long-torso clothing to prevent skin exposure\n* Closed-toe shoes or boots to prevent foot exposure\n* Gloves made of thick, chemical-resistant material like nitrile or PVC\n* Goggles or safety glasses to protect eyes from splashes\n* A face mask or respirator to prevent inhalation of fumes\n* A protective apron or coverall to prevent skin exposure\n\nRemember to choose equipment that is specifically designed for spraying chemicals and follow the manufacturer's instructions for use.",
+  "latency_ms": 2685,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q58",
+  "language": "en",
+  "question": "how can I get subsidised seed and fertilizer",
+  "expected_source": "nkunganire-inputs",
+  "key_facts": [
+   "nkunganire"
+  ],
+  "answer": "To access subsidized seed and fertilizer, you'll need to visit the Rwanda Agricultural Board (RAB) office in your district. They offer subsidized inputs to smallholder farmers who meet certain criteria, such as:\n\n* Being a registered smallholder farmer\n* Having a minimum of 0.5 hectares of land\n* Growing high-value crops like coffee, tea, or maize\n\nBring your ID, proof of land ownership, and a list of the crops you plan to grow. The RAB will assess your application and provide you with subsidized seed and fertilizer. You can also contact your local extension office for guidance on the application process.",
+  "latency_ms": 2853,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [
+    "0.5"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q59",
+  "language": "rw",
+  "question": "Nabona nte ifumbire ya Nkunganire?",
+  "expected_source": "nkunganire-inputs",
+  "key_facts": [
+   "nkunganire"
+  ],
+  "answer": "Nkunganire ni mafuta ya kutosha kwa mafuta ya moto. Nte ifumbire ya Nkunganire ni kiasi cha 20% ya mafuta ya moto.",
+  "latency_ms": 1068,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "20"
+   ],
+   "has_unsupported": true,
+   "lang_ok": false,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q60",
+  "language": "en",
+  "question": "what can i do about long dry spells",
+  "expected_source": "climate-smart",
+  "key_facts": [
+   "mulch"
+  ],
+  "answer": "Long dry spells can be challenging for farmers. To mitigate the effects, consider the following:\n\n* Diversify your crops: Plant drought-tolerant crops like sorghum, millet, or cowpeas alongside your main crops.\n* Mulch and conserve water: Apply a 2-3 cm layer of organic mulch to retain soil moisture and reduce evaporation.\n* Irrigation management: Use drip irrigation or soaker hoses to deliver water directly to the roots, reducing evaporation and runoff.\n* Crop selection: Choose varieties that are resistant to drought or have a longer maturation period, allowing you to harvest before the dry spell worsens.\n* Seek support: Contact your local agricultural extension office for guidance on drought management and support from organizations like the Rwanda Agricultural Board.",
+  "latency_ms": 3137,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "2",
+    "3"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q61",
+  "language": "en",
+  "question": "when does season B start",
+  "expected_source": "seasons-calendar",
+  "key_facts": [
+   "feb|february"
+  ],
+  "answer": "Season B in Rwanda typically starts in March and lasts until May. During this period, the weather is generally warm and dry, making it ideal for planting maize, beans, and other crops. The average temperature during this season is around 25-30°C, which is suitable for most crops. I recommend planning to plant your crops around late February to early March to take advantage of the favorable weather conditions. Additionally, make sure to check the specific planting instructions for your chosen crop to ensure optimal growth.",
+  "latency_ms": 2296,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [
+    "25",
+    "30"
+   ],
+   "has_unsupported": true,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "q62",
+  "language": "en",
+  "question": "who can visit my farm to help",
+  "expected_source": "extension-contacts",
+  "key_facts": [
+   "agronomist"
+  ],
+  "answer": "I can help you with farming-related issues. If you need assistance with farming, I can provide guidance and advice. However, I'm not authorized to send external visitors to your farm. \n\nIf you need help with farming, I can offer advice on topics such as crop management, soil health, irrigation, and pest management. I can also provide information on best practices for farming in Rwanda's climate. Would you like me to provide advice on a specific farming issue?",
+  "latency_ms": 2077,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o01",
+  "language": "en",
+  "question": "Who won the football match yesterday?",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "I can only help with farming. I'm an agricultural extension advisor, and my expertise is in providing advice on farming practices, crop management, and livestock care. I don't have information on football matches or other non-farming topics. If you have a question about farming, I'd be happy to try and assist you.",
+  "latency_ms": 1452,
+  "score": {
+   "in_scope": false,
+   "oos_handled": true,
+   "lang_ok": true,
+   "escalated": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o02",
+  "language": "en",
+  "question": "How do I repair my motorbike engine?",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "I can only help with farming. I'm an agricultural extension advisor, and my expertise is in providing guidance on farming practices, crop management, and animal husbandry. I don't have knowledge on repairing motorbike engines. If you're experiencing issues with your motorbike, I recommend visiting a local mechanic or a repair shop that specializes in motorbikes. They will be able to provide you with the necessary assistance.",
+  "latency_ms": 1939,
+  "score": {
+   "in_scope": false,
+   "oos_handled": true,
+   "lang_ok": true,
+   "escalated": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o03",
+  "language": "rw",
+  "question": "Ndashaka inguzanyo ya banki",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "Kwa kuwa ndashaka inguzanyo ya banki, ndashaka ndashake kwa njia ya kifedha. Kwa hivyo, ndashaka ndashake kujifunza kuhifadhi fedha kwa njia mbadala, kama vile kujifunza kuhifadhi fedha katika kikundi cha kijijini au kujifunza kuhifadhi fedha kwa njia mbadala.",
+  "latency_ms": 2491,
+  "score": {
+   "in_scope": false,
+   "oos_handled": false,
+   "lang_ok": false,
+   "escalated": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o04",
+  "language": "en",
+  "question": "What is the capital of Kenya?",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "I can only help with farming. I'm an agricultural extension advisor, and my expertise is in providing advice on farming practices, crop management, and livestock care. If you have a farming-related question, I'd be happy to try and assist you.",
+  "latency_ms": 1233,
+  "score": {
+   "in_scope": false,
+   "oos_handled": true,
+   "lang_ok": true,
+   "escalated": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o05",
+  "language": "rw",
+  "question": "Ese avoka zatewe ryari?",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "Avoka zatewe ryari, lakini zinahitaji kuzalisha kwa mbinu ya kutosha. Zinahitaji kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa mbinu ya kuzalisha kwa",
+  "latency_ms": 6800,
+  "score": {
+   "in_scope": false,
+   "oos_handled": false,
+   "lang_ok": false,
+   "escalated": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o06",
+  "language": "en",
+  "question": "How do I grow avocado trees?",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "Growing avocado trees can be a rewarding experience. To start, choose a variety that is suitable for Rwanda's climate, such as 'Hass' or 'Fuerte'. Plant a grafted or seedling tree in well-draining soil with a pH between 6-7. Water regularly, but avoid overwatering. Avocado trees prefer full sun and temperatures between 15-25°C. Fertilize with a balanced fertilizer (10-10-10 NPK) during the growing season (March to October). Prune the tree regularly to maintain a central leader and promote fruiting. Avocado trees typically take 3-5 years to produce fruit after planting.",
+  "latency_ms": 2968,
+  "score": {
+   "in_scope": false,
+   "oos_handled": false,
+   "lang_ok": true,
+   "escalated": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o07",
+  "language": "en",
+  "question": "Write me a poem about love",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "I can only help with farming.",
+  "latency_ms": 225,
+  "score": {
+   "in_scope": false,
+   "oos_handled": true,
+   "lang_ok": true,
+   "escalated": false
+  },
+  "escalated": false
+ },
+ {
+  "id": "o08",
+  "language": "rw",
+  "question": "Igiciro cy'ibirayi ku isoko ni angahe uyu munsi?",
+  "expected_source": null,
+  "key_facts": [],
+  "answer": "Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kubishana, kubishana... Kwa kubishana, kubishana, kub",
+  "latency_ms": 6855,
+  "score": {
+   "in_scope": false,
+   "oos_handled": false,
+   "lang_ok": false,
+   "escalated": false
+  },
+  "escalated": false
+ }
+]

@@ -1,0 +1,454 @@
+isoko-retrieval
+  isoko-retrieval q01 5ms retrieval
+  isoko-retrieval q02 0ms retrieval
+  isoko-retrieval q03 0ms retrieval
+  isoko-retrieval q04 0ms retrieval
+  isoko-retrieval q05 0ms retrieval
+  isoko-retrieval q06 0ms retrieval
+  isoko-retrieval q07 0ms retrieval
+  isoko-retrieval q08 0ms retrieval
+  isoko-retrieval q09 0ms retrieval
+  isoko-retrieval q10 0ms retrieval
+  isoko-retrieval q11 0ms retrieval
+  isoko-retrieval q12 0ms retrieval
+  isoko-retrieval q13 0ms retrieval
+  isoko-retrieval q14 0ms retrieval
+  isoko-retrieval q15 0ms retrieval
+  isoko-retrieval q16 0ms retrieval
+  isoko-retrieval q17 0ms retrieval
+  isoko-retrieval q18 0ms retrieval
+  isoko-retrieval q19 0ms retrieval
+  isoko-retrieval q20 0ms retrieval
+  isoko-retrieval q21 0ms retrieval
+  isoko-retrieval q22 0ms retrieval
+  isoko-retrieval q23 0ms retrieval
+  isoko-retrieval q24 0ms retrieval
+  isoko-retrieval q25 0ms retrieval
+  isoko-retrieval q26 0ms retrieval
+  isoko-retrieval q27 0ms retrieval
+  isoko-retrieval q28 0ms retrieval
+  isoko-retrieval q29 0ms retrieval
+  isoko-retrieval q30 0ms retrieval
+  isoko-retrieval q31 0ms retrieval
+  isoko-retrieval q32 0ms retrieval
+  isoko-retrieval q33 0ms retrieval
+  isoko-retrieval q34 0ms retrieval
+  isoko-retrieval q35 0ms retrieval
+  isoko-retrieval q36 0ms retrieval
+  isoko-retrieval q37 0ms retrieval
+  isoko-retrieval q38 0ms retrieval
+  isoko-retrieval q39 0ms retrieval
+  isoko-retrieval q40 0ms retrieval
+  isoko-retrieval q41 0ms retrieval
+  isoko-retrieval q42 0ms retrieval
+  isoko-retrieval q43 0ms retrieval
+  isoko-retrieval q44 0ms retrieval
+  isoko-retrieval q45 0ms retrieval
+  isoko-retrieval q46 0ms retrieval
+  isoko-retrieval q47 0ms retrieval
+  isoko-retrieval q48 0ms retrieval
+  isoko-retrieval q49 0ms retrieval
+  isoko-retrieval q50 0ms retrieval
+  isoko-retrieval q51 0ms retrieval
+  isoko-retrieval q52 0ms retrieval
+  isoko-retrieval q53 0ms retrieval
+  isoko-retrieval q54 0ms retrieval
+  isoko-retrieval q55 0ms retrieval
+  isoko-retrieval q56 0ms retrieval
+  isoko-retrieval q57 0ms retrieval
+  isoko-retrieval q58 0ms retrieval
+  isoko-retrieval q59 0ms retrieval
+  isoko-retrieval q60 0ms retrieval
+  isoko-retrieval q61 0ms retrieval
+  isoko-retrieval q62 0ms retrieval
+  isoko-retrieval o01 0ms retrieval
+  isoko-retrieval o02 0ms retrieval
+  isoko-retrieval o03 0ms retrieval
+  isoko-retrieval o04 0ms retrieval
+  isoko-retrieval o05 0ms retrieval
+  isoko-retrieval o06 0ms retrieval
+  isoko-retrieval o07 0ms retrieval
+  isoko-retrieval o08 0ms retrieval
+plain-llama3.2
+  plain-llama3.2 q01 7380ms
+  plain-llama3.2 q02 2579ms
+  plain-llama3.2 q03 6534ms
+  plain-llama3.2 q04 6723ms
+  plain-llama3.2 q05 1310ms
+  plain-llama3.2 q06 6490ms
+  plain-llama3.2 q07 2718ms
+  plain-llama3.2 q08 1139ms
+  plain-llama3.2 q09 5657ms
+  plain-llama3.2 q10 6843ms
+  plain-llama3.2 q11 3766ms
+  plain-llama3.2 q12 3866ms
+  plain-llama3.2 q13 6803ms
+  plain-llama3.2 q14 3405ms
+  plain-llama3.2 q15 3139ms
+  plain-llama3.2 q16 6963ms
+  plain-llama3.2 q17 3938ms
+  plain-llama3.2 q18 6830ms
+  plain-llama3.2 q19 3015ms
+  plain-llama3.2 q20 4348ms
+  plain-llama3.2 q21 6704ms
+  plain-llama3.2 q22 2836ms
+  plain-llama3.2 q23 3836ms
+  plain-llama3.2 q24 6802ms
+  plain-llama3.2 q25 4553ms
+  plain-llama3.2 q26 4393ms
+  plain-llama3.2 q27 6682ms
+  plain-llama3.2 q28 3510ms
+  plain-llama3.2 q29 4071ms
+  plain-llama3.2 q30 2652ms
+  plain-llama3.2 q31 3637ms
+  plain-llama3.2 q32 3288ms
+  plain-llama3.2 q33 2549ms
+  plain-llama3.2 q34 3561ms
+  plain-llama3.2 q35 4725ms
+  plain-llama3.2 q36 3697ms
+  plain-llama3.2 q37 3565ms
+  plain-llama3.2 q38 4001ms
+  plain-llama3.2 q39 3178ms
+  plain-llama3.2 q40 3059ms
+  plain-llama3.2 q41 6867ms
+  plain-llama3.2 q42 1916ms
+  plain-llama3.2 q43 3879ms
+  plain-llama3.2 q44 4535ms
+  plain-llama3.2 q45 4601ms
+  plain-llama3.2 q46 4456ms
+  plain-llama3.2 q47 3582ms
+  plain-llama3.2 q48 6684ms
+  plain-llama3.2 q49 4159ms
+  plain-llama3.2 q50 3720ms
+  plain-llama3.2 q51 4010ms
+  plain-llama3.2 q52 4346ms
+  plain-llama3.2 q53 3324ms
+  plain-llama3.2 q54 3057ms
+  plain-llama3.2 q55 4101ms
+  plain-llama3.2 q56 6305ms
+  plain-llama3.2 q57 6869ms
+  plain-llama3.2 q58 3985ms
+  plain-llama3.2 q59 3263ms
+  plain-llama3.2 q60 6961ms
+  plain-llama3.2 q61 2993ms
+  plain-llama3.2 q62 3725ms
+  plain-llama3.2 o01 963ms
+  plain-llama3.2 o02 3548ms
+  plain-llama3.2 o03 2766ms
+  plain-llama3.2 o04 874ms
+  plain-llama3.2 o05 3415ms
+  plain-llama3.2 o06 6538ms
+  plain-llama3.2 o07 407ms
+  plain-llama3.2 o08 2946ms
+isoko-llama3.2
+  isoko-llama3.2 q01 1319ms ollama:llama3.2
+  isoko-llama3.2 q02 0ms retrieval
+  isoko-llama3.2 q03 758ms ollama:llama3.2
+  isoko-llama3.2 q04 1383ms ollama:llama3.2
+  isoko-llama3.2 q05 0ms retrieval
+  isoko-llama3.2 q06 585ms retrieval
+  isoko-llama3.2 q07 3348ms retrieval
+  isoko-llama3.2 q08 0ms retrieval
+  isoko-llama3.2 q09 2080ms ollama:llama3.2
+  isoko-llama3.2 q10 1918ms retrieval
+  isoko-llama3.2 q11 0ms retrieval
+  isoko-llama3.2 q12 971ms retrieval
+  isoko-llama3.2 q13 0ms retrieval
+  isoko-llama3.2 q14 1590ms ollama:llama3.2
+  isoko-llama3.2 q15 3557ms retrieval
+  isoko-llama3.2 q16 0ms retrieval
+  isoko-llama3.2 q17 743ms retrieval
+  isoko-llama3.2 q18 1238ms ollama:llama3.2
+  isoko-llama3.2 q19 0ms retrieval
+  isoko-llama3.2 q20 1444ms ollama:llama3.2
+  isoko-llama3.2 q21 732ms retrieval
+  isoko-llama3.2 q22 0ms retrieval
+  isoko-llama3.2 q23 1268ms retrieval
+  isoko-llama3.2 q24 3230ms retrieval
+  isoko-llama3.2 q25 830ms ollama:llama3.2
+  isoko-llama3.2 q26 0ms retrieval
+  isoko-llama3.2 q27 2966ms retrieval
+  isoko-llama3.2 q28 3482ms ollama:llama3.2
+  isoko-llama3.2 q29 2725ms ollama:llama3.2
+  isoko-llama3.2 q30 1324ms ollama:llama3.2
+  isoko-llama3.2 q31 1503ms retrieval
+  isoko-llama3.2 q32 0ms retrieval
+  isoko-llama3.2 q33 2097ms ollama:llama3.2
+  isoko-llama3.2 q34 1232ms retrieval
+  isoko-llama3.2 q35 0ms retrieval
+  isoko-llama3.2 q36 2156ms retrieval
+  isoko-llama3.2 q37 1474ms retrieval
+  isoko-llama3.2 q38 3220ms retrieval
+  isoko-llama3.2 q39 3047ms ollama:llama3.2
+  isoko-llama3.2 q40 0ms retrieval
+  isoko-llama3.2 q41 1848ms ollama:llama3.2
+  isoko-llama3.2 q42 0ms retrieval
+  isoko-llama3.2 q43 1433ms retrieval
+  isoko-llama3.2 q44 0ms retrieval
+  isoko-llama3.2 q45 768ms retrieval
+  isoko-llama3.2 q46 744ms retrieval
+  isoko-llama3.2 q47 0ms retrieval
+  isoko-llama3.2 q48 2749ms retrieval
+  isoko-llama3.2 q49 0ms retrieval
+  isoko-llama3.2 q50 991ms ollama:llama3.2
+  isoko-llama3.2 q51 1814ms retrieval
+  isoko-llama3.2 q52 670ms ollama:llama3.2
+  isoko-llama3.2 q53 3874ms ollama:llama3.2
+  isoko-llama3.2 q54 0ms retrieval
+  isoko-llama3.2 q55 4578ms retrieval
+  isoko-llama3.2 q56 2784ms retrieval
+  isoko-llama3.2 q57 3753ms ollama:llama3.2
+  isoko-llama3.2 q58 2292ms retrieval
+  isoko-llama3.2 q59 0ms retrieval
+  isoko-llama3.2 q60 2662ms retrieval
+  isoko-llama3.2 q61 678ms ollama:llama3.2
+  isoko-llama3.2 q62 0ms retrieval
+  isoko-llama3.2 o01 0ms retrieval
+  isoko-llama3.2 o02 0ms retrieval
+  isoko-llama3.2 o03 0ms retrieval
+  isoko-llama3.2 o04 0ms retrieval
+  isoko-llama3.2 o05 0ms retrieval
+  isoko-llama3.2 o06 0ms retrieval
+  isoko-llama3.2 o07 0ms retrieval
+  isoko-llama3.2 o08 0ms retrieval
+plain-gemma3:4b
+  plain-gemma3:4b q01 14732ms
+  plain-gemma3:4b q02 6750ms
+  plain-gemma3:4b q03 6184ms
+  plain-gemma3:4b q04 8768ms
+  plain-gemma3:4b q05 4332ms
+  plain-gemma3:4b q06 8372ms
+  plain-gemma3:4b q07 7942ms
+  plain-gemma3:4b q08 7988ms
+  plain-gemma3:4b q09 7594ms
+  plain-gemma3:4b q10 7559ms
+  plain-gemma3:4b q11 7910ms
+  plain-gemma3:4b q12 8309ms
+  plain-gemma3:4b q13 6593ms
+  plain-gemma3:4b q14 8487ms
+  plain-gemma3:4b q15 4121ms
+  plain-gemma3:4b q16 8178ms
+  plain-gemma3:4b q17 13899ms
+  plain-gemma3:4b q18 9379ms
+  plain-gemma3:4b q19 5321ms
+  plain-gemma3:4b q20 8355ms
+  plain-gemma3:4b q21 8489ms
+  plain-gemma3:4b q22 3305ms
+  plain-gemma3:4b q23 4196ms
+  plain-gemma3:4b q24 4202ms
+  plain-gemma3:4b q25 8342ms
+  plain-gemma3:4b q26 4120ms
+  plain-gemma3:4b q27 3754ms
+  plain-gemma3:4b q28 5186ms
+  plain-gemma3:4b q29 4071ms
+  plain-gemma3:4b q30 6326ms
+  plain-gemma3:4b q31 4398ms
+  plain-gemma3:4b q32 4229ms
+  plain-gemma3:4b q33 6055ms
+  plain-gemma3:4b q34 8557ms
+  plain-gemma3:4b q35 4305ms
+  plain-gemma3:4b q36 8955ms
+  plain-gemma3:4b q37 4093ms
+  plain-gemma3:4b q38 3996ms
+  plain-gemma3:4b q39 3756ms
+  plain-gemma3:4b q40 5097ms
+  plain-gemma3:4b q41 8554ms
+  plain-gemma3:4b q42 8236ms
+  plain-gemma3:4b q43 4808ms
+  plain-gemma3:4b q44 3862ms
+  plain-gemma3:4b q45 4278ms
+  plain-gemma3:4b q46 4613ms
+  plain-gemma3:4b q47 7970ms
+  plain-gemma3:4b q48 4285ms
+  plain-gemma3:4b q49 8616ms
+  plain-gemma3:4b q50 8568ms
+  plain-gemma3:4b q51 4996ms
+  plain-gemma3:4b q52 4724ms
+  plain-gemma3:4b q53 4456ms
+  plain-gemma3:4b q54 8634ms
+  plain-gemma3:4b q55 4511ms
+  plain-gemma3:4b q56 3765ms
+  plain-gemma3:4b q57 7328ms
+  plain-gemma3:4b q58 7287ms
+  plain-gemma3:4b q59 3467ms
+  plain-gemma3:4b q60 4467ms
+  plain-gemma3:4b q61 6408ms
+  plain-gemma3:4b q62 5898ms
+  plain-gemma3:4b o01 2291ms
+  plain-gemma3:4b o02 8758ms
+  plain-gemma3:4b o03 4106ms
+  plain-gemma3:4b o04 1948ms
+  plain-gemma3:4b o05 4279ms
+  plain-gemma3:4b o06 4370ms
+  plain-gemma3:4b o07 1189ms
+  plain-gemma3:4b o08 2799ms
+isoko-gemma3:4b
+  isoko-gemma3:4b q01 4406ms retrieval
+  isoko-gemma3:4b q02 0ms retrieval
+  isoko-gemma3:4b q03 2582ms ollama:gemma3:4b
+  isoko-gemma3:4b q04 1971ms retrieval
+  isoko-gemma3:4b q05 0ms retrieval
+  isoko-gemma3:4b q06 2646ms ollama:gemma3:4b
+  isoko-gemma3:4b q07 4434ms ollama:gemma3:4b
+  isoko-gemma3:4b q08 0ms retrieval
+  isoko-gemma3:4b q09 2138ms ollama:gemma3:4b
+  isoko-gemma3:4b q10 2691ms ollama:gemma3:4b
+  isoko-gemma3:4b q11 0ms retrieval
+  isoko-gemma3:4b q12 3516ms ollama:gemma3:4b
+  isoko-gemma3:4b q13 0ms retrieval
+  isoko-gemma3:4b q14 3166ms ollama:gemma3:4b
+  isoko-gemma3:4b q15 954ms retrieval
+  isoko-gemma3:4b q16 1ms retrieval
+  isoko-gemma3:4b q17 717ms retrieval
+  isoko-gemma3:4b q18 2187ms ollama:gemma3:4b
+  isoko-gemma3:4b q19 0ms retrieval
+  isoko-gemma3:4b q20 2537ms ollama:gemma3:4b
+  isoko-gemma3:4b q21 830ms retrieval
+  isoko-gemma3:4b q22 0ms retrieval
+  isoko-gemma3:4b q23 764ms retrieval
+  isoko-gemma3:4b q24 2690ms retrieval
+  isoko-gemma3:4b q25 2519ms ollama:gemma3:4b
+  isoko-gemma3:4b q26 0ms retrieval
+  isoko-gemma3:4b q27 3874ms retrieval
+  isoko-gemma3:4b q28 4736ms ollama:gemma3:4b
+  isoko-gemma3:4b q29 2686ms ollama:gemma3:4b
+  isoko-gemma3:4b q30 2302ms ollama:gemma3:4b
+  isoko-gemma3:4b q31 885ms retrieval
+  isoko-gemma3:4b q32 0ms retrieval
+  isoko-gemma3:4b q33 2871ms ollama:gemma3:4b
+  isoko-gemma3:4b q34 3392ms retrieval
+  isoko-gemma3:4b q35 0ms retrieval
+  isoko-gemma3:4b q36 1686ms ollama:gemma3:4b
+  isoko-gemma3:4b q37 3374ms ollama:gemma3:4b
+  isoko-gemma3:4b q38 819ms retrieval
+  isoko-gemma3:4b q39 2678ms retrieval
+  isoko-gemma3:4b q40 0ms retrieval
+  isoko-gemma3:4b q41 2298ms ollama:gemma3:4b
+  isoko-gemma3:4b q42 0ms retrieval
+  isoko-gemma3:4b q43 3517ms retrieval
+  isoko-gemma3:4b q44 0ms retrieval
+  isoko-gemma3:4b q45 705ms retrieval
+  isoko-gemma3:4b q46 3542ms retrieval
+  isoko-gemma3:4b q47 0ms retrieval
+  isoko-gemma3:4b q48 740ms retrieval
+  isoko-gemma3:4b q49 0ms retrieval
+  isoko-gemma3:4b q50 1920ms ollama:gemma3:4b
+  isoko-gemma3:4b q51 3838ms ollama:gemma3:4b
+  isoko-gemma3:4b q52 2032ms ollama:gemma3:4b
+  isoko-gemma3:4b q53 1193ms retrieval
+  isoko-gemma3:4b q54 0ms retrieval
+  isoko-gemma3:4b q55 3228ms ollama:gemma3:4b
+  isoko-gemma3:4b q56 684ms retrieval
+  isoko-gemma3:4b q57 1597ms ollama:gemma3:4b
+  isoko-gemma3:4b q58 2272ms ollama:gemma3:4b
+  isoko-gemma3:4b q59 0ms retrieval
+  isoko-gemma3:4b q60 3536ms retrieval
+  isoko-gemma3:4b q61 3244ms ollama:gemma3:4b
+  isoko-gemma3:4b q62 0ms retrieval
+  isoko-gemma3:4b o01 0ms retrieval
+  isoko-gemma3:4b o02 0ms retrieval
+  isoko-gemma3:4b o03 0ms retrieval
+  isoko-gemma3:4b o04 0ms retrieval
+  isoko-gemma3:4b o05 0ms retrieval
+  isoko-gemma3:4b o06 0ms retrieval
+  isoko-gemma3:4b o07 0ms retrieval
+  isoko-gemma3:4b o08 0ms retrieval
+{
+ "isoko-retrieval": {
+  "n": 70,
+  "fact_recall": 94.4,
+  "fully_correct": 91.9,
+  "fully_correct_en": 95.5,
+  "fully_correct_rw": 83.3,
+  "unsupported_number_rate": 4.8,
+  "language_match": 100.0,
+  "language_match_rw": 100.0,
+  "oos_handled": 87.5,
+  "latency_median_ms": 0,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49,
+  "source_accuracy": 90.3
+ },
+ "plain-llama3.2": {
+  "n": 70,
+  "fact_recall": 16.1,
+  "fully_correct": 11.3,
+  "fully_correct_en": 13.6,
+  "fully_correct_rw": 5.6,
+  "unsupported_number_rate": 37.1,
+  "language_match": 44.3,
+  "language_match_rw": 95.2,
+  "oos_handled": 12.5,
+  "latency_median_ms": 3851,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49
+ },
+ "isoko-llama3.2": {
+  "n": 70,
+  "fact_recall": 93.5,
+  "fully_correct": 90.3,
+  "fully_correct_en": 93.2,
+  "fully_correct_rw": 83.3,
+  "unsupported_number_rate": 8.1,
+  "language_match": 100.0,
+  "language_match_rw": 100.0,
+  "oos_handled": 87.5,
+  "latency_median_ms": 799,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49,
+  "source_accuracy": 90.3
+ },
+ "plain-gemma3:4b": {
+  "n": 70,
+  "fact_recall": 16.1,
+  "fully_correct": 11.3,
+  "fully_correct_en": 15.9,
+  "fully_correct_rw": 0.0,
+  "unsupported_number_rate": 37.1,
+  "language_match": 67.1,
+  "language_match_rw": 76.2,
+  "oos_handled": 50.0,
+  "latency_median_ms": 5253,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49
+ },
+ "isoko-gemma3:4b": {
+  "n": 70,
+  "fact_recall": 93.5,
+  "fully_correct": 90.3,
+  "fully_correct_en": 93.2,
+  "fully_correct_rw": 83.3,
+  "unsupported_number_rate": 3.2,
+  "language_match": 100.0,
+  "language_match_rw": 100.0,
+  "oos_handled": 87.5,
+  "latency_median_ms": 919,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49,
+  "source_accuracy": 90.3
+ }
+}
+  mt llama3.2 en2rw: chrF 16.2
+  mt llama3.2 rw2en: chrF 18.9
+  mt gemma3:4b en2rw: chrF 21.1
+  mt gemma3:4b rw2en: chrF 30.0
+{
+ "llama3.2": {
+  "en2rw": 16.2,
+  "rw2en": 18.9
+ },
+ "gemma3:4b": {
+  "en2rw": 21.1,
+  "rw2en": 30.0
+ }
+}

@@ -59,7 +59,7 @@ def score_item(item: dict, answer: str, escalated: bool, sources: list[str]) -> 
     lang_ok = advisor.identify_language(answer) == item["language"] if answer.strip() else False
     if gold is None:
         declined = escalated or bool(REFUSAL.search(answer))
-        return {"in_scope": False, "oos_handled": declined, "lang_ok": lang_ok}
+        return {"in_scope": False, "oos_handled": declined, "lang_ok": lang_ok, "escalated": escalated}
     e = corpus().by_id[gold]
     evidence = " ".join([item["question"], e["detail_en"], e["detail_rw"], e["summary_en"], e["summary_rw"]])
     allowed = set(NUM.findall(evidence))
@@ -116,7 +116,7 @@ def run_plain(items, model):
         except llm.LLMUnavailable as exc:
             ans = f"[error: {exc}]"
         ms = int((time.perf_counter() - t0) * 1000)
-        rows.append({**it, "answer": ans, "latency_ms": ms, "score": score_item(it, ans, False, [])})
+        rows.append({**it, "answer": ans, "latency_ms": ms, "escalated": False, "score": score_item(it, ans, False, [])})
         print(f"  plain-{model} {it['id']} {ms}ms")
     return rows
 
@@ -133,6 +133,7 @@ def run_isoko(items, model):
         ms = int((time.perf_counter() - t0) * 1000)
         srcs = [s["id"] for s in adv.sources]
         rows.append({**it, "answer": adv.answer, "engine": adv.model, "sources": srcs, "latency_ms": ms,
+                     "escalated": adv.escalated,
                      "score": score_item(it, adv.answer, adv.escalated, srcs)})
         print(f"  isoko-{model or 'retrieval'} {it['id']} {ms}ms {adv.model}")
     return rows
@@ -194,7 +195,9 @@ def main():
                 continue
             rows = json.loads(f.read_text())
             for r in rows:
-                r["score"] = score_item(r, r["answer"], r.get("score", {}).get("escalated", False), r.get("sources", []))
+                escalated = r.get("escalated", r["answer"] in advisor.ESCALATION.values())
+                r["escalated"] = escalated
+                r["score"] = score_item(r, r["answer"], escalated, r.get("sources", []))
             f.write_text(json.dumps(rows, ensure_ascii=False, indent=1))
             summary[f.stem[3:].replace("gemma3_4b", "gemma3:4b")] = summarize(rows, f.stem.startswith("qa_isoko"))
         (OUT / "qa_summary.json").write_text(json.dumps(summary, indent=1))
