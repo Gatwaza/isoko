@@ -9,6 +9,8 @@ def _bool(name: str, default: bool) -> bool:
     return os.getenv(name, str(default)).strip().lower() in {"1", "true", "yes", "on"}
 
 
+# Postgres (e.g. Supabase pooler URL). When unset, a local SQLite file is used.
+DATABASE_URL = os.getenv("DATABASE_URL", "")
 DB_PATH = os.getenv("DB_PATH", str(BASE_DIR.parent / "data" / "umujyanama.db"))
 CORPUS_PATH = os.getenv("CORPUS_PATH", str(BASE_DIR / "kb" / "corpus.json"))
 
@@ -46,3 +48,7 @@ PHONE_HASH_SALT = os.getenv("PHONE_HASH_SALT", "change-me-in-production")
 
 # Labels the dashboard as simulated data (used with scripts/seed_demo.py for demos).
 DEMO_MODE = _bool("DEMO_MODE", False)
+
+# Run post-response work (SMS sends, async answers) inline before responding. Needed on
+# serverless hosts (Vercel) where work after the response is not guaranteed to run.
+INLINE_TASKS = _bool("INLINE_TASKS", bool(os.getenv("VERCEL")))

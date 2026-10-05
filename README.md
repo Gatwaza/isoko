@@ -71,6 +71,21 @@ cp .env.example .env   # set API_KEYS, DASHBOARD_TOKEN, PHONE_HASH_SALT, Africa'
 docker compose up -d && docker compose exec ollama ollama pull llama3.2
 ```
 
+### Hosted demo: Vercel + Supabase
+
+Live at **https://umujyanama.vercel.app** (simulator, `/dashboard`, `/docs`). The FastAPI app runs as a Vercel Python function (`index.py`, region `fra1`). Data is stored in Supabase Postgres (Frankfurt); the schema is in `supabase/migrations/`, and RLS is enabled with no public policies, so only the server can read farmer data.
+
+```bash
+supabase link --project-ref <ref> && supabase db push
+vercel env add DATABASE_URL production   # Supabase transaction-pooler URL (port 6543)
+vercel env add API_KEYS production       # private benchmark key(s)
+vercel deploy --prod
+```
+
+On Vercel, `LLM_PROVIDER=none` (retrieval-only, curated answers), because serverless functions cannot host an open-weight model. Point `LLM_PROVIDER=openai_compat` at a self-hosted vLLM/Ollama endpoint to enable generation.
+
+> **Data residency.** The Vercel + Supabase deployment is a demonstration environment with simulated data, hosted in the EU. It must not hold real farmer data without NCSA authorisation (Law N° 058/2021). Production runs the same code on Rwandan infrastructure: the Docker setup above, plus Postgres in a local data centre via `DATABASE_URL`. Nothing in the code depends on Vercel or Supabase.
+
 Africa's Talking: set the USSD callback to `https://<host>/ussd` and the incoming SMS callback to `https://<host>/sms/inbound`.
 
 ## Benchmark API
@@ -100,13 +115,16 @@ On our own 28-item sample set (Kinyarwanda and English, including off-topic ques
 ## Layout
 
 ```
+index.py           Vercel entrypoint
 app/main.py        HTTP routes: USSD, SMS, API, dashboard
 app/ussd.py        USSD state machine (stateless; rebuilt from the gateway's input path)
 app/advisor.py     language detection → retrieval → generation → guardrails → logging
 app/retrieval.py   BM25 + domain gate over the corpus
 app/llm.py         Ollama / OpenAI-compatible clients (open, self-hosted runtimes only)
 app/weather.py     district forecasts → rule-based advice and alerts
+app/db.py          Postgres (Supabase / local) or SQLite persistence
 app/kb/corpus.json bilingual seed knowledge base (with sources)
+supabase/          database migrations
 scripts/           benchmark runner, sample eval set, demo seeder
 tests/             pytest suite
 ```

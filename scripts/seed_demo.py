@@ -45,9 +45,8 @@ for day in range(14, -1, -1):
             advisor.answer(random.choice(QUESTIONS), district=phones[phone], channel="sms", phone=phone)
         n += 1
     # back-date this day's rows
-    db.conn().execute("UPDATE interactions SET ts = ? - (? * 86400) - (abs(random()) % 36000) WHERE ts > ?",
-                      (now, day, now - 5))
-    db.conn().commit()
+    jitter = "random() * 36000" if db.PG else "(abs(random()) % 36000)"
+    db.execute(f"UPDATE interactions SET ts = ? - (? * 86400) - {jitter} WHERE ts > ?", (now, day, now - 5))
 
 for district, issue in [("Nyagatare", "crop_pest"), ("Nyagatare", "crop_pest"), ("Gatsibo", "crop_pest"),
                         ("Kayonza", "drought"), ("Bugesera", "drought"), ("Musanze", "crop_pest"),

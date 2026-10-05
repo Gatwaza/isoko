@@ -21,6 +21,13 @@ STATIC = config.BASE_DIR / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
 
 
+def _schedule(background: BackgroundTasks, task) -> None:
+    if config.INLINE_TASKS:
+        task()
+    else:
+        background.add_task(task)
+
+
 # ---------- auth ----------
 
 def require_api_key(x_api_key: str | None = Header(default=None),
@@ -66,7 +73,7 @@ def ussd_callback(background: BackgroundTasks, sessionId: str = Form(...), phone
                   text: str = Form(""), serviceCode: str = Form(""), networkCode: str = Form("")):
     reply = ussd.handle(sessionId, phoneNumber, text)
     for task in reply.tasks:
-        background.add_task(task)
+        _schedule(background, task)
     return reply.render()
 
 
@@ -81,7 +88,7 @@ def sms_inbound(background: BackgroundTasks, from_: str = Form(..., alias="from"
                              phone=from_, max_chars=459)
         sms.send(from_, adv.answer)
 
-    background.add_task(task)
+    _schedule(background, task)
     return "OK"
 
 
@@ -166,6 +173,7 @@ def corpus_index():
 def dashboard_stats(days: int = 30):
     since = time.time() - days * 86400
     q = db.query
+    day, tm = db.day_expr(), db.time_expr()
     return {
         "totals": q("""SELECT COUNT(*) AS interactions, COUNT(DISTINCT user_hash) AS farmers,
                        SUM(escalated) AS escalated, ROUND(AVG(latency_ms)) AS avg_latency_ms
@@ -173,17 +181,17 @@ def dashboard_stats(days: int = 30):
         "reports_total": q("SELECT COUNT(*) AS n FROM reports WHERE ts >= ?", (since,))[0]["n"],
         "by_channel": q("SELECT channel, COUNT(*) AS n FROM interactions WHERE ts >= ? GROUP BY channel ORDER BY n DESC", (since,)),
         "by_topic": q("""SELECT COALESCE(crop,'general') AS crop, COALESCE(topic,'other') AS topic, COUNT(*) AS n
-                         FROM interactions WHERE ts >= ? AND escalated = 0 GROUP BY crop, topic ORDER BY n DESC LIMIT 12""", (since,)),
+                         FROM interactions WHERE ts >= ? AND escalated = 0 GROUP BY 1, 2 ORDER BY 3 DESC LIMIT 12""", (since,)),
         "by_district": q("""SELECT district, COUNT(*) AS n FROM interactions WHERE ts >= ? AND district IS NOT NULL
                             GROUP BY district ORDER BY n DESC""", (since,)),
         "by_language": q("SELECT lang, COUNT(*) AS n FROM interactions WHERE ts >= ? GROUP BY lang", (since,)),
-        "daily": q("""SELECT date(ts, 'unixepoch', '+2 hours') AS day, COUNT(*) AS n, SUM(escalated) AS escalated
-                      FROM interactions WHERE ts >= ? GROUP BY day ORDER BY day""", (since,)),
-        "reports": q("""SELECT datetime(ts, 'unixepoch', '+2 hours') AS time, district, issue, detail, channel
+        "daily": q(f"""SELECT {day} AS day, COUNT(*) AS n, SUM(escalated) AS escalated
+                       FROM interactions WHERE ts >= ? GROUP BY 1 ORDER BY 1""", (since,)),
+        "reports": q(f"""SELECT {tm} AS time, district, issue, detail, channel
                         FROM reports WHERE ts >= ? ORDER BY ts DESC LIMIT 25""", (since,)),
-        "knowledge_gaps": q("""SELECT datetime(ts, 'unixepoch', '+2 hours') AS time, lang, district, query
+        "knowledge_gaps": q(f"""SELECT {tm} AS time, lang, district, query
                                FROM interactions WHERE ts >= ? AND escalated = 1 ORDER BY ts DESC LIMIT 25""", (since,)),
-        "recent": q("""SELECT datetime(ts, 'unixepoch', '+2 hours') AS time, channel, lang, district, query, answer, model
+        "recent": q(f"""SELECT {tm} AS time, channel, lang, district, query, answer, model
                        FROM interactions WHERE ts >= ? AND query NOT LIKE 'menu:%' ORDER BY ts DESC LIMIT 15""", (since,)),
     }
 
@@ -191,10 +199,11 @@ def dashboard_stats(days: int = 30):
 @app.get("/api/sms/outbox", dependencies=[Depends(require_dashboard)])
 def sms_outbox(phone: str | None = None, after_id: int = 0):
     """Used by the USSD simulator to show the SMS a farmer would receive."""
+    tm = db.time_expr()
     if phone:
-        return db.query("SELECT id, datetime(ts,'unixepoch','+2 hours') AS time, phone, message, status FROM sms_outbox "
+        return db.query(f"SELECT id, {tm} AS time, phone, message, status FROM sms_outbox "
                         "WHERE phone = ? AND id > ? ORDER BY id", (phone, after_id))
-    return db.query("SELECT id, datetime(ts,'unixepoch','+2 hours') AS time, phone, message, status FROM sms_outbox "
+    return db.query(f"SELECT id, {tm} AS time, phone, message, status FROM sms_outbox "
                     "WHERE id > ? ORDER BY id DESC LIMIT 50", (after_id,))
 
 

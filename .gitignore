@@ -4,3 +4,7 @@ __pycache__/
 data/
 .env
 .pytest_cache/
+.env.supabase
+.vercel
+supabase/.temp
+.env*

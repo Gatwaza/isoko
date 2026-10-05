@@ -1,6 +1,7 @@
 import os
 import tempfile
 
+os.environ["DATABASE_URL"] = ""  # never touch a real database from tests
 os.environ["DB_PATH"] = os.path.join(tempfile.mkdtemp(), "test.db")
 os.environ["LLM_PROVIDER"] = "none"  # deterministic: curated text only
 os.environ["API_KEYS"] = "test-key"

@@ -1,0 +1,7 @@
+.venv
+data
+tests
+.env
+.env.supabase
+.pytest_cache
+__pycache__
