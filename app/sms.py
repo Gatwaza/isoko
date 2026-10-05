@@ -5,7 +5,7 @@ import httpx
 
 from . import config, db
 
-log = logging.getLogger("umujyanama.sms")
+log = logging.getLogger("isoko.sms")
 
 
 def send(phone: str, message: str) -> str:

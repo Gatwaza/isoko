@@ -1,6 +1,6 @@
-# Umujyanama: AI agricultural advisory for Rwanda's smallholder farmers
+# Isôko: AI agricultural advisory for Rwanda's smallholder farmers
 
-*Umujyanama* ("the advisor") gives Kinyarwanda-first, grounded farm advice on **any phone**: USSD menus, two-way SMS, and an API for partner apps and for benchmarking. Every answer comes from a curated knowledge base and is returned with its sources. Questions the system cannot answer reliably go to a human extension officer instead of being guessed. A real-time dashboard shows MINAGRI and RAB what farmers are asking, where, and where the knowledge gaps are.
+*Isôko* (Kinyarwanda for "source", as in a spring, and also "market") gives Kinyarwanda-first, grounded farm advice on **any phone**: USSD menus, two-way SMS, and an API for partner apps and for benchmarking. Every answer comes from a curated knowledge base and is returned with its sources. Questions the system cannot answer reliably go to a human extension officer instead of being guessed. A real-time dashboard shows MINAGRI and RAB what farmers are asking, where, and where the knowledge gaps are.
 
 ```
  Farmer (feature phone)            Extension officer / partner app        MINAGRI · RAB
@@ -73,7 +73,7 @@ docker compose up -d && docker compose exec ollama ollama pull llama3.2
 
 ### Hosted demo: Vercel + Supabase
 
-Live at **https://umujyanama.vercel.app** (simulator, `/dashboard`, `/docs`). The FastAPI app runs as a Vercel Python function (`index.py`, region `fra1`). Data is stored in Supabase Postgres (Frankfurt); the schema is in `supabase/migrations/`, and RLS is enabled with no public policies, so only the server can read farmer data.
+Live at **https://isoko-agri.vercel.app** (simulator, `/dashboard`, `/docs`). The FastAPI app runs as a Vercel Python function (`index.py`, region `fra1`). Data is stored in Supabase Postgres (Frankfurt); the schema is in `supabase/migrations/`, and RLS is enabled with no public policies, so only the server can read farmer data.
 
 ```bash
 supabase link --project-ref <ref> && supabase db push
@@ -128,3 +128,7 @@ supabase/          database migrations
 scripts/           benchmark runner, sample eval set, demo seeder
 tests/             pytest suite
 ```
+
+## Name and character set
+
+The product name is **Isôko**. On USSD and SMS it is written **Isoko**, because "ô" is not in the GSM 7-bit alphabet: a single "ô" switches an SMS to UCS-2 encoding, cutting it from 160 to 70 characters, and can render incorrectly on feature phones.

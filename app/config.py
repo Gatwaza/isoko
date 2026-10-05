@@ -11,7 +11,7 @@ def _bool(name: str, default: bool) -> bool:
 
 # Postgres (e.g. Supabase pooler URL). When unset, a local SQLite file is used.
 DATABASE_URL = os.getenv("DATABASE_URL", "")
-DB_PATH = os.getenv("DB_PATH", str(BASE_DIR.parent / "data" / "umujyanama.db"))
+DB_PATH = os.getenv("DB_PATH", str(BASE_DIR.parent / "data" / "isoko.db"))
 CORPUS_PATH = os.getenv("CORPUS_PATH", str(BASE_DIR / "kb" / "corpus.json"))
 
 # LLM provider: "ollama" (default, open-source, self-hosted), "openai_compat"

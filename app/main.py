@@ -1,4 +1,4 @@
-"""Umujyanama - AI-enabled agricultural advisory for Rwanda (USSD / SMS / API)."""
+"""Isôko - AI-enabled agricultural advisory for Rwanda (USSD / SMS / API)."""
 import time
 import uuid
 from typing import Literal
@@ -12,7 +12,7 @@ from . import advisor, config, db, llm, sms, ussd, weather
 from .retrieval import corpus
 
 app = FastAPI(
-    title="Umujyanama Agricultural Advisory API",
+    title="Isôko Agricultural Advisory API",
     version="0.1.0",
     description="Kinyarwanda-first agricultural advisory for smallholder farmers over USSD, SMS and API. "
                 "Grounded in a curated corpus; open-source models only; designed for in-country hosting.",
@@ -130,10 +130,10 @@ def chat_completions(req: ChatRequest, _: str = Depends(require_api_key)):
         "id": f"chatcmpl-{uuid.uuid4().hex[:12]}",
         "object": "chat.completion",
         "created": int(time.time()),
-        "model": "umujyanama-0.1",
+        "model": "isoko-0.1",
         "choices": [{"index": 0, "finish_reason": "stop",
                      "message": {"role": "assistant", "content": adv.answer}}],
-        "umujyanama": {k: v for k, v in adv.to_dict().items() if k != "answer"},
+        "isoko": {k: v for k, v in adv.to_dict().items() if k != "answer"},
     }
 
 

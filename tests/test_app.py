@@ -22,7 +22,7 @@ def dial(phone, *inputs):
 
 def test_home_is_kinyarwanda_and_fits_ussd():
     r = dial("+250780000001")
-    assert r.startswith("CON Umujyanama w'Umuhinzi")
+    assert r.startswith("CON Isoko ry'Umuhinzi")
     assert len(r) - 4 <= ussd.USSD_LIMIT
 
 
@@ -41,7 +41,7 @@ def test_every_ussd_screen_fits_limit():
 
 
 def test_back_and_language_toggle():
-    assert dial("+250780000004", "1", "0").startswith("CON Umujyanama w'Umuhinzi")
+    assert dial("+250780000004", "1", "0").startswith("CON Isoko ry'Umuhinzi")
     assert "Crops" in dial("+250780000004", "8")
     assert "Crops" in dial("+250780000004", "8", "1", "0")  # back must not flip language again
 
@@ -65,7 +65,7 @@ def test_openai_compatible_endpoint():
     r = client.post("/v1/chat/completions", headers={"Authorization": "Bearer test-key"},
                     json={"messages": [{"role": "user", "content": "How do I control fall armyworm in maize?"}]}).json()
     assert r["choices"][0]["message"]["content"]
-    assert r["umujyanama"]["sources"][0]["id"] == "maize-faw"
+    assert r["isoko"]["sources"][0]["id"] == "maize-faw"
 
 
 def test_plural_query_hits_right_crop():

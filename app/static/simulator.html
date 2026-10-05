@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Umujyanama · USSD Simulator</title>
+<title>Isôko · USSD Simulator</title>
 <link rel="stylesheet" href="/static/style.css">
 <style>
   .stage { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
@@ -43,7 +43,7 @@
 </head>
 <body>
 <header class="top">
-  <div class="brand"><span class="logo">U</span> Umujyanama <small>AI farm advisory · USSD / SMS</small></div>
+  <div class="brand"><span class="logo">I</span> Isôko <small>AI farm advisory · USSD / SMS</small></div>
   <nav><a class="active" href="/simulator">USSD simulator</a><a href="/dashboard">MINAGRI dashboard</a><a href="/docs">API</a></nav>
 </header>
 <main class="wrap">
@@ -133,7 +133,7 @@ async function pollSms() {
     msgs.forEach(m => {
       lastSms = Math.max(lastSms, m.id);
       const d = document.createElement('div'); d.className = 'sms';
-      d.innerHTML = `<div class="meta">From UMUJYANAMA · ${m.time}</div>`;
+      d.innerHTML = `<div class="meta">From ISOKO · ${m.time}</div>`;
       d.appendChild(document.createTextNode(m.message));
       box.prepend(d);
     });

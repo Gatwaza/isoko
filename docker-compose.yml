@@ -8,7 +8,7 @@ services:
     environment:
       LLM_PROVIDER: ollama
       LLM_BASE_URL: http://ollama:11434
-    volumes: ["umujyanama-data:/data"]
+    volumes: ["isoko-data:/data"]
     depends_on: [ollama]
     restart: unless-stopped
   ollama:
@@ -17,5 +17,5 @@ services:
     restart: unless-stopped
     # First run: docker compose exec ollama ollama pull llama3.2
 volumes:
-  umujyanama-data:
+  isoko-data:
   ollama-models:

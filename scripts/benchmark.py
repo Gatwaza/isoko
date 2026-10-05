@@ -1,4 +1,4 @@
-"""Run a Q&A benchmark against a running Umujyanama API.
+"""Run a Q&A benchmark against a running Isôko API.
 
 Input: JSONL with {"question": ..., "reference": ..., "language": "rw"|"en" (optional)}
        (the format C4IR's golden dataset can be converted to).

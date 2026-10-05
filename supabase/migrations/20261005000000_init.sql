@@ -1,4 +1,4 @@
--- Umujyanama schema. Timestamps are epoch seconds (double precision) to match the SQLite backend.
+-- Isôko schema. Timestamps are epoch seconds (double precision) to match the SQLite backend.
 -- RLS is enabled with no policies: the anon/authenticated REST roles get no access; only the
 -- server (direct Postgres connection) can read or write farmer data.
 

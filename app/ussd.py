@@ -15,7 +15,7 @@ USSD_LIMIT = 182
 
 T = {
     "rw": {
-        "home": "Umujyanama w'Umuhinzi\n1.Ibihingwa\n2.Indwara n'ibyonnyi\n3.Iteganyagihe\n4.Amatungo\n5.Baza ikibazo\n6.Tanga raporo\n7.Umwirondoro\n8.English",
+        "home": "Isoko ry'Umuhinzi\n1.Ibihingwa\n2.Indwara n'ibyonnyi\n3.Iteganyagihe\n4.Amatungo\n5.Baza ikibazo\n6.Tanga raporo\n7.Umwirondoro\n8.English",
         "choose_crop": "Hitamo igihingwa:",
         "choose_topic": "{crop}: hitamo:",
         "choose_problem": "Hitamo ikibazo:",
@@ -36,7 +36,7 @@ T = {
         "no_answer": "Nta nama ihari kuri iki ubu. Baza agronome w'umurenge.",
     },
     "en": {
-        "home": "Umujyanama Farm Advisor\n1.Crops\n2.Pests & diseases\n3.Weather\n4.Livestock\n5.Ask a question\n6.Send a report\n7.My profile\n8.Kinyarwanda",
+        "home": "Isoko Farm Advisor\n1.Crops\n2.Pests & diseases\n3.Weather\n4.Livestock\n5.Ask a question\n6.Send a report\n7.My profile\n8.Kinyarwanda",
         "choose_crop": "Choose a crop:",
         "choose_topic": "{crop}: choose:",
         "choose_problem": "Choose a problem:",
