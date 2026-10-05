@@ -15,7 +15,7 @@ PORT="${PORT:-8000}"
 CLOUDFLARED="$(command -v cloudflared || echo "$HOME/.local/bin/cloudflared")"
 
 curl -sf localhost:11434/api/tags >/dev/null || { echo "Ollama is not running. Start the Ollama app first."; exit 1; }
-ollama list | grep -q "^${MODEL%%:*}" || ollama pull "$MODEL"
+ollama show "$MODEL" >/dev/null 2>&1 || ollama pull "$MODEL"
 
 export LLM_PROVIDER=ollama LLM_MODEL="$MODEL" DEMO_MODE=true
 if [ "${DB:-supabase}" = "supabase" ] && [ -f .env.supabase ]; then
@@ -25,7 +25,7 @@ else
   export DATABASE_URL="" DB_PATH=data/demo.db API_KEYS="${API_KEYS:-demo-benchmark-key}"
 fi
 
-echo "Warming up $MODEL…"
+echo "Warming up ${MODEL}..."
 curl -s localhost:11434/api/generate -d "{\"model\":\"$MODEL\",\"prompt\":\"hi\",\"stream\":false,\"options\":{\"num_predict\":1}}" >/dev/null
 
 .venv/bin/python -m uvicorn app.main:app --port "$PORT" --log-level warning &
@@ -44,6 +44,6 @@ echo "  Public:           ${URL:-(tunnel not ready, see data/tunnel.log)}"
 echo "  Live comparison:  ${URL:-http://localhost:$PORT}/compare"
 echo "  Evaluation:       ${URL:-http://localhost:$PORT}/evaluation"
 echo "  Dashboard:        ${URL:-http://localhost:$PORT}/dashboard"
-echo "  Model:            $MODEL (Ollama, local)"
+echo "  Model:            ${MODEL} (Ollama, local)"
 echo
 wait $APP
