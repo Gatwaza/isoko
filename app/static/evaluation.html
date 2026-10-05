@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Isôko · Evaluation</title>
 <link rel="stylesheet" href="/static/style.css">
+<script src="/static/i18n.js"></script>
 <style>
   .viz-root { --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --grid: #e6e4dd; --axis: #8a8a83; --tip-bg: #1c2420; --tip-ink: #f6f7f4; }
   @media (prefers-color-scheme: dark) { .viz-root { --s1: #3987e5; --s2: #d95926; --s3: #199e70; --grid: #2a322e; --axis: #7d8a83; --tip-bg: #e7ece8; --tip-ink: #121614; } }
@@ -65,7 +66,13 @@
 
   <div class="card">
     <h3>Method and limits</h3>
-    <ul class="method">
+    <ul class="method" data-l="rw">
+      <li><b>Byuzuye neza:</b> ingingo zose zisabwa zirimo (urugero rw'ifumbire, intera, igihe, igikorwa gikwiye). <b>Imibare idafite ishingiro:</b> igisubizo kirimo umubare utari mu kibazo cyangwa mu nama yemewe.</li>
+      <li><b>Ibibazo bitari iby'ubuhinzi:</b> ikibazo cyoherejwe ku muntu cyangwa cyanzwe aho gusubizwa.</li>
+      <li>Ibibazo byanditswe n'itsinda rya Isôko; ni aho duhera (v0.1), si amanota yigenga. Amakuru 5,000 ya C4IR ni yo suzuma nyaryo. Ibisubizo byafashwe mbere yo guhindura sisitemu ku bibazo by'isuzuma.</li>
+      <li>Kubisubiramo: <code>python eval/run_eval.py</code> muri repository.</li>
+    </ul>
+    <ul class="method" data-l="en">
       <li><b>Fully correct:</b> every required fact present (doses, spacings, intervals, the right action). <b>Unsupported figures:</b> the answer contains a number found in neither the question nor the reference guidance.</li>
       <li><b>Off-topic handled:</b> the question was escalated or declined instead of answered.</li>
       <li>The Q&amp;A set was written by the Isôko team and is a v0.1 baseline, not an independent score. C4IR's 5,000-pair golden dataset is the real benchmark. These results were recorded before any tuning to the test set.</li>
@@ -76,23 +83,23 @@
 <script>
 const css = n => getComputedStyle(document.body).getPropertyValue(n).trim();
 const CONFIG = [
-  { key: m => 'plain-' + m, name: 'Generic open model (no knowledge base)', color: '--s2' },
-  { key: () => 'isoko-retrieval', name: 'Isôko, curated text only', color: '--s3' },
-  { key: m => 'isoko-' + m, name: 'Isôko + open model', color: '--s1' },
+  { key: m => 'plain-' + m, name: T('Generic open model (no knowledge base)'), color: '--s2' },
+  { key: () => 'isoko-retrieval', name: T('Isôko, curated text only'), color: '--s3' },
+  { key: m => 'isoko-' + m, name: T('Isôko + open model'), color: '--s1' },
 ];
 const METRICS = [
-  ['fully_correct', 'Fully correct'],
-  ['fully_correct_rw', 'Fully correct (Kinyarwanda)'],
-  ['language_match_rw', 'Replies in Kinyarwanda when asked'],
-  ['oos_handled', 'Off-topic handled safely'],
-  ['unsupported_number_rate', 'Unsupported figures (lower is better)'],
+  ['fully_correct', T('Fully correct')],
+  ['fully_correct_rw', T('Fully correct (Kinyarwanda)')],
+  ['language_match_rw', T('Replies in Kinyarwanda when asked')],
+  ['oos_handled', T('Off-topic handled safely')],
+  ['unsupported_number_rate', T('Unsupported figures (lower is better)')],
 ];
 
 function legend(el, items) { el.innerHTML = items.map(([n, c]) => `<span style="--c:var(${c})">${n}</span>`).join(''); }
 
 function hbars(el, tipEl, rows, series, max = 100) {
   // rows: [label, [v1, v2, v3]]; grouped horizontal bars, values labelled at bar ends.
-  const W = el.clientWidth || 900, labelW = Math.min(250, W * 0.36), barH = 14, gap = 2, groupGap = 18;
+  const W = el.clientWidth || 900, labelW = Math.min(340, W * 0.4), barH = 14, gap = 2, groupGap = 18;
   const plotW = W - labelW - 50;
   const gh = series.length * (barH + gap) - gap;
   const H = rows.length * (gh + groupGap) + 24;
@@ -133,10 +140,10 @@ async function main() {
 
   const iso = d.qa['isoko-' + best], plain = d.qa['plain-' + best];
   const tiles = [
-    [iso.fully_correct + '%', 'Fully correct answers', `generic ${best}: ${plain.fully_correct}%`],
-    [iso.fully_correct_rw + '%', 'Fully correct in Kinyarwanda', `generic ${best}: ${plain.fully_correct_rw}%`],
-    [iso.unsupported_number_rate + '%', 'Answers with unsupported figures', `generic ${best}: ${plain.unsupported_number_rate}%`],
-    [iso.oos_handled + '%', 'Off-topic questions handled safely', `generic ${best}: ${plain.oos_handled}%`],
+    [iso.fully_correct + '%', T('Fully correct answers'), T(`generic ${best}: ${plain.fully_correct}%`)],
+    [iso.fully_correct_rw + '%', T('Fully correct in Kinyarwanda'), T(`generic ${best}: ${plain.fully_correct_rw}%`)],
+    [iso.unsupported_number_rate + '%', T('Answers with unsupported figures'), T(`generic ${best}: ${plain.unsupported_number_rate}%`)],
+    [iso.oos_handled + '%', T('Off-topic questions handled safely'), T(`generic ${best}: ${plain.oos_handled}%`)],
   ];
   document.getElementById('tiles').innerHTML = tiles.map(([v, l, dd]) => `<div class="tile"><div class="v">${v}</div><div class="l">${l} (Isôko + ${best})</div><div class="d">${dd}</div></div>`).join('');
 
@@ -151,7 +158,7 @@ async function main() {
 
   const mtModels = Object.keys(d.mt || {});
   if (mtModels.length) {
-    const s2 = [['English → Kinyarwanda', '--s1'], ['Kinyarwanda → English', '--s2']];
+    const s2 = [[T('English → Kinyarwanda'), '--s1'], [T('Kinyarwanda → English'), '--s2']];
     legend(document.getElementById('legend2'), s2);
     hbars(document.getElementById('chart2'), document.getElementById('tip2'), mtModels.map(m => [m, [d.mt[m].en2rw, d.mt[m].rw2en]]), s2);
   } else document.getElementById('chart2').innerHTML = '<p class="empty">Translation results pending.</p>';

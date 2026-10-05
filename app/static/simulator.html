@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="rw">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Isôko · USSD Simulator</title>
 <link rel="stylesheet" href="/static/style.css">
+<script src="/static/i18n.js"></script>
 <style>
   .stage { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
   .phone {
@@ -108,7 +109,7 @@ function show(resp) {
   const end = resp.startsWith('END ');
   out.textContent = resp.slice(4);
   if (end) { session = null; sendBtn.textContent = 'Dial'; inp.style.display = 'none';
-    setTimeout(() => { if (!session) { out.textContent += '\n\n— session ended —'; } }, 50); }
+    setTimeout(() => { if (!session) { out.textContent += '\n\n' + T('— session ended —'); } }, 50); }
   else { sendBtn.textContent = 'Send'; inp.style.display = ''; inp.focus(); }
   setTimeout(pollSms, 600);
 }
