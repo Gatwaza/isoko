@@ -75,6 +75,7 @@ def warm():
     threading.Thread(target=_load, daemon=True).start()
 
 
+@app.get("/")
 @app.get("/health")
 def health():
     return {"status": "ok", "device": DEVICE, "loaded": sorted(_models), "models": {"asr": ASR_MODEL, "tts": TTS_MODEL, "mt": MT_MODEL, **VISION_MODELS}}

@@ -58,6 +58,6 @@ echo "  Live comparison:  ${URL:-http://localhost:$PORT}/compare"
 echo "  Evaluation:       ${URL:-http://localhost:$PORT}/evaluation"
 echo "  Dashboard:        ${URL:-http://localhost:$PORT}/dashboard"
 echo "  Model:            ${MODEL} (Ollama, local)"
-echo "  Speech & photos:  ${ML_SERVICE_URL:-disabled} (warming up models takes ~1 min)"
+echo "  Model service:    ${ML_SERVICE_URL:-disabled} (internal API used by the pages above, not a web page; ~1 min to load)"
 echo
 wait $APP
