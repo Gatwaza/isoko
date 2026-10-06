@@ -11,12 +11,12 @@ class MLUnavailable(Exception):
 
 def _post(path: str, **kw) -> httpx.Response:
     if not config.ML_SERVICE_URL:
-        raise MLUnavailable("model service not configured (ML_SERVICE_URL)")
+        raise MLUnavailable("Voice and photo models are offline right now. Please try again later.")
     try:
         r = httpx.post(f"{config.ML_SERVICE_URL.rstrip('/')}{path}", headers={"X-ML-Token": config.ML_TOKEN},
                        timeout=config.ML_TIMEOUT_S, **kw)
     except httpx.HTTPError as exc:
-        raise MLUnavailable(f"model service unreachable: {exc}") from exc
+        raise MLUnavailable("Voice and photo models are offline right now. Please try again later.") from exc
     if r.status_code >= 500 or r.status_code == 401:
         raise MLUnavailable(f"model service error {r.status_code}")
     return r

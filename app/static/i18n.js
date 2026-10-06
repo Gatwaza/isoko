@@ -37,7 +37,7 @@
     "Voice questions": "Ibibazo by'ijwi", "Photo diagnoses": "Isuzuma ry'amafoto", "Promoter farm visits": "Inzinduko z'abahinzi borozi",
     "Same open model · left alone · right through Isôko": "Moderi imwe · ibumoso yonyine · iburyo binyuze muri Isôko",
     "70 farmer questions · 49 English · 21 Kinyarwanda · 8 off-topic": "Ibibazo 70 · 49 mu Cyongereza · 21 mu Kinyarwanda · 8 bitari iby'ubuhinzi",
-    "no speech recognised": "nta majwi yumvikanye", "audio too short": "ijwi ni rigufi cyane",
+    "no speech recognised": "nta majwi yumvikanye", "Voice and photo models are offline right now. Please try again later.": "Serivisi y'ijwi n'amafoto ntiri ku murongo ubu. Ongera ugerageze nyuma.", "audio too short": "ijwi ni rigufi cyane",
     // navigation and brand
     "USSD simulator": "Igerageza rya USSD",
     "MINAGRI dashboard": "Imbonerahamwe ya MINAGRI",
