@@ -11,3 +11,10 @@ supabase/.temp
 data/external/
 .venv-ml/
 *.log
+models/**/*.pkl
+models/**/*.joblib
+models/**/*.h5
+models/**/*.keras
+models/**/*.pt
+models/**/*.safetensors
+models/**/*.onnx
