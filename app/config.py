@@ -52,3 +52,25 @@ DEMO_MODE = _bool("DEMO_MODE", False)
 # Run post-response work (SMS sends, async answers) inline before responding. Needed on
 # serverless hosts (Vercel) where work after the response is not guaranteed to run.
 INLINE_TASKS = _bool("INLINE_TASKS", bool(os.getenv("VERCEL")))
+
+# Model service (speech, photo diagnosis, translation). See ml_service/.
+ML_SERVICE_URL = os.getenv("ML_SERVICE_URL", "")
+ML_TOKEN = os.getenv("ML_TOKEN", "")
+ML_TIMEOUT_S = float(os.getenv("ML_TIMEOUT_S", "60"))
+
+# Admin keys (refinement-window knowledge import). Separate from benchmark keys.
+ADMIN_KEYS = {k.strip() for k in os.getenv("ADMIN_KEYS", "").split(",") if k.strip()}
+
+# Requests per minute: per API key, and per IP for the public demo endpoints.
+RATE_LIMIT_KEY = int(os.getenv("RATE_LIMIT_KEY", "120"))
+RATE_LIMIT_DEMO = int(os.getenv("RATE_LIMIT_DEMO", "20"))
+
+# WhatsApp Cloud API (optional). Webhook: GET/POST /whatsapp/webhook
+WHATSAPP_TOKEN = os.getenv("WHATSAPP_TOKEN", "")
+WHATSAPP_PHONE_ID = os.getenv("WHATSAPP_PHONE_ID", "")
+WHATSAPP_VERIFY_TOKEN = os.getenv("WHATSAPP_VERIFY_TOKEN", "")
+
+VERSION = "0.2.0"
+
+# Back-pressure: at most this many LLM generations at once; extra requests get curated text immediately.
+LLM_MAX_CONCURRENCY = int(os.getenv("LLM_MAX_CONCURRENCY", "2"))

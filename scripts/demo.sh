@@ -28,11 +28,23 @@ fi
 echo "Warming up ${MODEL}..."
 curl -s localhost:11434/api/generate -d "{\"model\":\"$MODEL\",\"prompt\":\"hi\",\"stream\":false,\"options\":{\"num_predict\":1}}" >/dev/null
 
+# Model service (Kinyarwanda speech, photo diagnosis, translation) on this machine's GPU.
+ML_PORT="${ML_PORT:-7860}"
+if [ -d .venv-ml ]; then
+  ML_TOKEN="${ML_TOKEN:-local-$(date +%s)}"
+  (cd ml_service && ML_TOKEN="$ML_TOKEN" ../.venv-ml/bin/python -m uvicorn app:app --port "$ML_PORT" --log-level warning) &
+  ML=$!
+  export ML_SERVICE_URL="http://localhost:$ML_PORT" ML_TOKEN
+else
+  echo "No .venv-ml: voice and photo features disabled (see ml_service/README.md)."
+  ML=""
+fi
+
 .venv/bin/python -m uvicorn app.main:app --port "$PORT" --log-level warning &
 APP=$!
 "$CLOUDFLARED" tunnel --no-autoupdate --url "http://localhost:$PORT" > data/tunnel.log 2>&1 &
 TUN=$!
-trap 'kill $APP $TUN 2>/dev/null' EXIT INT TERM
+trap 'kill $APP $TUN $ML 2>/dev/null' EXIT INT TERM
 
 for _ in $(seq 1 30); do
   URL=$(grep -o 'https://[a-z0-9-]*\.trycloudflare\.com' data/tunnel.log | head -1 || true)
@@ -40,10 +52,12 @@ for _ in $(seq 1 30); do
 done
 echo
 echo "  Local:            http://localhost:$PORT/simulator"
+echo "  Promoter portal:  ${URL:-http://localhost:$PORT}/promoter"
 echo "  Public:           ${URL:-(tunnel not ready, see data/tunnel.log)}"
 echo "  Live comparison:  ${URL:-http://localhost:$PORT}/compare"
 echo "  Evaluation:       ${URL:-http://localhost:$PORT}/evaluation"
 echo "  Dashboard:        ${URL:-http://localhost:$PORT}/dashboard"
 echo "  Model:            ${MODEL} (Ollama, local)"
+echo "  Speech & photos:  ${ML_SERVICE_URL:-disabled} (warming up models takes ~1 min)"
 echo
 wait $APP

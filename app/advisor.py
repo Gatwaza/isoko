@@ -5,6 +5,7 @@ corpus cannot answer are escalated to a human extension officer instead of being
 guessed, and logged as knowledge gaps for MINAGRI / RAB.
 """
 import re
+import threading
 import time
 from dataclasses import asdict, dataclass, field
 
@@ -19,6 +20,17 @@ _RW_MARKERS = {
     "rwanjye", "zirwaye", "irwaye", "zipfa", "amababi", "udukoko", "nkongwa", "kirabiranya",
 }
 _WEATHER = {"weather", "rain", "forecast", "drought", "imvura", "iteganyagihe", "izuba", "amapfa", "ikirere"}
+
+# Intents the knowledge base does not cover yet (market prices, credit, machinery). Escalated with a
+# specific message instead of returning a loosely related agronomy answer.
+UNSUPPORTED = re.compile(r"\b(igiciro|ibiciro|price|prices|cost|costs|market|isoko ry|ku isoko|inguzanyo|loan|loans|"
+                         r"credit|banki|bank|imashini|tractor|machine|machinery)\b", re.I)
+UNSUPPORTED_MSG = {
+    "en": "Market prices, credit and machinery are not covered yet. Your question has been passed to an "
+          "extension officer; for prices ask your cooperative or sector agronomist.",
+    "rw": "Amakuru y'ibiciro, inguzanyo n'imashini ntaraboneka muri serivisi. Ikibazo cyawe cyoherejwe ku mujyanama "
+          "w'ubuhinzi; ku biciro baza koperative yawe cyangwa agronome w'umurenge.",
+}
 
 ESCALATION = {
     "en": "I don't have a validated answer for this yet. Your question has been sent to an extension "
@@ -98,6 +110,8 @@ Rules:
 - Reply in plain {lang_name}, no markdown, at most {words} words."""
 
 
+_GEN_SLOTS = threading.BoundedSemaphore(max(1, config.LLM_MAX_CONCURRENCY))
+
 _NUM = re.compile(r"\d+(?:[.,]\d+)?")
 
 
@@ -117,7 +131,7 @@ def _clip(text: str, limit: int) -> str:
 
 def answer(question: str, *, lang: str | None = None, district: str | None = None,
            crop: str | None = None, channel: str = "api", phone: str | None = None,
-           max_chars: int | None = None, log: bool = True) -> Advice:
+           max_chars: int | None = None, log: bool = True, run_id: str | None = None) -> Advice:
     t0 = time.perf_counter()
     lang = lang if lang in ("en", "rw") else detect_language(question)
     district = weather.match_district(district) if district else None
@@ -139,7 +153,9 @@ def answer(question: str, *, lang: str | None = None, district: str | None = Non
     escalated = False
     model = "retrieval"
 
-    if (top < config.MIN_RETRIEVAL_SCORE or not corpus().is_in_domain(query)) and not wx:
+    if UNSUPPORTED.search(question) and not wx:
+        text, escalated, sources = UNSUPPORTED_MSG[lang], True, []
+    elif (top < config.MIN_RETRIEVAL_SCORE or not corpus().is_in_domain(query)) and not wx:
         text, escalated, sources = ESCALATION[lang], True, []
     else:
         relevant = [h for h in hits if h.score >= max(config.MIN_RETRIEVAL_SCORE, top * 0.6)]
@@ -157,15 +173,19 @@ def answer(question: str, *, lang: str | None = None, district: str | None = Non
                 ctx.append(f"7-day forecast advice: {wx['text']}")
             words = 80 if channel in ("sms", "ussd") else 150
             prompt = f"REFERENCE:\n{ref}\n\n{' '.join(ctx)}\n\nQUESTION: {question}"
-            try:
-                out = llm.chat(
-                    SYSTEM_PROMPT.format(lang_name="Kinyarwanda" if lang == "rw" else "English", words=words),
-                    prompt,
-                )
-                if out and "INSUFFICIENT" not in out.upper() and numbers_grounded(out, prompt):
-                    text, model = out, llm.model_name()
-            except llm.LLMUnavailable:
-                pass
+            # Back-pressure: benchmark runs wait for a slot (determinism); live traffic falls back to curated text.
+            if _GEN_SLOTS.acquire(blocking=bool(run_id), timeout=config.LLM_TIMEOUT_S if run_id else None):
+                try:
+                    out = llm.chat(
+                        SYSTEM_PROMPT.format(lang_name="Kinyarwanda" if lang == "rw" else "English", words=words),
+                        prompt, temperature=0.0 if run_id else 0.1,
+                    )
+                    if out and "INSUFFICIENT" not in out.upper() and numbers_grounded(out, prompt):
+                        text, model = out, llm.model_name()
+                except llm.LLMUnavailable:
+                    pass
+                finally:
+                    _GEN_SLOTS.release()
         if text is None:
             # Curated text, verbatim. Short answers for SMS/USSD, full detail for API.
             if relevant:
@@ -190,5 +210,5 @@ def answer(question: str, *, lang: str | None = None, district: str | None = Non
                            category=first.get("category"), crop=crop or first.get("crop"),
                            topic=first.get("topic"), query=question, answer=text, sources=sources,
                            confidence=adv.confidence, escalated=escalated, latency_ms=adv.latency_ms,
-                           model=model)
+                           model=model, run_id=run_id)
     return adv

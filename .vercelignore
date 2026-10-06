@@ -5,3 +5,10 @@ tests
 .env.supabase
 .pytest_cache
 __pycache__
+.venv-ml
+ml_service
+eval/*.py
+eval/*.json*
+docs
+supabase
+scripts

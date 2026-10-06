@@ -19,7 +19,7 @@ def model_name() -> str:
     return "none" if config.LLM_PROVIDER == "none" else f"{config.LLM_PROVIDER}:{config.LLM_MODEL}"
 
 
-def chat(system: str, user: str, max_tokens: int = 350) -> str:
+def chat(system: str, user: str, max_tokens: int = 350, temperature: float = 0.1) -> str:
     provider = config.LLM_PROVIDER
     try:
         if provider == "ollama":
@@ -29,7 +29,7 @@ def chat(system: str, user: str, max_tokens: int = 350) -> str:
                     "model": config.LLM_MODEL,
                     "stream": False,
                     "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
-                    "options": {"temperature": 0.1, "num_predict": max_tokens},
+                    "options": {"temperature": temperature, "num_predict": max_tokens, "seed": 7},
                 },
                 timeout=config.LLM_TIMEOUT_S,
             )
@@ -42,8 +42,9 @@ def chat(system: str, user: str, max_tokens: int = 350) -> str:
                 headers=headers,
                 json={
                     "model": config.LLM_MODEL,
-                    "temperature": 0.1,
+                    "temperature": temperature,
                     "max_tokens": max_tokens,
+                    "seed": 7,
                     "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
                 },
                 timeout=config.LLM_TIMEOUT_S,

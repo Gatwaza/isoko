@@ -38,6 +38,13 @@ CREATE TABLE IF NOT EXISTS sms_outbox (
     id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL NOT NULL, phone TEXT NOT NULL, message TEXT NOT NULL,
     status TEXT NOT NULL
 );
+CREATE TABLE IF NOT EXISTS farm_visits (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL NOT NULL, promoter_hash TEXT, farmer_code TEXT, district TEXT,
+    crop TEXT, issue TEXT, diagnosis TEXT, notes TEXT
+);
+CREATE TABLE IF NOT EXISTS kb_extra (
+    id TEXT PRIMARY KEY, ts REAL NOT NULL, entry TEXT NOT NULL, source TEXT, active INTEGER NOT NULL DEFAULT 1
+);
 CREATE INDEX IF NOT EXISTS idx_interactions_ts ON interactions(ts);
 CREATE INDEX IF NOT EXISTS idx_reports_ts ON reports(ts);
 """
@@ -57,6 +64,10 @@ def conn():
             _conn = sqlite3.connect(config.DB_PATH, check_same_thread=False)
             _conn.row_factory = sqlite3.Row
             _conn.executescript(SQLITE_SCHEMA)
+            cols = {r[1] for r in _conn.execute("PRAGMA table_info(interactions)")}
+            if "run_id" not in cols:  # databases created before v0.2
+                _conn.execute("ALTER TABLE interactions ADD COLUMN run_id TEXT")
+                _conn.commit()
     return _conn
 
 
@@ -132,14 +143,34 @@ def log_interaction(*, channel: str, phone: str | None = None, lang: str | None 
                     crop: str | None = None, topic: str | None = None, query: str | None = None,
                     answer: str | None = None, sources: list | None = None,
                     confidence: float | None = None, escalated: bool = False,
-                    latency_ms: int | None = None, model: str | None = None) -> None:
+                    latency_ms: int | None = None, model: str | None = None, run_id: str | None = None) -> None:
     execute(
         """INSERT INTO interactions (ts, channel, user_hash, lang, district, category, crop, topic,
-           query, answer, sources, confidence, escalated, latency_ms, model)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+           query, answer, sources, confidence, escalated, latency_ms, model, run_id)
+           VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
         (time.time(), channel, hash_user(phone), lang, district, category, crop, topic, query,
-         answer, json.dumps(sources or []), confidence, int(escalated), latency_ms, model),
+         answer, json.dumps(sources or []), confidence, int(escalated), latency_ms, model, run_id),
     )
+
+
+def log_visit(*, promoter: str | None, farmer_code: str | None, district: str | None, crop: str | None,
+              issue: str | None, diagnosis: str | None, notes: str | None) -> None:
+    execute("""INSERT INTO farm_visits (ts, promoter_hash, farmer_code, district, crop, issue, diagnosis, notes)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?)""",
+            (time.time(), hash_user(promoter), farmer_code, district, crop, issue, diagnosis, notes))
+
+
+def upsert_kb(entry_id: str, entry: dict, source: str) -> None:
+    execute("DELETE FROM kb_extra WHERE id = ?", (entry_id,))
+    execute("INSERT INTO kb_extra (id, ts, entry, source, active) VALUES (?, ?, ?, ?, 1)",
+            (entry_id, time.time(), json.dumps(entry, ensure_ascii=False), source))
+
+
+def kb_extra() -> list[dict]:
+    try:
+        return [json.loads(r["entry"]) for r in query("SELECT entry FROM kb_extra WHERE active = 1 ORDER BY ts")]
+    except Exception:  # table missing on an older Postgres schema: run the migration
+        return []
 
 
 def log_report(*, phone: str | None, district: str | None, issue: str, detail: str | None, channel: str) -> None:

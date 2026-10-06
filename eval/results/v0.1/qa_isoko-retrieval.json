@@ -13,8 +13,7 @@
   "sources": [
    "maize-planting"
   ],
-  "latency_ms": 10,
-  "escalated": false,
+  "latency_ms": 5,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -24,7 +23,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q02",
@@ -39,10 +39,10 @@
   "engine": "retrieval",
   "sources": [
    "maize-planting",
-   "maize-leaf-diseases"
+   "maize-harvest",
+   "maize-fertiliser"
   ],
-  "latency_ms": 9,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -52,7 +52,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q03",
@@ -67,10 +68,10 @@
   "engine": "retrieval",
   "sources": [
    "maize-planting",
+   "compost-making",
    "seasons-calendar"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -80,7 +81,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q04",
@@ -98,7 +100,6 @@
    "beans-fertiliser"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -108,7 +109,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q05",
@@ -122,10 +124,10 @@
   "answer": "Ibimenyetso: amababi mato afite uduce tumeze nk'idirishya, imyobo, n'umwanda umeze nk'ifu mu mutima w'igihingwa. Genzura ibigori 10 ahantu 5 buri cyumweru. Niba ibyangiritse biri munsi ya 2 kuri 10: tora amagi n'inyo n'intoki, ushyire agataka cyangwa ivu mu mutima w'igihingwa. Niba ari 2 cyangwa birenga kuri 10: tera umuti wemejwe na RAB mu mutima w'igihingwa mu gitondo cyangwa nimugoroba, wambaye ibikoresho byo kwirinda. Tera kare kandi icyarimwe n'abaturanyi. Menyesha agronome w'umurenge niba ari nyinshi.",
   "engine": "retrieval",
   "sources": [
-   "maize-faw"
+   "maize-faw",
+   "rice-fertiliser"
   ],
-  "latency_ms": 7,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 0.5,
@@ -135,7 +137,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q06",
@@ -153,7 +156,6 @@
    "rice-fertiliser"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -163,7 +165,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q07",
@@ -179,8 +182,7 @@
   "sources": [
    "maize-faw"
   ],
-  "latency_ms": 11,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -190,7 +192,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q08",
@@ -206,8 +209,7 @@
   "sources": [
    "maize-faw"
   ],
-  "latency_ms": 12,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -217,7 +219,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q09",
@@ -234,7 +237,6 @@
    "maize-faw"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -244,7 +246,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q10",
@@ -260,7 +263,6 @@
    "maize-harvest"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -270,7 +272,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q11",
@@ -284,10 +287,10 @@
   "engine": "retrieval",
   "sources": [
    "maize-harvest",
-   "rice-harvest"
+   "rice-harvest",
+   "maize-fertiliser"
   ],
-  "latency_ms": 6,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -297,7 +300,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q12",
@@ -315,7 +319,6 @@
    "beans-planting"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -325,7 +328,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q13",
@@ -341,8 +345,7 @@
   "sources": [
    "beans-planting"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -352,7 +355,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q14",
@@ -366,11 +370,10 @@
   "engine": "retrieval",
   "sources": [
    "beans-fertiliser",
-   "rice-fertiliser",
-   "maize-fertiliser"
+   "banana-fertiliser",
+   "potato-fertiliser"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -380,7 +383,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q15",
@@ -398,7 +402,6 @@
    "cassava-diseases"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -408,7 +411,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q16",
@@ -423,8 +427,7 @@
   "sources": [
    "beans-rootrot"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -434,7 +437,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q17",
@@ -450,7 +454,6 @@
    "beans-harvest"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -460,7 +463,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q18",
@@ -479,7 +483,6 @@
    "potato-harvest"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -489,7 +492,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q19",
@@ -506,8 +510,7 @@
    "potato-bacterialwilt",
    "potato-fertiliser"
   ],
-  "latency_ms": 12,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -517,7 +520,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q20",
@@ -535,7 +539,6 @@
    "beans-fertiliser"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -545,7 +548,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q21",
@@ -559,11 +563,9 @@
   "answer": "Late blight spreads fast in cool, wet weather: brown-black water-soaked patches on leaves, white mould underneath in the morning, dark stem lesions. Prevention: tolerant varieties, certified seed, good spacing, hilling, and removing volunteer potatoes. In rainy periods, spray an RAB-approved protective fungicide (such as mancozeb) every 7-10 days starting before symptoms; use a systemic product only as advised. Wear protective gear and respect the label waiting time before harvest.",
   "engine": "retrieval",
   "sources": [
-   "potato-lateblight",
-   "potato-earlyblight"
+   "potato-lateblight"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -573,7 +575,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q22",
@@ -586,11 +589,9 @@
   "answer": "Mildiyu yihuta mu gihe cy'imbeho n'imvura: amabara y'ikigina-umukara atose ku mababi, ifu yera munsi y'ibabi mu gitondo, n'ibikomere byijimye ku ruti. Kwirinda: imbuto zihanganira, imbuto zemewe, intera ikwiye, kurunda, no kurandura ibirayi byimejeje. Mu gihe cy'imvura, tera umuti wemejwe na RAB (nka mancozeb) buri minsi 7-10 mbere y'uko ibimenyetso bigaragara. Ambara ibikoresho byo kwirinda kandi wubahirize igihe cyanditse mbere yo gusarura.",
   "engine": "retrieval",
   "sources": [
-   "potato-lateblight",
-   "potato-earlyblight"
+   "potato-lateblight"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -600,7 +601,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q23",
@@ -616,8 +618,7 @@
   "sources": [
    "potato-bacterialwilt"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -627,7 +628,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q24",
@@ -646,7 +648,6 @@
    "maize-harvest"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -656,7 +657,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q25",
@@ -672,7 +674,6 @@
    "rice-planting"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -682,7 +683,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q26",
@@ -697,8 +699,7 @@
   "sources": [
    "rice-planting"
   ],
-  "latency_ms": 8,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -708,7 +709,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q27",
@@ -725,7 +727,6 @@
    "rice-blast"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -735,7 +736,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q28",
@@ -749,10 +751,10 @@
   "answer": "Basal: NPK 17-17-17 at about 2-2.5kg per are (200-250kg/ha) incorporated before transplanting. Top-dress Urea at about 1kg per are (100kg/ha) in two splits: at active tillering (about 3 weeks after transplanting) and at panicle initiation. Apply urea into shallow water or moist soil and avoid letting water flow out for a few days. Too much nitrogen increases blast disease. Follow your cooperative's agronomist.",
   "engine": "retrieval",
   "sources": [
-   "rice-fertiliser"
+   "rice-fertiliser",
+   "rice-planting"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -762,7 +764,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q29",
@@ -780,7 +783,6 @@
    "rice-fertiliser"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -790,7 +792,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q30",
@@ -803,10 +806,10 @@
   "answer": "Use cuttings from certified, disease-resistant varieties released by RAB (mosaic and brown streak resistant). Take cuttings 20-25cm long with 5-7 nodes from mature stems (8-18 months old) of healthy plants. Plant at 1m x 1m, slanting or vertical, with two-thirds in the soil. Weed during the first 3 months. Cassava can be intercropped with beans in the first months.",
   "engine": "retrieval",
   "sources": [
-   "cassava-planting"
+   "cassava-planting",
+   "cassava-diseases"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -816,7 +819,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q31",
@@ -830,11 +834,9 @@
   "answer": "Both are virus diseases spread by whiteflies and by planting infected cuttings. Mosaic (CMD): leaves mottled yellow-green, twisted and small. Brown streak (CBSD): yellow patches on leaves, brown streaks on stems, and dry brown rot inside roots. No chemical cure. Control: plant only clean cuttings of resistant varieties, uproot and destroy sick plants in the first 3 months (roguing), and do not take cuttings from fields with symptoms.",
   "engine": "retrieval",
   "sources": [
-   "cassava-diseases",
-   "cassava-cbb-cgm"
+   "cassava-diseases"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -844,7 +846,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q32",
@@ -860,8 +863,7 @@
    "cassava-diseases",
    "cassava-planting"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -871,7 +873,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q33",
@@ -885,11 +888,10 @@
   "engine": "retrieval",
   "sources": [
    "cassava-harvest",
-   "cassava-diseases",
-   "cassava-planting"
+   "cassava-planting",
+   "cassava-diseases"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -899,7 +901,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q34",
@@ -915,8 +918,7 @@
   "sources": [
    "banana-bxw"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -926,7 +928,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q35",
@@ -941,8 +944,7 @@
   "sources": [
    "banana-bxw"
   ],
-  "latency_ms": 6,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -952,7 +954,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q36",
@@ -962,27 +965,25 @@
   "key_facts": [
    "3"
   ],
-  "answer": "Bananas respond best to organic matter. Apply 10-20kg of well-decomposed manure or compost per mat each season, spread around the mat (not against the stem). Keep a thick mulch of grass or crop residues. Chop and return pseudostems after harvest (except from diseased plants). Where available and advised, NPK or potassium fertiliser increases bunch size.",
+  "answer": "Use clean suckers (or tissue-culture plantlets) from disease-free fields. Dig holes 60x60x60cm, mix topsoil with 20kg of manure, and plant at 3m x 3m. Keep only 3 plants per mat (mother, daughter, granddaughter) by removing extra suckers. Mulch with crop residues to keep moisture and add manure each season. Remove dry leaves and keep the base clean to reduce banana weevils.",
   "engine": "retrieval",
   "sources": [
-   "banana-fertiliser",
    "banana-management",
+   "banana-fertiliser",
    "banana-bxw"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
-   "fact_recall": 0.0,
-   "fully_correct": false,
-   "unsupported_numbers": [
-    "10"
-   ],
-   "has_unsupported": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
    "lang_ok": true,
    "escalated": false,
-   "source_ok": false
-  }
+   "source_ok": true
+  },
+  "escalated": false
  },
  {
   "id": "q37",
@@ -999,7 +1000,6 @@
    "banana-management"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1009,7 +1009,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q38",
@@ -1025,7 +1026,6 @@
    "coffee-pests"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1035,7 +1035,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q39",
@@ -1051,7 +1052,6 @@
    "coffee-pests"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1061,7 +1061,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q40",
@@ -1075,11 +1076,10 @@
   "engine": "retrieval",
   "sources": [
    "coffee-fertiliser",
-   "coffee-harvest",
-   "coffee-pests"
+   "coffee-pests",
+   "coffee-harvest"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 0.0,
@@ -1089,7 +1089,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q41",
@@ -1103,10 +1104,10 @@
   "engine": "retrieval",
   "sources": [
    "cattle-feeding",
+   "rice-fertiliser",
    "cattle-mastitis"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1116,7 +1117,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q42",
@@ -1131,8 +1133,7 @@
   "sources": [
    "cattle-feeding"
   ],
-  "latency_ms": 2,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1142,7 +1143,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q43",
@@ -1159,7 +1161,6 @@
    "cattle-ticks-ecf"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1169,7 +1170,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q44",
@@ -1184,8 +1186,7 @@
   "sources": [
    "cattle-ticks-ecf"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1195,7 +1196,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q45",
@@ -1212,7 +1214,6 @@
    "cattle-mastitis"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1222,7 +1223,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q46",
@@ -1239,7 +1241,6 @@
    "cattle-fmd"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1249,7 +1250,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q47",
@@ -1264,8 +1266,7 @@
   "sources": [
    "cattle-fmd"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1275,7 +1276,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q48",
@@ -1292,7 +1294,6 @@
    "poultry-newcastle"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1302,7 +1303,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q49",
@@ -1318,8 +1320,7 @@
    "poultry-management",
    "poultry-newcastle"
   ],
-  "latency_ms": 10,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 0.0,
@@ -1336,7 +1337,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q50",
@@ -1352,7 +1354,6 @@
    "poultry-management"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1362,7 +1363,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q51",
@@ -1379,7 +1381,6 @@
    "pig-asf"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1389,7 +1390,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q52",
@@ -1405,7 +1407,6 @@
    "goat-management"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1415,7 +1416,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q53",
@@ -1432,8 +1434,7 @@
    "beans-fertiliser",
    "beans-rootrot"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1443,7 +1444,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q54",
@@ -1458,8 +1460,7 @@
   "sources": [
    "soil-fertility-lime"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1469,7 +1470,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q55",
@@ -1486,7 +1488,6 @@
    "compost-making"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 0.0,
@@ -1499,7 +1500,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q56",
@@ -1515,7 +1517,6 @@
    "erosion-control"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1525,7 +1526,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q57",
@@ -1542,7 +1544,6 @@
    "pesticide-safety"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1552,7 +1553,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q58",
@@ -1568,7 +1570,6 @@
    "nkunganire-inputs"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1578,7 +1579,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q59",
@@ -1591,10 +1593,10 @@
   "answer": "Smart Nkunganire (SNS) ifasha abahinzi kugura imbuto, ifumbire n'ishwagara ku giciro cyunganiwe na Leta. Iyandikishe n'ubutaka n'igihingwa uteganya ku mujyanama w'ubuhinzi w'akagari cyangwa umuhinzi mworozi w'icyitegererezo mbere y'igihembwe, hanyuma utumize kandi ugure ku mucuruzi wemewe ukwegereye. Baza agronome w'umurenge ibiciro n'amatariki y'igihembwe gitaha.",
   "engine": "retrieval",
   "sources": [
-   "nkunganire-inputs"
+   "nkunganire-inputs",
+   "soil-fertility-lime"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1604,7 +1606,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q60",
@@ -1620,7 +1623,6 @@
    "climate-smart"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1630,7 +1632,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q61",
@@ -1644,10 +1647,10 @@
   "engine": "retrieval",
   "sources": [
    "maize-planting",
-   "seasons-calendar"
+   "seasons-calendar",
+   "potato-fertiliser"
   ],
   "latency_ms": 0,
-  "escalated": false,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1666,7 +1669,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q62",
@@ -1680,7 +1684,6 @@
   "engine": "retrieval",
   "sources": [],
   "latency_ms": 0,
-  "escalated": true,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1690,7 +1693,8 @@
    "lang_ok": true,
    "escalated": true,
    "source_ok": false
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o01",
@@ -1701,14 +1705,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 11,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o02",
@@ -1719,14 +1723,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 5,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o03",
@@ -1734,17 +1738,17 @@
   "question": "Ndashaka inguzanyo ya banki",
   "expected_source": null,
   "key_facts": [],
-  "answer": "Amakuru y'ibiciro, inguzanyo n'imashini ntaraboneka muri serivisi. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi; ku biciro baza koperative yawe cyangwa agronome w'umurenge.",
+  "answer": "Nta gisubizo cyemejwe dufite kuri iki kibazo ubu. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi. Ku bufasha bwihuse baza agronome w'umurenge, cyangwa veterineri ku matungo.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o04",
@@ -1755,14 +1759,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o05",
@@ -1773,14 +1777,14 @@
   "answer": "Nta gisubizo cyemejwe dufite kuri iki kibazo ubu. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi. Ku bufasha bwihuse baza agronome w'umurenge, cyangwa veterineri ku matungo.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 5,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o06",
@@ -1791,14 +1795,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 4,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o07",
@@ -1809,14 +1813,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o08",
@@ -1824,16 +1828,20 @@
   "question": "Igiciro cy'ibirayi ku isoko ni angahe uyu munsi?",
   "expected_source": null,
   "key_facts": [],
-  "answer": "Amakuru y'ibiciro, inguzanyo n'imashini ntaraboneka muri serivisi. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi; ku biciro baza koperative yawe cyangwa agronome w'umurenge.",
+  "answer": "Udusimba twa antestiya (dufite ishusho y'ingabo, umukara n'icunga) twangiza imbuto kandi dutera uburyohe bw'ibirayi bugabanya igiciro cy'ikawa y'u Rwanda. Konora ibiti kugira ngo bifunguke, tora udusimba mu gitondo, ukoreshe imiti gusa ukurikije inama za NAEB. Ingese: amabara y'ifu y'icunga munsi y'amababi, amababi agahunguka; koresha ubwoko buhanganira, ifumbire ikwiye n'imiti NAEB yemeza. Sarura imbuto zihishije zitukura gusa, uzigeze ku ruganda uwo munsi.",
   "engine": "retrieval",
-  "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "sources": [
+   "coffee-pests",
+   "potato-harvest",
+   "potato-lateblight"
+  ],
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
-   "oos_handled": true,
+   "oos_handled": false,
    "lang_ok": true,
-   "escalated": true
-  }
+   "escalated": false
+  },
+  "escalated": false
  }
 ]

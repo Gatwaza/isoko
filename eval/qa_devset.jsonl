@@ -1,0 +1,20 @@
+{"id":"d01","language":"rw","question":"Nzasarura ryari ibigori byanjye?","expected_source":"maize-harvest"}
+{"id":"d02","language":"rw","question":"Ndashaka guhunika ibishyimbo ntibyangizwe n'imungu","expected_source":"beans-harvest"}
+{"id":"d03","language":"rw","question":"Nabagara ibigori ryari?","expected_source":"maize-planting"}
+{"id":"d04","language":"rw","question":"Nshobora kwimura ingemwe z'umuceri zifite ibyumweru bitatu?","expected_source":"rice-planting"}
+{"id":"d05","language":"rw","question":"Insina zanjye ziruma kandi ibitoki biraboha","expected_source":"banana-bxw"}
+{"id":"d06","language":"rw","question":"Inka zanjye zirakorora kandi zifite umuriro, zirwaye iki?","expected_source":"cattle-ticks-ecf"}
+{"id":"d07","language":"rw","question":"Inkoko zanjye zirapfa umwe umwe buri munsi","expected_source":"poultry-newcastle"}
+{"id":"d08","language":"rw","question":"Ingurube zanjye zirapfa zifite amabara atukura ku matwi","expected_source":"pig-asf"}
+{"id":"d09","language":"rw","question":"Nategura nte ifumbire y'imborera?","expected_source":"compost-making"}
+{"id":"d10","language":"rw","question":"Imyumbati nayitera nte?","expected_source":"cassava-planting"}
+{"id":"d11","language":"rw","question":"Ibirayi nabihunika he kugira ngo bitabora?","expected_source":"potato-harvest"}
+{"id":"d12","language":"rw","question":"Nuhira nte ibihingwa mu gihe cy'izuba ryinshi?","expected_source":"climate-smart"}
+{"id":"d13","language":"rw","question":"Ese ishwagara nyishyira mu butaka ryari?","expected_source":"soil-fertility-lime"}
+{"id":"d14","language":"rw","question":"Ikawa yanjye irimo udusimba twangiza imbuto","expected_source":"coffee-pests"}
+{"id":"d15","language":"rw","question":"Nagaburira nte ihene zanjye?","expected_source":"goat-management"}
+{"id":"d16","language":"rw","question":"Inka yanjye ikamwa amata arimo amaraso","expected_source":"cattle-mastitis"}
+{"id":"d17","language":"rw","question":"Umuti wica udukoko nawutera nte nta ngaruka?","expected_source":"pesticide-safety"}
+{"id":"d18","language":"rw","question":"Igiciro cy'ibishyimbo ku isoko rya Kimironko kingana iki?","expected_source":null}
+{"id":"d19","language":"rw","question":"Nshaka inguzanyo yo kugura imashini ihinga","expected_source":null}
+{"id":"d20","language":"rw","question":"Isoko ry'umuceri riri he hafi yanjye?","expected_source":null}

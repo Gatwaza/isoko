@@ -13,8 +13,7 @@
   "sources": [
    "maize-planting"
   ],
-  "latency_ms": 10,
-  "escalated": false,
+  "latency_ms": 4406,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -24,7 +23,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q02",
@@ -39,10 +39,10 @@
   "engine": "retrieval",
   "sources": [
    "maize-planting",
-   "maize-leaf-diseases"
+   "maize-harvest",
+   "maize-fertiliser"
   ],
-  "latency_ms": 9,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -52,7 +52,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q03",
@@ -63,14 +64,14 @@
    "sept|september",
    "oct|october"
   ],
-  "answer": "Plant maize when rains are established (Season A: Sept-Oct, Season B: Feb-Mar). Use certified hybrid or improved seed from an agro-dealer (available through Smart Nkunganire). Spacing: 75cm between rows and 25cm between plants with 1 seed per hole (or 75x50cm with 2 seeds). Plant 3-5cm deep. Weed at 2-3 weeks and again at 5-6 weeks. Gap-fill within 1 week of emergence.",
-  "engine": "retrieval",
+  "answer": "Plant maize during Season A from September to October. Use 75cm between rows and 25cm between plants. Plant one seed per hole, 3-5cm deep. Weed at 2-3 weeks and again at 5-6 weeks.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "maize-planting",
+   "compost-making",
    "seasons-calendar"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2582,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -80,7 +81,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q04",
@@ -97,8 +99,7 @@
    "maize-fertiliser",
    "beans-fertiliser"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 1971,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -108,7 +109,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q05",
@@ -122,10 +124,10 @@
   "answer": "Ibimenyetso: amababi mato afite uduce tumeze nk'idirishya, imyobo, n'umwanda umeze nk'ifu mu mutima w'igihingwa. Genzura ibigori 10 ahantu 5 buri cyumweru. Niba ibyangiritse biri munsi ya 2 kuri 10: tora amagi n'inyo n'intoki, ushyire agataka cyangwa ivu mu mutima w'igihingwa. Niba ari 2 cyangwa birenga kuri 10: tera umuti wemejwe na RAB mu mutima w'igihingwa mu gitondo cyangwa nimugoroba, wambaye ibikoresho byo kwirinda. Tera kare kandi icyarimwe n'abaturanyi. Menyesha agronome w'umurenge niba ari nyinshi.",
   "engine": "retrieval",
   "sources": [
-   "maize-faw"
+   "maize-faw",
+   "rice-fertiliser"
   ],
-  "latency_ms": 7,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 0.5,
@@ -135,7 +137,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q06",
@@ -146,14 +149,13 @@
    "4-6",
    "urea"
   ],
-  "answer": "Apply well-decomposed manure or compost (about 100kg per are, i.e. 10 t/ha) before planting. At planting, place DAP in the planting hole, about 1kg per are (100kg/ha), covered with soil so it does not touch the seed. Top-dress with Urea at about 0.5-1kg per are (50-100kg/ha) at 4-6 weeks when soil is moist, 5cm from the plant, then cover. On acidic soils, liming improves fertiliser response. Confirm rates with your sector agronomist or a soil test.",
-  "engine": "retrieval",
+  "answer": "At 4-6 weeks after planting, when the soil is moist, apply RAB-approved Urea at about 0.5-1kg per are (50-100kg/ha). Place it 5cm from the plant and cover it with soil.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "maize-fertiliser",
    "rice-fertiliser"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2646,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -163,7 +165,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q07",
@@ -174,13 +177,12 @@
    "rab-approved|approved",
    "whorl"
   ],
-  "answer": "Signs: small 'windowpane' patches on young leaves, ragged holes, and sawdust-like droppings in the whorl. Scout 10 plants in 5 spots weekly from emergence. If fewer than 2 in 10 plants are damaged: hand-pick egg masses and caterpillars, and put a pinch of dry soil or ash in the whorl. If 2 or more in 10 are damaged in young maize: spray an RAB-approved product into the whorl in the early morning or evening, wearing protective gear. Plant early and at the same time as neighbours; intercrop with beans or desmodium (push-pull). Report big outbreaks to your sector agronomist.",
-  "engine": "retrieval",
+  "answer": "If you are seeing small ‘windowpane’ patches and ragged holes on your maize leaves, along with ‘sawdust-like’ droppings in the whorl, it’s likely Fall armyworm (Nkongwa). Here’s what you can do: Scout 10 plants in 5 spots weekly. If fewer than 2 are damaged, hand-pick egg masses and caterpillars, and put a pinch of dry soil or ash in the whorl. If 2 or more are damaged in young maize, spray an RAB-approved product into the whorl in the early morning or evening, wearing protective gear. Report big outbreaks to your sector agronomist.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "maize-faw"
   ],
-  "latency_ms": 11,
-  "escalated": false,
+  "latency_ms": 4434,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -190,7 +192,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q08",
@@ -206,8 +209,7 @@
   "sources": [
    "maize-faw"
   ],
-  "latency_ms": 12,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -217,7 +219,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q09",
@@ -228,13 +231,12 @@
    "2",
    "10"
   ],
-  "answer": "Signs: small 'windowpane' patches on young leaves, ragged holes, and sawdust-like droppings in the whorl. Scout 10 plants in 5 spots weekly from emergence. If fewer than 2 in 10 plants are damaged: hand-pick egg masses and caterpillars, and put a pinch of dry soil or ash in the whorl. If 2 or more in 10 are damaged in young maize: spray an RAB-approved product into the whorl in the early morning or evening, wearing protective gear. Plant early and at the same time as neighbours; intercrop with beans or desmodium (push-pull). Report big outbreaks to your sector agronomist.",
-  "engine": "retrieval",
+  "answer": "If 2 or more caterpillars are found in 10 plants in young maize, spray an RAB-approved product into the whorl in the early morning or evening, wearing protective gear. Scout 10 plants in 5 spots weekly from emergence.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "maize-faw"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2138,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -244,7 +246,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q10",
@@ -254,13 +257,12 @@
   "key_facts": [
    "aflatoxin"
   ],
-  "answer": "Harvest when husks turn brown and grain is hard with a black layer at the tip. Never dry maize on bare ground: use tarpaulins or raised racks. Dry to 13% moisture (grain cracks when bitten, rattles in the hand). Remove rotten or mouldy cobs: mould can contain aflatoxin which is dangerous to people and animals. Store in hermetic (airtight) bags on pallets, in a clean, dry store. Do not mix with old grain.",
-  "engine": "retrieval",
+  "answer": "Remove rotten or mouldy cobs immediately. Mould can contain aflatoxin which is dangerous to people and animals. Dry your maize to 13% moisture using tarpaulins or raised racks. Store in hermetic bags on pallets in a clean, dry store. Do not mix with old grain. If you are concerned about the maize, call the sector veterinarian.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "maize-harvest"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2691,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -270,7 +272,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q11",
@@ -284,10 +287,10 @@
   "engine": "retrieval",
   "sources": [
    "maize-harvest",
-   "rice-harvest"
+   "rice-harvest",
+   "maize-fertiliser"
   ],
-  "latency_ms": 6,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -297,7 +300,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q12",
@@ -309,13 +313,12 @@
    "25",
    "2m|2 m"
   ],
-  "answer": "Plant beans at the start of the rains in well-drained soil. Bush beans: 40cm between rows and 10cm between seeds, 2-3cm deep. Climbing beans give 2-3 times more yield: plant at 50cm x 25cm, 2 seeds per hole, and install stakes about 2m tall within 2 weeks. Use certified seed; iron-biofortified varieties released by RAB improve family nutrition. Rotate with cereals to reduce root rot.",
-  "engine": "retrieval",
+  "answer": "For climbing beans, plant at 50cm x 25cm per plant. Sow 2 seeds per hole. Install stakes about 2m tall within 2 weeks of planting. Bush beans should be 40cm between rows and 10cm between seeds, 2-3cm deep. Rotate with cereals to reduce root rot. Use certified seed; iron-biofortified varieties released by RAB improve family nutrition. If your beans are sick or you suspect a notifiable disease, call the sector veterinarian.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "beans-planting"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3516,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -325,7 +328,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q13",
@@ -341,8 +345,7 @@
   "sources": [
    "beans-planting"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -352,7 +355,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q14",
@@ -362,15 +366,14 @@
   "key_facts": [
    "nitrogen"
   ],
-  "answer": "Apply compost or manure before planting. At planting, a small dose of DAP or NPK 17-17-17 (about 1kg per are, 100kg/ha) in the furrow helps root growth. Beans fix nitrogen from the air with their root nodules, so heavy urea is not needed. On acidic soils, lime (ishwagara) applied before planting strongly improves bean yields.",
-  "engine": "retrieval",
+  "answer": "Beans do not need heavy urea. At planting, a small dose of DAP or NPK 17-17-17 (about 1kg per are, 100kg/ha) in the furrow helps root growth. Beans fix nitrogen from the air with their root nodules. On acidic soils, lime (ishwagara) applied before planting strongly improves bean yields.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "beans-fertiliser",
-   "rice-fertiliser",
-   "maize-fertiliser"
+   "banana-fertiliser",
+   "potato-fertiliser"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3166,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -380,7 +383,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q15",
@@ -397,8 +401,7 @@
    "beans-rootrot",
    "cassava-diseases"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 954,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -408,7 +411,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q16",
@@ -423,8 +427,7 @@
   "sources": [
    "beans-rootrot"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 1,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -434,7 +437,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q17",
@@ -449,8 +453,7 @@
   "sources": [
    "beans-harvest"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 717,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -460,7 +463,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q18",
@@ -471,15 +475,14 @@
    "70-80",
    "30"
   ],
-  "answer": "Use certified seed potato from a registered multiplier: farm-saved seed spreads bacterial wilt and viruses. Use sprouted tubers of 35-55mm. Plant 70-80cm between rows and 30cm between tubers, about 10cm deep. Hill (earth up) at about 3 and 6 weeks to protect tubers from light and pests. Rotate: do not plant potato, tomato or eggplant in the same plot for at least 2 seasons.",
-  "engine": "retrieval",
+  "answer": "Plant 70-80cm between rows and 30cm between tubers, about 10cm deep. Hill (earth up) at about 3 and 6 weeks to protect tubers from light and pests.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "potato-planting",
    "potato-fertiliser",
    "potato-harvest"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2187,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -489,7 +492,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q19",
@@ -506,8 +510,7 @@
    "potato-bacterialwilt",
    "potato-fertiliser"
   ],
-  "latency_ms": 12,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -517,7 +520,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q20",
@@ -527,15 +531,14 @@
   "key_facts": [
    "3kg|3 kg|300"
   ],
-  "answer": "Potato needs good fertility. Apply 100-200kg of compost or manure per are before planting. At planting place NPK 17-17-17 at about 3kg per are (300kg/ha) in the furrow and cover with a little soil before placing seed tubers. A split of urea at first hilling can help on poor soils. Confirm rates with your agronomist.",
-  "engine": "retrieval",
+  "answer": "Apply 3kg of NPK 17-17-17 per are (300kg/ha) at planting. A split of urea at first hilling can help on poor soils. Confirm rates with your agronomist.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "potato-fertiliser",
    "rice-fertiliser",
    "beans-fertiliser"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2537,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -545,7 +548,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q21",
@@ -559,11 +563,9 @@
   "answer": "Late blight spreads fast in cool, wet weather: brown-black water-soaked patches on leaves, white mould underneath in the morning, dark stem lesions. Prevention: tolerant varieties, certified seed, good spacing, hilling, and removing volunteer potatoes. In rainy periods, spray an RAB-approved protective fungicide (such as mancozeb) every 7-10 days starting before symptoms; use a systemic product only as advised. Wear protective gear and respect the label waiting time before harvest.",
   "engine": "retrieval",
   "sources": [
-   "potato-lateblight",
-   "potato-earlyblight"
+   "potato-lateblight"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 830,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -573,7 +575,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q22",
@@ -586,11 +589,9 @@
   "answer": "Mildiyu yihuta mu gihe cy'imbeho n'imvura: amabara y'ikigina-umukara atose ku mababi, ifu yera munsi y'ibabi mu gitondo, n'ibikomere byijimye ku ruti. Kwirinda: imbuto zihanganira, imbuto zemewe, intera ikwiye, kurunda, no kurandura ibirayi byimejeje. Mu gihe cy'imvura, tera umuti wemejwe na RAB (nka mancozeb) buri minsi 7-10 mbere y'uko ibimenyetso bigaragara. Ambara ibikoresho byo kwirinda kandi wubahirize igihe cyanditse mbere yo gusarura.",
   "engine": "retrieval",
   "sources": [
-   "potato-lateblight",
-   "potato-earlyblight"
+   "potato-lateblight"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -600,7 +601,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q23",
@@ -616,8 +618,7 @@
   "sources": [
    "potato-bacterialwilt"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 764,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -627,7 +628,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q24",
@@ -645,8 +647,7 @@
    "beans-harvest",
    "maize-harvest"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2690,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -656,7 +657,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q25",
@@ -666,13 +668,12 @@
   "key_facts": [
    "21"
   ],
-  "answer": "Prepare a nursery with certified seed of a variety recommended for your marshland. Plough, puddle and level the field well so water is even. Transplant seedlings at about 21 days, 2-3 seedlings per hill at 20cm x 20cm (straight lines make weeding easier). Keep 3-5cm of water during vegetative growth and drain about 2 weeks before harvest. Coordinate planting dates with your rice cooperative to reduce pests.",
-  "engine": "retrieval",
+  "answer": "Transplant seedlings at about 21 days. Plant 2-3 seedlings per hill at 20cm x 20cm. Keeping 3-5cm of water during vegetative growth and draining about 2 weeks before harvest will help with the rice. Coordinate planting dates with your rice cooperative to reduce pests.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "rice-planting"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2519,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -682,7 +683,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q26",
@@ -697,8 +699,7 @@
   "sources": [
    "rice-planting"
   ],
-  "latency_ms": 8,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -708,7 +709,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q27",
@@ -724,8 +726,7 @@
   "sources": [
    "rice-blast"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3874,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -735,7 +736,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q28",
@@ -746,13 +748,13 @@
    "17-17-17",
    "urea"
   ],
-  "answer": "Basal: NPK 17-17-17 at about 2-2.5kg per are (200-250kg/ha) incorporated before transplanting. Top-dress Urea at about 1kg per are (100kg/ha) in two splits: at active tillering (about 3 weeks after transplanting) and at panicle initiation. Apply urea into shallow water or moist soil and avoid letting water flow out for a few days. Too much nitrogen increases blast disease. Follow your cooperative's agronomist.",
-  "engine": "retrieval",
+  "answer": "Basal fertiliser: Apply NPK 17-17-17 at about 2-2.5kg per are (200-250kg/ha) before transplanting. Top-dress Urea: Use 1kg per are (100kg/ha) in two splits. Apply the first split at active tillering, approximately 3 weeks after transplanting. The second split should be at panicle initiation. When applying urea, place it into shallow water or moist soil. Ensure water doesn’t flow out for a few days. Too much nitrogen can increase blast disease. Consult your cooperative’s agronomist for guidance.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
-   "rice-fertiliser"
+   "rice-fertiliser",
+   "rice-planting"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 4736,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -762,7 +764,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q29",
@@ -772,15 +775,14 @@
   "key_facts": [
    "80-85"
   ],
-  "answer": "Drain the field about 2 weeks before harvest. Harvest when 80-85% of grains are straw-coloured; late harvest causes shattering and cracked grains. Thresh within 1-2 days, on tarpaulins not bare ground, and dry to 14% moisture. Store clean and dry in bags on pallets. Delivering through your cooperative gives better prices from mills.",
-  "engine": "retrieval",
+  "answer": "Harvest when 80-85% of grains are straw-coloured. Late harvest causes shattering and cracked grains. Drain the field about 2 weeks before harvest. Thresh within 1-2 days, on tarpaulins not bare ground, and dry to 14% moisture.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "rice-harvest",
    "rice-planting",
    "rice-fertiliser"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2686,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -790,7 +792,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q30",
@@ -800,13 +803,13 @@
   "key_facts": [
    "20-25"
   ],
-  "answer": "Use cuttings from certified, disease-resistant varieties released by RAB (mosaic and brown streak resistant). Take cuttings 20-25cm long with 5-7 nodes from mature stems (8-18 months old) of healthy plants. Plant at 1m x 1m, slanting or vertical, with two-thirds in the soil. Weed during the first 3 months. Cassava can be intercropped with beans in the first months.",
-  "engine": "retrieval",
+  "answer": "Take cuttings 20-25cm long with 5-7 nodes from mature stems. Plant the cuttings 1m x 1m apart. Weed during the first 3 months. Cassava can be intercropped with beans in the first months.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
-   "cassava-planting"
+   "cassava-planting",
+   "cassava-diseases"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2302,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -816,7 +819,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q31",
@@ -830,11 +834,9 @@
   "answer": "Both are virus diseases spread by whiteflies and by planting infected cuttings. Mosaic (CMD): leaves mottled yellow-green, twisted and small. Brown streak (CBSD): yellow patches on leaves, brown streaks on stems, and dry brown rot inside roots. No chemical cure. Control: plant only clean cuttings of resistant varieties, uproot and destroy sick plants in the first 3 months (roguing), and do not take cuttings from fields with symptoms.",
   "engine": "retrieval",
   "sources": [
-   "cassava-diseases",
-   "cassava-cbb-cgm"
+   "cassava-diseases"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 885,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -844,7 +846,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q32",
@@ -860,8 +863,7 @@
    "cassava-diseases",
    "cassava-planting"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -871,7 +873,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q33",
@@ -881,15 +884,14 @@
   "key_facts": [
    "2"
   ],
-  "answer": "Cassava is ready from about 9-18 months depending on variety. Harvest only what you can use or sell within 2 days, because fresh roots spoil fast. Peel, chop and sun-dry on clean tarpaulins or raised racks, or soak (fermentation) before drying. Bitter varieties must be well processed (soaking and drying) to remove cyanide before eating.",
-  "engine": "retrieval",
+  "answer": "Cassava is ready from about 9-18 months depending on variety. Harvest only what you can use or sell within 2 days, because fresh roots spoil fast. Peel, chop and sun-dry on clean tarpaulins or raised racks, or soak (fermentation) before drying.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "cassava-harvest",
-   "cassava-diseases",
-   "cassava-planting"
+   "cassava-planting",
+   "cassava-diseases"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2871,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -899,7 +901,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q34",
@@ -915,8 +918,7 @@
   "sources": [
    "banana-bxw"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 3392,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -926,7 +928,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q35",
@@ -941,8 +944,7 @@
   "sources": [
    "banana-bxw"
   ],
-  "latency_ms": 6,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -952,7 +954,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q36",
@@ -962,44 +965,14 @@
   "key_facts": [
    "3"
   ],
-  "answer": "Bananas respond best to organic matter. Apply 10-20kg of well-decomposed manure or compost per mat each season, spread around the mat (not against the stem). Keep a thick mulch of grass or crop residues. Chop and return pseudostems after harvest (except from diseased plants). Where available and advised, NPK or potassium fertiliser increases bunch size.",
-  "engine": "retrieval",
+  "answer": "Keep only 3 plants per mat. Remove extra suckers. Plant at 3m x 3m spacing.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
-   "banana-fertiliser",
    "banana-management",
+   "banana-fertiliser",
    "banana-bxw"
   ],
-  "latency_ms": 0,
-  "escalated": false,
-  "score": {
-   "in_scope": true,
-   "fact_recall": 0.0,
-   "fully_correct": false,
-   "unsupported_numbers": [
-    "10"
-   ],
-   "has_unsupported": true,
-   "lang_ok": true,
-   "escalated": false,
-   "source_ok": false
-  }
- },
- {
-  "id": "q37",
-  "language": "en",
-  "question": "how much manure for my bananas",
-  "expected_source": "banana-fertiliser",
-  "key_facts": [
-   "10-20"
-  ],
-  "answer": "Bananas respond best to organic matter. Apply 10-20kg of well-decomposed manure or compost per mat each season, spread around the mat (not against the stem). Keep a thick mulch of grass or crop residues. Chop and return pseudostems after harvest (except from diseased plants). Where available and advised, NPK or potassium fertiliser increases bunch size.",
-  "engine": "retrieval",
-  "sources": [
-   "banana-fertiliser",
-   "banana-management"
-  ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 1686,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1009,7 +982,35 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
+ },
+ {
+  "id": "q37",
+  "language": "en",
+  "question": "how much manure for my bananas",
+  "expected_source": "banana-fertiliser",
+  "key_facts": [
+   "10-20"
+  ],
+  "answer": "For your banana mats, apply 10-20kg of well-decomposed manure or compost per mat each season. Spread this around the mat, not against the stem. Maintain a thick mulch of grass or crop residues. If you have access to it, NPK or potassium fertiliser can increase bunch size. Remove dry leaves and keep the base clean to reduce banana weevils. If you notice sick animals or suspect a notifiable disease, please call the sector veterinarian.",
+  "engine": "ollama:gemma3:4b",
+  "sources": [
+   "banana-fertiliser",
+   "banana-management"
+  ],
+  "latency_ms": 3374,
+  "score": {
+   "in_scope": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
+   "lang_ok": true,
+   "escalated": false,
+   "source_ok": true
+  },
+  "escalated": false
  },
  {
   "id": "q38",
@@ -1024,8 +1025,7 @@
   "sources": [
    "coffee-pests"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 819,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1035,7 +1035,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q39",
@@ -1050,8 +1051,7 @@
   "sources": [
    "coffee-pests"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2678,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1061,7 +1061,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q40",
@@ -1075,11 +1076,10 @@
   "engine": "retrieval",
   "sources": [
    "coffee-fertiliser",
-   "coffee-harvest",
-   "coffee-pests"
+   "coffee-pests",
+   "coffee-harvest"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 0.0,
@@ -1089,7 +1089,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q41",
@@ -1099,14 +1100,14 @@
   "key_facts": [
    "50-100"
   ],
-  "answer": "Feed a dairy cow about 10% of its body weight in fresh fodder daily (40-50kg for a 450kg cow). Napier grass (urubingo) cut at about 1m tall is most nutritious. Mix in legumes such as calliandra, leucaena or desmodium for protein. Provide clean water at all times (50-100 litres a day, more when milking), and a mineral lick. Concentrates (e.g. maize bran) improve milk yield for high producers. Make hay or silage in the rainy season for the dry season.",
-  "engine": "retrieval",
+  "answer": "A dairy cow needs 50-100 litres of water a day. This amount increases when the cow is milking. Ensure a constant supply of clean water. A mineral lick should also be provided.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "cattle-feeding",
+   "rice-fertiliser",
    "cattle-mastitis"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2298,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1116,7 +1117,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q42",
@@ -1131,8 +1133,7 @@
   "sources": [
    "cattle-feeding"
   ],
-  "latency_ms": 2,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1142,7 +1143,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q43",
@@ -1158,8 +1160,7 @@
   "sources": [
    "cattle-ticks-ecf"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3517,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1169,7 +1170,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q44",
@@ -1184,8 +1186,7 @@
   "sources": [
    "cattle-ticks-ecf"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1195,7 +1196,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q45",
@@ -1211,8 +1213,7 @@
   "sources": [
    "cattle-mastitis"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 705,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1222,7 +1223,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q46",
@@ -1238,8 +1240,7 @@
   "sources": [
    "cattle-fmd"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3542,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1249,7 +1250,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q47",
@@ -1264,8 +1266,7 @@
   "sources": [
    "cattle-fmd"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1275,7 +1276,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q48",
@@ -1291,8 +1293,7 @@
   "sources": [
    "poultry-newcastle"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 740,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1302,7 +1303,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q49",
@@ -1318,8 +1320,7 @@
    "poultry-management",
    "poultry-newcastle"
   ],
-  "latency_ms": 10,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 0.0,
@@ -1336,7 +1337,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q50",
@@ -1346,13 +1348,12 @@
   "key_facts": [
    "4-5"
   ],
-  "answer": "Provide clean water at all times; a laying hen drinks about 250ml a day. Feed the right ration for the stage: chick mash (0-8 weeks), grower (8-18 weeks), layer mash (from first egg). Village chickens benefit from extra kitchen scraps, maize bran and greens. House: dry, well-ventilated, rain-proof, about 4-5 adult birds per square metre, with clean litter and nest boxes.",
-  "engine": "retrieval",
+  "answer": "A laying hen drinks about 250ml a day. For the layer mash, house about 4-5 adult birds per square metre. Ensure the house is dry, well-ventilated, rain-proof, and has clean litter and nest boxes.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "poultry-management"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 1920,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1362,7 +1363,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q51",
@@ -1373,23 +1375,23 @@
    "no vaccine",
    "vet"
   ],
-  "answer": "African swine fever (ASF) kills most infected pigs. Signs: high fever, not eating, red or purple patches on ears, belly and legs, sudden deaths. There is no vaccine or treatment. Biosecurity: keep pigs confined, do not buy pigs of unknown origin, boil kitchen swill before feeding, use dedicated boots and a footbath, and limit visitors. If you suspect ASF, stop all movement and sales and report to the sector vet.",
-  "engine": "retrieval",
+  "answer": "If you observe pigs dying with red or purple patches on their ears, belly, and legs, this is a sign of African swine fever (ASF). Here’s what you should do immediately: Stop all movement and sales of the pigs. Limit visitors to your farm. To prevent further spread, maintain strict biosecurity measures. Keep your pigs confined. Do not buy pigs of unknown origin. Boil kitchen swill before feeding. Use dedicated boots and a footbath at the entrance to your pig area. If you suspect ASF, contact the sector veterinarian immediately.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "pig-asf"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3838,
   "score": {
    "in_scope": true,
-   "fact_recall": 1.0,
-   "fully_correct": true,
+   "fact_recall": 0.5,
+   "fully_correct": false,
    "unsupported_numbers": [],
    "has_unsupported": false,
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q52",
@@ -1399,13 +1401,12 @@
   "key_facts": [
    "3-4"
   ],
-  "answer": "Goats prefer browse (leaves of shrubs and trees such as calliandra and leucaena) mixed with grasses. Provide clean water and a mineral lick. House goats on a raised slatted floor to keep them dry and reduce worms and foot problems. Deworm every 3-4 months or as advised by a vet, trim hooves, and separate sick animals.",
-  "engine": "retrieval",
+  "answer": "Deworm goats every 3-4 months. It is also advised to consult with a sector veterinarian for advice. Ensure they have access to clean water and a mineral lick. House them on a raised slatted floor to reduce foot problems and worms. Separate sick animals immediately.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "goat-management"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2032,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1415,7 +1416,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q53",
@@ -1432,8 +1434,7 @@
    "beans-fertiliser",
    "beans-rootrot"
   ],
-  "latency_ms": 3,
-  "escalated": false,
+  "latency_ms": 1193,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1443,7 +1444,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q54",
@@ -1458,8 +1460,7 @@
   "sources": [
    "soil-fertility-lime"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1469,7 +1470,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q55",
@@ -1479,27 +1481,24 @@
   "key_facts": [
    "2-3"
   ],
-  "answer": "Acidic soils lock up nutrients so fertiliser gives poor results; beans and maize suffer most. Where a soil test or your agronomist recommends it, apply agricultural lime (ishwagara/travertine) 2-4 weeks before planting and mix it into the soil; rates are often 1.5-2.5 t/ha. Add compost or manure every season to build organic matter. Ask your sector agronomist about soil testing and subsidised lime through Smart Nkunganire.",
-  "engine": "retrieval",
+  "answer": "Choose a shaded spot or pit. Build layers: dry material (straw, maize stalks), green material (weeds, leaves), animal manure, and a thin layer of soil or ash; repeat to about 1-1.5m. Keep moist like a squeezed sponge, cover against rain, and turn the heap every 2-3 weeks. Compost is ready in 2-3 months when dark, crumbly and earthy-smelling.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "soil-fertility-lime",
    "compost-making"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3228,
   "score": {
    "in_scope": true,
-   "fact_recall": 0.0,
-   "fully_correct": false,
-   "unsupported_numbers": [
-    "2.5",
-    "4"
-   ],
-   "has_unsupported": true,
+   "fact_recall": 1.0,
+   "fully_correct": true,
+   "unsupported_numbers": [],
+   "has_unsupported": false,
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q56",
@@ -1514,8 +1513,7 @@
   "sources": [
    "erosion-control"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 684,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1525,7 +1523,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q57",
@@ -1536,13 +1535,12 @@
    "gloves",
    "mask"
   ],
-  "answer": "Buy only products on the RAB-approved list from licensed agro-dealers, in sealed, labelled containers. Read and follow the label dose. Wear gloves, a mask, long sleeves and boots; do not eat, drink or smoke while spraying; do not spray in wind or before rain. Respect the pre-harvest interval on the label. Store pesticides locked away from food, children and animals, and never reuse containers for water or food.",
-  "engine": "retrieval",
+  "answer": "To protect yourself when spraying chemicals, you should wear gloves, a mask, long sleeves and boots. Always read and follow the label instructions. Do not eat, drink or smoke while spraying.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "pesticide-safety"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 1597,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1552,7 +1550,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q58",
@@ -1562,23 +1561,23 @@
   "key_facts": [
    "nkunganire"
   ],
-  "answer": "Rwanda's Smart Nkunganire System (SNS) lets farmers buy seed, fertiliser and lime at a government-subsidised price. Register your land and crop plan with your village/cell agronomist or farmer promoter before the season, then order and buy from a registered agro-dealer near you. Ask your sector agronomist for current prices and deadlines for the coming season.",
-  "engine": "retrieval",
+  "answer": "To get subsidised seed and fertilizer, register your land and crop plan with your village/cell agronomist or farmer promoter. Do this before the season begins. Then, order and buy from a registered agro-dealer near you. Ask your sector agronomist for current prices and deadlines for the coming season.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "nkunganire-inputs"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 2272,
   "score": {
    "in_scope": true,
-   "fact_recall": 1.0,
-   "fully_correct": true,
+   "fact_recall": 0.0,
+   "fully_correct": false,
    "unsupported_numbers": [],
    "has_unsupported": false,
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q59",
@@ -1591,10 +1590,10 @@
   "answer": "Smart Nkunganire (SNS) ifasha abahinzi kugura imbuto, ifumbire n'ishwagara ku giciro cyunganiwe na Leta. Iyandikishe n'ubutaka n'igihingwa uteganya ku mujyanama w'ubuhinzi w'akagari cyangwa umuhinzi mworozi w'icyitegererezo mbere y'igihembwe, hanyuma utumize kandi ugure ku mucuruzi wemewe ukwegereye. Baza agronome w'umurenge ibiciro n'amatariki y'igihembwe gitaha.",
   "engine": "retrieval",
   "sources": [
-   "nkunganire-inputs"
+   "nkunganire-inputs",
+   "soil-fertility-lime"
   ],
-  "latency_ms": 4,
-  "escalated": false,
+  "latency_ms": 0,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1604,7 +1603,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q60",
@@ -1619,8 +1619,7 @@
   "sources": [
    "climate-smart"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3536,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1630,7 +1629,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": true
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q61",
@@ -1640,20 +1640,19 @@
   "key_facts": [
    "feb|february"
   ],
-  "answer": "Plant maize when rains are established (Season A: Sept-Oct, Season B: Feb-Mar). Use certified hybrid or improved seed from an agro-dealer (available through Smart Nkunganire). Spacing: 75cm between rows and 25cm between plants with 1 seed per hole (or 75x50cm with 2 seeds). Plant 3-5cm deep. Weed at 2-3 weeks and again at 5-6 weeks. Gap-fill within 1 week of emergence.",
-  "engine": "retrieval",
+  "answer": "Season B planting is from February to March. Use certified hybrid or improved seed from an agro-dealer. Space plants 75cm between rows and 25cm between plants, or 75x50cm with 2 seeds. Plant 3-5cm deep. Weed at 2-3 weeks and again at 5-6 weeks.",
+  "engine": "ollama:gemma3:4b",
   "sources": [
    "maize-planting",
-   "seasons-calendar"
+   "seasons-calendar",
+   "potato-fertiliser"
   ],
-  "latency_ms": 0,
-  "escalated": false,
+  "latency_ms": 3244,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
    "fully_correct": true,
    "unsupported_numbers": [
-    "1",
     "2",
     "25",
     "3",
@@ -1666,7 +1665,8 @@
    "lang_ok": true,
    "escalated": false,
    "source_ok": false
-  }
+  },
+  "escalated": false
  },
  {
   "id": "q62",
@@ -1680,7 +1680,6 @@
   "engine": "retrieval",
   "sources": [],
   "latency_ms": 0,
-  "escalated": true,
   "score": {
    "in_scope": true,
    "fact_recall": 1.0,
@@ -1690,7 +1689,8 @@
    "lang_ok": true,
    "escalated": true,
    "source_ok": false
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o01",
@@ -1701,14 +1701,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 11,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o02",
@@ -1719,14 +1719,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 5,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o03",
@@ -1734,17 +1734,17 @@
   "question": "Ndashaka inguzanyo ya banki",
   "expected_source": null,
   "key_facts": [],
-  "answer": "Amakuru y'ibiciro, inguzanyo n'imashini ntaraboneka muri serivisi. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi; ku biciro baza koperative yawe cyangwa agronome w'umurenge.",
+  "answer": "Nta gisubizo cyemejwe dufite kuri iki kibazo ubu. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi. Ku bufasha bwihuse baza agronome w'umurenge, cyangwa veterineri ku matungo.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o04",
@@ -1755,14 +1755,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o05",
@@ -1773,14 +1773,14 @@
   "answer": "Nta gisubizo cyemejwe dufite kuri iki kibazo ubu. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi. Ku bufasha bwihuse baza agronome w'umurenge, cyangwa veterineri ku matungo.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 5,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o06",
@@ -1791,14 +1791,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 4,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o07",
@@ -1809,14 +1809,14 @@
   "answer": "I don't have a validated answer for this yet. Your question has been sent to an extension officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
   "engine": "retrieval",
   "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
    "oos_handled": true,
    "lang_ok": true,
    "escalated": true
-  }
+  },
+  "escalated": true
  },
  {
   "id": "o08",
@@ -1824,16 +1824,20 @@
   "question": "Igiciro cy'ibirayi ku isoko ni angahe uyu munsi?",
   "expected_source": null,
   "key_facts": [],
-  "answer": "Amakuru y'ibiciro, inguzanyo n'imashini ntaraboneka muri serivisi. Ikibazo cyawe cyoherejwe ku mujyanama w'ubuhinzi; ku biciro baza koperative yawe cyangwa agronome w'umurenge.",
+  "answer": "Udusimba twa antestiya (dufite ishusho y'ingabo, umukara n'icunga) twangiza imbuto kandi dutera uburyohe bw'ibirayi bugabanya igiciro cy'ikawa y'u Rwanda. Konora ibiti kugira ngo bifunguke, tora udusimba mu gitondo, ukoreshe imiti gusa ukurikije inama za NAEB. Ingese: amabara y'ifu y'icunga munsi y'amababi, amababi agahunguka; koresha ubwoko buhanganira, ifumbire ikwiye n'imiti NAEB yemeza. Sarura imbuto zihishije zitukura gusa, uzigeze ku ruganda uwo munsi.",
   "engine": "retrieval",
-  "sources": [],
-  "latency_ms": 3,
-  "escalated": true,
+  "sources": [
+   "coffee-pests",
+   "potato-harvest",
+   "potato-lateblight"
+  ],
+  "latency_ms": 0,
   "score": {
    "in_scope": false,
-   "oos_handled": true,
+   "oos_handled": false,
    "lang_ok": true,
-   "escalated": true
-  }
+   "escalated": false
+  },
+  "escalated": false
  }
 ]

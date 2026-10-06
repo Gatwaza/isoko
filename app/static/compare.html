@@ -31,11 +31,11 @@
 <body>
 <header class="top">
   <div class="brand"><span class="logo">I</span> Isôko <small>Same open model, with and without grounding</small></div>
-  <nav><a href="/simulator">USSD simulator</a><a href="/dashboard">MINAGRI dashboard</a><a class="active" href="/compare">Live comparison</a><a href="/evaluation">Evaluation</a><a href="/docs">API</a></nav>
+  <nav><a href="/simulator">Farmer phone</a><a href="/promoter">Farmer promoter</a><a href="/dashboard">MINAGRI dashboard</a><a class="active" href="/compare">Live comparison</a><a href="/evaluation">Evaluation</a><a href="/docs">API</a></nav>
 </header>
 <main class="wrap">
   <h2>Ask anything a farmer might ask</h2>
-  <p class="note" id="modelnote">Both columns use the same open-source model running locally on Ollama. On the left it answers alone; on the right it answers through Isôko's curated knowledge base and guardrails.</p>
+  <p class="note" id="modelnote">Same open model · left alone · right through Isôko</p>
   <form class="ask" id="f">
     <input id="q" placeholder="e.g. Ibigori byanjye bifite nkongwa, nkore iki?" autocomplete="off">
     <button class="btn" type="submit">Compare</button>
@@ -80,8 +80,7 @@ async function run(q) {
   const r = await fetch('/api/compare', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ question: q }) });
   const d = await r.json();
   if (!r.ok) { P.textContent = I.textContent = d.detail || 'Unavailable'; return; }
-  document.getElementById('modelnote').textContent =
-    `Both columns use the same open-source model (${d.model}) running locally on Ollama. On the left it answers alone; on the right it answers through Isôko's curated knowledge base and guardrails.`;
+  document.getElementById('modelnote').textContent = `${d.model} · Ollama`;
   P.textContent = d.plain.answer; I.textContent = d.isoko.answer;
   const pm = document.getElementById('plainmeta');
   pm.append(tag(`${d.plain.latency_ms} ms`), tag('No sources', 'warn'));

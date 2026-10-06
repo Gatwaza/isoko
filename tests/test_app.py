@@ -27,7 +27,7 @@ def test_home_is_kinyarwanda_and_fits_ussd():
 
 
 def test_crop_topic_answer_ends_session_and_queues_sms():
-    r = dial("+250780000002", "1", "1", "3")
+    r = dial("+250780000002", "1", "1", "3", "1")
     assert r.startswith("END ") and "nkongwa" in r.lower()
     out = client.get("/api/sms/outbox", params={"phone": "+250780000002"}).json()
     assert out and "Nkongwa" in out[0]["message"]

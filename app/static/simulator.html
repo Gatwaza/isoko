@@ -3,144 +3,184 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Isôko · USSD Simulator</title>
+<title>Isôko · Farmer Phone</title>
 <link rel="stylesheet" href="/static/style.css">
 <script src="/static/i18n.js"></script>
 <style>
-  .stage { display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: start; }
-  .phone {
-    width: 280px; background: #1d1f22; border-radius: 36px; padding: 22px 18px 26px;
-    box-shadow: 0 20px 50px rgba(0,0,0,.25), inset 0 0 0 2px #33363b;
-  }
-  .speaker { width: 60px; height: 6px; background: #3a3d42; border-radius: 3px; margin: 0 auto 14px; }
-  .screen {
-    background: #c8d6b9; color: #1b2614; font-family: "Courier New", ui-monospace, monospace;
-    font-size: 13.5px; line-height: 1.35; border-radius: 6px; padding: 10px 12px; height: 250px;
-    overflow-y: auto; white-space: pre-wrap; box-shadow: inset 0 2px 8px rgba(0,0,0,.25);
-  }
+  .stage { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: start; max-width: 1080px; margin: 0 auto; padding: 36px 16px 48px; }
+  .phone { width: 300px; background: #1d1f22; border-radius: 38px; padding: 20px 16px 22px; box-shadow: 0 24px 60px rgba(0,0,0,.45), inset 0 0 0 2px #33363b; }
+  .speaker { width: 60px; height: 6px; background: #3a3d42; border-radius: 3px; margin: 0 auto 12px; }
+  .screen { background: #c8d6b9; color: #1b2614; font: 13.5px/1.4 "Courier New", ui-monospace, monospace; border-radius: 8px; padding: 10px 12px; height: 300px; overflow-y: auto; white-space: pre-wrap; }
   .screen .net { display: flex; justify-content: space-between; font-size: 11px; opacity: .7; margin-bottom: 6px; }
-  .screen input {
-    width: 100%; margin-top: 8px; background: transparent; border: none; border-bottom: 1px dashed #1b2614;
-    font: inherit; color: inherit; outline: none;
-  }
+  .screen input { width: 100%; margin-top: 8px; background: transparent; border: none; border-bottom: 1px dashed #1b2614; font: inherit; color: inherit; outline: none; }
+  .home { display: grid; gap: 8px; margin-top: 4px; white-space: normal; }
+  .opt { display: flex; align-items: center; gap: 10px; background: rgba(27,38,20,.08); border: 1px solid rgba(27,38,20,.25); border-radius: 8px; padding: 10px; cursor: pointer; font: inherit; color: inherit; text-align: left; }
+  .opt b { font-size: 18px; width: 22px; }
+  .opt:hover { background: rgba(27,38,20,.16); }
+  .mic { width: 84px; height: 84px; border-radius: 50%; border: none; background: #2f7d32; color: #fff; font-size: 30px; display: block; margin: 14px auto 8px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,.25); }
+  .mic.rec { background: #b4382f; animation: pulse 1s infinite; }
+  @keyframes pulse { 50% { transform: scale(1.06); } }
+  .center { text-align: center; white-space: normal; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0; white-space: normal; }
+  .chip { border: 1px solid rgba(27,38,20,.35); background: transparent; border-radius: 12px; padding: 3px 9px; font: inherit; font-size: 12px; cursor: pointer; color: inherit; }
+  .chip.on { background: #1b2614; color: #c8d6b9; }
+  .thumbs { display: flex; gap: 6px; margin-top: 6px; }
+  .thumbs img { width: 62px; height: 62px; object-fit: cover; border-radius: 6px; cursor: pointer; border: 2px solid transparent; }
+  .bar { height: 6px; background: rgba(27,38,20,.2); border-radius: 3px; overflow: hidden; margin: 4px 0 8px; }
+  .bar i { display: block; height: 100%; background: #2f7d32; }
   .softkeys { display: flex; justify-content: space-between; margin: 12px 4px; }
   .softkeys button { background: #2c2f34; color: #ddd; border: none; border-radius: 14px; padding: 7px 16px; font-size: 13px; cursor: pointer; }
   .softkeys button.ok { background: #2f7d32; color: #fff; }
   .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .keypad button {
-    background: #2c2f34; color: #eee; border: none; border-radius: 12px; height: 40px; font-size: 18px; cursor: pointer;
-  }
-  .keypad button:active, .softkeys button:active { transform: scale(.96); }
-  .side h2 { margin-top: 0; }
-  .inbox { display: flex; flex-direction: column; gap: 10px; max-height: 360px; overflow-y: auto; }
-  .sms { background: var(--card); border: 1px solid var(--line); border-radius: 12px 12px 12px 2px; padding: 10px 12px; font-size: 14px; }
-  .sms .meta { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+  .keypad button { background: #2c2f34; color: #eee; border: none; border-radius: 12px; height: 38px; font-size: 18px; cursor: pointer; }
+  .side h2 { font-size: 30px; color: #fff; margin-bottom: 6px; }
+  .inbox { display: flex; flex-direction: column; gap: 10px; max-height: 300px; overflow-y: auto; }
+  .sms { background: var(--card); border-radius: 12px 12px 12px 2px; padding: 10px 12px; font-size: 14px; }
+  .sms .meta { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
   .empty { color: var(--muted); font-size: 14px; }
-  .row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
-  .row input { padding: 7px 10px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--ink); font: inherit; }
-  .hint { font-size: 13px; color: var(--muted); }
-  @media (max-width: 760px) { .stage { grid-template-columns: 1fr; justify-items: center; } }
+  .note { font-size: 12.5px; color: #cfdacf; margin-top: 14px; max-width: 460px; }
+  @media (max-width: 800px) { .stage { grid-template-columns: 1fr; justify-items: center; } }
 </style>
 </head>
 <body>
 <header class="top">
   <div class="brand"><span class="logo">I</span> Isôko <small>AI farm advisory · USSD / SMS</small></div>
-  <nav><a class="active" href="/simulator">USSD simulator</a><a href="/dashboard">MINAGRI dashboard</a><a href="/compare">Live comparison</a><a href="/evaluation">Evaluation</a><a href="/docs">API</a></nav>
+  <nav><a class="active" href="/simulator">Farmer phone</a><a href="/promoter">Farmer promoter</a><a href="/dashboard">MINAGRI dashboard</a><a href="/compare">Live comparison</a><a href="/evaluation">Evaluation</a><a href="/docs">API</a></nav>
 </header>
-<main class="wrap">
+<main class="photo-bg" style="--photo:url('/static/img/bg_rice.jpg')">
   <div class="stage">
     <div class="phone">
       <div class="speaker"></div>
-      <div class="screen" id="screen">
-        <div class="net"><span>MTN RW</span><span id="clock"></span></div>
-        <div id="out">Dial the service code to start:
-*xxx#</div>
-        <input id="inp" autocomplete="off" placeholder="" aria-label="USSD input">
-      </div>
-      <div class="softkeys">
-        <button id="cancel">Cancel</button>
-        <button id="send" class="ok">Dial</button>
-      </div>
+      <div class="screen" id="screen"></div>
+      <div class="softkeys"><button id="back">Back</button><button id="send" class="ok">Send</button></div>
       <div class="keypad" id="keypad"></div>
     </div>
     <section class="side">
-      <h2>Feature-phone farmer experience</h2>
-      <p class="hint">Any phone, no internet, no app. Menus are Kinyarwanda first (option 8 switches to English).
-        Short answers appear on screen; the full advice follows by SMS, and free-text questions are answered by SMS.</p>
-      <div class="row">
-        <label>Phone number <input id="phone" value="+250788123456" size="15"></label>
-        <button class="btn" id="newphone">New farmer</button>
+      <h2>Advice in your language, on your phone</h2>
+      <p class="lead">Speak, send a photo, or use the menu.</p>
+      <div class="glass" style="margin-top:18px">
+        <h3 style="margin-top:0">SMS inbox</h3>
+        <div class="inbox" id="inbox"><div class="empty">No messages yet.</div></div>
       </div>
-      <h3>SMS inbox</h3>
-      <div class="inbox" id="inbox"><div class="empty">No messages yet.</div></div>
+      <p class="note">On a basic phone: 1 is an IVR call-back, 2 goes through WhatsApp or a farmer promoter's smartphone, 3 is the USSD menu.</p>
     </section>
   </div>
 </main>
 <script>
-const out = document.getElementById('out'), inp = document.getElementById('inp');
-const sendBtn = document.getElementById('send'), phoneEl = document.getElementById('phone');
-let session = null, path = [], lastSms = 0;
-
-function clock() { document.getElementById('clock').textContent = new Date().toTimeString().slice(0, 5); }
-setInterval(clock, 10000); clock();
+const $ = id => document.getElementById(id);
+const screen = $('screen');
+const PHONE = (() => { try { return localStorage.getItem('isoko-phone') || ('+25078' + Math.floor(1000000 + Math.random() * 8999999)); } catch (e) { return '+250788123456'; } })();
+try { localStorage.setItem('isoko-phone', PHONE); } catch (e) {}
+let mode = 'home', ussdSession = null, ussdPath = [], lastSms = 0, crop = 'beans';
 
 const keys = ['1','2','3','4','5','6','7','8','9','*','0','#'];
-const kp = document.getElementById('keypad');
-keys.forEach(k => { const b = document.createElement('button'); b.textContent = k;
-  b.onclick = () => { inp.value += k; inp.focus(); }; kp.appendChild(b); });
+keys.forEach(k => { const b = document.createElement('button'); b.textContent = k; b.onclick = () => key(k); $('keypad').appendChild(b); });
 
-async function ussd(text) {
-  const body = new URLSearchParams({ sessionId: session, phoneNumber: phoneEl.value, serviceCode: '*xxx#', text });
-  const r = await fetch('/ussd', { method: 'POST', body });
-  return r.text();
+function home() {
+  mode = 'home';
+  screen.innerHTML = `<div class="net"><span>MTN RW</span><span>Isoko</span></div><div class="home">
+    <button class="opt" data-k="1"><b>1</b><span>🎤 ${T('Talk to the advisor')}</span></button>
+    <button class="opt" data-k="2"><b>2</b><span>📷 ${T('Send a crop photo')}</span></button>
+    <button class="opt" data-k="3"><b>3</b><span># ${T('USSD menu')} *xxx#</span></button></div>`;
+  screen.querySelectorAll('.opt').forEach(o => o.onclick = () => key(o.dataset.k));
 }
 
-async function submit() {
-  if (!session) {                       // dialling
-    session = 'sim-' + Math.random().toString(36).slice(2, 10); path = [];
-    show(await ussd('')); return;
-  }
-  const v = inp.value.trim(); if (!v) return;
-  path.push(v); inp.value = '';
-  show(await ussd(path.join('*')));
+function key(k) {
+  if (mode === 'home') { if (k === '1') return voice(); if (k === '2') return photo(); if (k === '3') return ussdStart(); return; }
+  if (mode === 'ussd') { const inp = screen.querySelector('input'); if (inp) { inp.value += k; inp.focus(); } }
+}
+$('back').onclick = () => { stopRec(); ussdSession = null; home(); };
+$('send').onclick = () => { if (mode === 'ussd') ussdSubmit(); };
+
+/* ---- 1. voice ---- */
+let ctx, proc, src, stream, chunks = [], rate = 48000;
+function voice() {
+  mode = 'voice';
+  screen.innerHTML = `<div class="center"><b>${T('Ask in Kinyarwanda')}</b><button class="mic" id="mic">🎤</button>
+    <div id="vstat">${T('Tap to speak, tap again to send')}</div></div><div id="vout"></div>`;
+  $('mic').onclick = () => (proc ? sendVoice() : startRec());
+}
+async function startRec() {
+  try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); }
+  catch (e) { $('vstat').textContent = T('Microphone not available'); return; }
+  ctx = new (window.AudioContext || window.webkitAudioContext)(); rate = ctx.sampleRate; chunks = [];
+  src = ctx.createMediaStreamSource(stream); proc = ctx.createScriptProcessor(4096, 1, 1);
+  proc.onaudioprocess = e => chunks.push(new Float32Array(e.inputBuffer.getChannelData(0)));
+  src.connect(proc); proc.connect(ctx.destination);
+  $('mic').classList.add('rec'); $('vstat').textContent = T('Listening… tap to send');
+}
+function stopRec() { if (proc) { proc.disconnect(); src.disconnect(); stream.getTracks().forEach(t => t.stop()); ctx.close(); proc = null; } }
+function wav16k(chs, inRate) {
+  const len = chs.reduce((a, c) => a + c.length, 0), data = new Float32Array(len); let o = 0;
+  chs.forEach(c => { data.set(c, o); o += c.length; });
+  const ratio = inRate / 16000, n = Math.floor(len / ratio), pcm = new Int16Array(n);
+  for (let i = 0; i < n; i++) { const s = Math.max(-1, Math.min(1, data[Math.floor(i * ratio)])); pcm[i] = s < 0 ? s * 0x8000 : s * 0x7fff; }
+  const buf = new ArrayBuffer(44 + pcm.length * 2), v = new DataView(buf);
+  const w = (p, s) => [...s].forEach((ch, i) => v.setUint8(p + i, ch.charCodeAt(0)));
+  w(0, 'RIFF'); v.setUint32(4, 36 + pcm.length * 2, true); w(8, 'WAVEfmt '); v.setUint32(16, 16, true); v.setUint16(20, 1, true);
+  v.setUint16(22, 1, true); v.setUint32(24, 16000, true); v.setUint32(28, 32000, true); v.setUint16(32, 2, true); v.setUint16(34, 16, true);
+  w(36, 'data'); v.setUint32(40, pcm.length * 2, true); new Int16Array(buf, 44).set(pcm);
+  return new Blob([buf], { type: 'audio/wav' });
+}
+async function sendVoice() {
+  const inRate = rate; stopRec(); $('mic').classList.remove('rec'); $('vstat').textContent = T('Thinking…');
+  const fd = new FormData(); fd.append('audio', wav16k(chunks, inRate), 'q.wav'); fd.append('phone', PHONE);
+  const r = await fetch('/api/demo/voice', { method: 'POST', body: fd }); const d = await r.json();
+  if (!r.ok) { $('vstat').textContent = T(d.detail) || T('Unavailable'); return; }
+  $('vstat').textContent = T('Tap to ask again');
+  $('vout').innerHTML = `<div style="white-space:normal;margin-top:8px"><i>“${esc(d.transcript)}”</i><br><br>${esc(d.answer)}</div>`;
+  if (d.audio_wav_base64) new Audio('data:audio/wav;base64,' + d.audio_wav_base64).play().catch(() => {});
 }
 
-function show(resp) {
+/* ---- 2. photo ---- */
+const CROPS = [['beans', 'Ibishyimbo'], ['cassava', 'Imyumbati'], ['maize', 'Ibigori'], ['potato', 'Ibirayi']];
+function photo() {
+  mode = 'photo';
+  screen.innerHTML = `<b>${T('Which crop?')}</b><div class="chips">${CROPS.map(([k, n]) => `<button class="chip ${k === crop ? 'on' : ''}" data-c="${k}">${window.ISOKO_LANG === 'en' ? k : n}</button>`).join('')}</div>
+    <label class="opt" style="justify-content:center">📷 ${T('Take or choose a photo')}<input type="file" accept="image/*" capture="environment" id="file" hidden></label>
+    <div class="thumbs"><img src="/static/img/sample_bean_rust.jpg" alt="sample"><img src="/static/img/sample_angular_leaf_spot.jpg" alt="sample"></div>
+    <div id="pout" style="white-space:normal;margin-top:8px"></div>`;
+  screen.querySelectorAll('.chip').forEach(c => c.onclick = () => { crop = c.dataset.c; photo(); });
+  $('file').onchange = e => e.target.files[0] && diagnose(e.target.files[0]);
+  screen.querySelectorAll('.thumbs img').forEach(i => i.onclick = async () => { crop = 'beans'; diagnose(await (await fetch(i.src)).blob()); });
+}
+async function diagnose(file) {
+  $('pout').textContent = T('Thinking…');
+  const fd = new FormData(); fd.append('image', file, 'photo.jpg'); fd.append('crop', crop); fd.append('phone', PHONE);
+  fd.append('lang', window.ISOKO_LANG === 'en' ? 'en' : 'rw');
+  const r = await fetch('/api/demo/diagnose', { method: 'POST', body: fd }); const d = await r.json();
+  if (!r.ok) { $('pout').textContent = T(d.detail) || T('Unavailable'); return; }
+  const pct = Math.round(d.confidence * 100);
+  $('pout').innerHTML = `<b>${esc(d.name)}</b> · ${pct}%<div class="bar"><i style="width:${pct}%"></i></div>${esc(d.advice)}`;
+}
+
+/* ---- 3. USSD ---- */
+function ussdStart() { mode = 'ussd'; ussdSession = 'sim-' + Math.random().toString(36).slice(2, 10); ussdPath = []; ussdCall(''); }
+async function ussdCall(text) {
+  const body = new URLSearchParams({ sessionId: ussdSession, phoneNumber: PHONE, serviceCode: '*xxx#', text });
+  const resp = await (await fetch('/ussd', { method: 'POST', body })).text();
   const end = resp.startsWith('END ');
-  out.textContent = resp.slice(4);
-  if (end) { session = null; sendBtn.textContent = 'Dial'; inp.style.display = 'none';
-    setTimeout(() => { if (!session) { out.textContent += '\n\n' + T('— session ended —'); } }, 50); }
-  else { sendBtn.textContent = 'Send'; inp.style.display = ''; inp.focus(); }
+  screen.innerHTML = `<div class="net"><span>MTN RW</span><span>*xxx#</span></div>`;
+  const out = document.createElement('div'); out.textContent = resp.slice(4); screen.appendChild(out);
+  if (end) { const e = document.createElement('div'); e.textContent = '\n' + T('— session ended —'); screen.appendChild(e); ussdSession = null; }
+  else { const i = document.createElement('input'); i.addEventListener('keydown', ev => ev.key === 'Enter' && ussdSubmit()); screen.appendChild(i); i.focus(); }
   setTimeout(pollSms, 600);
 }
+function ussdSubmit() { const i = screen.querySelector('input'); if (!i || !i.value.trim()) return; ussdPath.push(i.value.trim()); ussdCall(ussdPath.join('*')); }
 
-sendBtn.onclick = submit;
-inp.addEventListener('keydown', e => { if (e.key === 'Enter') submit(); });
-document.getElementById('cancel').onclick = () => { session = null; path = []; out.textContent = 'Dial the service code to start:\n*xxx#'; sendBtn.textContent = 'Dial'; inp.value=''; };
-inp.style.display = 'none';
-document.getElementById('newphone').onclick = () => {
-  phoneEl.value = '+25078' + Math.floor(1000000 + Math.random() * 8999999); lastSms = 0;
-  document.getElementById('inbox').innerHTML = '<div class="empty">No messages yet.</div>';
-};
-
+/* ---- SMS inbox ---- */
+const esc = s => (s ?? '').toString().replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 async function pollSms() {
   try {
-    const r = await fetch(`/api/sms/outbox?phone=${encodeURIComponent(phoneEl.value)}&after_id=${lastSms}`);
-    if (!r.ok) return;
-    const msgs = await r.json();
-    if (!msgs.length) return;
-    const box = document.getElementById('inbox');
-    if (box.querySelector('.empty')) box.innerHTML = '';
-    msgs.forEach(m => {
-      lastSms = Math.max(lastSms, m.id);
-      const d = document.createElement('div'); d.className = 'sms';
-      d.innerHTML = `<div class="meta">From ISOKO · ${m.time}</div>`;
-      d.appendChild(document.createTextNode(m.message));
-      box.prepend(d);
-    });
+    const r = await fetch(`/api/sms/outbox?phone=${encodeURIComponent(PHONE)}&after_id=${lastSms}`); if (!r.ok) return;
+    const msgs = await r.json(); if (!msgs.length) return;
+    const box = $('inbox'); if (box.querySelector('.empty')) box.innerHTML = '';
+    msgs.forEach(m => { lastSms = Math.max(lastSms, m.id); const d = document.createElement('div'); d.className = 'sms';
+      d.innerHTML = `<div class="meta">ISOKO · ${esc(m.time)}</div>`; d.appendChild(document.createTextNode(m.message)); box.prepend(d); });
   } catch (e) {}
 }
-setInterval(pollSms, 2500);
+setInterval(pollSms, 3000);
+home();
 </script>
 </body>
 </html>

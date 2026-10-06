@@ -1,0 +1,42 @@
+{
+ "beans:ayoubkirouane/VIT_Beans_Leaf_Disease_Classifier": {
+  "accuracy": 100.0,
+  "n": 40,
+  "accuracy_when_confident": 100.0,
+  "share_confident": 100.0,
+  "median_latency_s_cpu": 0.072,
+  "labels": [
+   "angular_leaf_spot",
+   "bean_rust",
+   "healthy"
+  ]
+ },
+ "cassava:siddharth963/vit-base-patch16-224-in21k-finetuned-cassava": {
+  "accuracy": 82.5,
+  "n": 40,
+  "accuracy_when_confident": 86.1,
+  "share_confident": 90.0,
+  "median_latency_s_cpu": 0.067,
+  "labels": [
+   "CBB",
+   "CBSD",
+   "CGM",
+   "CMD",
+   "H"
+  ]
+ },
+ "cassava:nexusbert/resnet50-cassava-finetuned": {
+  "accuracy": 47.5,
+  "n": 40,
+  "accuracy_when_confident": 73.3,
+  "share_confident": 37.5,
+  "median_latency_s_cpu": 0.044,
+  "labels": [
+   "Cassava Bacterial Blight (CBB)",
+   "Cassava Brown Streak Disease (CBSD)",
+   "Cassava Green Mottle (CGM)",
+   "Cassava Mosaic Disease (CMD)",
+   "Healthy"
+  ]
+ }
+}

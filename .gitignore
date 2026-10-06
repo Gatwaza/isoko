@@ -9,3 +9,5 @@ data/
 supabase/.temp
 .env*
 data/external/
+.venv-ml/
+*.log

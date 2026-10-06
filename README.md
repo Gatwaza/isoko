@@ -1,150 +1,109 @@
 # Isôko: AI agricultural advisory for Rwanda's smallholder farmers
 
-*Isôko* (Kinyarwanda for "source", as in a spring, and also "market") gives Kinyarwanda-first, grounded farm advice on **any phone**: USSD menus, two-way SMS, and an API for partner apps and for benchmarking. Every answer comes from a curated knowledge base and is returned with its sources. Questions the system cannot answer reliably go to a human extension officer instead of being guessed. A real-time dashboard shows MINAGRI and RAB what farmers are asking, where, and where the knowledge gaps are.
+*Isôko* (Kinyarwanda for "source", as in a spring, and also "market") is a Kinyarwanda-first farm advisor:
+
+- **Farmers** speak to it in Kinyarwanda and hear the answer, send a photo of a sick crop, or use USSD and SMS on any phone.
+- **Farmer promoters and extension officers** get a field toolkit: a photo second opinion, farm-visit records, a quick refresher and outbreak reports.
+- **MINAGRI, RAB and Meteo Rwanda** see what farmers need, where, in real time.
+
+Every answer comes from a curated knowledge base and is returned with its sources. When the system is not sure, it escalates to a human instead of guessing.
+
+Isôko grew from a prototype we built in July 2026 during our crop-yield prediction and simulation research (Nyagatare, RAB and Meteo Rwanda data). See [docs/RESEARCH.md](docs/RESEARCH.md) for the evidence behind each design choice.
 
 ```
- Farmer (feature phone)            Extension officer / partner app        MINAGRI · RAB
-   USSD *xxx#   SMS                      REST API  /v1/reports                 Dashboard
-       │         │                             │                                  ▲
-       ▼         ▼                             ▼                                  │
- ┌──────────────────────────── FastAPI service (single container) ─────────────────────────┐
- │  USSD state machine ─┐                                                                  │
- │  SMS in/out ─────────┼─► Advisory engine ─► language detect (rw/en)                     │
- │  /v1/advisory/query ─┤        │             BM25 retrieval over curated corpus (cited)  │
- │  /v1/chat/completions┘        │             domain gate + score gate ─► escalate        │
- │                               │             open-weight LLM (Ollama / vLLM), optional   │
- │                               │             guardrails: grounded-only, numbers-in-source│
- │                               └──► weather rules (7-day forecast per district)          │
- │  SQLite: profiles, interactions (hashed users), reports, SMS outbox ──► dashboard API   │
- └─────────────────────────────────────────────────────────────────────────────────────────┘
+ Farmer phone                 Promoter / extension         MINAGRI · RAB         C4IR benchmark
+ 1 voice  2 photo  3 USSD     /promoter                    /dashboard            /v1/* API
+     │       │       │            │                            ▲                    │
+     ▼       ▼       ▼            ▼                            │                    ▼
+ ┌───────────────────────────── app/ (FastAPI) ─────────────────────────────────────────────┐
+ │ channels: USSD · SMS · voice · photo · WhatsApp webhook · REST + OpenAI-compatible API   │
+ │ advisory engine: language id → Kinyarwanda morphology-aware BM25 → scope gate            │
+ │                  → open LLM (Ollama/vLLM) → figure-check guardrail → cited answer        │
+ │ weather rules (30 districts) · Postgres/SQLite · benchmark runs · refinement import       │
+ └───────────────┬──────────────────────────────────────────────────────────────────────────┘
+                 │ X-ML-Token
+ ┌───────────────▼─────── ml_service/ (GPU or CPU) ──────────────────────────────────────────┐
+ │ /asr Kinyarwanda speech recognition (Whisper-small rw) · /tts MMS-TTS + number verbaliser │
+ │ /translate NLLB-200 (en↔rw) · /diagnose crop-disease classifiers (beans, cassava, general) │
+ └───────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-## What works today
+## Measured results (our own test sets; C4IR's benchmark is the real test)
 
-| Capability | Status |
-|---|---|
-| USSD menus, Kinyarwanda first with English toggle (crops, pests & diseases, weather, livestock, ask a question, field report, profile) | ✅ Working (Africa's Talking callback format) |
-| Full answers delivered by SMS after a USSD session; free-text questions answered by SMS | ✅ Working (sandbox / outbox without credentials) |
-| Two-way SMS: farmer texts a question and gets an answer | ✅ `POST /sms/inbound` |
-| Personalisation by district and main crop (profile stored per phone number) | ✅ |
-| 7-day district weather turned into planting, dry-spell, heavy-rain and heat advice for all 30 districts | ✅ Rule-based, auditable |
-| Benchmark API with API keys: native JSON and OpenAI-compatible | ✅ `POST /v1/advisory/query`, `POST /v1/chat/completions` |
-| Grounding: answers cite corpus entries; out-of-scope questions escalated, not guessed | ✅ |
-| Guardrail: a generated answer is rejected if it contains any number (dose, spacing, interval) that is not in the sources | ✅ |
-| Field reports from farmers and promoters, plus automatic forecast alerts, shown on the MINAGRI dashboard | ✅ |
-| Dashboard: needs by crop/topic, district, language and channel; escalations (knowledge gaps) | ✅ `/dashboard` |
-| Open-source models only, self-hosted (Ollama); runs on CPU | ✅ Llama 3.2 3B tested; Qwen 2.5 (Apache-2.0) also works |
-| Single-server Docker deployment for in-country hosting | ✅ `docker compose up` |
+| Capability | Result | Test data |
+|---|---|---|
+| Advisory answers, fully correct | **90.3%** (Gemma 3 4B alone: 12.9%) | 70 held-out questions, 49 EN / 21 RW |
+| Off-topic, market and credit questions handled safely | **100%** (Gemma alone: 25%) | 8 off-topic questions |
+| Answers with figures not in any source | **3.2%** (Gemma alone: 56.5%) | same |
+| Fresh Kinyarwanda questions (development set) | 14/20 → **20/20** with v0.2 morphology | 20 questions, used for tuning |
+| Kinyarwanda speech recognition | **6.7% character error** (23.5% WER) | 80 real recordings |
+| Spoken-answer intelligibility | 43.1% → **9.6%** error with our number verbaliser | 20 advisory sentences, TTS → ASR |
+| Spoken questions answered correctly, end to end | **71.4%** (typed: 85.7%) | 21 Kinyarwanda questions |
+| EN→RW translation, chrF | **56.4** NLLB-200 (Gemma 3: 21.1) | 60 agriculture sentence pairs |
+| Photo diagnosis accuracy | beans **100%**, cassava **82.5%** | 40 + 40 East African field photos |
+| Adversarial and robustness tests | see `eval/results/threat_report.json` | auth, injection, prompt injection, fuzzing, load |
 
-## Honest gaps and roadmap
+All harnesses are in `eval/`: `run_eval.py` (Q&A), `asr_eval.py`, `speech_mt_eval.py`, `vision_eval.py`, `voice_e2e_eval.py` and `threat_tests.py`. Results are in `eval/results/` (v0.1 baseline in `eval/results/v0.1/`) and rendered at `/evaluation`.
 
-- **Seed knowledge base.** It has 43 bilingual entries compiled from public RAB, FAO, CABI, ILRI, CIP, IITA and NAEB extension guidance. **The Kinyarwanda text is a draft that needs review by native-speaking agronomists.** The retrieval layer is built to swap in the C4IR national corpus (RISA APIs / MCP server) without changing the interface.
-- **Kinyarwanda generation is off by default** (`GENERATE_KINYARWANDA=false`). Small open models write unreliable Kinyarwanda, so Kinyarwanda answers use curated text verbatim. Generation will be switched on per model only once it passes the C4IR Kinyarwanda benchmark; the refinement window is when we'd do that, using the 2,000 parallel sentences and 5,000 Q&A pairs.
-- **Voice and IVR.** Not built yet. Next step: a Kinyarwanda ASR/TTS integration (open models fine-tuned on the 20h audio-script set) behind an IVR gateway.
-- **Image-based pest and disease ID.** Not built yet. Next step: an open vision model behind the same advisory engine, for WhatsApp and extension-agent apps.
-- **Weather source.** The prototype uses Open-Meteo; only district coordinates are sent. Production would use Meteo Rwanda feeds through the national corpus.
-- **No production usage yet.** This is a new solution. The dashboard demo uses clearly labelled simulated traffic.
+Caveats: the test sets are small and written or selected by the team. The development set was used for tuning. Translation pairs come from the [Digital Umuganda corpus](https://huggingface.co/datasets/DigitalUmuganda/kinyarwanda-english-machine-translation-dataset) (CC-BY-4.0). Bean photos come from [AI-Lab-Makerere/beans](https://huggingface.co/datasets/AI-Lab-Makerere/beans) and cassava photos from the iCassava test split.
+
+## Benchmark access (C4IR)
+
+Programmatic API access is ready for both rounds. Each C4IR dataset maps to an endpoint:
+
+- Q&A pairs → `POST /v1/advisory/query` or `/v1/advisory/batch`
+- EN–RW sentence pairs → `POST /v1/translate`
+- Audio–script pairs → `POST /v1/asr`
+
+Runs tagged with `X-Benchmark-Run` are deterministic and retrievable. `/v1/system` pins component versions, and refinement data can be imported through an admin API. See [docs/BENCHMARK.md](docs/BENCHMARK.md).
 
 ## Run it
 
 ```bash
-python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-ollama pull llama3.2                                   # optional: enables English generation
-API_KEYS=demo-benchmark-key .venv/bin/uvicorn app.main:app --port 8000
+python3 -m venv .venv && .venv/bin/python -m pip install -r requirements.txt
+python3 -m venv .venv-ml && .venv-ml/bin/python -m pip install -r ml_service/requirements.txt   # voice + photos
+ollama pull gemma3:4b
+scripts/demo.sh        # app + model service + public Cloudflare link
 ```
 
-- USSD simulator: http://localhost:8000/simulator
-- Dashboard: http://localhost:8000/dashboard
-- API docs: http://localhost:8000/docs
+Pages: `/simulator` (farmer phone), `/promoter`, `/dashboard`, `/evaluation`, `/compare`, `/docs`. They default to Kinyarwanda, with an English toggle.
 
-Demo with simulated traffic on the dashboard (clearly bannered):
+Hosted text service: **https://isoko-agri.vercel.app**. It runs on Vercel (FastAPI, region `fra1`) with Supabase Postgres (migrations in `supabase/migrations/`, RLS on, no public policies). Voice and photo features need the model service: set `ML_SERVICE_URL` and `ML_TOKEN`.
 
-```bash
-DB_PATH=data/demo.db .venv/bin/python scripts/seed_demo.py
-DB_PATH=data/demo.db DEMO_MODE=true API_KEYS=demo-benchmark-key .venv/bin/uvicorn app.main:app --port 8000
-```
+Production runs on Rwandan infrastructure: Docker for `app/` (see `Dockerfile` and `docker-compose.yml`) and `ml_service/` (its own `Dockerfile`), with Postgres in a local data centre. Nothing depends on Vercel, Supabase or any one model.
 
-With Docker, on any Linux server in Rwanda:
+> **Data residency.** The Vercel and Supabase demo is hosted in the EU and holds simulated data only. It must not hold real farmer data without NCSA authorisation (Law N° 058/2021).
 
-```bash
-cp .env.example .env   # set API_KEYS, DASHBOARD_TOKEN, PHONE_HASH_SALT, Africa's Talking credentials
-docker compose up -d && docker compose exec ollama ollama pull llama3.2
-```
+## Models and licences
 
-### Hosted demo: Vercel + Supabase
+| Role | Model | Licence |
+|---|---|---|
+| Advice generation | Gemma 3 4B (Ollama) | Gemma terms (open weights) |
+| Speech recognition | DigitalUmuganda/whisper_small_kinyarwanda (fallback: badrex/w2v-bert-2.0-kinyarwanda-asr) | not stated on card (fallback CC-BY-4.0) |
+| Speech synthesis | facebook/mms-tts-kin + `ml_service/kin_text.py` | CC-BY-NC-4.0 |
+| Translation | facebook/nllb-200-distilled-600M | CC-BY-NC-4.0 |
+| Photos | ayoubkirouane/VIT_Beans_Leaf_Disease_Classifier, siddharth963/vit-base-…-cassava (Apache-2.0), linkanjarad/mobilenet_v2 plant disease | see model cards |
 
-Live at **https://isoko-agri.vercel.app** (simulator, `/dashboard`, `/docs`). The FastAPI app runs as a Vercel Python function (`index.py`, region `fra1`). Data is stored in Supabase Postgres (Frankfurt); the schema is in `supabase/migrations/`, and RLS is enabled with no public policies, so only the server can read farmer data.
+The non-commercial and unstated licences are disclosed. We plan to replace them with our own permissively licensed models trained on C4IR's refinement data.
 
-```bash
-supabase link --project-ref <ref> && supabase db push
-vercel env add DATABASE_URL production   # Supabase transaction-pooler URL (port 6543)
-vercel env add API_KEYS production       # private benchmark key(s)
-vercel deploy --prod
-```
+## Security
 
-On Vercel, `LLM_PROVIDER=none` (retrieval-only, curated answers), because serverless functions cannot host an open-weight model. Point `LLM_PROVIDER=openai_compat` at a self-hosted vLLM/Ollama endpoint to enable generation.
+`eval/threat_tests.py` covers authentication bypass, SQL injection, prompt injection, harmful-request refusal, stored XSS, oversized payloads, USSD fuzzing, rate limiting (HTTP 429), path traversal, webhook spoofing and concurrent load. API keys are rate-limited per key, demo endpoints per IP. Responses carry `X-Content-Type-Options: nosniff` and `Referrer-Policy: no-referrer`. Phone numbers are salted-hashed for analytics.
 
-> **Data residency.** The Vercel + Supabase deployment is a demonstration environment with simulated data, hosted in the EU. It must not hold real farmer data without NCSA authorisation (Law N° 058/2021). Production runs the same code on Rwandan infrastructure: the Docker setup above, plus Postgres in a local data centre via `DATABASE_URL`. Nothing in the code depends on Vercel or Supabase.
+## Name and character set
 
-Africa's Talking: set the USSD callback to `https://<host>/ussd` and the incoming SMS callback to `https://<host>/sms/inbound`.
-
-## Benchmark API
-
-```bash
-curl -X POST https://<host>/v1/advisory/query \
-  -H "X-API-Key: <key>" -H "Content-Type: application/json" \
-  -d '{"question": "Ibigori byanjye bifite nkongwa, nkore iki?", "language": "auto", "district": "Nyagatare"}'
-```
-
-The response includes `answer`, `language`, `sources[]` (corpus id, title, provenance, score), `confidence`, `escalated`, `model` and `latency_ms`. The OpenAI-compatible `POST /v1/chat/completions` (Bearer key) lets standard evaluation harnesses call the **whole solution**, not just the model.
-
-Run a Q&A set (JSONL with `question`, optional `reference`, `language`, `expected_source`):
-
-```bash
-.venv/bin/python scripts/benchmark.py scripts/sample_eval.jsonl --url http://localhost:8000 --key demo-benchmark-key
-```
-
-On our own 28-item sample set (Kinyarwanda and English, including off-topic questions): top-1 source accuracy 100%, off-topic questions correctly escalated, median latency about 1s with Llama 3.2 on a laptop CPU. The sample set was written by the team, so it is a smoke test, not an independent benchmark.
-
-## Data protection (Law N° 058/2021)
-
-- Phone numbers are stored only in `profiles`, which is needed to send SMS. All analytics use a salted SHA-256 hash.
-- No personal data leaves the host. The weather lookup sends district coordinates only. The LLM runs locally.
-- The dashboard is protected by `DASHBOARD_TOKEN`, and the API by per-partner keys.
+USSD and SMS screens write **Isoko**, because "ô" is outside the GSM 7-bit alphabet (it would force 70-character UCS-2 SMS).
 
 ## Layout
 
 ```
-index.py           Vercel entrypoint
-app/main.py        HTTP routes: USSD, SMS, API, dashboard
-app/ussd.py        USSD state machine (stateless; rebuilt from the gateway's input path)
-app/advisor.py     language detection → retrieval → generation → guardrails → logging
-app/retrieval.py   BM25 + domain gate over the corpus
-app/llm.py         Ollama / OpenAI-compatible clients (open, self-hosted runtimes only)
-app/weather.py     district forecasts → rule-based advice and alerts
-app/db.py          Postgres (Supabase / local) or SQLite persistence
-app/kb/corpus.json bilingual seed knowledge base (with sources)
-supabase/          database migrations
-scripts/           benchmark runner, sample eval set, demo seeder
-tests/             pytest suite
+app/                 FastAPI app: main.py (pages, USSD, SMS, v1 API), api_v2.py (voice, photo, batch, runs,
+                     promoter, refinement import, WhatsApp), advisor.py, retrieval.py, ml.py, db.py, ussd.py, weather.py
+app/kb/corpus.json   bilingual knowledge base with sources
+app/static/          farmer phone, promoter portal, dashboard, evaluation, comparison (i18n.js: Kinyarwanda default)
+ml_service/          speech, translation and photo model service (Dockerfile for any GPU/CPU host)
+eval/                test sets, harnesses and results
+docs/                RESEARCH.md, BENCHMARK.md
+scripts/             demo.sh (Demo Day launcher), seed_demo.py, benchmark.py (API client)
+supabase/            Postgres migrations
 ```
-
-## Name and character set
-
-The product name is **Isôko**. On USSD and SMS it is written **Isoko**, because "ô" is not in the GSM 7-bit alphabet: a single "ô" switches an SMS to UCS-2 encoding, cutting it from 160 to 70 characters, and can render incorrectly on feature phones.
-
-## Evaluation (v0.1 baseline)
-
-`eval/run_eval.py` compares, on the same 70 held-out farmer questions (49 English, 21 Kinyarwanda, 8 off-topic): a generic open model alone, Isôko with curated text only, and Isôko with the open model. Results live in `eval/results/` and are rendered at `/evaluation`.
-
-| Configuration | Fully correct | Kinyarwanda fully correct | Unsupported figures | Off-topic handled |
-|---|---|---|---|---|
-| Gemma 3 4B alone | 12.9% | 0.0% | 56.5% | 25.0% |
-| Llama 3.2 3B alone | 16.1% | 5.6% | 54.8% | 50.0% |
-| Isôko, curated text only | 91.9% | 83.3% | 4.8% | 87.5% |
-| Isôko + Gemma 3 4B | 90.3% | 83.3% | 3.2% | 87.5% |
-| Isôko + Llama 3.2 3B | 90.3% | 83.3% | 8.1% | 87.5% |
-
-Translation (chrF, 60 agriculture sentence pairs): Gemma 3 4B 21.1 EN→RW / 30.0 RW→EN; Llama 3.2 3B 16.2 / 18.9.
-
-Caveats: the Q&A set was written by the team (a baseline, not an independent score); the generic models are told the target language explicitly; scores were recorded before any tuning to the test set. Translation pairs are filtered from the [Digital Umuganda Kinyarwanda–English corpus](https://huggingface.co/datasets/DigitalUmuganda/kinyarwanda-english-machine-translation-dataset) (CC-BY-4.0).

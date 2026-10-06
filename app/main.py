@@ -10,16 +10,27 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from . import advisor, config, db, llm, sms, ussd, weather
+from .api_v2 import api_key, router as v2_router, run_id_header, system_info
 from .retrieval import corpus
 
 app = FastAPI(
     title="Isôko Agricultural Advisory API",
-    version="0.1.0",
+    version=config.VERSION,
     description="Kinyarwanda-first agricultural advisory for smallholder farmers over USSD, SMS and API. "
                 "Grounded in a curated corpus; open-source models only; designed for in-country hosting.",
 )
 STATIC = config.BASE_DIR / "static"
 app.mount("/static", StaticFiles(directory=STATIC), name="static")
+app.include_router(v2_router)
+
+
+@app.middleware("http")
+async def version_header(request: Request, call_next):
+    response = await call_next(request)
+    response.headers["X-Isoko-Version"] = config.VERSION
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["Referrer-Policy"] = "no-referrer"
+    return response
 
 
 def _schedule(background: BackgroundTasks, task) -> None:
@@ -31,12 +42,7 @@ def _schedule(background: BackgroundTasks, task) -> None:
 
 # ---------- auth ----------
 
-def require_api_key(x_api_key: str | None = Header(default=None),
-                    authorization: str | None = Header(default=None)) -> str:
-    key = x_api_key or (authorization[7:] if authorization and authorization.lower().startswith("bearer ") else None)
-    if not key or key not in config.API_KEYS:
-        raise HTTPException(status_code=401, detail="Missing or invalid API key")
-    return key
+require_api_key = api_key  # rate-limited key check (see api_v2)
 
 
 def require_dashboard(token: str | None = None, x_dashboard_token: str | None = Header(default=None)) -> None:
@@ -61,6 +67,11 @@ def dashboard():
     return FileResponse(STATIC / "dashboard.html")
 
 
+@app.get("/promoter", include_in_schema=False)
+def promoter_page():
+    return FileResponse(STATIC / "promoter.html")
+
+
 @app.get("/compare", include_in_schema=False)
 def compare_page():
     return FileResponse(STATIC / "compare.html")
@@ -74,7 +85,7 @@ def evaluation_page():
 @app.get("/health")
 def health():
     return {"status": "ok", "model": llm.model_name(), "corpus_entries": len(corpus().entries),
-            "corpus_version": corpus().meta["version"], "demo_mode": config.DEMO_MODE}
+            "corpus_version": corpus().meta["version"], "demo_mode": config.DEMO_MODE, "system": system_info()}
 
 
 # ---------- USSD (Africa's Talking callback) ----------
@@ -113,11 +124,11 @@ class Query(BaseModel):
     channel: Literal["api", "sms", "ussd"] = "api"
 
 
-@app.post("/v1/advisory/query")
-def advisory_query(q: Query, _: str = Depends(require_api_key)):
+@app.post("/v1/advisory/query", tags=["benchmark"])
+def advisory_query(q: Query, _: str = Depends(require_api_key), run_id: str | None = Depends(run_id_header)):
     adv = advisor.answer(q.question, lang=None if q.language == "auto" else q.language, district=q.district,
-                         crop=q.crop, channel=q.channel, max_chars=459 if q.channel != "api" else None)
-    return {"id": f"adv_{uuid.uuid4().hex[:12]}", **adv.to_dict()}
+                         crop=q.crop, channel=q.channel, max_chars=459 if q.channel != "api" else None, run_id=run_id)
+    return {"id": f"adv_{uuid.uuid4().hex[:12]}", "run_id": run_id, **adv.to_dict(), "system": system_info()}
 
 
 class ChatMessage(BaseModel):
@@ -130,18 +141,20 @@ class ChatRequest(BaseModel):
     messages: list[ChatMessage]
 
 
-@app.post("/v1/chat/completions")
-def chat_completions(req: ChatRequest, _: str = Depends(require_api_key)):
+@app.post("/v1/chat/completions", tags=["benchmark"])
+def chat_completions(req: ChatRequest, _: str = Depends(require_api_key), run_id: str | None = Depends(run_id_header)):
     """OpenAI-compatible wrapper so standard evaluation harnesses can call the full solution."""
     user_msgs = [m.content for m in req.messages if m.role == "user"]
     if not user_msgs:
         raise HTTPException(status_code=400, detail="At least one user message is required")
-    adv = advisor.answer(user_msgs[-1])
+    if len(user_msgs[-1]) > 2000:
+        raise HTTPException(status_code=413, detail="message too long (max 2000 characters)")
+    adv = advisor.answer(user_msgs[-1], run_id=run_id)
     return {
         "id": f"chatcmpl-{uuid.uuid4().hex[:12]}",
         "object": "chat.completion",
         "created": int(time.time()),
-        "model": "isoko-0.1",
+        "model": f"isoko-{config.VERSION}",
         "choices": [{"index": 0, "finish_reason": "stop",
                      "message": {"role": "assistant", "content": adv.answer}}],
         "isoko": {k: v for k, v in adv.to_dict().items() if k != "answer"},
@@ -209,12 +222,22 @@ def compare(q: CompareQuery):
 
 @app.get("/api/eval")
 def eval_results():
-    def load(name):
-        f = EVAL_DIR / name
+    def load(*parts):
+        f = EVAL_DIR.joinpath(*parts)
         return json.loads(f.read_text()) if f.exists() else None
-    return {"qa": load("qa_summary.json"), "mt": {m: {d: v["chrf"] for d, v in r.items()}
-                                                  for m, r in (load("mt_results.json") or {}).items()},
-            "testset": {"qa_items": 70, "mt_pairs": 60}}
+
+    def mt(raw):
+        return {m: {d: v["chrf"] for d, v in r.items()} for m, r in (raw or {}).items()}
+    sm = load("speech_mt_results.json") or {}
+    nllb = sm.get("mt:facebook/nllb-200-distilled-600M")
+    mt_all = {**mt(load("v0.1", "mt_results.json")), **({"nllb-200-600M": {d: nllb[d]["chrf"] for d in ("en2rw", "rw2en")}} if nllb else {})}
+    asr = {k: {m: v[m] for m in ("wer", "cer", "median_latency_s_cpu", "n")} for k, v in (load("asr_results.json") or {}).items()}
+    tts = {k.split(":", 2)[-1]: v["round_trip_cer"] for k, v in sm.items() if k.startswith("tts:") and k.count(":") >= 2}
+    vision = {k: {m: v[m] for m in ("accuracy", "accuracy_when_confident", "share_confident", "n")} for k, v in (load("vision_results.json") or {}).items()}
+    threat = (load("threat_report.json") or {}).get("summary")
+    return {"qa": load("qa_summary.json"), "qa_baseline": load("v0.1", "qa_summary.json"), "mt": mt_all,
+            "asr": asr, "tts": tts, "vision": vision, "threat": threat,
+            "testset": {"qa_items": 70, "mt_pairs": 60, "asr_clips": 80}}
 
 
 # ---------- MINAGRI / RAB feedback dashboard ----------
@@ -229,6 +252,9 @@ def dashboard_stats(days: int = 30):
                        SUM(escalated) AS escalated, ROUND(AVG(latency_ms)) AS avg_latency_ms
                        FROM interactions WHERE ts >= ?""", (since,))[0],
         "reports_total": q("SELECT COUNT(*) AS n FROM reports WHERE ts >= ?", (since,))[0]["n"],
+        "visits_total": q("SELECT COUNT(*) AS n FROM farm_visits WHERE ts >= ?", (since,))[0]["n"],
+        "photos_total": q("SELECT COUNT(*) AS n FROM interactions WHERE ts >= ? AND topic = 'photo-diagnosis'", (since,))[0]["n"],
+        "voice_total": q("SELECT COUNT(*) AS n FROM interactions WHERE ts >= ? AND channel = 'voice'", (since,))[0]["n"],
         "by_channel": q("SELECT channel, COUNT(*) AS n FROM interactions WHERE ts >= ? GROUP BY channel ORDER BY n DESC", (since,)),
         "by_topic": q("""SELECT COALESCE(crop,'general') AS crop, COALESCE(topic,'other') AS topic, COUNT(*) AS n
                          FROM interactions WHERE ts >= ? AND escalated = 0 GROUP BY 1, 2 ORDER BY 3 DESC LIMIT 12""", (since,)),

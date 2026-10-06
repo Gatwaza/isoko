@@ -183,6 +183,7 @@ def main():
     ap.add_argument("--models", default="llama3.2,gemma3:4b")
     ap.add_argument("--only", choices=["qa", "mt", "plain", "rescore"], default=None)
     ap.add_argument("--mt-n", type=int, default=60)
+    ap.add_argument("--skip-plain", action="store_true", help="reuse generic-model results from eval/results/v0.1")
     args = ap.parse_args()
     models = [m for m in args.models.split(",") if m]
     OUT.mkdir(parents=True, exist_ok=True)
@@ -218,7 +219,14 @@ def main():
         summary = {}
         configs = [("isoko-retrieval", lambda: run_isoko(items, None), True)]
         for m in models:
-            configs.append((f"plain-{m}", lambda m=m: run_plain(items, m), False))
+            if args.skip_plain:
+                base = OUT / "v0.1"
+                f = base / f"qa_plain-{m.replace(':', '_')}.json"
+                if f.exists():
+                    (OUT / f.name).write_text(f.read_text())
+                    summary[f"plain-{m}"] = json.loads((base / "qa_summary.json").read_text())[f"plain-{m}"]
+            else:
+                configs.append((f"plain-{m}", lambda m=m: run_plain(items, m), False))
             configs.append((f"isoko-{m}", lambda m=m: run_isoko(items, m), True))
         for name, fn, with_src in configs:
             print(name)

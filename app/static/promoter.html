@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Isôko · Farmer Promoter</title>
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/i18n.js"></script>
+<style>
+  .pwrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+  .pwrap h2 { font-size: 30px; color: #fff; overflow-wrap: anywhere; }
+  .tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 22px 0; }
+  .tile { background: var(--glass); color: var(--ink); border: none; border-radius: 16px; padding: 18px; text-align: left; cursor: pointer; font: inherit; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+  .tile .ic { font-size: 28px; }
+  .tile b { display: block; font-size: 17px; margin-top: 6px; }
+  .tile.on { outline: 3px solid var(--green); }
+  .panel { display: none; }
+  .panel.on { display: block; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .row > * { flex: 1; min-width: 140px; }
+  input, select, textarea { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; font: inherit; background: var(--card); color: var(--ink); }
+  textarea { min-height: 70px; }
+  .out { margin-top: 12px; line-height: 1.55; }
+  .bar { height: 8px; background: var(--line); border-radius: 4px; overflow: hidden; margin: 6px 0 10px; }
+  .bar i { display: block; height: 100%; background: var(--green); }
+  .ok { color: var(--green); font-weight: 600; }
+  .src { font-size: 13px; color: var(--muted); margin-top: 8px; }
+  @media (max-width: 520px) { .tiles { grid-template-columns: 1fr; } .pwrap h2 { font-size: 24px; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="logo">I</span> Isôko <small>Farmer promoters &amp; extension officers</small></div>
+  <nav><a href="/simulator">Farmer phone</a><a class="active" href="/promoter">Farmer promoter</a><a href="/dashboard">MINAGRI dashboard</a><a href="/compare">Live comparison</a><a href="/evaluation">Evaluation</a><a href="/docs">API</a></nav>
+</header>
+<main class="photo-bg" style="--photo:url('/static/img/bg_tea.jpg')">
+  <div class="pwrap">
+    <h2>Your field toolkit</h2>
+    <p class="lead">More farmers reached, the same validated advice.</p>
+    <div class="tiles">
+      <button class="tile" data-p="photo"><span class="ic">📷</span><b>Second opinion</b></button>
+      <button class="tile" data-p="visit"><span class="ic">📝</span><b>Log a farm visit</b></button>
+      <button class="tile" data-p="ask"><span class="ic">💡</span><b>Quick refresher</b></button>
+      <button class="tile" data-p="report"><span class="ic">🚨</span><b>Report an outbreak</b></button>
+    </div>
+
+    <section class="glass panel" id="photo">
+      <div class="row">
+        <select id="pcrop"><option value="beans">Beans</option><option value="cassava">Cassava</option><option value="maize">Maize</option><option value="potato">Potato</option></select>
+        <input type="file" id="pfile" accept="image/*" capture="environment">
+      </div>
+      <div class="out" id="pout"></div>
+    </section>
+
+    <section class="glass panel" id="visit">
+      <div class="row"><input id="vcode" placeholder="Farmer code"><input id="vdist" placeholder="District"></div>
+      <div class="row"><input id="vcrop" placeholder="Crop"><select id="vissue"><option value="none">No problem</option><option value="crop_pest">Crop pest/disease</option><option value="animal_disease">Animal disease</option><option value="drought">Drought</option><option value="inputs">Inputs unavailable</option></select></div>
+      <textarea id="vnotes" placeholder="Notes"></textarea>
+      <div class="row" style="margin-top:10px"><button class="btn" id="vsave">Save visit</button></div>
+      <div class="out" id="vout"></div>
+    </section>
+
+    <section class="glass panel" id="ask">
+      <div class="row"><input id="aq" placeholder="e.g. Ibigori byanjye bifite nkongwa, nkore iki?"></div>
+      <div class="row"><button class="btn" id="ago">Ask</button></div>
+      <div class="out" id="aout"></div>
+    </section>
+
+    <section class="glass panel" id="report">
+      <div class="row"><select id="rissue"><option value="crop_pest">Crop pest/disease</option><option value="animal_disease">Animal disease</option><option value="drought">Drought</option><option value="flood">Heavy rain/flood</option><option value="inputs">Inputs unavailable</option></select><input id="rdist" placeholder="District"></div>
+      <textarea id="rnotes" placeholder="How many farms are affected?"></textarea>
+      <div class="row" style="margin-top:10px"><button class="btn" id="rgo">Send to MINAGRI / RAB</button></div>
+      <div class="out" id="rout"></div>
+    </section>
+  </div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const esc = s => (s ?? '').toString().replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const LANG = window.ISOKO_LANG === 'en' ? 'en' : 'rw';
+let lastDiagnosis = '';
+document.querySelectorAll('.tile').forEach(t => t.onclick = () => {
+  document.querySelectorAll('.tile').forEach(x => x.classList.toggle('on', x === t));
+  document.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.id === t.dataset.p));
+});
+async function post(url, body, json = true) {
+  const r = await fetch(url, json ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : { method: 'POST', body });
+  const d = await r.json(); if (!r.ok) throw new Error(typeof d.detail === 'string' ? d.detail : 'Unavailable'); return d;
+}
+$('pfile').onchange = async e => {
+  const f = e.target.files[0]; if (!f) return; $('pout').textContent = T('Thinking…');
+  const fd = new FormData(); fd.append('image', f, 'photo.jpg'); fd.append('crop', $('pcrop').value); fd.append('lang', LANG);
+  try {
+    const d = await post('/api/demo/diagnose', fd, false), pct = Math.round(d.confidence * 100);
+    lastDiagnosis = `${d.name} (${pct}%)`;
+    $('pout').innerHTML = `<b>${esc(d.name)}</b> · ${pct}%<div class="bar"><i style="width:${pct}%"></i></div>${esc(d.advice)}` +
+      (d.source ? `<div class="src">${esc(d.source.title)} · ${esc(d.source.source)}</div>` : '');
+  } catch (err) { $('pout').textContent = T(err.message); }
+};
+$('vsave').onclick = async () => {
+  try {
+    await post('/api/promoter/visit', { farmer_code: $('vcode').value, district: $('vdist').value, crop: $('vcrop').value,
+      issue: $('vissue').value, diagnosis: lastDiagnosis || null, notes: $('vnotes').value });
+    $('vout').innerHTML = `<span class="ok">✓ ${T('Saved')}</span>`;
+  } catch (err) { $('vout').textContent = T(err.message); }
+};
+$('ago').onclick = async () => {
+  const q = $('aq').value.trim(); if (!q) return; $('aout').textContent = T('Thinking…');
+  try {
+    const d = await post('/api/promoter/ask', { question: q });
+    $('aout').innerHTML = esc(d.answer) + (d.sources.length ? `<div class="src">${d.sources.map(s => esc(s.title) + ' · ' + esc(s.source)).join('<br>')}</div>` : '');
+  } catch (err) { $('aout').textContent = T(err.message); }
+};
+$('rgo').onclick = async () => {
+  try {
+    await post('/api/promoter/visit', { issue: $('rissue').value, district: $('rdist').value, notes: $('rnotes').value });
+    $('rout').innerHTML = `<span class="ok">✓ ${T('Sent')}</span>`;
+  } catch (err) { $('rout').textContent = T(err.message); }
+};
+</script>
+</body>
+</html>

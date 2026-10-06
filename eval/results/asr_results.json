@@ -1,0 +1,658 @@
+{
+ "badrex/w2v-bert-2.0-kinyarwanda-asr": {
+  "wer": 37.4,
+  "cer": 10.4,
+  "median_latency_s_cpu": 1.67,
+  "n": 80,
+  "samples": [
+   {
+    "ref": "ibi rero bishobora gutuma ugabanya ibiro",
+    "hyp": "ibi rero bishobora gutuma ugabanya ibiroro"
+   },
+   {
+    "ref": "aho usanga abayikora bahembwa akayabo kamafaranga",
+    "hyp": "aho usanga abayikura bahembwa akayabo k'amafaranga"
+   },
+   {
+    "ref": "icya kabiri cyamafaranga yaguzwe",
+    "hyp": "icya kabiri cy'amafaranga yakozwe"
+   },
+   {
+    "ref": "hanyuma bamuhe amafaranga",
+    "hyp": "hanyuma bamuhe amafaranga"
+   },
+   {
+    "ref": "bakora ibikorwa bihindura amateka rusange yabo",
+    "hyp": "bakora ibikorwa bihindura amateka rusange yabo"
+   },
+   {
+    "ref": "ndetse mu gihe cyamateraniro yose ahabera hakoreshwa ikoranabuhanga",
+    "hyp": "ndetse mu gihe cy'amateraniro yose ahabera hakoreshwa ikoranabuhanga"
+   },
+   {
+    "ref": "aba bose bagize akanama nkemurampaka rwabigwi gilbert",
+    "hyp": "abo bose bagize akanama nyimuramaga rwabigwije riberi"
+   },
+   {
+    "ref": "cyari gifite umwihariko winjyana gakondo",
+    "hyp": "cyari gifite umwihariko w'injyana gakondo"
+   },
+   {
+    "ref": "afurika igomba kwihutisha ukwishyira hamwe",
+    "hyp": "apika igomba kwihutisha ku isirame"
+   },
+   {
+    "ref": "gusa habaho nabanyamakuru batajijutse",
+    "hyp": "gusa habao n'abanyamakuru bataji ijote"
+   },
+   {
+    "ref": "bacumbika ku mugabo bucyanayandi",
+    "hyp": "bacumbika ku migabo bacyana ayandi"
+   },
+   {
+    "ref": "ndateganya guterefona rwema ejo nkamusaba ubufasha",
+    "hyp": "bateganya gu telefone rwema ejo nta masomurogasi"
+   },
+   {
+    "ref": "uhora usubiramo ikintu kimwe",
+    "hyp": "ha usubira n'ikintu kimwe"
+   },
+   {
+    "ref": "sinzi niba unsoma cyangwa utansoma",
+    "hyp": "inzu ryibuto makerango tansuma"
+   },
+   {
+    "ref": "urubura rwinshi mu gihe cyizuba gishize",
+    "hyp": "uruvura rwinshi mu gihe cy'izuba gifize"
+   },
+   {
+    "ref": "kuganira kuri iki kibazo ntaho bizakugeza",
+    "hyp": "kuganira kuri iki kibazo ntahu bizakugiza"
+   },
+   {
+    "ref": "ntabwo nshobora kwizera ko wasezeranye",
+    "hyp": "ntago ushobora kwizira ko watweziragie"
+   },
+   {
+    "ref": "ikintu cya mbere byukusenge akora buri munsi ageze murugo ni ugukingura tv",
+    "hyp": "ikintu cya mbere byikusenjya akora buri munsi ageze mu rugo ni urukingo ratiri"
+   },
+   {
+    "ref": "ntabwo nongeye kunywa amata hamwe nisukari",
+    "hyp": "ntabo mubyin'amatame nisipari"
+   },
+   {
+    "ref": "urashaka kwinjira mu ikipe yacu",
+    "hyp": "kwinjira mu ikipe yacu"
+   },
+   {
+    "ref": "azadufata akimara kubona amakuru",
+    "hyp": "azadufata kimara kubona amakuru"
+   },
+   {
+    "ref": "naje gukanguka nzengurutswe na mayibobo nyinshi",
+    "hyp": "naje gukanguka nzengurutswe n'amayibobo nyinshi"
+   },
+   {
+    "ref": "baravuze bati tuzamuke nonaha tuhahindure kuko tubasha rwose kuhatsinda",
+    "hyp": "baravuze bati tuzamuke nonaha tuhahindure kuko tubasha rwose kuhatsinda"
+   },
+   {
+    "ref": "imigisha iva hejuru mu ijuru",
+    "hyp": "imigisha iva hejuru mu ijuro"
+   },
+   {
+    "ref": "kwihangana kumuririmbyi nari narabyunvise murugendo inshuro zirenze imwe kandi",
+    "hyp": "kwihangana kumuririmbyi ntari nabyumvise mu rugendo inshuro zirenze imwe kandi"
+   },
+   {
+    "ref": "buri mwaka rwema na gashema bizihiza noheri hamwe",
+    "hyp": "buri mwaka rwemanagashema biziheiza noheri hamwe"
+   },
+   {
+    "ref": "ndatekereza ko agiye gukora ikintu gikomeye",
+    "hyp": "ndatekereza ko agiye gukora ikintu gikomeye"
+   },
+   {
+    "ref": "ariko izindi mbaraga zubwenge zo ntizatejwe imbere kuri urwo rwego",
+    "hyp": "ariko izi ndi mbaraga zubuganye z nti zatejwe imbere kuri uro rwego"
+   },
+   {
+    "ref": "numvise bavuga ebola mu makuru ya radiyo",
+    "hyp": "mvishabavuga ebola mu makuru ya radiyo"
+   },
+   {
+    "ref": "zatangaje ko umuturage wazo wa mbere yishwe",
+    "hyp": "za abaturage bazo rwa mbere bishwi"
+   },
+   {
+    "ref": "gusa ku rundi ruhande akavuga ko byari biteye impungenge ku bwisanzure",
+    "hyp": "gusa ku rundi ruhande akavuga ko byari biteye impungenge ku bwisanzure"
+   },
+   {
+    "ref": "ikunze gutangwa nimpuguke nyinshi",
+    "hyp": "ikunze gutangwa n'impuguke nyinshi"
+   },
+   {
+    "ref": "buri mukozi wese akumvira mwuka muziranenge",
+    "hyp": "buri mukozi wese akumvira mwuka muziranenge"
+   },
+   {
+    "ref": "mba mu mihigo banyita umuhizi",
+    "hyp": "ba mu muhigo ba nyitamuhize"
+   },
+   {
+    "ref": "yari akomeye afite umutimanama utagira icyo umushinja",
+    "hyp": "yari akomeye afite umutima nama utagira icyumushinja"
+   },
+   {
+    "ref": "ahubwo yo igendana nuko inyenyeri zimeze",
+    "hyp": "ahubwo yo igendana n'uko inyenyeri zimeze"
+   },
+   {
+    "ref": "imana yonyine niyo yashoboraga kubigeraho",
+    "hyp": "imana yonyine niyo yashoboraga kubigeraho"
+   },
+   {
+    "ref": "gusa ngo aya mavuta afite ingaruka nyinshi",
+    "hyp": "gusa ngo aya mavuta afite ingaruka nyinshi"
+   },
+   {
+    "ref": "mu idolari rya amerika iki kimenyetso kigaragaramo",
+    "hyp": "mu idolari ry'amerika iki kimenyetso kigaragaramo"
+   },
+   {
+    "ref": "nzi neza ko rukara yaba kuvugira muruhame cyane",
+    "hyp": "nzi neza ko rukara yaba kuvugira mu ruhame cyane"
+   },
+   {
+    "ref": "tugera mu kwa karindwi nkimurwaje ariko ubwo abantu bimana ntibahasibaga",
+    "hyp": "tugera mu kwa karindwi ntimurwaje ariko ubwo abantu b'imana ntibahasibaga"
+   },
+   {
+    "ref": "jack yaretse kuvuga mu buryo butunguranye ubwo mariya yinjiraga mu cyumba",
+    "hyp": "jake yaretse kubuga mu buryo butunguranye ubwo mariya yinjiraga mu cyumba"
+   },
+   {
+    "ref": "ipantaro ebyiri zipantaro zakozwe mubikoresho bitandukanye",
+    "hyp": "ipantaro ebyiri z'ipantaro zakozwe mu bikoresho bitandukanye"
+   },
+   {
+    "ref": "ibi bisa nkikintu kiva muri firime sibyo",
+    "hyp": "ibi bisa n'ikintu kiva muri firima sibyo"
+   },
+   {
+    "ref": "kuko yari yaraje kwirebera u rwanda arababwira ati mbonye umuntu",
+    "hyp": "kuko yari yaraje kwirebera u rwanda arababwira ati mbona u"
+   },
+   {
+    "ref": "byukusenge birashoboka ko atazi impamvu picnic yahagaritswe",
+    "hyp": "icyuku senge birashoboka ko atazi impamvu pikiniki yahagaritswe"
+   },
+   {
+    "ref": "hamburgers yazamutse muri iki cyumweru",
+    "hyp": "anuironje yazamutse muri iki cyumweru"
+   },
+   {
+    "ref": "bankuyemo baranyanika ndumuka bigeze nimugoroba",
+    "hyp": "bankuyemo baranyanika ndumukabigeza ndt n'umugoroba"
+   },
+   {
+    "ref": "bwa mbere yampembye bine mba ngiye kuguramo kamambiri",
+    "hyp": "bwa mbere ya mpembye ibindi ubagije kuguramo kamaro"
+   },
+   {
+    "ref": "bamuhaye ikirahuri cyumutobe wa orange ushyizwemo na vodka",
+    "hyp": "bamuhaye ikirahure cy'umutobe wa oranje ashyizwemo n'avunduka"
+   },
+   {
+    "ref": "urwenya ruteye isoni kubagabo",
+    "hyp": "urwenyaruteye iso ni ku bagabo"
+   },
+   {
+    "ref": "ubudahumbya bwawe butera ubwoba",
+    "hyp": "ubudahumbya bwawe butera ubwoba"
+   },
+   {
+    "ref": "ntekereza ko chris akiri muto cyane kuburyo adashobora gukundana",
+    "hyp": "ntekereza ko kirisiya kiri muto cyane ku buryo adashobora gukundana"
+   },
+   {
+    "ref": "arambura ukuboko ngo yumve umusaya utose aho amarira yaguye",
+    "hyp": "arangura ukuboko ngo yumve umusaha yaho utose aho wamarira yaguwen"
+   },
+   {
+    "ref": "ningando za yayiri zose zari muri bashanibarazisenya",
+    "hyp": "ningando za yayiyi zose zari muri bashani barazisenya"
+   },
+   {
+    "ref": "o bigenda bite niba uringaniza ibyatsi ninzira za kaburimbo",
+    "hyp": "o bigenda bite niba uringanyiza ibyatsi n'inzira za kaburimbo"
+   },
+   {
+    "ref": "baramusuzugura ndetse banga no kumuha amaturo",
+    "hyp": "baramusuzugura ndetse banga no kumuha amaturo"
+   },
+   {
+    "ref": "ubuzimagatozi bafatwa nk aho bafite inyungu",
+    "hyp": "buzima gato zi bafatwa nkaho bafite inyungu"
+   },
+   {
+    "ref": "imana yavuganiye na eliya mu muryango wubuvumo",
+    "hyp": "imana yavuganiye na eliya mu muryango w'ubuvumo"
+   },
+   {
+    "ref": "urukundo nta makosa rufite kuko amakosa yose ari ugushaka urukundo",
+    "hyp": "urukundo ni amakosa rufite kuko amakosa yose ari ugushaka urukundo"
+   },
+   {
+    "ref": "mu cyumba hari ameza",
+    "hyp": "mu cyumba hari ameza"
+   },
+   {
+    "ref": "yari yaramukundwakaje yane maze imutera kwigira igishega kugera uwo yategetse",
+    "hyp": "ero yaramukomufashe cyane maze bimutera kwigihka ushega kugera uwo utageka"
+   },
+   {
+    "ref": "turimo tumenya cyane ububi bwumwotsi",
+    "hyp": "turimo tumenye cyane uburi bw'umwutsi"
+   },
+   {
+    "ref": "sinshobora kuhagera mu isaha imwe",
+    "hyp": "ikintu ishobora kubagera muri sale"
+   },
+   {
+    "ref": "nkwibarize bitewe nubwoko wiyumvamo",
+    "hyp": "bibarize bitewe n'ubwoko bw'imvoma"
+   },
+   {
+    "ref": "nziheshereza icyubahiro kuri farawo",
+    "hyp": "inzu igeshereza icyubahiro kuri faro"
+   },
+   {
+    "ref": "mariya ni umukobwa wa rukara",
+    "hyp": "mariya ni umukobwa wa rukara"
+   },
+   {
+    "ref": "rukorera mwambitswe sinagwabiza",
+    "hyp": "ukorera mwambitswe nagowabiza"
+   },
+   {
+    "ref": "ntabwo ntekereza ko umuvugizi kavukire yigeze abivuga atyo",
+    "hyp": "ntabwo ntakerana ko umuvugiye ikava ukira hirya arihu gato"
+   },
+   {
+    "ref": "iyo igushaka iraguhombya byaba na ngombwa ikaguhombanya",
+    "hyp": "iyo iba ushaka iraguhombajya aba ngumbwa iraguhombanya"
+   },
+   {
+    "ref": "bugeseraumugabo yahawe inzaratsi numugore we kugira ngo amukundwakaze",
+    "hyp": "bugesera umugabo yahawe inzaratsi n'umugore we kugira ngo amukundwe akazi"
+   },
+   {
+    "ref": "gomez ati uyu mukino turawufata nkuwa nyuma",
+    "hyp": "gomeza ati uyu mukino turawufata nk'uwa nyuma"
+   },
+   {
+    "ref": "cyakora zarashweho nabashinzwe umutekano ku buryo hari nimpunzi zishwe",
+    "hyp": "icyo akora zarasweho n'abashinzwe umutekano ku buryo hari nomuntu vishwi"
+   },
+   {
+    "ref": "iki ni ikibazo cyakunze gukurura umwuka mubi hagati yurwanda nubufaransa",
+    "hyp": "iki ni ikibazo cyakunze gukurura umwuka mubi hagati y'u rwanda n'ubufaransa"
+   },
+   {
+    "ref": "humble na mico the best berekanye ko uretse na muzika no gutaka icyondo babibashije",
+    "hyp": "aha mbona micode besiti berekanye ko uretse na muzika no gutaka icyondo babibashije"
+   },
+   {
+    "ref": "kuko umunyeshuri ufatiwe mu bujura ahanishwa kwirukanwa",
+    "hyp": "kuko umunyeshuri ufatiwe mugujura ahanishwa ukirukana"
+   },
+   {
+    "ref": "ubwo nkana yari yazanye nizindi mpu arazitanga",
+    "hyp": "ubwo nkana yari yazanye n'izindimu arazitana"
+   },
+   {
+    "ref": "ibi bizagerwaho ari uko abana bato bagize ubushake bwo kwiga amasomo ajyanye nubumenyi",
+    "hyp": "ibi bizagerwaho ari uko abana bato bagize ubushake bwo kwiga amasomo ajyanye n'ubumenyi"
+   },
+   {
+    "ref": "ubu natwe african people tugiye kugerwaho ningaruka imana idukize pe",
+    "hyp": "ubu natwe afkarwiko tugiye kugerwaho ingaruka imana ducezee"
+   },
+   {
+    "ref": "yagize ati twakoze imbanzirizamushinga ubu dutegereje ko minisiteri yubuzima iyemeza",
+    "hyp": "yagize ati twakoze imbanziriza nshinga ubu dutegereje ko minisiteri y'ubuzima yemeza"
+   }
+  ]
+ },
+ "DigitalUmuganda/whisper_small_kinyarwanda": {
+  "wer": 23.5,
+  "cer": 6.7,
+  "median_latency_s_cpu": 8.78,
+  "n": 80,
+  "samples": [
+   {
+    "ref": "ibi rero bishobora gutuma ugabanya ibiro",
+    "hyp": "Ibi rero bishobora gutuma ugabanya ibiryo"
+   },
+   {
+    "ref": "aho usanga abayikora bahembwa akayabo kamafaranga",
+    "hyp": "aho usanga abayikora bahembwa akayabo k’amafaranga"
+   },
+   {
+    "ref": "icya kabiri cyamafaranga yaguzwe",
+    "hyp": "icya kabiri cy amafaranga yakozwe"
+   },
+   {
+    "ref": "hanyuma bamuhe amafaranga",
+    "hyp": "hanyuma bamuhe amafaranga"
+   },
+   {
+    "ref": "bakora ibikorwa bihindura amateka rusange yabo",
+    "hyp": "bakora ibikorwa bihindura amateka rusange yabo"
+   },
+   {
+    "ref": "ndetse mu gihe cyamateraniro yose ahabera hakoreshwa ikoranabuhanga",
+    "hyp": "ndetse mu gihe cy’amateraniro yose ahabera hakoreshwa ikoranabuhanga"
+   },
+   {
+    "ref": "aba bose bagize akanama nkemurampaka rwabigwi gilbert",
+    "hyp": "Aba bose bagize akanama nkemurampaka rwa Bigiriberi"
+   },
+   {
+    "ref": "cyari gifite umwihariko winjyana gakondo",
+    "hyp": "cyari gifite umwihariko w’injyana gakondo"
+   },
+   {
+    "ref": "afurika igomba kwihutisha ukwishyira hamwe",
+    "hyp": "Africa igomba kwihutisha kwishyira hamwe"
+   },
+   {
+    "ref": "gusa habaho nabanyamakuru batajijutse",
+    "hyp": "Gusa habaho n’abanyamakuru batajijota"
+   },
+   {
+    "ref": "bacumbika ku mugabo bucyanayandi",
+    "hyp": "Nzacumbika kumugabo wa cyana yandi"
+   },
+   {
+    "ref": "ndateganya guterefona rwema ejo nkamusaba ubufasha",
+    "hyp": "Ndateganya guterefona Rwema ejo nkamusaba gufasha."
+   },
+   {
+    "ref": "uhora usubiramo ikintu kimwe",
+    "hyp": "Ubu busubirane ikintu kimwe"
+   },
+   {
+    "ref": "sinzi niba unsoma cyangwa utansoma",
+    "hyp": "Sinzi niba udusoma cyangwa utansoma."
+   },
+   {
+    "ref": "urubura rwinshi mu gihe cyizuba gishize",
+    "hyp": "Urubura rwinshi mugihe cyizuba gishize."
+   },
+   {
+    "ref": "kuganira kuri iki kibazo ntaho bizakugeza",
+    "hyp": "Kuganira kuri iki kibazo ntaho bizakugeza"
+   },
+   {
+    "ref": "ntabwo nshobora kwizera ko wasezeranye",
+    "hyp": "Ntabwo nshobora kwizera ko wasezeraga."
+   },
+   {
+    "ref": "ikintu cya mbere byukusenge akora buri munsi ageze murugo ni ugukingura tv",
+    "hyp": "Ikintu cya mbere byukusenge akora buri munsi ageze murugo ni urukingo rwa TV."
+   },
+   {
+    "ref": "ntabwo nongeye kunywa amata hamwe nisukari",
+    "hyp": "Ntabwo numvise umwana utambwe nisukari."
+   },
+   {
+    "ref": "urashaka kwinjira mu ikipe yacu",
+    "hyp": "Sinashoboraga kwinjira mu ikipe yacu."
+   },
+   {
+    "ref": "azadufata akimara kubona amakuru",
+    "hyp": "Azadufata akimara kubona amakuru."
+   },
+   {
+    "ref": "naje gukanguka nzengurutswe na mayibobo nyinshi",
+    "hyp": "Naje gukanguka nzengurutswe na mayibobo nyinshi"
+   },
+   {
+    "ref": "baravuze bati tuzamuke nonaha tuhahindure kuko tubasha rwose kuhatsinda",
+    "hyp": "baravuze bati tuzamuke nonaha twahindure kuko tubasha rwose kuhatsinda"
+   },
+   {
+    "ref": "imigisha iva hejuru mu ijuru",
+    "hyp": "imigisha iva hejuru mwijuru"
+   },
+   {
+    "ref": "kwihangana kumuririmbyi nari narabyunvise murugendo inshuro zirenze imwe kandi",
+    "hyp": "kwihangana ko muririmbye nari nabyumvise mu rugendo inshuro zirenze imwe kandi"
+   },
+   {
+    "ref": "buri mwaka rwema na gashema bizihiza noheri hamwe",
+    "hyp": "Buri mwaka Rwema na Gashema bizihiza Noheri hamwe"
+   },
+   {
+    "ref": "ndatekereza ko agiye gukora ikintu gikomeye",
+    "hyp": "Ndatekereza ko agiye gukora ikintu gikomeye."
+   },
+   {
+    "ref": "ariko izindi mbaraga zubwenge zo ntizatejwe imbere kuri urwo rwego",
+    "hyp": "Ariko izi n’imbaraga z’ubwenge zo ntizatejwe imbere kuri urwo rwego"
+   },
+   {
+    "ref": "numvise bavuga ebola mu makuru ya radiyo",
+    "hyp": "Numvise bavuga Ebola mu makuru yari atinya."
+   },
+   {
+    "ref": "zatangaje ko umuturage wazo wa mbere yishwe",
+    "hyp": "Uzakurikiza abitegura umuturage wazo wa mbere mwishwe"
+   },
+   {
+    "ref": "gusa ku rundi ruhande akavuga ko byari biteye impungenge ku bwisanzure",
+    "hyp": "Gusa ku rundi ruhande akavuga ko byari biteye impungenge ku bw’isanzure"
+   },
+   {
+    "ref": "ikunze gutangwa nimpuguke nyinshi",
+    "hyp": "ikunze gutangwa n'impuguke nyinshi"
+   },
+   {
+    "ref": "buri mukozi wese akumvira mwuka muziranenge",
+    "hyp": "Buri mukozi wese akumvira Mwuka Muziranenge"
+   },
+   {
+    "ref": "mba mu mihigo banyita umuhizi",
+    "hyp": "mba mu muhigo ba nyitamuhizi"
+   },
+   {
+    "ref": "yari akomeye afite umutimanama utagira icyo umushinja",
+    "hyp": "Yari akomeye afite umutimanama utagira icyo umushinja."
+   },
+   {
+    "ref": "ahubwo yo igendana nuko inyenyeri zimeze",
+    "hyp": "ahubwo yo igendana n’uko inyenyeri zimeze"
+   },
+   {
+    "ref": "imana yonyine niyo yashoboraga kubigeraho",
+    "hyp": "Imana yonyine niyo yashoboraga kubigeraho."
+   },
+   {
+    "ref": "gusa ngo aya mavuta afite ingaruka nyinshi",
+    "hyp": "Gusa ngo aya mavuta afite ingaruka nyinshi"
+   },
+   {
+    "ref": "mu idolari rya amerika iki kimenyetso kigaragaramo",
+    "hyp": "Mu Itorari ry’Amerika iki kimenyetso kigaragaramo"
+   },
+   {
+    "ref": "nzi neza ko rukara yaba kuvugira muruhame cyane",
+    "hyp": "Nzi neza ko Rukara yaba kuvugira mu ruhame cyane."
+   },
+   {
+    "ref": "tugera mu kwa karindwi nkimurwaje ariko ubwo abantu bimana ntibahasibaga",
+    "hyp": "tugera mu kwa karindwi nk’imurwaje, ariko ubwo abantu b’Imana ntibahasibaga."
+   },
+   {
+    "ref": "jack yaretse kuvuga mu buryo butunguranye ubwo mariya yinjiraga mu cyumba",
+    "hyp": "Jack yaretse kuvuga mu buryo butunguranye ubwo Mariya yinjiraga mu cyuma"
+   },
+   {
+    "ref": "ipantaro ebyiri zipantaro zakozwe mubikoresho bitandukanye",
+    "hyp": "Ipantaro ebyiri zipantaro zakozwe mubikoresho bitandukanye"
+   },
+   {
+    "ref": "ibi bisa nkikintu kiva muri firime sibyo",
+    "hyp": "Ibi bisa nkikintu kiva muri firime, sibyo?"
+   },
+   {
+    "ref": "kuko yari yaraje kwirebera u rwanda arababwira ati mbonye umuntu",
+    "hyp": "kuko yari yaraje kwirebera ku Rwanda. Arababwira ati: “Mbonye umuntu"
+   },
+   {
+    "ref": "byukusenge birashoboka ko atazi impamvu picnic yahagaritswe",
+    "hyp": "byukusenge birashoboka ko atazi impamvu picnic yahagaritswe"
+   },
+   {
+    "ref": "hamburgers yazamutse muri iki cyumweru",
+    "hyp": "Hano iyo nzu yazamutse muri iki cyumweru"
+   },
+   {
+    "ref": "bankuyemo baranyanika ndumuka bigeze nimugoroba",
+    "hyp": "Bankuyemo barahananika mbimuka bigeze nk’umugoroba"
+   },
+   {
+    "ref": "bwa mbere yampembye bine mba ngiye kuguramo kamambiri",
+    "hyp": "bwa mbere yampembye ibintu bagiye kuguramo kamanzi"
+   },
+   {
+    "ref": "bamuhaye ikirahuri cyumutobe wa orange ushyizwemo na vodka",
+    "hyp": "bamuhaye ikirahure cy'umutobe wa orange yashyizwemo n'abahutu"
+   },
+   {
+    "ref": "urwenya ruteye isoni kubagabo",
+    "hyp": "ibyo nyaruteye isoni ku bagabo"
+   },
+   {
+    "ref": "ubudahumbya bwawe butera ubwoba",
+    "hyp": "ubudahumbya bwawe butera ubwoba"
+   },
+   {
+    "ref": "ntekereza ko chris akiri muto cyane kuburyo adashobora gukundana",
+    "hyp": "ntekereza ko kiliziya kiri muto cyane kuburyo adashobora gukundana"
+   },
+   {
+    "ref": "arambura ukuboko ngo yumve umusaya utose aho amarira yaguye",
+    "hyp": "arambura ukuboko ngo yumve umusaya utose aho amarira yaguye"
+   },
+   {
+    "ref": "ningando za yayiri zose zari muri bashanibarazisenya",
+    "hyp": "n'ingando za ya y'i zose zari muri bashani barazisenya"
+   },
+   {
+    "ref": "o bigenda bite niba uringaniza ibyatsi ninzira za kaburimbo",
+    "hyp": "oh bigenda bite niba uringanyiza ibyatsi n'inzira za kaburimbo"
+   },
+   {
+    "ref": "baramusuzugura ndetse banga no kumuha amaturo",
+    "hyp": "baramusuzugura ndetse banga no kumuha amaturo"
+   },
+   {
+    "ref": "ubuzimagatozi bafatwa nk aho bafite inyungu",
+    "hyp": "ubuzima gatozi bafatwa nkaho bafite inyungu"
+   },
+   {
+    "ref": "imana yavuganiye na eliya mu muryango wubuvumo",
+    "hyp": "Imana yavuganiye na Eliya mu muryango w'ubuvumo"
+   },
+   {
+    "ref": "urukundo nta makosa rufite kuko amakosa yose ari ugushaka urukundo",
+    "hyp": "urukundo ni amakosa rufite kuko amakosa yose ari ugushaka urukundo"
+   },
+   {
+    "ref": "mu cyumba hari ameza",
+    "hyp": "mu cyumba hari amezi"
+   },
+   {
+    "ref": "yari yaramukundwakaje yane maze imutera kwigira igishega kugera uwo yategetse",
+    "hyp": "yari yaramukundukaje cyane, maze yamutera kwigira igisheza kugera uwo itegeko"
+   },
+   {
+    "ref": "turimo tumenya cyane ububi bwumwotsi",
+    "hyp": "Turimo kumenya cyane ububi bwubwatsi"
+   },
+   {
+    "ref": "sinshobora kuhagera mu isaha imwe",
+    "hyp": "Sinshobora kubongera muri salo."
+   },
+   {
+    "ref": "nkwibarize bitewe nubwoko wiyumvamo",
+    "hyp": "Umwibarize bitewe n’ubwoko w’iyo mvomo"
+   },
+   {
+    "ref": "nziheshereza icyubahiro kuri farawo",
+    "hyp": "nziheshereza icyubahiro kuri farawo"
+   },
+   {
+    "ref": "mariya ni umukobwa wa rukara",
+    "hyp": "Mariya numukobwa wa rukara"
+   },
+   {
+    "ref": "rukorera mwambitswe sinagwabiza",
+    "hyp": "ukorera mwabyutswe na rwabuzi"
+   },
+   {
+    "ref": "ntabwo ntekereza ko umuvugizi kavukire yigeze abivuga atyo",
+    "hyp": "Ntabwo ntekereza ko nivugizi kavukire yigeze avuga ati"
+   },
+   {
+    "ref": "iyo igushaka iraguhombya byaba na ngombwa ikaguhombanya",
+    "hyp": "Iyo ugushaka biragobanya byaba ngombwa itagomba mbanda"
+   },
+   {
+    "ref": "bugeseraumugabo yahawe inzaratsi numugore we kugira ngo amukundwakaze",
+    "hyp": "Bugesera: Ubugabo yahawe inzaratsi n’umugore we kugira ngo amukundwakaze."
+   },
+   {
+    "ref": "gomez ati uyu mukino turawufata nkuwa nyuma",
+    "hyp": "Gomez ati “Uyu mukino turawufata nk’uwa nyuma."
+   },
+   {
+    "ref": "cyakora zarashweho nabashinzwe umutekano ku buryo hari nimpunzi zishwe",
+    "hyp": "Icyakora zarashweho n’abashinzwe umutekano ku buryo hari n’impunzi mvishwe."
+   },
+   {
+    "ref": "iki ni ikibazo cyakunze gukurura umwuka mubi hagati yurwanda nubufaransa",
+    "hyp": "Iki ni ikibazo cyakunze gukurura umwuka mubi hagati y’u Rwanda n’u Bufaransa."
+   },
+   {
+    "ref": "humble na mico the best berekanye ko uretse na muzika no gutaka icyondo babibashije",
+    "hyp": "Humble na Mico The Best berekanye ko uretse na muzika no gutaka icyondo babibashije."
+   },
+   {
+    "ref": "kuko umunyeshuri ufatiwe mu bujura ahanishwa kwirukanwa",
+    "hyp": "Uko umunyeshuri ufatiwe mu bujura ahanishwa kwirukanwa."
+   },
+   {
+    "ref": "ubwo nkana yari yazanye nizindi mpu arazitanga",
+    "hyp": "Ubwo nkana yari yazanye nk’izindi mu arazitana."
+   },
+   {
+    "ref": "ibi bizagerwaho ari uko abana bato bagize ubushake bwo kwiga amasomo ajyanye nubumenyi",
+    "hyp": "Ibi bizagerwaho ari uko abana bato bagize ubushake bwo kwiga amasomo ajyanye n’ubumenyi."
+   },
+   {
+    "ref": "ubu natwe african people tugiye kugerwaho ningaruka imana idukize pe",
+    "hyp": "Ubu natwe Afurika y’Epfo tugiye kugerwaho n’ingaruka Imana idukize pe."
+   },
+   {
+    "ref": "yagize ati twakoze imbanzirizamushinga ubu dutegereje ko minisiteri yubuzima iyemeza",
+    "hyp": "Yagize ati “Twakoze imbanzirizamushinga ubu dutegereje ko Minisiteri y’Ubuzima yiyemeza."
+   }
+  ]
+ }
+}

@@ -1,0 +1,178 @@
+{
+ "summary": {
+  "n": 21,
+  "voice_correct_pct": 71.4,
+  "text_correct_pct": 85.7,
+  "median_latency_s": 6.58
+ },
+ "rows": [
+  {
+   "id": "q02",
+   "question": "Ibigori nabitera ku ntera ingana iki?",
+   "heard": "ibigori nabitera ku ntera inganiki",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 8.16
+  },
+  {
+   "id": "q05",
+   "question": "Ure nyishyira ryari ku bigori?",
+   "heard": "Urenyeshyira ryari kubigoye",
+   "voice_ok": false,
+   "text_ok": false,
+   "latency_s": 3.62
+  },
+  {
+   "id": "q08",
+   "question": "nkongwa yateye ibigori byanjye ndakora iki",
+   "heard": "Mpongwa yateye ibigori byanjye, ndakora iki?",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 5.82
+  },
+  {
+   "id": "q11",
+   "question": "Ibigori nabyumisha kugeza ku rugero ki mbere yo kubihunika?",
+   "heard": "Ibigori nabyumisha kugeza ku buryo ki mbere yo kubibunika",
+   "voice_ok": false,
+   "text_ok": true,
+   "latency_s": 7.65
+  },
+  {
+   "id": "q13",
+   "question": "Ibishyimbo bigufi mbitera ku ntera ki?",
+   "heard": "ibishyimbo bigufi mbitera ku nterake",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 6.92
+  },
+  {
+   "id": "q16",
+   "question": "imizi y'ibishyimbo byanjye yaboze",
+   "heard": "Imizi yibishyimbo byanjye yaboze",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 5.67
+  },
+  {
+   "id": "q19",
+   "question": "Nshobora gutera ibirayi nakuye mu murima wanjye?",
+   "heard": "ushobora gutera ibirayi n’akuye mu murima wanjye",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 6.58
+  },
+  {
+   "id": "q22",
+   "question": "ibirayi byanjye bifite mildiyu",
+   "heard": "ibirayi byagiye bifite mediu",
+   "voice_ok": false,
+   "text_ok": true,
+   "latency_s": 5.28
+  },
+  {
+   "id": "q26",
+   "question": "Ingemwe z'umuceri nzimura zifite iminsi ingahe?",
+   "heard": "Njye mwe z’umuceri nzimura zifite iminsi ngara",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 7.53
+  },
+  {
+   "id": "q32",
+   "question": "imyumbati yanjye ifite ububembe",
+   "heard": "Inyungu ati “Yange ifite ubembe.",
+   "voice_ok": false,
+   "text_ok": true,
+   "latency_s": 4.82
+  },
+  {
+   "id": "q35",
+   "question": "insina zanjye zirwaye kirabiranya nkore iki",
+   "heard": "insina zanjye zirwaye kirabiranya nkuriki",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 7.59
+  },
+  {
+   "id": "q40",
+   "question": "Ikawa nyisarura nte kugira ngo ibe nziza?",
+   "heard": "ikaba nk’isarura nte kugira ngo ibenzize",
+   "voice_ok": false,
+   "text_ok": false,
+   "latency_s": 4.83
+  },
+  {
+   "id": "q42",
+   "question": "Inka y'amata nyigaburira ubwatsi bungana iki ku munsi?",
+   "heard": "ntaramata nyigaburira ubwatsi bungana iki ku musa",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 8.09
+  },
+  {
+   "id": "q44",
+   "question": "inka yanjye ifite uburondwe bwinshi n'umuriro",
+   "heard": "inka yanjye mfite uburundi bwinshi n’umuriro",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 8.33
+  },
+  {
+   "id": "q47",
+   "question": "inka zanjye zirwaye uburenge",
+   "heard": "intazange zirwaye uburenge",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 6.88
+  },
+  {
+   "id": "q49",
+   "question": "inkoko zanjye zirapfa umusubirizo",
+   "heard": "inkoko zanjye zirapfa umusubirizo",
+   "voice_ok": false,
+   "text_ok": false,
+   "latency_s": 8.55
+  },
+  {
+   "id": "q54",
+   "question": "ubutaka bwanjye burasharira",
+   "heard": "ubutaka bwanjye burasharira",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 7.47
+  },
+  {
+   "id": "q59",
+   "question": "Nabona nte ifumbire ya Nkunganire?",
+   "heard": "nabona ntifumbire ya nkunganire",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 5.87
+  },
+  {
+   "id": "o03",
+   "question": "Ndashaka inguzanyo ya banki",
+   "heard": "Ndashaka inguzanyo y'abandi.",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 3.79
+  },
+  {
+   "id": "o05",
+   "question": "Ese avoka zatewe ryari?",
+   "heard": "Ese avoka azi atewe ryari",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 2.7
+  },
+  {
+   "id": "o08",
+   "question": "Igiciro cy'ibirayi ku isoko ni angahe uyu munsi?",
+   "heard": "Igiciro cyibirayi kwisoko ntihangahe uyumunsi",
+   "voice_ok": true,
+   "text_ok": true,
+   "latency_s": 4.38
+  }
+ ]
+}

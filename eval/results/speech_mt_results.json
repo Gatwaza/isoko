@@ -1,0 +1,172 @@
+{
+ "tts:facebook/mms-tts-kin": {
+  "round_trip_cer": 20.8,
+  "n": 20,
+  "median_synthesis_s_cpu": 0.9,
+  "asr_model": "badrex/w2v-bert-2.0-kinyarwanda-asr",
+  "samples": [
+   {
+    "text": "Imirongo itandukanywa na cm 75, ibigori cm 25, imbuto 1 mu mwobo.",
+    "asr_of_tts": "imirongo itandukamana ibiy'imbuto mumwo"
+   },
+   {
+    "text": "Mu gutera: ifumbire y'imborera + DAP ~kg 1 kuri ari (m2 100).",
+    "asr_of_tts": "mu guterefo mbere y'ingoreyada kuya rimwe"
+   },
+   {
+    "text": "Imyobo mu mababi n'umwanda umeze nk'ifu mu mutima w'igihingwa ni nkongwa.",
+    "asr_of_tts": "ibinyemababi ni umwana umeze nk'ishuma mutima w'igihingwa ni nkomba"
+   },
+   {
+    "text": "Anika ibinyampeke kuri shitingi kugeza byumye neza (13%).",
+    "asr_of_tts": "anika ibinyampeke kuri shitingi kugeza byumye neza"
+   },
+   {
+    "text": "Ibishyimbo bigufi: imirongo cm 40, imbuto cm 10.",
+    "asr_of_tts": "ibishyimba rugufa imirango kirebye imbuto ce"
+   },
+   {
+    "text": "Koresha imborera + DAP cyangwa NPK 17-17-17 nke (~kg 1 kuri ari) mu gutera.",
+    "asr_of_tts": "ukoresha imborerana cyangwa nokerenke kurari mu gutera"
+   }
+  ]
+ },
+ "tts:facebook/mms-tts-kin:raw": {
+  "round_trip_cer": 43.1,
+  "n": 20,
+  "median_synthesis_s_cpu": 0.72,
+  "asr_model": "badrex/w2v-bert-2.0-kinyarwanda-asr",
+  "samples": [
+   {
+    "text": "Imirongo itandukanywa na cm 75, ibigori cm 25, imbuto 1 mu mwobo.",
+    "spoken": "Imirongo itandukanywa na santimetero mirongo irindwi na gatanu, ibigori santimetero makumyabiri na gatanu, imbuto rimwe mu mwobo.",
+    "asr_of_tts": "iyini ibihumbi itandukamana ibiguritya imbuto mu mwoho"
+   },
+   {
+    "text": "Mu gutera: ifumbire y'imborera + DAP ~kg 1 kuri ari (m2 100).",
+    "spoken": "Mu gutera ifumbire y'imborera na di ey pi hafi ibiro rimwe kuri ari metero kare ijana .",
+    "asr_of_tts": "mu gutera ifumbire y'ingorerada bwarimwe"
+   },
+   {
+    "text": "Imyobo mu mababi n'umwanda umeze nk'ifu mu mutima w'igihingwa ni nkongwa.",
+    "spoken": "Imyobo mu mababi n'umwanda umeze nk'ifu mu mutima w'igihingwa ni nkongwa.",
+    "asr_of_tts": "nyebo umababi ni umwana umeze n'ifu umutima w'igihingwa n'inkombo"
+   },
+   {
+    "text": "Anika ibinyampeke kuri shitingi kugeza byumye neza (13%).",
+    "spoken": "Anika ibinyampeke kuri shitingi kugeza byumye neza icumi na gatatu ku ijana .",
+    "asr_of_tts": "anika ibinyameke kuri shitingi kugeza byumye neza"
+   },
+   {
+    "text": "Ibishyimbo bigufi: imirongo cm 40, imbuto cm 10.",
+    "spoken": "Ibishyimbo bigufi imirongo santimetero mirongo ine, imbuto santimetero icumi.",
+    "asr_of_tts": "ibishyeguri bigufa imirongo cibye mbutoke"
+   },
+   {
+    "text": "Koresha imborera + DAP cyangwa NPK 17-17-17 nke (~kg 1 kuri ari) mu gutera.",
+    "spoken": "Koresha imborera na di ey pi cyangwa en pi ke icumi na karindwi, icumi na karindwi, icumi na karindwi nke hafi ibiro rimwe kuri ari mu gutera.",
+    "asr_of_tts": "koresha imboreradacyamanuijen kurari mu guteya"
+   }
+  ]
+ },
+ "tts:facebook/mms-tts-kin:normalised": {
+  "round_trip_cer": 9.6,
+  "n": 20,
+  "median_synthesis_s_cpu": 0.97,
+  "asr_model": "badrex/w2v-bert-2.0-kinyarwanda-asr",
+  "samples": [
+   {
+    "text": "Imirongo itandukanywa na cm 75, ibigori cm 25, imbuto 1 mu mwobo.",
+    "spoken": "Imirongo itandukanywa na santimetero mirongo irindwi na gatanu, ibigori santimetero makumyabiri na gatanu, imbuto rimwe mu mwobo.",
+    "asr_of_tts": "imimoba itandukanywa na santimete mirongo irindwi na gatanu iyguri santimete makumyabiri na gatanu buto birimo mu mwoba"
+   },
+   {
+    "text": "Mu gutera: ifumbire y'imborera + DAP ~kg 1 kuri ari (m2 100).",
+    "spoken": "Mu gutera ifumbire y'imborera na di ey pi hafi ibiro rimwe kuri ari metero kare ijana .",
+    "asr_of_tts": "mu gutera ifumbire y'imboreranagi eyiti hasi ibiro rimwe kuri ari metero kari ijana"
+   },
+   {
+    "text": "Imyobo mu mababi n'umwanda umeze nk'ifu mu mutima w'igihingwa ni nkongwa.",
+    "spoken": "Imyobo mu mababi n'umwanda umeze nk'ifu mu mutima w'igihingwa ni nkongwa.",
+    "asr_of_tts": "inyabo mu mababi ni umwana umeze nk'ishura umutima wigingwa n'impomba"
+   },
+   {
+    "text": "Anika ibinyampeke kuri shitingi kugeza byumye neza (13%).",
+    "spoken": "Anika ibinyampeke kuri shitingi kugeza byumye neza icumi na gatatu ku ijana .",
+    "asr_of_tts": "anika ibinyameke kuru shitingi kugeza byume neza icumi na gatatu ku ijana"
+   },
+   {
+    "text": "Ibishyimbo bigufi: imirongo cm 40, imbuto cm 10.",
+    "spoken": "Ibishyimbo bigufi imirongo santimetero mirongo ine, imbuto santimetero icumi.",
+    "asr_of_tts": "irishyimbo bigufi y'imirongo santimetero mirongo in'imbuto santimetero icumi"
+   },
+   {
+    "text": "Koresha imborera + DAP cyangwa NPK 17-17-17 nke (~kg 1 kuri ari) mu gutera.",
+    "spoken": "Koresha imborera na di ey pi cyangwa en pi ke icumi na karindwi, icumi na karindwi, icumi na karindwi nke hafi ibiro rimwe kuri ari mu gutera.",
+    "asr_of_tts": "koresha imboreranadi cyangwa  kicumi na karindwi cumi na karindwi cumi na karindwi nnke hafi biro rimikuro arimu gutera"
+   }
+  ]
+ },
+ "mt:facebook/nllb-200-distilled-600M": {
+  "en2rw": {
+   "chrf": 56.4,
+   "samples": [
+    {
+     "src": "The soil is still wet a game will be suspended",
+     "ref": "Ubutaka buracyatose umukino uzahagarikwa",
+     "hyp": "Ubutaka buracyashyuha umukino uzahagarikwa"
+    },
+    {
+     "src": "Selection is a long-term tool used to destroy heavy soil.",
+     "ref": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "hyp": "Gutoranya ni igikoresho gikoreshwa mu gihe kirekire mu kurimbura ubutaka buremereye."
+    },
+    {
+     "src": "A farmer with a light yellow coat drives a tractor",
+     "ref": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "hyp": "Umuhinzi wambaye ikanzu y'umuhondo utanduye atwara ikamyo"
+    },
+    {
+     "src": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "ref": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "hyp": "Ndakwinginze ushyire ibyo biceri mu gikombe. Nturye mu mufuka wawe."
+    },
+    {
+     "src": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "ref": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "hyp": "inka z'umwami w'u Rwanda zari zanze kurisha kuri iki cyatsi."
+    }
+   ]
+  },
+  "rw2en": {
+   "chrf": 49.5,
+   "samples": [
+    {
+     "src": "Ubutaka buracyatose umukino uzahagarikwa",
+     "ref": "The soil is still wet a game will be suspended",
+     "hyp": "The ground is still open for the game to be stopped."
+    },
+    {
+     "src": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "ref": "Selection is a long-term tool used to destroy heavy soil.",
+     "hyp": "Harvesting is a long-term tool used to demolish solid soils."
+    },
+    {
+     "src": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "ref": "A farmer with a light yellow coat drives a tractor",
+     "hyp": "A farmer in a white yellow jacket carrying a tractor"
+    },
+    {
+     "src": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "ref": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "hyp": "Please put the eggs in the bags. Do not eat in the bag."
+    },
+    {
+     "src": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "ref": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "hyp": "The Rwandan king's cows had refused to feed on the grass."
+    }
+   ]
+  }
+ }
+}

@@ -1,27 +1,37 @@
 :root {
   --bg: #f6f7f4; --card: #ffffff; --ink: #1c2420; --muted: #5f6b64; --line: #e2e6e0;
   --green: #2f7d32; --green-soft: #e6f2e6; --amber: #b7791f; --amber-soft: #fbf1df; --red: #b4382f; --red-soft: #f9e3e1;
+  --glass: rgba(255, 255, 255, 0.9);
 }
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #121614; --card: #1a201d; --ink: #e7ece8; --muted: #9aa69f; --line: #2a322e;
     --green: #5fb763; --green-soft: #1f3321; --amber: #e0a845; --amber-soft: #352a15; --red: #e0756b; --red-soft: #3a1f1c;
+    --glass: rgba(26, 32, 29, 0.9);
   }
 }
 * { box-sizing: border-box; }
+html, body { overflow-x: hidden; max-width: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
 a { color: var(--green); }
-.top { display: flex; justify-content: space-between; align-items: center; padding: 14px 28px; border-bottom: 1px solid var(--line); background: var(--card); flex-wrap: wrap; gap: 10px; }
+.top { display: flex; justify-content: space-between; align-items: center; padding: 12px 24px; border-bottom: 1px solid var(--line); background: var(--card); flex-wrap: wrap; gap: 10px; position: relative; z-index: 2; }
 .brand { font-weight: 700; font-size: 18px; display: flex; align-items: center; gap: 10px; }
 .brand small { font-weight: 400; color: var(--muted); font-size: 13px; }
 .logo { width: 30px; height: 30px; border-radius: 8px; background: var(--green); color: #fff; display: grid; place-items: center; }
-nav { display: flex; gap: 6px; }
-nav a { text-decoration: none; color: var(--muted); padding: 6px 12px; border-radius: 8px; font-size: 14px; }
+nav { display: flex; gap: 4px; flex-wrap: wrap; align-items: center; }
+nav a { text-decoration: none; color: var(--muted); padding: 6px 11px; border-radius: 8px; font-size: 14px; }
 nav a.active, nav a:hover { background: var(--green-soft); color: var(--green); }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 16px 60px; }
 .btn { background: var(--green); color: #fff; border: none; border-radius: 8px; padding: 8px 14px; cursor: pointer; font: inherit; font-size: 14px; }
+.btn.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
 h2 { font-size: 22px; margin: 0 0 8px; }
 h3 { font-size: 15px; margin: 18px 0 10px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+
+/* photo backdrop used by the farmer-facing pages */
+.photo-bg { min-height: calc(100vh - 56px); background: linear-gradient(rgba(10, 24, 14, .55), rgba(10, 24, 14, .7)), var(--photo) center / cover no-repeat fixed; color: #f3f6f2; }
+.photo-bg .lead { color: #dfe8df; font-size: 15px; max-width: 520px; }
+.glass { background: var(--glass); color: var(--ink); border-radius: 16px; padding: 18px 20px; box-shadow: 0 10px 30px rgba(0,0,0,.25); }
 .lang-toggle { margin-left: 8px; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 8px; padding: 6px 12px; font: inherit; font-size: 14px; cursor: pointer; }
 .lang-toggle:hover { background: var(--green-soft); color: var(--green); }
 html[lang="rw"] [data-l="en"], html[lang="en"] [data-l="rw"] { display: none; }
+@media (max-width: 640px) { .top { padding: 10px 14px; } .brand small { display: none; } }
