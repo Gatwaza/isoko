@@ -32,7 +32,7 @@ QUESTIONS = ["Ibigori byanjye bifite nkongwa nkore iki?", "Inka yanjye ifite ubu
 
 phones = {f"+2507900{i:05d}": random.choice(DISTRICTS) for i in range(140)}
 for p, d in phones.items():
-    db.update_profile(p, district=d)
+    db.update_profile(p, district=d, consented_at=time.time())
 
 now = time.time()
 n = 0

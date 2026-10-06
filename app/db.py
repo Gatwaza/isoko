@@ -23,7 +23,7 @@ PG = bool(config.DATABASE_URL)
 SQLITE_SCHEMA = """
 CREATE TABLE IF NOT EXISTS profiles (
     phone TEXT PRIMARY KEY, lang TEXT NOT NULL DEFAULT 'rw', district TEXT, main_crop TEXT,
-    created_at REAL NOT NULL, updated_at REAL NOT NULL
+    created_at REAL NOT NULL, updated_at REAL NOT NULL, consented_at REAL, consent_session TEXT
 );
 CREATE TABLE IF NOT EXISTS interactions (
     id INTEGER PRIMARY KEY AUTOINCREMENT, ts REAL NOT NULL, channel TEXT NOT NULL, user_hash TEXT,
@@ -68,6 +68,11 @@ def conn():
             if "run_id" not in cols:  # databases created before v0.2
                 _conn.execute("ALTER TABLE interactions ADD COLUMN run_id TEXT")
                 _conn.commit()
+            pcols = {r[1] for r in _conn.execute("PRAGMA table_info(profiles)")}
+            for col, typ in (("consented_at", "REAL"), ("consent_session", "TEXT")):
+                if col not in pcols:  # databases created before v0.3
+                    _conn.execute(f"ALTER TABLE profiles ADD COLUMN {col} {typ}")
+            _conn.commit()
     return _conn
 
 
@@ -126,12 +131,12 @@ def get_profile(phone: str) -> dict:
     now = time.time()
     execute("INSERT INTO profiles (phone, lang, created_at, updated_at) VALUES (?, 'rw', ?, ?) "
             "ON CONFLICT (phone) DO NOTHING", (phone, now, now))
-    return {"phone": phone, "lang": "rw", "district": None, "main_crop": None}
+    return {"phone": phone, "lang": "rw", "district": None, "main_crop": None, "consented_at": None, "consent_session": None}
 
 
 def update_profile(phone: str, **fields) -> None:
     get_profile(phone)
-    allowed = {k: v for k, v in fields.items() if k in {"lang", "district", "main_crop"}}
+    allowed = {k: v for k, v in fields.items() if k in {"lang", "district", "main_crop", "consented_at", "consent_session"}}
     if not allowed:
         return
     sets = ", ".join(f"{k} = ?" for k in allowed)
@@ -181,3 +186,17 @@ def log_report(*, phone: str | None, district: str | None, issue: str, detail: s
 def queue_sms(phone: str, message: str, status: str) -> None:
     execute("INSERT INTO sms_outbox (ts, phone, message, status) VALUES (?, ?, ?, ?)",
             (time.time(), phone, message, status))
+
+
+def purge_old(days: int) -> int:
+    """Retention policy: delete interactions, reports, SMS and visits older than `days`."""
+    if days <= 0:
+        return 0
+    cutoff = time.time() - days * 86400
+    n = query("SELECT COUNT(*) AS n FROM interactions WHERE ts < ?", (cutoff,))[0]["n"]
+    for table in ("interactions", "reports", "sms_outbox", "farm_visits"):
+        try:
+            execute(f"DELETE FROM {table} WHERE ts < ?", (cutoff,))
+        except Exception:
+            pass
+    return n

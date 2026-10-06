@@ -168,5 +168,67 @@
     }
    ]
   }
+ },
+ "mt:Helsinki-NLP/opus-mt": {
+  "en2rw": {
+   "chrf": 45.1,
+   "samples": [
+    {
+     "src": "The soil is still wet a game will be suspended",
+     "ref": "Ubutaka buracyatose umukino uzahagarikwa",
+     "hyp": "ni a"
+    },
+    {
+     "src": "Selection is a long-term tool used to destroy heavy soil.",
+     "ref": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "hyp": "ni A Birebire - Byakoreshejwe Kuri Ikomeye."
+    },
+    {
+     "src": "A farmer with a light yellow coat drives a tractor",
+     "ref": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "hyp": "Iyo umuhinzi afite ibara ry'umuhondo, aba afite ishati y'ikondera"
+    },
+    {
+     "src": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "ref": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "hyp": "Gushyira in i."
+    },
+    {
+     "src": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "ref": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "hyp": "Itungo z'Umwami w'u Rwanda zari zaranze kugwa muri ubwo butayu."
+    }
+   ]
+  },
+  "rw2en": {
+   "chrf": 38.1,
+   "samples": [
+    {
+     "src": "Ubutaka buracyatose umukino uzahagarikwa",
+     "ref": "The soil is still wet a game will be suspended",
+     "hyp": "The ground will be cut off and cut off"
+    },
+    {
+     "src": "Gutoranya nigikoresho kirekire cyakoreshejwe mugusenya ubutaka bukomeye.",
+     "ref": "Selection is a long-term tool used to destroy heavy soil.",
+     "hyp": "I was used to cut down hard soil."
+    },
+    {
+     "src": "Umuhinzi ufite ikoti ryera ry'umuhondo ryerurutse atwara traktori",
+     "ref": "A farmer with a light yellow coat drives a tractor",
+     "hyp": "A white - haired farmer carrying a yellow coat"
+    },
+    {
+     "src": "Nyamuneka shyira ibirayi mu birahure. Ntukarye mu mufuka.",
+     "ref": "Please put the potatoes in the glass. Don't eat in your pocket.",
+     "hyp": "If you don't, put it in your bag; do not eat it in your bag."
+    },
+    {
+     "src": "inka z'umwami w'u Rwanda zari zanze kujya kurisha buriya bwatsi.",
+     "ref": "the cows of the King of Rwanda had refused to graze on this grass.",
+     "hyp": "The cattle of the king of Rwanda had refused to carry them on."
+    }
+   ]
+  }
  }
 }

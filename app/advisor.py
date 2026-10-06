@@ -32,6 +32,42 @@ UNSUPPORTED_MSG = {
           "w'ubuhinzi; ku biciro baza koperative yawe cyangwa agronome w'umurenge.",
 }
 
+# A question that names only a crop or animal ("tell me about potatoes") gets an overview of that
+# crop rather than whichever single entry happens to score highest.
+CROP_WORDS = {
+    "maize": {"ibigori", "maize", "corn"}, "beans": {"ibishyimbo", "bean"}, "potato": {"ibirayi", "potato", "irish"},
+    "rice": {"umuceri", "rice"}, "cassava": {"imyumbati", "cassava"}, "banana": {"urutoki", "insina", "ibitoki", "banana"},
+    "coffee": {"ikawa", "coffee"}, "cattle": {"inka", "cattle", "cow", "dairy"}, "poultry": {"inkoko", "chicken", "poultry"},
+    "pig": {"ingurube", "pig"}, "goat": {"ihene", "goat"},
+}
+GENERAL_ASK = re.compile(r"\b(amakuru|mwambwira|mumbwire|nimumbwire|mbwira|ambwira|bijyanye|ibijyanye|byerekeye|"
+                         r"ibyerekeye|kubyerekeye|tell me about|information|overview|in general|general advice)\b", re.I)
+TOPIC_ORDER = ["planting", "fertiliser", "feeding", "pests", "disease", "harvest"]
+OVERVIEW_HINT = {"rw": "Baza ku: gutera, ifumbire, indwara n'ibyonnyi, cyangwa gusarura.",
+                 "en": "Ask about: planting, fertiliser, pests and diseases, or harvest."}
+
+
+def crop_overview(question: str, lang: str) -> tuple[str, list[dict]] | None:
+    toks = set(tokenize(question))
+    toks |= {a + t for t in toks for a in "iua"}  # initial-vowel elision: "ku bigori" -> "ibigori"
+    crops = [c for c, words in CROP_WORDS.items() if toks & words]
+    if len(crops) != 1:
+        return None
+    rest = {t for t in set(tokenize(question)) if t not in CROP_WORDS[crops[0]] and not any(a + t in CROP_WORDS[crops[0]] for a in "iua")}
+    asks_general = bool(GENERAL_ASK.search(question))
+    if rest and not asks_general:
+        return None  # e.g. a symptom description: let retrieval find the specific problem
+    if any(t in corpus().anchors for t, w in corpus().expand(sorted(rest)) if w >= 0.8):
+        return None  # the question names a specific topic too
+    entries = sorted(corpus().find(crop=crops[0]),
+                     key=lambda e: TOPIC_ORDER.index(e["topic"]) if e["topic"] in TOPIC_ORDER else 99)[:3]
+    if not entries:
+        return None
+    first = lambda t: re.split(r"(?<=[.!?])\s", t)[0]
+    text = " ".join(first(e[f"summary_{lang}"]) for e in entries) + " " + OVERVIEW_HINT[lang]
+    return text, entries
+
+
 ESCALATION = {
     "en": "I don't have a validated answer for this yet. Your question has been sent to an extension "
           "officer. For urgent help contact your sector agronomist, or the sector vet for animals.",
@@ -73,6 +109,12 @@ def identify_language(text: str) -> str:
     return detect_language(text)
 
 
+def season_of(ts: float | None = None) -> str:
+    """Rwanda's agricultural seasons: A Sept-Jan, B Feb-May/June, C June-Aug (marshlands, irrigation)."""
+    m = time.localtime(ts).tm_mon
+    return "A" if m in (9, 10, 11, 12, 1) else "B" if m in (2, 3, 4, 5) else "C"
+
+
 def detect_language(text: str) -> str:
     toks = re.findall(r"[a-z]+", text.lower().replace("'", " "))
     if not toks:
@@ -95,6 +137,7 @@ class Advice:
     model: str = "none"
     latency_ms: int = 0
     weather: dict | None = None
+    context: dict | None = None
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -153,8 +196,14 @@ def answer(question: str, *, lang: str | None = None, district: str | None = Non
     escalated = False
     model = "retrieval"
 
+    overview = None if wx else crop_overview(question, lang)
     if UNSUPPORTED.search(question) and not wx:
         text, escalated, sources = UNSUPPORTED_MSG[lang], True, []
+    elif overview:
+        text, model = overview[0], "overview"
+        sources = [{"id": e["id"], "title": e[f"title_{lang}"], "source": e["source"], "score": None} for e in overview[1]]
+        hits = [h for h in hits if h.entry["id"] in {e["id"] for e in overview[1]}] or hits
+        confidence = 1.0
     elif (top < config.MIN_RETRIEVAL_SCORE or not corpus().is_in_domain(query)) and not wx:
         text, escalated, sources = ESCALATION[lang], True, []
     else:
@@ -169,6 +218,7 @@ def answer(question: str, *, lang: str | None = None, district: str | None = Non
                 ctx.append(f"Farmer's district: {district}.")
             if crop:
                 ctx.append(f"Farmer's crop: {crop}.")
+            ctx.append(f"Current season: {season_of()}.")
             if wx:
                 ctx.append(f"7-day forecast advice: {wx['text']}")
             words = 80 if channel in ("sms", "ussd") else 150
@@ -203,7 +253,9 @@ def answer(question: str, *, lang: str | None = None, district: str | None = Non
 
     adv = Advice(answer=text, language=lang, sources=sources, confidence=0.0 if escalated else confidence,
                  escalated=escalated, model=model, latency_ms=int((time.perf_counter() - t0) * 1000),
-                 weather=wx["forecast"] if wx else None)
+                 weather=wx["forecast"] if wx else None,
+                 context={"district": district, "crop": crop, "season": season_of(),
+                          "personalised": bool(district or crop)})
     if log:
         first = hits[0].entry if hits and not escalated else {}
         db.log_interaction(channel=channel, phone=phone, lang=lang, district=district,

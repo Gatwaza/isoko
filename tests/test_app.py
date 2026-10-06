@@ -16,6 +16,9 @@ H = {"X-API-Key": "test-key"}
 
 
 def dial(phone, *inputs):
+    from app import db
+    if not db.get_profile(phone).get("consented_at"):
+        db.update_profile(phone, consented_at=1.0)
     return client.post("/ussd", data={"sessionId": "t", "phoneNumber": phone, "serviceCode": "*1#",
                                       "text": "*".join(inputs)}).text
 
@@ -81,3 +84,35 @@ def test_report_reaches_dashboard():
     dial("+250780000005", "6", "1", "Huye")
     stats = client.get("/api/dashboard/stats").json()
     assert any(r["district"] == "Huye" and r["issue"] == "crop_pest" for r in stats["reports"])
+
+
+def test_first_use_asks_for_consent():
+    r = client.post("/ussd", data={"sessionId": "c1", "phoneNumber": "+250780000099", "text": ""}).text
+    assert r.startswith("CON Murakaza neza kuri Isoko")
+    assert "Isoko ry'Umuhinzi" in client.post("/ussd", data={"sessionId": "c1", "phoneNumber": "+250780000099", "text": "1"}).text
+    crops = client.post("/ussd", data={"sessionId": "c1", "phoneNumber": "+250780000099", "text": "1*1"}).text
+    assert "Ibigori" in crops  # the consent "1" is not misread as a menu choice in the same session
+
+
+def test_broad_crop_question_gets_overview():
+    from app import advisor
+    a = advisor.answer("Mwaramutse, mwambwira amakuru ki ku bijyanye n'ibirayi", log=False)
+    assert a.model == "overview" and all(s["id"].startswith("potato") for s in a.sources)
+    assert advisor.answer("Insina zanjye ziruma kandi ibitoki biraboha", log=False).sources[0]["id"] == "banana-bxw"
+
+
+def test_async_job_and_system_pinning():
+    import time
+    r = client.post("/v1/jobs", headers={**H, "X-Benchmark-Run": "t-job"},
+                    json={"items": [{"id": "a", "question": "nkongwa mu bigori"}, {"id": "b", "question": "football"}]})
+    assert r.status_code == 202
+    jid = r.json()["job_id"]
+    for _ in range(40):
+        d = client.get(f"/v1/jobs/{jid}", headers=H).json()
+        if d["status"] == "done":
+            break
+        time.sleep(0.25)
+    assert d["done"] == 2 and d["results"][1]["escalated"]
+    sysinfo = client.get("/v1/system").json()
+    assert sysinfo["corpus"]["sha256"] and "commit" in sysinfo
+    assert client.get("/v1/channels/status").json()["channels"]["ussd"]["status"] in ("live", "simulated")

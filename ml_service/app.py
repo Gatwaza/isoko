@@ -58,6 +58,9 @@ def get(name: str):
             _models[name] = (AutoTokenizer.from_pretrained(TTS_MODEL), VitsModel.from_pretrained(TTS_MODEL).eval())
         elif name == "mt":
             _models[name] = (AutoTokenizer.from_pretrained(MT_MODEL), AutoModelForSeq2SeqLM.from_pretrained(MT_MODEL).eval().to(DEVICE))
+        elif name.startswith("opus:"):  # Apache-2.0 OPUS-MT: one model per direction, e.g. opus:en-rw
+            mid = f"Helsinki-NLP/opus-mt-{name.split(':', 1)[1]}"
+            _models[name] = (AutoTokenizer.from_pretrained(mid), AutoModelForSeq2SeqLM.from_pretrained(mid).eval().to(DEVICE))
         elif name.startswith("vision:"):
             _models[name] = image_classifier(VISION_MODELS[name.split(":", 1)[1]], DEVICE)
         return _models[name]
@@ -67,7 +70,8 @@ def get(name: str):
 def warm():
     # Load in the background so the Space reports healthy quickly.
     def _load():
-        for n in ["asr", "tts", "vision:beans", "vision:cassava", "vision:general", "mt"]:
+        mt_names = ["opus:en-rw", "opus:rw-en"] if MT_MODEL.lower().startswith(("opus", "helsinki-nlp/opus")) else ["mt"]
+        for n in ["asr", "tts", "vision:beans", "vision:cassava", "vision:general", *mt_names]:
             try:
                 get(n)
             except Exception as exc:  # keep the service up even if one model fails to load
@@ -154,6 +158,15 @@ CODES = {"en": "eng_Latn", "rw": "kin_Latn", "fr": "fra_Latn", "sw": "swh_Latn"}
 def translate(body: MTIn):
     if body.source not in CODES or body.target not in CODES:
         raise HTTPException(status_code=400, detail=f"languages: {sorted(CODES)}")
+    if MT_MODEL.lower().startswith(("opus", "helsinki-nlp/opus")):
+        pair = f"{body.source}-{body.target}"
+        if pair not in ("en-rw", "rw-en"):
+            raise HTTPException(status_code=400, detail="OPUS-MT backend supports en<->rw only")
+        tok, model = get("opus:" + pair)
+        enc = tok(body.text, return_tensors="pt", truncation=True, max_length=400).to(DEVICE)
+        with torch.no_grad():
+            out = model.generate(**enc, num_beams=4, max_new_tokens=400)
+        return {"translation": tok.decode(out[0], skip_special_tokens=True), "model": f"Helsinki-NLP/opus-mt-{pair}"}
     tok, model = get("mt")
     tok.src_lang = CODES[body.source]
     enc = tok(body.text, return_tensors="pt", truncation=True, max_length=400).to(DEVICE)

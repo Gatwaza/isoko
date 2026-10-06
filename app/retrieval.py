@@ -20,6 +20,11 @@ _STOP = {
     "what", "how", "do", "can", "should", "with", "at", "be", "this", "that", "when", "which",
     "ni", "na", "ku", "mu", "kuri", "ya", "yo", "wa", "za", "cy", "by", "bw", "rw", "kw",
     "iki", "ese", "nte", "gute", "nki", "kandi", "cyangwa", "ndashaka", "nshaka",
+    # conversational filler: greetings, "tell me", "about / related to", "news / information"
+    "ki", "mwaramutse", "mwiriwe", "muraho", "bite", "murakoze", "amakuru", "mwambwira", "mumbwire",
+    "nimumbwire", "mbwira", "ambwira", "unsobanurire", "musobanure", "bijyanye", "bujyanye", "ijyanye",
+    "ibijyanye", "byerekeye", "ibyerekeye", "kubyerekeye", "jyanye", "tell", "me", "about", "please",
+    "hello", "hi", "good", "morning", "information", "info", "news", "some", "give", "know",
 }
 
 TOPIC_BONUS = 1.0

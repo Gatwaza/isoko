@@ -24,6 +24,34 @@ app.mount("/static", StaticFiles(directory=STATIC), name="static")
 app.include_router(v2_router)
 
 
+_last_purge = {"t": 0.0}
+
+
+def _maybe_purge() -> None:
+    """Retention policy, applied at most hourly (works on serverless and dedicated hosts)."""
+    if time.time() - _last_purge["t"] > 3600:
+        _last_purge["t"] = time.time()
+        try:
+            db.purge_old(config.RETENTION_DAYS)
+        except Exception as exc:
+            print("retention purge failed:", exc, flush=True)
+
+
+@app.on_event("startup")
+def _startup():
+    _maybe_purge()
+
+
+def _suppress(rows: list[dict], label_keys: tuple[str, ...]) -> list[dict]:
+    """Dashboard privacy: groups smaller than MIN_GROUP_SIZE are merged into one 'other' row."""
+    k = config.MIN_GROUP_SIZE
+    big = [r for r in rows if r["n"] >= k]
+    small = sum(r["n"] for r in rows if r["n"] < k)
+    if small:
+        big.append({**{key: f"other (<{k} each)" for key in label_keys}, "n": small})
+    return big
+
+
 @app.middleware("http")
 async def version_header(request: Request, call_next):
     response = await call_next(request)
@@ -244,6 +272,7 @@ def eval_results():
 
 @app.get("/api/dashboard/stats", dependencies=[Depends(require_dashboard)])
 def dashboard_stats(days: int = 30):
+    _maybe_purge()
     since = time.time() - days * 86400
     q = db.query
     day, tm = db.day_expr(), db.time_expr()
@@ -256,10 +285,10 @@ def dashboard_stats(days: int = 30):
         "photos_total": q("SELECT COUNT(*) AS n FROM interactions WHERE ts >= ? AND topic = 'photo-diagnosis'", (since,))[0]["n"],
         "voice_total": q("SELECT COUNT(*) AS n FROM interactions WHERE ts >= ? AND channel = 'voice'", (since,))[0]["n"],
         "by_channel": q("SELECT channel, COUNT(*) AS n FROM interactions WHERE ts >= ? GROUP BY channel ORDER BY n DESC", (since,)),
-        "by_topic": q("""SELECT COALESCE(crop,'general') AS crop, COALESCE(topic,'other') AS topic, COUNT(*) AS n
-                         FROM interactions WHERE ts >= ? AND escalated = 0 GROUP BY 1, 2 ORDER BY 3 DESC LIMIT 12""", (since,)),
-        "by_district": q("""SELECT district, COUNT(*) AS n FROM interactions WHERE ts >= ? AND district IS NOT NULL
-                            GROUP BY district ORDER BY n DESC""", (since,)),
+        "by_topic": _suppress(q("""SELECT COALESCE(crop,'general') AS crop, COALESCE(topic,'other') AS topic, COUNT(*) AS n
+                         FROM interactions WHERE ts >= ? AND escalated = 0 GROUP BY 1, 2 ORDER BY 3 DESC LIMIT 12""", (since,)), ("crop", "topic")),
+        "by_district": _suppress(q("""SELECT district, COUNT(*) AS n FROM interactions WHERE ts >= ? AND district IS NOT NULL
+                            GROUP BY district ORDER BY n DESC""", (since,)), ("district",)),
         "by_language": q("SELECT lang, COUNT(*) AS n FROM interactions WHERE ts >= ? GROUP BY lang", (since,)),
         "daily": q(f"""SELECT {day} AS day, COUNT(*) AS n, SUM(escalated) AS escalated
                        FROM interactions WHERE ts >= ? GROUP BY 1 ORDER BY 1""", (since,)),
@@ -270,6 +299,25 @@ def dashboard_stats(days: int = 30):
         "recent": q(f"""SELECT {tm} AS time, channel, lang, district, query, answer, model
                        FROM interactions WHERE ts >= ? AND query NOT LIKE 'menu:%' ORDER BY ts DESC LIMIT 15""", (since,)),
     }
+
+
+@app.get("/api/dashboard/export.csv", dependencies=[Depends(require_dashboard)], include_in_schema=False)
+def dashboard_export(days: int = 90):
+    """Aggregate counts for MINAGRI/RAB (day x district x crop x topic), small groups suppressed, no raw text."""
+    import csv
+    import io
+    since = time.time() - days * 86400
+    rows = db.query(f"""SELECT {db.day_expr()} AS day, COALESCE(district,'unknown') AS district, COALESCE(crop,'general') AS crop,
+                        COALESCE(topic,'other') AS topic, channel, lang, COUNT(*) AS n, SUM(escalated) AS escalated
+                        FROM interactions WHERE ts >= ? AND run_id IS NULL GROUP BY 1, 2, 3, 4, 5, 6 ORDER BY 1, 2""", (since,))
+    buf = io.StringIO()
+    w = csv.writer(buf)
+    w.writerow(["day", "district", "crop", "topic", "channel", "language", "interactions", "escalated"])
+    for r in rows:
+        if r["n"] >= config.MIN_GROUP_SIZE:
+            w.writerow([r["day"], r["district"], r["crop"], r["topic"], r["channel"], r["lang"], r["n"], r["escalated"]])
+    return PlainTextResponse(buf.getvalue(), media_type="text/csv",
+                             headers={"Content-Disposition": "attachment; filename=isoko_needs.csv"})
 
 
 @app.get("/api/sms/outbox", dependencies=[Depends(require_dashboard)])

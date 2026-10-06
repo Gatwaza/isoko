@@ -1,7 +1,7 @@
 {
   "meta": {
     "name": "Isôko seed advisory corpus",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "status": "SEED - compiled from public extension guidance (RAB, FAO, CABI PlantwisePlus, ILRI). Pending validation by RAB agronomists and replacement/extension with the C4IR national agricultural corpus.",
     "kinyarwanda_status": "Draft translations - pending review by native-speaking agronomists."
   },
@@ -663,6 +663,20 @@
       "detail_en": "Early blight (Alternaria) causes dark brown spots with concentric rings like a target, first on older lower leaves, often when plants are stressed or poorly fed. Control: balanced fertiliser (especially enough nitrogen and potassium), rotation away from potato and tomato for 2 seasons, removing infected lower leaves, and good spacing. Protective fungicides used against late blight also control it. Check carefully: dark wet patches that spread fast in cool rain are late blight, which is more urgent.",
       "detail_rw": "Early blight iterwa n'agahumyo (Alternaria) igatera ibibara by'ikigina cyijimye bifite inziga nk'intego, mbere na mbere ku mababi ashaje yo hasi, cyane cyane iyo igihingwa kinaniwe cyangwa kidafite ifumbire ihagije. Kurwanya: ifumbire iringaniye (cyane cyane azote na potasiyumu bihagije), gusimburanya ibirayi n'inyanya ibihembwe 2, gukuraho amababi yanduye yo hasi, n'intera ikwiye. Imiti ikumira indwara z'ibirayi nayo irayirwanya. Itondere: ibibara bitose byijimye byihuta mu mbeho n'imvura ni indwara yindi yihutirwa kurushaho; reba inama zayo.",
       "source": "CIP; CABI"
+    },
+    {
+      "id": "cattle-breeding",
+      "category": "livestock",
+      "crop": "cattle",
+      "topic": "breeding",
+      "title_en": "Dairy cattle: heat detection and breeding",
+      "title_rw": "Inka: kumenya igihe irinze no kuyimya",
+      "keywords": "cattle cow inka breeding heat insemination AI bull calving pregnancy kurinda kwimya intanga ikimasa kubyara gutera intanga",
+      "summary_en": "Watch for heat twice a day. A cow standing to be mounted is in heat: inseminate about 12 hours later (seen in the morning → serve in the evening). Aim for one calf a year.",
+      "summary_rw": "Genzura inka kabiri ku munsi. Inka yemera kurinwa iba irinze: iterwe intanga nyuma y'amasaha ~12 (yabonetse mu gitondo → iterwe nimugoroba). Intego: inyana imwe buri mwaka.",
+      "detail_en": "Heat (oestrus) lasts about 18 hours and returns every 21 days if the cow is not pregnant. Signs: standing still when mounted (the surest sign), mounting others, clear mucus, restlessness, bellowing, drop in milk. Use the AM–PM rule: a cow first seen in heat in the morning is inseminated that evening; seen in the evening, inseminate next morning. Use artificial insemination (AI) from RAB or certified inseminators with proven semen to improve milk yield and avoid inbreeding; do not use a bull related to the cow. Feed well and give minerals so cows return to heat 45–60 days after calving; aim for a calving interval of about 12–13 months. Record heat, service and calving dates. Ask your vet to check cows that do not show heat.",
+      "detail_rw": "Igihe inka irinze kimara amasaha ~18 kandi kigaruka buri minsi 21 iyo itahaka. Ibimenyetso: kwemera kurinwa n'izindi (ikimenyetso nyacyo), kurira izindi, ururenda rubonerana, guhagarika umutima, kwabira, amata akagabanuka. Kurikiza itegeko ry'igitondo n'umugoroba: inka yabonetse irinze mu gitondo iterwa intanga nimugoroba; iyabonetse nimugoroba iterwa mu gitondo gikurikira. Koresha gutera intanga (AI) bya RAB cyangwa abatera intanga bemewe ufite intanga nziza kugira ngo wongere amata kandi wirinde kubyarana kw'abavandimwe; ntukoreshe ikimasa gifitanye isano n'inka. Gaburira neza kandi uhe imyunyu kugira ngo inka zongere kurinda nyuma y'iminsi 45–60 zibyaye; intego ni kubyara buri mezi 12–13. Andika amatariki yo kurinda, guterwa intanga no kubyara. Baza veterineri ku nka zitarinda.",
+      "source": "RAB animal resources (AI services); ILRI dairy guides"
     }
   ]
 }

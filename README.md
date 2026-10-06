@@ -55,7 +55,7 @@ Programmatic API access is ready for both rounds. Each C4IR dataset maps to an e
 - EN–RW sentence pairs → `POST /v1/translate`
 - Audio–script pairs → `POST /v1/asr`
 
-Runs tagged with `X-Benchmark-Run` are deterministic and retrievable. `/v1/system` pins component versions, and refinement data can be imported through an admin API. See [docs/BENCHMARK.md](docs/BENCHMARK.md).
+Large runs go through the async jobs API (`POST /v1/jobs`, then poll). Runs tagged with `X-Benchmark-Run` are deterministic and retrievable. `/v1/system` pins the commit, corpus fingerprint and model ids, and `/v1/channels/status` states what is live or simulated. Refinement data is imported with a frozen 20% holdout. See [docs/BENCHMARK.md](docs/BENCHMARK.md), [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) (one `docker compose up` on Rwandan infrastructure) and [docs/MODELS.md](docs/MODELS.md) (licences and permissive alternatives).
 
 ## Run it
 
@@ -86,7 +86,11 @@ Production runs on Rwandan infrastructure: Docker for `app/` (see `Dockerfile` a
 
 The non-commercial and unstated licences are disclosed. We plan to replace them with our own permissively licensed models trained on C4IR's refinement data.
 
-## Security
+## Privacy and security
+
+First use on USSD shows a consent notice (decline deletes the profile). Interactions are deleted after `RETENTION_DAYS`. Dashboards and the CSV export (`/api/dashboard/export.csv`) suppress groups smaller than 5. `tests/test_egress.py` fails if the app contacts a host outside the allowlist or sends a phone number out. CI (`.github/workflows/ci.yml`) runs the tests, an accuracy and safety regression gate (`eval/regression_gate.py`) and the adversarial suite on every push.
+
+### Adversarial tests
 
 `eval/threat_tests.py` covers authentication bypass, SQL injection, prompt injection, harmful-request refusal, stored XSS, oversized payloads, USSD fuzzing, rate limiting (HTTP 429), path traversal, webhook spoofing and concurrent load. API keys are rate-limited per key, demo endpoints per IP. Responses carry `X-Content-Type-Options: nosniff` and `Referrer-Policy: no-referrer`. Phone numbers are salted-hashed for analytics.
 

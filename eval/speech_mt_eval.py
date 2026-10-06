@@ -91,7 +91,26 @@ def mt_eval(results):
     results["mt:" + mid] = res
 
 
+def opus_eval(results):
+    """Apache-2.0 alternative to NLLB: Helsinki-NLP OPUS-MT en->rw and rw->en."""
+    from transformers import MarianMTModel, MarianTokenizer
+    pairs = json.loads((ROOT / "eval" / "mt_agri_testset.json").read_text())[:60]
+    res = {}
+    for d, mid, sk, rk in (("en2rw", "Helsinki-NLP/opus-mt-en-rw", "en", "rw"), ("rw2en", "Helsinki-NLP/opus-mt-rw-en", "rw", "en")):
+        tok, model = MarianTokenizer.from_pretrained(mid), MarianMTModel.from_pretrained(mid).eval()
+        scores, samples = [], []
+        for p in pairs:
+            with torch.no_grad():
+                out = model.generate(**tok(p[sk], return_tensors="pt"), num_beams=4, max_new_tokens=128)
+            hyp = tok.decode(out[0], skip_special_tokens=True)
+            scores.append(chrf(hyp, p[rk]))
+            samples.append({"src": p[sk], "ref": p[rk], "hyp": hyp})
+        res[d] = {"chrf": round(statistics.mean(scores), 1), "samples": samples[:5]}
+        print(f"OPUS-MT {d}: chrF {res[d]['chrf']}")
+    results["mt:Helsinki-NLP/opus-mt"] = res
+
+
 if __name__ == "__main__":
     results = json.loads(OUT.read_text()) if OUT.exists() else {}
-    {"tts": tts_eval, "mt": mt_eval}[sys.argv[1]](results)
+    {"tts": tts_eval, "mt": mt_eval, "opus": opus_eval}[sys.argv[1]](results)
     OUT.write_text(json.dumps(results, ensure_ascii=False, indent=1))

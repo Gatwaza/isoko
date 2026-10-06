@@ -5,6 +5,7 @@ USSD is stateless from our side: the gateway sends the full input path as
 restarts and scales horizontally. Conventions: "0" = back, "00" = home, "98" = more.
 Screens are kept under 182 characters; full answers follow by SMS.
 """
+import time
 from dataclasses import dataclass, field
 from typing import Callable
 
@@ -33,6 +34,8 @@ T = {
         "invalid": "Ihitamo ritemewe. Ongera ugerageze.",
         "wx_error": "Iteganyagihe ntiriboneka ubu. Ongera ugerageze nyuma.",
         "lang_switched": "Ururimi: Ikinyarwanda",
+        "consent": "Murakaza neza kuri Isoko. Ibibazo byawe bibikwa nta mazina, hagamijwe kunoza inama z'ubuhinzi.\n1.Ndemera\n2.Oya",
+        "declined": "Murakoze. Nta makuru yawe abitswe. Mushobora kugaruka igihe cyose.",
         "no_answer": "Nta nama ihari kuri iki ubu. Baza agronome w'umurenge.",
     },
     "en": {
@@ -54,6 +57,8 @@ T = {
         "invalid": "Invalid choice. Please try again.",
         "wx_error": "Weather is unavailable right now. Please try later.",
         "lang_switched": "Language: English",
+        "consent": "Welcome to Isoko. Your questions are stored without your name to improve farm advice.\n1.I agree\n2.No",
+        "declined": "Thank you. Nothing about you has been stored. You can come back any time.",
         "no_answer": "No advice available on this yet. Ask your sector agronomist.",
     },
 }
@@ -179,6 +184,16 @@ def handle(session_id: str, phone: str, text: str) -> Reply:
     lang = profile["lang"]
     t = T[lang]
     path = normalize(text)
+    if not profile.get("consented_at"):  # first use: privacy notice and consent (Law N° 058/2021)
+        if not path:
+            return Reply(t["consent"], end=False)
+        if path[0] == "1":
+            db.update_profile(phone, consented_at=time.time(), consent_session=session_id)
+            return handle(session_id, phone, "*".join(path[1:]))
+        db.execute("DELETE FROM profiles WHERE phone = ?", (phone,))
+        return Reply(t["declined"], end=True)
+    if profile.get("consent_session") == session_id and path and text.split("*", 1)[0].strip() == "1":
+        path = path[1:]  # same session in which consent was given: the gateway still sends that leading "1"
     if not path:
         return Reply(t["home"], end=False)
     head, rest = path[0], path[1:]

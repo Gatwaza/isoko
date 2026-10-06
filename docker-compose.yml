@@ -1,21 +1,57 @@
-# Runs entirely on one server (e.g. a VM in a Rwandan data centre). No data leaves the host
-# except district-level coordinates sent to the weather API.
+# Isôko on one server in Rwanda: no Vercel, no Supabase, no external model APIs.
+#   cp .env.example .env    # set API_KEYS, ADMIN_KEYS, ML_TOKEN, PHONE_HASH_SALT, POSTGRES_PASSWORD
+#   docker compose up -d
+#   docker compose exec ollama ollama pull gemma3:4b
+# Only outbound call at runtime: district coordinates to the weather API (see docs/DEPLOYMENT.md).
 services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: isoko
+      POSTGRES_USER: isoko
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-change-me}
+    volumes:
+      - isoko-db:/var/lib/postgresql/data
+      - ./supabase/migrations:/docker-entrypoint-initdb.d:ro   # plain SQL, applied in filename order
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U isoko -d isoko"]
+      interval: 5s
+      retries: 20
+    restart: unless-stopped
+
   api:
     build: .
     ports: ["8000:8000"]
-    env_file: .env
+    env_file: [{path: .env, required: false}]
     environment:
+      DATABASE_URL: postgresql://isoko:${POSTGRES_PASSWORD:-change-me}@db:5432/isoko
       LLM_PROVIDER: ollama
       LLM_BASE_URL: http://ollama:11434
-    volumes: ["isoko-data:/data"]
-    depends_on: [ollama]
+      LLM_MODEL: ${LLM_MODEL:-gemma3:4b}
+      ML_SERVICE_URL: http://ml:7860
+    depends_on:
+      db: {condition: service_healthy}
+      ollama: {condition: service_started}
+      ml: {condition: service_started}
     restart: unless-stopped
+
+  ml:
+    build: ./ml_service
+    env_file: [{path: .env, required: false}]
+    environment:
+      DEVICE: ${ML_DEVICE:-cpu}
+      # CPU-only hosts: w2v-BERT is 5x faster than Whisper on CPU (CER 10.4% vs 6.7%). On a GPU host set
+      # ASR_MODEL=DigitalUmuganda/whisper_small_kinyarwanda and ML_DEVICE=cuda.
+      ASR_MODEL: ${ASR_MODEL:-badrex/w2v-bert-2.0-kinyarwanda-asr}
+    volumes: ["isoko-models:/home/user/.cache/huggingface"]
+    restart: unless-stopped
+
   ollama:
     image: ollama/ollama:latest
     volumes: ["ollama-models:/root/.ollama"]
     restart: unless-stopped
-    # First run: docker compose exec ollama ollama pull llama3.2
+
 volumes:
-  isoko-data:
+  isoko-db:
+  isoko-models:
   ollama-models:

@@ -74,3 +74,7 @@ VERSION = "0.2.0"
 
 # Back-pressure: at most this many LLM generations at once; extra requests get curated text immediately.
 LLM_MAX_CONCURRENCY = int(os.getenv("LLM_MAX_CONCURRENCY", "2"))
+
+# Privacy: delete interactions older than this many days (0 = keep); minimum group size shown on dashboards.
+RETENTION_DAYS = int(os.getenv("RETENTION_DAYS", "365"))
+MIN_GROUP_SIZE = int(os.getenv("MIN_GROUP_SIZE", "5"))

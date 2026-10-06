@@ -1,6 +1,7 @@
 """Isôko v0.2 API: voice, photo diagnosis, translation, batch and benchmark-run tooling, promoter tools,
 refinement-window knowledge import, and the WhatsApp webhook."""
 import base64
+import json
 import re
 import threading
 import time
@@ -12,7 +13,7 @@ from fastapi import APIRouter, Depends, File, Form, Header, HTTPException, Query
 from fastapi.responses import PlainTextResponse, Response
 from pydantic import BaseModel, Field
 
-from . import advisor, config, db, ml, weather
+from . import advisor, config, db, jobs, ml, weather
 from .retrieval import corpus, reload as reload_corpus
 
 router = APIRouter()
@@ -70,14 +71,68 @@ def run_id_header(x_benchmark_run: str | None = Header(default=None)) -> str | N
     return x_benchmark_run
 
 
+def _git_commit() -> str | None:
+    import os
+    import subprocess
+    sha = os.getenv("VERCEL_GIT_COMMIT_SHA") or os.getenv("GIT_COMMIT")
+    if sha:
+        return sha[:12]
+    try:
+        return subprocess.run(["git", "rev-parse", "--short=12", "HEAD"], capture_output=True, text=True, timeout=3,
+                              cwd=config.BASE_DIR).stdout.strip() or None
+    except Exception:
+        return None
+
+
+_COMMIT = _git_commit()
+_ml_cache: dict = {"t": 0.0, "v": None}
+
+
+def ml_models() -> dict | None:
+    """Model ids reported by the model service (cached 60 s); None when it is offline."""
+    if not config.ML_SERVICE_URL:
+        return None
+    if time.time() - _ml_cache["t"] > 60:
+        try:
+            _ml_cache["v"] = httpx.get(f"{config.ML_SERVICE_URL.rstrip('/')}/health", timeout=3).json().get("models")
+        except Exception:
+            _ml_cache["v"] = None
+        _ml_cache["t"] = time.time()
+    return _ml_cache["v"]
+
+
 def system_info() -> dict:
+    import hashlib
     c = corpus()
+    corpus_hash = hashlib.sha256(json.dumps(c.entries, sort_keys=True, ensure_ascii=False).encode()).hexdigest()[:16]
     return {
         "version": config.VERSION,
-        "corpus": {"version": c.meta["version"], "entries": len(c.entries), "refinement_entries": c.meta.get("extra_entries", 0)},
+        "commit": _COMMIT,
+        "corpus": {"version": c.meta["version"], "entries": len(c.entries), "sha256": corpus_hash,
+                   "refinement_entries": c.meta.get("extra_entries", 0)},
         "llm": "none" if config.LLM_PROVIDER == "none" else f"{config.LLM_PROVIDER}:{config.LLM_MODEL}",
         "kinyarwanda_generation": config.GENERATE_KINYARWANDA,
         "speech_and_vision": bool(config.ML_SERVICE_URL),
+        "speech_and_vision_models": ml_models(),
+    }
+
+
+def channel_status() -> dict:
+    """What is live and what is simulated, stated plainly."""
+    ml = ml_models() is not None
+    at = bool(config.AT_USERNAME and config.AT_API_KEY)
+    wa = bool(config.WHATSAPP_TOKEN and config.WHATSAPP_PHONE_ID and config.WHATSAPP_VERIFY_TOKEN)
+    return {
+        "api": {"status": "live"},
+        "ussd": {"status": "live" if at else "simulated",
+                 "detail": "Africa's Talking USSD gateway" if at else "web handset simulator; gateway callback POST /ussd ready"},
+        "sms": {"status": ("live" if not config.AT_SANDBOX else "sandbox") if at else "simulated",
+                "detail": "Africa's Talking SMS" if at else "messages written to the outbox shown in the simulator"},
+        "voice": {"status": "live" if ml else "offline",
+                  "detail": "Kinyarwanda ASR/TTS via web handset; telco IVR not yet provisioned" if ml else "model service offline"},
+        "photo": {"status": "live" if ml else "offline", "detail": "web handset and promoter portal"},
+        "whatsapp": {"status": "live" if wa else "not configured", "detail": "webhook POST /whatsapp/webhook ready"},
+        "weather": {"status": "live", "detail": "7-day district forecasts (Open-Meteo; Meteo Rwanda planned)"},
     }
 
 
@@ -100,6 +155,11 @@ def _ml_guard(fn, *a, **kw):
 
 
 # ---------- system, batch, benchmark runs ----------
+
+@router.get("/v1/channels/status", tags=["benchmark"])
+def v1_channels():
+    return {"channels": channel_status(), "system": {"version": config.VERSION, "commit": _COMMIT}}
+
 
 @router.get("/v1/system", tags=["benchmark"])
 def v1_system():
@@ -133,6 +193,31 @@ def v1_batch(b: Batch, _: str = Depends(api_key), run_id: str | None = Depends(r
                              crop=it.crop, channel="api", run_id=run_id)
         out.append({"id": it.id, **adv.to_dict()})
     return {"run_id": run_id, "system": system_info(), "results": out}
+
+
+class JobIn(BaseModel):
+    items: list[BatchItem] = Field(..., min_length=1, max_length=5000)
+
+
+@router.post("/v1/jobs", tags=["benchmark"], status_code=202)
+def v1_job_create(j: JobIn, key: str = Depends(api_key), run_id: str | None = Depends(run_id_header)):
+    """Asynchronous batch (up to 5,000 questions). Poll GET /v1/jobs/{job_id} for progress and results."""
+    jid = jobs.create([it.model_dump() for it in j.items], key, run_id)
+    return {"job_id": jid, "status": "queued", "total": len(j.items), "run_id": run_id, "poll": f"/v1/jobs/{jid}"}
+
+
+@router.get("/v1/jobs/{job_id}", tags=["benchmark"])
+def v1_job_get(job_id: str, offset: int = Query(0, ge=0), limit: int = Query(500, ge=1, le=1000), key: str = Depends(api_key)):
+    if not re.fullmatch(r"job_[0-9a-f]{16}", job_id):
+        raise HTTPException(status_code=404, detail="job not found")
+    job = jobs.get(job_id, key)
+    if not job:
+        raise HTTPException(status_code=404, detail="job not found")
+    if config.INLINE_TASKS and job["status"] != "done":  # serverless: make progress on each poll
+        jobs.process(job_id, budget_s=8)
+        job = jobs.get(job_id, key)
+    return {"job_id": job_id, "status": job["status"], "total": job["total"], "done": job["done"], "run_id": job["run_id"],
+            "system": system_info(), "offset": offset, "results": jobs.results(job_id, offset, limit)}
 
 
 @router.get("/v1/benchmark/runs/{run_id}", tags=["benchmark"])

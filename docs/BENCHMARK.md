@@ -16,7 +16,7 @@ Programmatic API access is available now, for both rounds (baseline and final) a
 
 | C4IR benchmark data | Endpoint | Input → output |
 |---|---|---|
-| 5,000 agriculture Q&A pairs | `POST /v1/advisory/query`, `POST /v1/advisory/batch` (≤50 items), `POST /v1/chat/completions` (OpenAI-compatible) | question (rw/en) → answer, cited sources, confidence, escalation flag, latency |
+| 5,000 agriculture Q&A pairs | `POST /v1/jobs` (async, ≤5,000 items; poll `GET /v1/jobs/{id}`), `POST /v1/advisory/query`, `POST /v1/advisory/batch` (≤50 items, synchronous), `POST /v1/chat/completions` (OpenAI-compatible) | question (rw/en) → answer, cited sources, confidence, escalation flag, latency |
 | 2,000 EN–RW sentence pairs | `POST /v1/translate` | `{"text", "source": "en"|"rw", "target"}` → translation |
 | 20 h audio–script pairs | `POST /v1/asr` | audio (wav/ogg/webm/mp3) → Kinyarwanda transcript |
 | End-to-end voice (optional) | `POST /v1/voice/ask` | spoken question → transcript, answer, spoken answer (base64 WAV) |
@@ -28,10 +28,17 @@ Programmatic API access is available now, for both rounds (baseline and final) a
   (temperature 0, fixed seed), are stored with the run id, and send no SMS.
 - **Retrieve a run:** `GET /v1/benchmark/runs/<run-id>` returns every question, answer, source, latency and model for
   your audit.
-- **Pin versions:** every advisory response includes a `system` block (application version, corpus version and size,
-  model ids); `GET /v1/system` returns the same. The baseline and final rounds can be compared component by component.
-- **Refinement window:** curated Q&A data can be imported through `POST /v1/admin/knowledge` (admin key, validated
-  schema). It is live within a minute and versioned in `system.corpus.refinement_entries`.
+- **Large runs:** submit all items to `POST /v1/jobs` (returns `job_id` immediately), then poll `GET /v1/jobs/{job_id}?offset=&limit=` for progress and paged results. No request has to stay open for the whole run.
+- **Determinism, verified:** `scripts/determinism_check.py` submits the same 500 questions as two tagged runs and compares every answer and source (result in `eval/results/determinism.json`).
+- **Channel status:** `GET /v1/channels/status` states which channels are live and which are simulated (USSD, SMS, voice, photo, WhatsApp, weather).
+- **Pin versions:** every advisory response includes a `system` block (application version, git commit, corpus version, size
+  and SHA-256 fingerprint, LLM and speech/vision model ids); `GET /v1/system` returns the same. The baseline and final rounds can be compared component by component.
+- **Refinement window:** `scripts/import_c4ir.py` validates the schema, removes duplicates, freezes a 20% holdout
+  (never imported or tuned on, so improvement claims are honest), and imports the rest through
+  `POST /v1/admin/knowledge`. Entries are live within a minute and change the corpus fingerprint.
+  `eval/finetune_asr.py` fine-tunes Kinyarwanda ASR on the audio set with a before/after CER/WER report.
+- **Regression gates:** CI (`.github/workflows/ci.yml`) blocks changes that lower accuracy, safety or Kinyarwanda
+  retrieval below the baseline, or that add outbound calls outside the allowlist.
 
 ## Example
 
