@@ -48,5 +48,22 @@
   "n_rw": 21,
   "n_en": 49,
   "source_accuracy": 88.7
+ },
+ "isoko-qwen2.5:1.5b-instruct": {
+  "n": 70,
+  "fact_recall": 90.3,
+  "fully_correct": 85.5,
+  "fully_correct_en": 86.4,
+  "fully_correct_rw": 83.3,
+  "unsupported_number_rate": 1.6,
+  "language_match": 100.0,
+  "language_match_rw": 100.0,
+  "oos_handled": 100.0,
+  "latency_median_ms": 469,
+  "n_in_scope": 62,
+  "n_oos": 8,
+  "n_rw": 21,
+  "n_en": 49,
+  "source_accuracy": 88.7
  }
 }

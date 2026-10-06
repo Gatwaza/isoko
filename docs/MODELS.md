@@ -4,7 +4,7 @@ Every model is selected by configuration (environment variables), so swapping on
 
 | Role | Current model | Licence | Our measurement | Permissive alternative (measured) | Plan |
 |---|---|---|---|---|---|
-| Advice generation | Gemma 3 4B (`LLM_MODEL=gemma3:4b`) | Gemma Terms of Use (open weights, not OSI) | 90.3% fully correct inside Isôko | Qwen 2.5 (Apache-2.0); see `eval/results` | Keep the guardrails model-agnostic; evaluate Apache-2.0 models each round |
+| Advice generation | Gemma 3 4B (`LLM_MODEL=gemma3:4b`) | Gemma Terms of Use (open weights, not OSI) | 90.3% fully correct inside Isôko | Qwen 2.5 1.5B (Apache-2.0): 85.5% fully correct, 1.6% unsupported figures, 100% off-topic handled, 2× faster | Keep the guardrails model-agnostic; evaluate Apache-2.0 models each round |
 | Speech recognition (GPU) | DigitalUmuganda/whisper_small_kinyarwanda | not stated on model card | CER 6.7%, WER 23.5% (80 clips) | badrex/w2v-bert-2.0-kinyarwanda-asr (CC-BY-4.0): CER 10.4% | Confirm licence with Digital Umuganda; fine-tune our own on C4IR's 20 h audio |
 | Speech recognition (CPU) | badrex/w2v-bert-2.0-kinyarwanda-asr | CC-BY-4.0 | CER 10.4%, 1.7 s per clip on CPU | n/a | Default for CPU-only hosts |
 | Speech synthesis | facebook/mms-tts-kin + `kin_text` verbaliser | CC-BY-NC-4.0 | round-trip CER 9.6% (43.1% without verbaliser) | DigitalUmuganda/KinyarwandaTTS_female_voice (CC-BY-SA-4.0, YourTTS / Coqui) | Integrate the CC-BY-SA voice or train our own on C4IR audio |

@@ -1,0 +1,28 @@
+{
+ "n": 500,
+ "identical": 500,
+ "differences": [],
+ "generated_by_llm": 146,
+ "system": {
+  "version": "0.2.0",
+  "commit": "ce8a3e5a627c",
+  "corpus": {
+   "version": "0.2.0",
+   "entries": 47,
+   "sha256": "0f781174fccdcb55",
+   "refinement_entries": 0
+  },
+  "llm": "ollama:gemma3:4b",
+  "kinyarwanda_generation": false,
+  "speech_and_vision": false,
+  "speech_and_vision_models": null,
+  "endpoints": {
+   "advisory": "POST /v1/advisory/query, POST /v1/advisory/batch, POST /v1/chat/completions",
+   "speech": "POST /v1/asr (audio -> Kinyarwanda text), POST /v1/tts (Kinyarwanda text -> WAV), POST /v1/voice/ask",
+   "translation": "POST /v1/translate (en<->rw)",
+   "vision": "POST /v1/diagnose (crop photo -> disease + advice)",
+   "runs": "GET /v1/benchmark/runs/{run_id}"
+  },
+  "auth": "X-API-Key or Authorization: Bearer; optional X-Benchmark-Run header tags and freezes a run"
+ }
+}
