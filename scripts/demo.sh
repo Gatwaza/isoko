@@ -12,6 +12,14 @@ cd "$(dirname "$0")/.."
 
 MODEL="${LLM_MODEL:-gemma3:4b}"
 PORT="${PORT:-8000}"
+ML_PORT="${ML_PORT:-7860}"
+
+# Stop anything left over from a previous run on our ports (an earlier demo not shut down cleanly).
+for p in "$PORT" "$ML_PORT"; do
+  pids=$(lsof -ti tcp:"$p" -sTCP:LISTEN 2>/dev/null || true)
+  if [ -n "$pids" ]; then echo "Stopping previous process on port $p"; kill $pids 2>/dev/null || true; sleep 1; fi
+done
+pkill -f "cloudflared tunnel --no-autoupdate --url http://localhost:$PORT" 2>/dev/null || true
 CLOUDFLARED="$(command -v cloudflared || echo "$HOME/.local/bin/cloudflared")"
 
 curl -sf localhost:11434/api/tags >/dev/null || { echo "Ollama is not running. Start the Ollama app first."; exit 1; }
@@ -29,10 +37,9 @@ echo "Warming up ${MODEL}..."
 curl -s localhost:11434/api/generate -d "{\"model\":\"$MODEL\",\"prompt\":\"hi\",\"stream\":false,\"options\":{\"num_predict\":1}}" >/dev/null
 
 # Model service (Kinyarwanda speech, photo diagnosis, translation) on this machine's GPU.
-ML_PORT="${ML_PORT:-7860}"
 if [ -d .venv-ml ]; then
   ML_TOKEN="${ML_TOKEN:-local-$(date +%s)}"
-  (cd ml_service && ML_TOKEN="$ML_TOKEN" ../.venv-ml/bin/python -m uvicorn app:app --port "$ML_PORT" --log-level warning) &
+  (cd ml_service && ML_TOKEN="$ML_TOKEN" exec ../.venv-ml/bin/python -m uvicorn app:app --port "$ML_PORT" --log-level warning) &
   ML=$!
   export ML_SERVICE_URL="http://localhost:$ML_PORT" ML_TOKEN
 else
@@ -44,7 +51,7 @@ fi
 APP=$!
 "$CLOUDFLARED" tunnel --no-autoupdate --url "http://localhost:$PORT" > data/tunnel.log 2>&1 &
 TUN=$!
-trap 'kill $APP $TUN $ML 2>/dev/null' EXIT INT TERM
+trap 'echo; echo "Stopping Isôko demo..."; kill $APP $TUN $ML 2>/dev/null' EXIT INT TERM
 
 for _ in $(seq 1 30); do
   URL=$(grep -o 'https://[a-z0-9-]*\.trycloudflare\.com' data/tunnel.log | head -1 || true)
@@ -59,5 +66,7 @@ echo "  Evaluation:       ${URL:-http://localhost:$PORT}/evaluation"
 echo "  Dashboard:        ${URL:-http://localhost:$PORT}/dashboard"
 echo "  Model:            ${MODEL} (Ollama, local)"
 echo "  Model service:    ${ML_SERVICE_URL:-disabled} (internal API used by the pages above, not a web page; ~1 min to load)"
+echo
+echo "  Running. Leave this window open; press Ctrl-C to stop everything."
 echo
 wait $APP
