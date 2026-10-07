@@ -1,5 +1,6 @@
 """Isôko - AI-enabled agricultural advisory for Rwanda (USSD / SMS / API)."""
 import json
+import re
 import time
 import uuid
 from typing import Literal
@@ -73,8 +74,12 @@ def _schedule(background: BackgroundTasks, task) -> None:
 require_api_key = api_key  # rate-limited key check (see api_v2)
 
 
+def dashboard_authorized(token: str | None = None, x_dashboard_token: str | None = Header(default=None)) -> bool:
+    return not config.DASHBOARD_TOKEN or config.DASHBOARD_TOKEN in (token, x_dashboard_token)
+
+
 def require_dashboard(token: str | None = None, x_dashboard_token: str | None = Header(default=None)) -> None:
-    if config.DASHBOARD_TOKEN and config.DASHBOARD_TOKEN not in (token, x_dashboard_token):
+    if not dashboard_authorized(token, x_dashboard_token):
         raise HTTPException(status_code=401, detail="Dashboard token required")
 
 
@@ -270,13 +275,14 @@ def eval_results():
 
 # ---------- MINAGRI / RAB feedback dashboard ----------
 
-@app.get("/api/dashboard/stats", dependencies=[Depends(require_dashboard)])
-def dashboard_stats(days: int = 30):
+@app.get("/api/dashboard/stats")
+def dashboard_stats(days: int = 30, full: bool = Depends(dashboard_authorized)):
+    """Aggregates are public; raw question text and report details need the dashboard token."""
     _maybe_purge()
     since = time.time() - days * 86400
     q = db.query
     day, tm = db.day_expr(), db.time_expr()
-    return {
+    out = {
         "totals": q("""SELECT COUNT(*) AS interactions, COUNT(DISTINCT user_hash) AS farmers,
                        SUM(escalated) AS escalated, ROUND(AVG(latency_ms)) AS avg_latency_ms
                        FROM interactions WHERE ts >= ?""", (since,))[0],
@@ -292,6 +298,7 @@ def dashboard_stats(days: int = 30):
         "by_language": q("SELECT lang, COUNT(*) AS n FROM interactions WHERE ts >= ? GROUP BY lang", (since,)),
         "daily": q(f"""SELECT {day} AS day, COUNT(*) AS n, SUM(escalated) AS escalated
                        FROM interactions WHERE ts >= ? GROUP BY 1 ORDER BY 1""", (since,)),
+        "detail_hidden": not full,
         "reports": q(f"""SELECT {tm} AS time, district, issue, detail, channel
                         FROM reports WHERE ts >= ? ORDER BY ts DESC LIMIT 25""", (since,)),
         "knowledge_gaps": q(f"""SELECT {tm} AS time, lang, district, query
@@ -299,6 +306,11 @@ def dashboard_stats(days: int = 30):
         "recent": q(f"""SELECT {tm} AS time, channel, lang, district, query, answer, model
                        FROM interactions WHERE ts >= ? AND query NOT LIKE 'menu:%' ORDER BY ts DESC LIMIT 15""", (since,)),
     }
+    if not full:  # without the dashboard token: aggregates only, no free text typed by users
+        out["recent"], out["knowledge_gaps"] = [], []
+        for r in out["reports"]:
+            r["detail"] = None
+    return out
 
 
 @app.get("/api/dashboard/export.csv", dependencies=[Depends(require_dashboard)], include_in_schema=False)
@@ -320,10 +332,12 @@ def dashboard_export(days: int = 90):
                              headers={"Content-Disposition": "attachment; filename=isoko_needs.csv"})
 
 
-@app.get("/api/sms/outbox", dependencies=[Depends(require_dashboard)])
-def sms_outbox(phone: str | None = None, after_id: int = 0):
-    """Used by the USSD simulator to show the SMS a farmer would receive."""
+@app.get("/api/sms/outbox")
+def sms_outbox(phone: str | None = None, after_id: int = 0, full: bool = Depends(dashboard_authorized)):
+    """Used by the web handset to show the SMS sent to ITS number. Listing all numbers needs the dashboard token."""
     tm = db.time_expr()
+    if not full and not (phone and re.fullmatch(r"\+?\d{9,15}", phone)):
+        raise HTTPException(status_code=401, detail="Dashboard token required to list all messages")
     if phone:
         return db.query(f"SELECT id, {tm} AS time, phone, message, status FROM sms_outbox "
                         "WHERE phone = ? AND id > ? ORDER BY id", (phone, after_id))

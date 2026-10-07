@@ -11,3 +11,5 @@ supabase/.temp
 data/external/
 .venv-ml/
 *.log
+.api_keys
+.api_keys.tmp
