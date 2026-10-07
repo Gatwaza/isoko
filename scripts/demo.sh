@@ -5,6 +5,8 @@
 #   scripts/demo.sh                 # uses gemma3:4b (best on our evaluation)
 #   LLM_MODEL=llama3.2 scripts/demo.sh
 #   DB=local scripts/demo.sh        # local SQLite demo DB instead of Supabase
+#   CONNECT_VERCEL=1 scripts/demo.sh  # also connect the live site (isoko-agri.vercel.app) to this Mac's
+#                                     # voice/photo models (redeploys Vercel, ~1 min)
 #
 # Ctrl-C stops both the app and the tunnel.
 set -euo pipefail
@@ -20,6 +22,7 @@ for p in "$PORT" "$ML_PORT"; do
   if [ -n "$pids" ]; then echo "Stopping previous process on port $p"; kill $pids 2>/dev/null || true; sleep 1; fi
 done
 pkill -f "cloudflared tunnel --no-autoupdate --url http://localhost:$PORT" 2>/dev/null || true
+pkill -f "cloudflared tunnel --no-autoupdate --url http://localhost:$ML_PORT" 2>/dev/null || true
 CLOUDFLARED="$(command -v cloudflared || echo "$HOME/.local/bin/cloudflared")"
 
 curl -sf localhost:11434/api/tags >/dev/null || { echo "Ollama is not running. Start the Ollama app first."; exit 1; }
@@ -51,7 +54,26 @@ fi
 APP=$!
 "$CLOUDFLARED" tunnel --no-autoupdate --url "http://localhost:$PORT" > data/tunnel.log 2>&1 &
 TUN=$!
-trap 'echo; echo "Stopping Isôko demo..."; kill $APP $TUN $ML 2>/dev/null' EXIT INT TERM
+MLTUN=""
+if [ "${CONNECT_VERCEL:-0}" = "1" ] && [ -n "$ML" ]; then
+  echo "Connecting the live site to this Mac's voice/photo models..."
+  "$CLOUDFLARED" tunnel --no-autoupdate --url "http://localhost:$ML_PORT" > data/ml_tunnel.log 2>&1 &
+  MLTUN=$!
+  for _ in $(seq 1 30); do
+    MLURL=$(grep -o 'https://[a-z0-9-]*\.trycloudflare\.com' data/ml_tunnel.log | head -1 || true)
+    [ -n "$MLURL" ] && break; sleep 1
+  done
+  if [ -n "${MLURL:-}" ]; then
+    for kv in "ML_SERVICE_URL=$MLURL" "ML_TOKEN=$ML_TOKEN"; do
+      vercel env rm "${kv%%=*}" production -y >/dev/null 2>&1 || true
+      printf '%s' "${kv#*=}" | vercel env add "${kv%%=*}" production >/dev/null 2>&1
+    done
+    (vercel deploy --prod --yes >/dev/null 2>&1 && echo "  Live site connected: https://isoko-agri.vercel.app now uses this Mac's models.") &
+  else
+    echo "  Could not open the model tunnel (see data/ml_tunnel.log); the live site keeps text-only mode."
+  fi
+fi
+trap 'echo; echo "Stopping Isôko demo..."; kill $APP $TUN $ML $MLTUN 2>/dev/null' EXIT INT TERM
 
 for _ in $(seq 1 30); do
   URL=$(grep -o 'https://[a-z0-9-]*\.trycloudflare\.com' data/tunnel.log | head -1 || true)
